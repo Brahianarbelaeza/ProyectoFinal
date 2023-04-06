@@ -1,21 +1,41 @@
 package modelo;
 
-public class Producto {
+import java.util.Objects;
+
+public class Producto{
     private String nombre;
     private String imagen;
 
-    private String categorio;
+    private String categoria;
 
     private double precio;
 
     private Estado estado;
 
-    public Producto(String nombre, String imagen, String categorio, double precio, Estado estado) {
+    public Producto(String nombre, String imagen, String categoria, double precio, Estado estado) {
         this.nombre = nombre;
         this.imagen = imagen;
-        this.categorio = categorio;
+        this.categoria = categoria;
         this.precio = precio;
         this.estado = estado;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Producto producto = (Producto) o;
+        return Double.compare(producto.precio, precio) == 0 && Objects.equals(nombre, producto.nombre) && Objects.equals(categoria, producto.categoria) && estado == producto.estado;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, categoria, precio, estado);
+    }
+
+    public boolean compararProducto(Producto producto) {
+
+        return equals(producto);
     }
 
     public String getNombre() {
@@ -34,12 +54,12 @@ public class Producto {
         this.imagen = imagen;
     }
 
-    public String getCategorio() {
-        return categorio;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setCategorio(String categorio) {
-        this.categorio = categorio;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public double getPrecio() {
