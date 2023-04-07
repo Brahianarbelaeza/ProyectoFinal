@@ -55,7 +55,7 @@ public class Administrador extends Persona {
         vendedorSeleccionado.setCedula(vendedorNuevo.getCedula());
         vendedorSeleccionado.setCuenta(vendedorNuevo.getCuenta());
         vendedorSeleccionado.setDireccion(vendedorNuevo.getDireccion());
-        vendedorSeleccionado.setProductos(vendedorNuevo.getProductos());
+        vendedorSeleccionado.setProductos(vendedorNuevo.getListaProductos());
     }
 
 

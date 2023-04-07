@@ -1,4 +1,5 @@
 package modelo;
+import excepciones.VendedorException;
 import servicios.IVendedorService;
 
 
@@ -9,7 +10,7 @@ public class Vendedor extends Persona implements IVendedorService {
     private String direccion;
     ArrayList<Producto> listaProductos;
     ArrayList<Vendedor> vendedoresAliados;
-    Persona vendedor = new Vendedor("felipe","gomez", "123", new Cuenta("felipe", "1234"),"calle 123");
+
     public Vendedor(String nombre, String apellidos, String cedula, Cuenta cuenta, String direccion) {
         super(nombre, apellidos, cedula, cuenta);
         this.direccion = direccion;
@@ -30,6 +31,7 @@ public class Vendedor extends Persona implements IVendedorService {
 
             if (!flag) {
                 listaProductos.add(producto);
+                producto.setEstado(Estado.PUBLICADO);
             } else {
                 throw new Exception("Este producto" + producto.getNombre() + "ya se guardo");
             }
@@ -40,6 +42,9 @@ public class Vendedor extends Persona implements IVendedorService {
     public void eliminarProducto(Producto producto) {
         if (!listaProductos.isEmpty())
         listaProductos.remove(producto);
+        else {
+           System.out.println("No hay productos para eliminar, aun no has publicado productos");
+        }
     }
 
 
@@ -51,11 +56,29 @@ public class Vendedor extends Persona implements IVendedorService {
         productoSelected.setEstado(productoNuevo.getEstado());
     }
 
-    public void agregarVendedorAliado(Vendedor vendedor){
+    public void agregarVendedorAliado(Vendedor vendedor) {
 
-        vendedoresAliados.add(vendedor);
+        Solitud solicitud = new Solitud(vendedor.getCuenta().getUsuario(), false);
+        if (solicitud.getEstado()== true) {
+            if (vendedoresAliados == null) {
+                vendedoresAliados = new ArrayList<>();
+            }
+            //metodo para verificar que no se repita el vendedor
+            if (!vendedoresAliados.contains(vendedor)) {
+                vendedoresAliados.add(vendedor);
+                System.out.println("Vendedor agregado");
+            } else {
+                System.out.println("El vendedor ya se encuentra en la lista");
+            }
+        } else {
+            System.out.println("El vendedor no acepto la solicitud");
+        }
     }
-
+    public void eliminarVendedorAliado(Vendedor vendedor) {
+        if (vendedoresAliados != null) {
+            vendedoresAliados.remove(vendedor);
+        }
+    }
     public String getDireccion() {
         return direccion;
     }
@@ -64,8 +87,20 @@ public class Vendedor extends Persona implements IVendedorService {
         this.direccion = direccion;
     }
 
+    public void setListaProductos(ArrayList<Producto> listaProductos) {
+        this.listaProductos = listaProductos;
+    }
+
+    public void setVendedoresAliados(ArrayList<Vendedor> vendedoresAliados) {
+        this.vendedoresAliados = vendedoresAliados;
+    }
+
     public ArrayList<Producto> getListaProductos() {
         return listaProductos;
+    }
+
+    public ArrayList<Vendedor> getVendedoresAliados() {
+        return vendedoresAliados;
     }
 
     public void setProductos(ArrayList<Producto> productos) {
