@@ -57,9 +57,25 @@ public class Vendedor extends Persona implements IVendedorService {
         if (!vendedoresAliados.contains(solicitud)) {
             vendedoresAliados.add(solicitud);
             System.out.println("Solicitud de amistad enviada");
+    public void agregarVendedorAliado(Vendedor vendedor) {
 
         } else {
             System.out.println("Ya se ha enviado una solicitud de amistad a este usuario");
+        }
+        Solitud solicitud = new Solitud(vendedor.getCuenta().getUsuario(), false);
+        if (solicitud.getEstado()== true) {
+            if (vendedoresAliados == null) {
+                vendedoresAliados = new ArrayList<>();
+            }
+            //metodo para verificar que no se repita el vendedor
+            if (!vendedoresAliados.contains(vendedor)) {
+                vendedoresAliados.add(vendedor);
+                System.out.println("Vendedor agregado");
+            } else {
+                System.out.println("El vendedor ya se encuentra en la lista");
+            }
+        } else {
+            System.out.println("El vendedor no acepto la solicitud");
         }
     }
     public void eliminarVendedorAliado(Vendedor vendedor) {
