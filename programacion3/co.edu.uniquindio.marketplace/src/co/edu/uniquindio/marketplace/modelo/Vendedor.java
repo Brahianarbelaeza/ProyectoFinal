@@ -4,12 +4,14 @@ import servicios.IVendedorService;
 
 import java.util.ArrayList;
 
-public class Vendedor implements IVendedorService {
+public class Vendedor extends Persona implements IVendedorService {
 
     private String direccion;
     ArrayList<Producto> listaProductos = new ArrayList();
 
-    public Vendedor(String direccion, ArrayList<Producto> productos) {
+
+    public Vendedor(String nombre, String apellidos, String cedula, Cuenta cuenta,String direccion, ArrayList<Producto> productos) {
+        super(nombre, apellidos, cedula, cuenta);
         this.direccion = direccion;
         this.listaProductos = productos;
     }
