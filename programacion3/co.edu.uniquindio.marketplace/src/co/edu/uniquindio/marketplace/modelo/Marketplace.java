@@ -3,6 +3,7 @@ package modelo;
 import java.util.ArrayList;
 
 public class Marketplace {
+    
 
     private Administrador administrador;
 

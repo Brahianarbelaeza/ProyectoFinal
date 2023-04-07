@@ -4,15 +4,20 @@ import servicios.IVendedorService;
 
 import java.util.ArrayList;
 
-public class Vendedor implements IVendedorService {
+public class Vendedor extends Persona implements IVendedorService {
 
     private String direccion;
-    ArrayList<Producto> listaProductos = new ArrayList();
-
-    public Vendedor(String direccion, ArrayList<Producto> productos) {
+    ArrayList<Producto> listaProductos;
+    ArrayList<Vendedor> vendedoresAliados;
+    Persona vendedor = new Vendedor("felipe","gomez", "123", new Cuenta("felipe", "1234"),"calle 123");
+    public Vendedor(String nombre, String apellidos, String cedula, Cuenta cuenta, String direccion) {
+        super(nombre, apellidos, cedula, cuenta);
         this.direccion = direccion;
-        this.listaProductos = productos;
+        this.listaProductos = new ArrayList<Producto>();
+
     }
+
+
 
     public void crearProducto (Producto producto) throws Exception{
         boolean flag = false;
@@ -46,6 +51,11 @@ public class Vendedor implements IVendedorService {
         productoSelected.setEstado(productoNuevo.getEstado());
     }
 
+    public void agregarVendedorAliado(Vendedor vendedor){
+
+        vendedoresAliados.add(vendedor);
+    }
+
     public String getDireccion() {
         return direccion;
     }
@@ -54,7 +64,7 @@ public class Vendedor implements IVendedorService {
         this.direccion = direccion;
     }
 
-    public ArrayList<Producto> getProductos() {
+    public ArrayList<Producto> getListaProductos() {
         return listaProductos;
     }
 

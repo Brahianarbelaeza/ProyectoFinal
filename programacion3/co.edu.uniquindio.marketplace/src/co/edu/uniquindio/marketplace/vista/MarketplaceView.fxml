@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="604.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorMarketplaceView">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3770a6" height="70.0" layoutX="7.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="756.0" />
+      <Label layoutX="255.0" layoutY="15.0" prefHeight="48.0" prefWidth="257.0" text="Marketplace" textOverrun="CLIP">
+         <font>
+            <Font name="Arial Italic" size="43.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="7.0" layoutY="76.0" prefHeight="503.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Administrador">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="741.0">
+                     <children>
+                        <TableView fx:id="tblVendedores" layoutX="88.0" layoutY="303.0" prefHeight="171.0" prefWidth="603.0">
+                          <columns>
+                            <TableColumn fx:id="colNombre" prefWidth="112.0" text="Nombre" />
+                            <TableColumn fx:id="colApellido" prefWidth="98.0" text="Apellido" />
+                              <TableColumn fx:id="colCedula" prefWidth="86.0" text="Cedula" />
+                              <TableColumn fx:id="colCuenta" prefWidth="98.0" text="Cuenta" />
+                              <TableColumn prefWidth="99.0" text="Dirección" />
+                              <TableColumn fx:id="colPublicacionesVendedor" prefWidth="112.0" text="Publicaciones" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Untitled Tab 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
