@@ -1,5 +1,7 @@
 package modelo;
 import servicios.IVendedorService;
+
+
 import java.util.ArrayList;
 
 public class Vendedor extends Persona implements IVendedorService {
@@ -14,7 +16,7 @@ public class Vendedor extends Persona implements IVendedorService {
         this.direccion = direccion;
         this.listaProductos = new ArrayList<Producto>();
         this.vendedoresAliados = new ArrayList<Solitud>();
-        
+
     }
 
 

@@ -92,6 +92,7 @@
                   </AnchorPane>
             </content>
           </Tab>
+<<<<<<< HEAD
           <Tab text="Vendedor">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -115,6 +116,11 @@
                           </tabs>
                         </TabPane>
                      </children></AnchorPane>
+=======
+          <Tab text="Untitled Tab 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+>>>>>>> bce2588 (Se agregan cambios de la clase Vendedor)
             </content>
           </Tab>
             <Tab text="Untitled Tab">
