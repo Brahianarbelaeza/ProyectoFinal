@@ -1,7 +1,6 @@
 package modelo;
 
 import excepciones.AdministradorException;
-import servicios.IAdministradorService;
 
 import java.util.ArrayList;
 
