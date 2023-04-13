@@ -1,27 +1,43 @@
 package modelo;
 
 public class Solitud {
-    private String codigo;
-    boolean estado; //true aceptado, false rechazado
+    public class SolicitudAmistad {
 
-    public Solitud(String codigo, boolean estado) {
-        this.codigo = codigo;
-        this.estado = estado;
+        private Vendedor emisor;
+        private Vendedor receptor;
+        private EstadoSolicitud estado;
+
+        public SolicitudAmistad(Vendedor emisor, Vendedor receptor) {
+            this.emisor = emisor;
+            this.receptor = receptor;
+            this.estado = EstadoSolicitud.PENDIENTE;
+        }
+
+        public Vendedor getEmisor() {
+            return emisor;
+        }
+
+        public Vendedor getReceptor() {
+            return receptor;
+        }
+
+        public EstadoSolicitud getEstado() {
+            return estado;
+        }
+
+        public void aceptar() {
+            estado = EstadoSolicitud.ACEPTADA;
+        }
+
+        public void rechazar() {
+            estado = EstadoSolicitud.RECHAZADA;
+        }
     }
 
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public boolean getEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
+    public enum EstadoSolicitud {
+        PENDIENTE,
+        ACEPTADA,
+        RECHAZADA
     }
 }
+

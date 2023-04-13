@@ -1,30 +1,25 @@
 package modelo;
 
 import excepciones.AdministradorException;
+import servicios.IAdministradorService;
 
 import java.util.ArrayList;
 
-public class Administrador extends Persona {
+public class Administrador extends Persona implements IAdministradorService {
 
     //Instancia unica de la clase
-    private static final Administrador instanciaAdmin= new Administrador("Brahiam","Arbelaez","1234",new Cuenta("brahiana","1234"),new ArrayList<>()); //Quemé los datos  pero luego se le pone persistencia y se evalua si eso si se puede hacer usando un singleton
-    private ArrayList<Vendedor> vendedores = new ArrayList<>();
+    /*private static final Administrador instanciaAdmin= new Administrador("Brahiam","Arbelaez","1234",new Cuenta("brahiana","1234")); //Quemé los datos  pero luego se le pone persistencia y se evalua si eso si se puede hacer usando un singleton*/
+    private ArrayList<Vendedor> vendedores;
 
 
-    private Administrador(String nombre, String apellidos, String cedula, Cuenta cuenta, ArrayList<Vendedor> vendedores) {
+    public Administrador(String nombre, String apellidos, String cedula, Cuenta cuenta) {
         super(nombre, apellidos, cedula, cuenta);
+        vendedores = new ArrayList<>();
         this.vendedores= vendedores;
     }
 
 
-    //private Administrador(){}
-    public  static Administrador obtenerUnicaInstancia(){
-        return instanciaAdmin;
-    }
-
-
-    //Verifico que el vendedor no exita dentro de laq lista antes de crearlo
-    public void crearVendedor(Vendedor vendedor) throws Exception{
+    public void crearVendedor(Vendedor vendedor) throws AdministradorException{
 
             if (vendedores.contains(vendedor)) {
                 throw new AdministradorException(" El vendedor " + vendedor+ " ya existe en la lista ");
@@ -34,6 +29,9 @@ public class Administrador extends Persona {
                     System.out.println("Vendedor añadido correctamente  ");
             }
     }
+
+
+
     //Verifico que la lista de vendedores no este vacia antes de eliminar un vendedor
     public void eliminarVendedor(Vendedor vendedor) throws Exception {
 
@@ -51,11 +49,14 @@ public class Administrador extends Persona {
     public  void actualizarVendedor(Vendedor vendedorSeleccionado,  Vendedor vendedorNuevo){
 
         vendedorSeleccionado.setNombre(vendedorNuevo.getNombre());
-        vendedorSeleccionado.setApellidos(vendedorNuevo.getApellidos());
+        vendedorSeleccionado.setApellido(vendedorNuevo.getApellido());
         vendedorSeleccionado.setCedula(vendedorNuevo.getCedula());
         vendedorSeleccionado.setCuenta(vendedorNuevo.getCuenta());
         vendedorSeleccionado.setDireccion(vendedorNuevo.getDireccion());
         vendedorSeleccionado.setProductos(vendedorNuevo.getListaProductos());
+    }
+    public void obtenerVendedor(Vendedor vendedor){
+
     }
 
 

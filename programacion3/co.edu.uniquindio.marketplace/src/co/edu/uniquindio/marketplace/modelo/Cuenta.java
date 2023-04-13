@@ -12,14 +12,7 @@ public class Cuenta {
         this.contrasena=contrasena;
 
     }
-  // public boolean inicioSesion(String usuario, String contrasena){
-        Cuenta cuenta = new Cuenta(usuario, contrasena);
 
-     //   if (cuenta.getUsuario().equals(this.getCuenta().getUsuario()) && cuenta.getContrasena().equals(this.getCuenta().getContrasena())){
-            //return true;
-       // }
-      //  return false;
-   // }
     public String getUsuario(){
         return usuario;
     }
