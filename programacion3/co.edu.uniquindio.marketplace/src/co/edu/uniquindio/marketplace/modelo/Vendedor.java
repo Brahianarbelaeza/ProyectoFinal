@@ -5,16 +5,17 @@ import java.util.ArrayList;
 
 public class Vendedor extends Persona implements IVendedorService {
 
+
     private String direccion;
     ArrayList<Producto> listaProductos;
     ArrayList<Solitud> vendedoresAliados;
 
-    public Vendedor(String nombre, String apellidos, String cedula, Cuenta cuenta, String direccion) {
-        super(nombre, apellidos, cedula, cuenta);
+    public Vendedor(String nombre, String apellidos, String cedula, String usuario, String direccion) {
+        super(nombre, apellidos, cedula, usuario);
         this.direccion = direccion;
         this.listaProductos = new ArrayList<Producto>();
         this.vendedoresAliados = new ArrayList<Solitud>();
-
+        
     }
 
 
@@ -44,8 +45,6 @@ public class Vendedor extends Persona implements IVendedorService {
         else System.out.println("No hay productos para eliminar, aun no has publicado productos");
 
     }
-
-
     public void actualizarProducto(Producto productoSelected, Producto productoNuevo){
        listaProductos.remove(productoSelected);
          listaProductos.add(productoNuevo);
