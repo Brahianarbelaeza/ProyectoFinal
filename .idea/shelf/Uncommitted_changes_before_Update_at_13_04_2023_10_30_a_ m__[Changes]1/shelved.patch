@@ -1,0 +1,59 @@
+Index: programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package modelo;\r\nimport excepciones.VendedorException;\r\nimport servicios.IVendedorService;\r\n\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class Vendedor extends Persona implements IVendedorService {\r\n\r\n    private String direccion;\r\n    ArrayList<Producto> listaProductos;\r\n    ArrayList<Vendedor> vendedoresAliados;\r\n\r\n    public Vendedor(String nombre, String apellidos, String cedula, Cuenta cuenta, String direccion) {\r\n        super(nombre, apellidos, cedula, cuenta);\r\n        this.direccion = direccion;\r\n        this.listaProductos = new ArrayList<Producto>();\r\n\r\n    }\r\n\r\n\r\n\r\n    public void crearProducto (Producto producto) throws Exception{\r\n        boolean flag = false;\r\n            for (int i = 0; i < listaProductos.size(); i++) {\r\n                if (producto.compararProducto(listaProductos.get(i))) {\r\n                    flag = true;\r\n                    break;\r\n                }\r\n            }\r\n\r\n            if (!flag) {\r\n                listaProductos.add(producto);\r\n                producto.setEstado(Estado.PUBLICADO);\r\n            } else {\r\n                throw new Exception(\"Este producto\" + producto.getNombre() + \"ya se guardo\");\r\n            }\r\n\r\n        }\r\n\r\n    @Override\r\n    public void eliminarProducto(Producto producto) {\r\n        if (!listaProductos.isEmpty())\r\n        listaProductos.remove(producto);\r\n        else {\r\n           System.out.println(\"No hay productos para eliminar, aun no has publicado productos\");\r\n        }\r\n    }\r\n\r\n\r\n    public void actualizarProducto(Producto productoSelected, Producto productoNuevo){\r\n        productoSelected.setNombre(productoNuevo.getNombre());\r\n        productoSelected.setImagen(productoNuevo.getImagen());\r\n        productoSelected.setCategoria(productoNuevo.getCategoria());\r\n        productoSelected.setPrecio(productoNuevo.getPrecio());\r\n        productoSelected.setEstado(productoNuevo.getEstado());\r\n    }\r\n\r\n    public void agregarVendedorAliado(Vendedor vendedor) {\r\n\r\n        Solitud solicitud = new Solitud(vendedor.getCuenta().getUsuario(), false);\r\n        if (solicitud.getEstado()== true) {\r\n            if (vendedoresAliados == null) {\r\n                vendedoresAliados = new ArrayList<>();\r\n            }\r\n            //metodo para verificar que no se repita el vendedor\r\n            if (!vendedoresAliados.contains(vendedor)) {\r\n                vendedoresAliados.add(vendedor);\r\n                System.out.println(\"Vendedor agregado\");\r\n            } else {\r\n                System.out.println(\"El vendedor ya se encuentra en la lista\");\r\n            }\r\n        } else {\r\n            System.out.println(\"El vendedor no acepto la solicitud\");\r\n        }\r\n    }\r\n    public void eliminarVendedorAliado(Vendedor vendedor) {\r\n        if (vendedoresAliados != null) {\r\n            vendedoresAliados.remove(vendedor);\r\n        }\r\n    }\r\n    public String getDireccion() {\r\n        return direccion;\r\n    }\r\n\r\n    public void setDireccion(String direccion) {\r\n        this.direccion = direccion;\r\n    }\r\n\r\n    public void setListaProductos(ArrayList<Producto> listaProductos) {\r\n        this.listaProductos = listaProductos;\r\n    }\r\n\r\n    public void setVendedoresAliados(ArrayList<Vendedor> vendedoresAliados) {\r\n        this.vendedoresAliados = vendedoresAliados;\r\n    }\r\n\r\n    public ArrayList<Producto> getListaProductos() {\r\n        return listaProductos;\r\n    }\r\n\r\n    public ArrayList<Vendedor> getVendedoresAliados() {\r\n        return vendedoresAliados;\r\n    }\r\n\r\n    public void setProductos(ArrayList<Producto> productos) {\r\n        this.listaProductos = productos;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return \"Vendedor{\" +\r\n                \"listaProductos=\" + listaProductos +\r\n                '}';\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java
+--- a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java	
++++ b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java	
+@@ -7,12 +7,13 @@
+ 
+ public class Vendedor extends Persona implements IVendedorService {
+ 
++
+     private String direccion;
+     ArrayList<Producto> listaProductos;
+     ArrayList<Vendedor> vendedoresAliados;
+ 
+-    public Vendedor(String nombre, String apellidos, String cedula, Cuenta cuenta, String direccion) {
+-        super(nombre, apellidos, cedula, cuenta);
++    public Vendedor(String nombre, String apellidos, String cedula, String usuario, String direccion) {
++        super(nombre, apellidos, cedula, usuario);
+         this.direccion = direccion;
+         this.listaProductos = new ArrayList<Producto>();
+ 
+@@ -46,8 +47,6 @@
+            System.out.println("No hay productos para eliminar, aun no has publicado productos");
+         }
+     }
+-
+-
+     public void actualizarProducto(Producto productoSelected, Producto productoNuevo){
+         productoSelected.setNombre(productoNuevo.getNombre());
+         productoSelected.setImagen(productoNuevo.getImagen());
+Index: programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Muro.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package modelo;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class Muro {\r\n\r\n    ArrayList<Publicacion> publicaciones = new ArrayList<>();\r\n\r\n    public Muro(ArrayList<Publicacion> publicaciones) {\r\n        this.publicaciones = publicaciones;\r\n    }\r\n\r\n    public void crearPublicacion() {\r\n\r\n    }\r\n\r\n    public void editarPublicacion() {\r\n\r\n    }\r\n\r\n    public void eliminarPublicacion() {\r\n\r\n    }\r\n\r\n    public ArrayList<Publicacion> getPublicaciones() {\r\n        return publicaciones;\r\n    }\r\n\r\n    public void setPublicaciones(ArrayList<Publicacion> publicaciones) {\r\n        this.publicaciones = publicaciones;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Muro.java b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Muro.java
+--- a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Muro.java	
++++ b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Muro.java	
+@@ -10,7 +10,12 @@
+         this.publicaciones = publicaciones;
+     }
+ 
+-    public void crearPublicacion() {
++    public void crearPublicacion(
++
++    ) {
++
++
++
+ 
+     }
+ 

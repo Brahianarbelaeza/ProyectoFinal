@@ -1,0 +1,165 @@
+Index: programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package modelo;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class Vendedor {\r\n\r\n    private String direccion;\r\n    ArrayList<Producto> productos = new ArrayList();\r\n\r\n    public Vendedor(String direccion, ArrayList<Producto> productos) {\r\n        this.direccion = direccion;\r\n        this.productos = productos;\r\n    }\r\n\r\n    public void venderProducto(){\r\n\r\n    }\r\n\r\n    public void eliminarProducto(){\r\n\r\n    }\r\n\r\n    public String getDireccion() {\r\n        return direccion;\r\n    }\r\n\r\n    public void setDireccion(String direccion) {\r\n        this.direccion = direccion;\r\n    }\r\n\r\n    public ArrayList<Producto> getProductos() {\r\n        return productos;\r\n    }\r\n\r\n    public void setProductos(ArrayList<Producto> productos) {\r\n        this.productos = productos;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java
+--- a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java	(revision 9e57adfb5e3a80e11bbda87e013958437d0bf134)
++++ b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java	(date 1680796529645)
+@@ -2,12 +2,16 @@
+ 
+ import java.util.ArrayList;
+ 
+-public class Vendedor {
++public class Vendedor extends Persona {
+ 
+     private String direccion;
+     ArrayList<Producto> productos = new ArrayList();
+ 
+-    public Vendedor(String direccion, ArrayList<Producto> productos) {
++
++
++
++    public Vendedor(String nombre, String apellidos, String cedula, Cuenta cuenta,String direccion, ArrayList<Producto> productos) {
++        super(nombre, apellidos, cedula, cuenta);
+         this.direccion = direccion;
+         this.productos = productos;
+     }
+Index: programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Administrador.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package modelo;\r\n\r\npublic class Administrador extends Persona {\r\n\r\n\r\n    public Administrador(String nombre, String apellidos, String cedula, Cuenta cuenta) {\r\n        super(nombre, apellidos, cedula, cuenta);\r\n\r\n    }\r\n\r\n    public void crearVendedor(){\r\n\r\n    }\r\n\r\n    public void eliminarVendedor(){\r\n\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Administrador.java b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Administrador.java
+--- a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Administrador.java	(revision 9e57adfb5e3a80e11bbda87e013958437d0bf134)
++++ b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Administrador.java	(date 1680799573223)
+@@ -1,20 +1,61 @@
+ package modelo;
+ 
++import java.util.ArrayList;
++
+ public class Administrador extends Persona {
+ 
++    private ArrayList<Vendedor> vendedores = new ArrayList<>();
+ 
+-    public Administrador(String nombre, String apellidos, String cedula, Cuenta cuenta) {
++
++    public Administrador(String nombre, String apellidos, String cedula, Cuenta cuenta, ArrayList<Vendedor> vendedores) {
+         super(nombre, apellidos, cedula, cuenta);
+ 
++        this.vendedores= vendedores;
++
++    }
++
++
++
++
++    //Verifico que el vendedor no exita dentro de laq lista antes de crearlo
++    public void crearVendedor(Vendedor vendedor){
++
++            if (vendedores.contains(vendedor)){
++                System.out.println("El vendedor ya existe");}
++
++            else {
++                vendedores.add(vendedor);
++                    System.out.println("Vendedor añadido correctamente  ");
++            }
+     }
++    //Verifico que la lista de vendedores no este vacia antes de eliminar un vendedor
++    public void eliminarVendedor(Vendedor vendedor){
+ 
+-    public void crearVendedor(){
++        if(!vendedores.isEmpty()){
++            vendedores.remove(vendedor);
++        }
+ 
+     }
+ 
+-    public void eliminarVendedor(){
++    //Como parametro ingreso el vendedor con los datos antiguos y el vendedor con los datos nuevos y editamos al antiguo
++    // con los datos del nuevo
++    public void actualizarVendedor(Vendedor vendedorSeleccionado,  Vendedor vendedorNuevo){
+ 
++        vendedorSeleccionado.setNombre(vendedorNuevo.getNombre());
++        vendedorSeleccionado.setApellidos(vendedorNuevo.getApellidos());
++        vendedorSeleccionado.setCedula(vendedorNuevo.getCedula());
++        vendedorSeleccionado.setCuenta(vendedorNuevo.getCuenta());
++        vendedorSeleccionado.setDireccion(vendedorNuevo.getDireccion());
++        vendedorSeleccionado.setProductos(vendedorNuevo.getProductos());
+     }
+ 
+ 
++
++    public ArrayList<Vendedor> getVendedores() {
++        return vendedores;
++    }
++
++    public void setVendedores(ArrayList<Vendedor> vendedores) {
++        this.vendedores = vendedores;
++    }
+ }
+Index: programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Mensaje.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Mensaje.java b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Mensaje.java
+new file mode 100644
+--- /dev/null	(date 1680646374393)
++++ b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Mensaje.java	(date 1680646374393)
+@@ -0,0 +1,7 @@
++package modelo;
++
++public class Mensaje {
++
++    public Mensaje() {
++    }
++}
+Index: programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Chat.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Chat.java b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Chat.java
+new file mode 100644
+--- /dev/null	(date 1680646444620)
++++ b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Chat.java	(date 1680646444620)
+@@ -0,0 +1,12 @@
++package modelo;
++
++public class Chat {
++
++    Mensaje mensaje = new Mensaje();
++    public Chat() {
++    }
++
++
++}
++
++
+Index: Proyectofinal_programacion.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Proyectofinal_programacion.iml b/Proyectofinal_programacion.iml
+new file mode 100644
+--- /dev/null	(date 1680398251638)
++++ b/Proyectofinal_programacion.iml	(date 1680398251638)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file

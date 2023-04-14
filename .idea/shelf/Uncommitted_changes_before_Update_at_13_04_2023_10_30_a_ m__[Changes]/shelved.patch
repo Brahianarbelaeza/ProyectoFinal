@@ -1,0 +1,603 @@
+Index: programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Administrador.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package modelo;\r\n\r\nimport excepciones.AdministradorException;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class Administrador extends Persona {\r\n\r\n    //Instancia unica de la clase\r\n    private static final Administrador instanciaAdmin= new Administrador(\"Brahiam\",\"Arbelaez\",\"1234\",new Cuenta(\"brahiana\",\"1234\"),new ArrayList<>()); //Quemé los datos  pero luego se le pone persistencia y se evalua si eso si se puede hacer usando un singleton\r\n    private ArrayList<Vendedor> vendedores = new ArrayList<>();\r\n\r\n\r\n    private Administrador(String nombre, String apellidos, String cedula, Cuenta cuenta, ArrayList<Vendedor> vendedores) {\r\n        super(nombre, apellidos, cedula, cuenta);\r\n        this.vendedores= vendedores;\r\n    }\r\n\r\n\r\n    //private Administrador(){}\r\n    public  static Administrador obtenerUnicaInstancia(){\r\n        return instanciaAdmin;\r\n    }\r\n\r\n\r\n    //Verifico que el vendedor no exita dentro de laq lista antes de crearlo\r\n    public void crearVendedor(Vendedor vendedor) throws Exception{\r\n\r\n            if (vendedores.contains(vendedor)) {\r\n                throw new AdministradorException(\" El vendedor \" + vendedor+ \" ya existe en la lista \");\r\n            }\r\n            else {\r\n                vendedores.add(vendedor);\r\n                    System.out.println(\"Vendedor añadido correctamente  \");\r\n            }\r\n    }\r\n    //Verifico que la lista de vendedores no este vacia antes de eliminar un vendedor\r\n    public void eliminarVendedor(Vendedor vendedor) throws Exception {\r\n\r\n        if(!vendedores.isEmpty()){\r\n            vendedores.remove(vendedor);\r\n        }\r\n\r\n        else {\r\n            throw  new AdministradorException (\"La lista se encuentra vacia\");\r\n        }\r\n    }\r\n\r\n    //Como parametro ingreso el vendedor con los datos antiguos y el vendedor con los datos nuevos y editamos al antiguo\r\n    // con los datos del nuevo\r\n    public  void actualizarVendedor(Vendedor vendedorSeleccionado,  Vendedor vendedorNuevo){\r\n\r\n        vendedorSeleccionado.setNombre(vendedorNuevo.getNombre());\r\n        vendedorSeleccionado.setApellidos(vendedorNuevo.getApellidos());\r\n        vendedorSeleccionado.setCedula(vendedorNuevo.getCedula());\r\n        vendedorSeleccionado.setCuenta(vendedorNuevo.getCuenta());\r\n        vendedorSeleccionado.setDireccion(vendedorNuevo.getDireccion());\r\n        vendedorSeleccionado.setProductos(vendedorNuevo.getListaProductos());\r\n    }\r\n\r\n\r\n\r\n    public ArrayList<Vendedor> getVendedores() {\r\n        return vendedores;\r\n    }\r\n\r\n    public void setVendedores(ArrayList<Vendedor> vendedores) {\r\n        this.vendedores = vendedores;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Administrador.java b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Administrador.java
+--- a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Administrador.java	
++++ b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Administrador.java	
+@@ -7,23 +7,27 @@
+ public class Administrador extends Persona {
+ 
+     //Instancia unica de la clase
+-    private static final Administrador instanciaAdmin= new Administrador("Brahiam","Arbelaez","1234",new Cuenta("brahiana","1234"),new ArrayList<>()); //Quemé los datos  pero luego se le pone persistencia y se evalua si eso si se puede hacer usando un singleton
++  //  private static final Administrador instanciaAdmin= new Administrador("Brahiam","Arbelaez","1234",new Cuenta("brahiana","1234"),new ArrayList<>()); //Quemé los datos  pero luego se le pone persistencia y se evalua si eso si se puede hacer usando un singleton
+     private ArrayList<Vendedor> vendedores = new ArrayList<>();
+ 
++    public Administrador(String nombre, String apellidos, String cedula, String usuario, ArrayList<Vendedor> vendedores) {
++        super(nombre, apellidos, cedula, usuario);
++        this.vendedores= vendedores;
++    }
+ 
+-    private Administrador(String nombre, String apellidos, String cedula, Cuenta cuenta, ArrayList<Vendedor> vendedores) {
++   /*private Administrador(String nombre, String apellidos, String cedula, Cuenta cuenta, ArrayList<Vendedor> vendedores) {
+         super(nombre, apellidos, cedula, cuenta);
+         this.vendedores= vendedores;
+-    }
++    }*/
+ 
+ 
+     //private Administrador(){}
+-    public  static Administrador obtenerUnicaInstancia(){
++   /* public  static Administrador obtenerUnicaInstancia(){
+         return instanciaAdmin;
+-    }
++    }*/
+ 
+ 
+-    //Verifico que el vendedor no exita dentro de laq lista antes de crearlo
++    //Verifico que el vendedor no exita dentro de la lista antes de crearlo
+     public void crearVendedor(Vendedor vendedor) throws Exception{
+ 
+             if (vendedores.contains(vendedor)) {
+Index: .idea/libraries/lib.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/lib.xml b/.idea/libraries/lib.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/lib.xml	
+@@ -0,0 +1,10 @@
++<component name="libraryTable">
++  <library name="lib">
++    <CLASSES>
++      <root url="file://D:/Documentos/Downloads/javafx-sdk-19/lib" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++    <jarDirectory url="file://D:/Documentos/Downloads/javafx-sdk-19/lib" recursive="false" />
++  </library>
++</component>
+\ No newline at end of file
+Index: programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Persona.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package modelo;\r\n\r\npublic class Persona {\r\n\r\n    private String nombre;\r\n    private String apellidos;\r\n    private String cedula;\r\n    private Cuenta cuenta;\r\n\r\n    public Persona(String nombre, String apellidos, String cedula, Cuenta cuenta) {\r\n        this.nombre = nombre;\r\n        this.apellidos = apellidos;\r\n        this.cedula = cedula;\r\n        this.cuenta = cuenta;\r\n    }\r\n\r\n    public void agregarContactos(){\r\n\r\n    }\r\n\r\n    public void actualizarContactos(){\r\n\r\n    }\r\n\r\n    public void eliminarContactos(){\r\n\r\n    }\r\n\r\n    public String getNombre() {\r\n        return nombre;\r\n    }\r\n\r\n    public void setNombre(String nombre) {\r\n        this.nombre = nombre;\r\n    }\r\n\r\n    public String getApellidos() {\r\n        return apellidos;\r\n    }\r\n\r\n    public void setApellidos(String apellidos) {\r\n        this.apellidos = apellidos;\r\n    }\r\n\r\n    public String getCedula() {\r\n        return cedula;\r\n    }\r\n\r\n    public void setCedula(String cedula) {\r\n        this.cedula = cedula;\r\n    }\r\n\r\n    public Cuenta getCuenta() {\r\n        return cuenta;\r\n    }\r\n\r\n    public void setCuenta(Cuenta cuenta) {\r\n        this.cuenta = cuenta;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Persona.java b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Persona.java
+--- a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Persona.java	
++++ b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Persona.java	
+@@ -7,11 +7,15 @@
+     private String cedula;
+     private Cuenta cuenta;
+ 
+-    public Persona(String nombre, String apellidos, String cedula, Cuenta cuenta) {
++
++    String usuario=cuenta.getUsuario();
++    String contrasena = cuenta.getContrasena();
++
++    public Persona(String nombre, String apellidos, String cedula,  String usuario) {
+         this.nombre = nombre;
+         this.apellidos = apellidos;
+         this.cedula = cedula;
+-        this.cuenta = cuenta;
++        this.usuario = usuario;
+     }
+ 
+     public void agregarContactos(){
+@@ -50,6 +54,22 @@
+         this.cedula = cedula;
+     }
+ 
++    public String getUsuario() {
++        return usuario;
++    }
++
++    public void setUsuario(String usuario) {
++        this.usuario = usuario;
++    }
++
++    public String getContrasena() {
++        return contrasena;
++    }
++
++    public void setContrasena(String contrasena) {
++        this.contrasena = contrasena;
++    }
++
+     public Cuenta getCuenta() {
+         return cuenta;
+     }
+Index: programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Producto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package modelo;\r\n\r\nimport java.util.Objects;\r\n\r\npublic class Producto{\r\n    private String nombre;\r\n    private String imagen;\r\n\r\n    private String categoria;\r\n\r\n    private double precio;\r\n\r\n    private Estado estado;\r\n\r\n    public Producto(String nombre, String imagen, String categoria, double precio, Estado estado) {\r\n        this.nombre = nombre;\r\n        this.imagen = imagen;\r\n        this.categoria = categoria;\r\n        this.precio = precio;\r\n        this.estado = estado;\r\n    }\r\n\r\n    @Override\r\n    public boolean equals(Object o) {\r\n        if (this == o) return true;\r\n        if (o == null || getClass() != o.getClass()) return false;\r\n        Producto producto = (Producto) o;\r\n        return Double.compare(producto.precio, precio) == 0 && Objects.equals(nombre, producto.nombre) && Objects.equals(categoria, producto.categoria) && estado == producto.estado;\r\n    }\r\n\r\n    @Override\r\n    public int hashCode() {\r\n        return Objects.hash(nombre, categoria, precio, estado);\r\n    }\r\n\r\n    public boolean compararProducto(Producto producto) {\r\n\r\n        return equals(producto);\r\n    }\r\n\r\n    public String getNombre() {\r\n        return nombre;\r\n    }\r\n\r\n    public void setNombre(String nombre) {\r\n        this.nombre = nombre;\r\n    }\r\n\r\n    public String getImagen() {\r\n        return imagen;\r\n    }\r\n\r\n    public void setImagen(String imagen) {\r\n        this.imagen = imagen;\r\n    }\r\n\r\n    public String getCategoria() {\r\n        return categoria;\r\n    }\r\n\r\n    public void setCategoria(String categoria) {\r\n        this.categoria = categoria;\r\n    }\r\n\r\n    public double getPrecio() {\r\n        return precio;\r\n    }\r\n\r\n    public void setPrecio(double precio) {\r\n        this.precio = precio;\r\n    }\r\n\r\n    public Estado getEstado() {\r\n        return estado;\r\n    }\r\n\r\n    public void setEstado(Estado estado) {\r\n        this.estado = estado;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Producto.java b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Producto.java
+--- a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Producto.java	
++++ b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Producto.java	
+@@ -1,24 +1,58 @@
+ package modelo;
+ 
++import javax.swing.*;
++import java.util.ArrayList;
+ import java.util.Objects;
+ 
+-public class Producto{
++public class Producto extends JFrame{
++
++    private ArrayList<ImageIcon> imagenes = new ArrayList<>();
+     private String nombre;
+-    private String imagen;
+ 
+     private String categoria;
+ 
+     private double precio;
+ 
++    private ImageIcon imagen; //Clase para
++
+     private Estado estado;
+ 
+-    public Producto(String nombre, String imagen, String categoria, double precio, Estado estado) {
++    public Producto(String nombre, ImageIcon imagen, String categoria, double precio, Estado
++            estado) {
+         this.nombre = nombre;
+         this.imagen = imagen;
+         this.categoria = categoria;
+         this.precio = precio;
+         this.estado = estado;
++
++        //Con esto se carga la imagen desde su ubicación
++        imagen = new ImageIcon("ruta donde esta la imagen tipo jpg");
++
++        if(!imagenes.contains(imagen)){
++            imagenes.add(imagen);
++        }
++
++        // Crear un JLabel para mostrar la imagen
++        JLabel etiquetaImagen = new JLabel(imagen);
++        add(etiquetaImagen); // Agrega la imagen a la ventana
++        /* setSize(400, 400); // Establecer el tamaño de la ventana
++        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Establecer el cierre de la ventana
++        setVisible(true); // Hacer la ventana visible*/
++
+     }
++
++
++
++
++
++    //Para probarlo en el main
++
++
++   /* public static void main(String[] args) {
++        SwingUtilities.invokeLater(() -> {
++            new Producto(); // Crear una instancia de la ventana
++        });
++    }*/
+ 
+     @Override
+     public boolean equals(Object o) {
+@@ -46,11 +80,11 @@
+         this.nombre = nombre;
+     }
+ 
+-    public String getImagen() {
++    public ImageIcon getImagen() {
+         return imagen;
+     }
+ 
+-    public void setImagen(String imagen) {
++    public void setImagen(ImageIcon imagen) {
+         this.imagen = imagen;
+     }
+ 
+@@ -77,4 +111,12 @@
+     public void setEstado(Estado estado) {
+         this.estado = estado;
+     }
++
++    public ArrayList<ImageIcon> getImagenes() {
++        return imagenes;
++    }
++
++    public void setImagenes(ArrayList<ImageIcon> imagenes) {
++        this.imagenes = imagenes;
++    }
+ }
+Index: programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Publicacion.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package modelo;\r\n\r\npublic class Publicacion {\r\n\r\n    private Producto producto;\r\n\r\n    public Publicacion(Producto producto) {\r\n        this.producto = producto;\r\n    }\r\n\r\n    public Producto getProducto() {\r\n        return producto;\r\n    }\r\n\r\n    public void setProducto(Producto producto) {\r\n        this.producto = producto;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Publicacion.java b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Publicacion.java
+--- a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Publicacion.java	
++++ b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Publicacion.java	
+@@ -1,19 +1,39 @@
+ package modelo;
+ 
++import  java.awt.*;
++import java.util.ArrayList;
++import javax.swing.*;
++
+ public class Publicacion {
+ 
+-    private Producto producto;
++    private String titulo;
++    private String descripcion;
++    private Producto nombre;
++
++    private Producto imagenes;
+ 
+-    public Publicacion(Producto producto) {
+-        this.producto = producto;
+-    }
++    private Producto categoria;
++
++    private Producto precio;
++
++    private Vendedor ubicacion;
+ 
+-    public Producto getProducto() {
+-        return producto;
+-    }
++    public Publicacion(String titulo,String descripcion, Producto nombre, Producto imagenes, Producto categoria, Producto precio, Vendedor ubicacion) {
++
++        //Lo hice de esta forma ya que no se permitía asignar directamente, ya que al acceder a los atributos mediante las variables de la clase
++        // eno se podía ya que los tipos de datos de estas son de tipo de la clase producto y los atributos en su matoria String o primitivos
++        this.titulo=titulo;
++        this.descripcion=descripcion;
++        this.nombre.setNombre(nombre.getNombre());
++        this.imagenes.setImagenes(imagenes.getImagenes());
++        this.categoria.setCategoria(categoria.getCategoria());
++        this.precio.setPrecio(precio.getPrecio());
++        this.ubicacion.setDireccion(ubicacion.getDireccion());
+ 
+-    public void setProducto(Producto producto) {
+-        this.producto = producto;
++
++
+     }
++
++
+ 
+ }
+Index: programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Marketplace.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package modelo;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class Marketplace {\r\n    \r\n\r\n    private Administrador administrador;\r\n\r\n    ArrayList<Vendedor>vendedores=new ArrayList();\r\n\r\n\r\n    public Marketplace(Administrador administrador, ArrayList<Vendedor> vendedores) {\r\n        this.administrador = administrador;\r\n        this.vendedores = vendedores;\r\n    }\r\n\r\n    public Administrador getAdministrador() {\r\n        return administrador;\r\n    }\r\n\r\n    public void setAdministrador(Administrador administrador) {\r\n        this.administrador = administrador;\r\n    }\r\n\r\n    public ArrayList<Vendedor> getVendedores() {\r\n        return vendedores;\r\n    }\r\n\r\n    public void setVendedores(ArrayList<Vendedor> vendedores) {\r\n        this.vendedores = vendedores;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Marketplace.java b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Marketplace.java
+--- a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Marketplace.java	
++++ b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Marketplace.java	
+@@ -7,12 +7,12 @@
+ 
+     private Administrador administrador;
+ 
+-    ArrayList<Vendedor>vendedores=new ArrayList();
+ 
+ 
+-    public Marketplace(Administrador administrador, ArrayList<Vendedor> vendedores) {
++
++    public Marketplace(Administrador administrador) {
+         this.administrador = administrador;
+-        this.vendedores = vendedores;
++
+     }
+ 
+     public Administrador getAdministrador() {
+@@ -23,11 +23,5 @@
+         this.administrador = administrador;
+     }
+ 
+-    public ArrayList<Vendedor> getVendedores() {
+-        return vendedores;
+-    }
+ 
+-    public void setVendedores(ArrayList<Vendedor> vendedores) {
+-        this.vendedores = vendedores;
+-    }
+ }
+Index: programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package controlador;\r\n\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.TableColumn;\r\nimport javafx.scene.control.TableView;\r\n\r\npublic class ControladorMarketplaceView {\r\n\r\n    @FXML\r\n    private TableColumn<?, ?> colApellido;\r\n\r\n    @FXML\r\n    private TableColumn<?, ?> colCedula;\r\n\r\n    @FXML\r\n    private TableColumn<?, ?> colCuenta;\r\n\r\n    @FXML\r\n    private TableColumn<?, ?> colNombre;\r\n\r\n    @FXML\r\n    private TableColumn<?, ?> colPublicacionesVendedor;\r\n\r\n    @FXML\r\n    private TableView<?> tblVendedores;\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java
+--- a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java	
++++ b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java	
+@@ -1,11 +1,71 @@
+ package controlador;
+ 
++import javafx.collections.FXCollections;
++import javafx.collections.ObservableList;
++import javafx.event.ActionEvent;
+ import javafx.fxml.FXML;
+-import javafx.scene.control.TableColumn;
+-import javafx.scene.control.TableView;
++import javafx.fxml.Initializable;
++import javafx.scene.control.*;
++import javafx.scene.control.cell.PropertyValueFactory;
++import javafx.scene.input.KeyEvent;
++import modelo.Administrador;
++import modelo.Vendedor;
++
++import java.net.URL;
++import java.util.List;
++import java.util.ResourceBundle;
++
++import static controlador.AppController.INSTANCE;
++
++public class ControladorMarketplaceView implements Initializable {
++
++    private ObservableList<Vendedor> vendedores = FXCollections.observableArrayList();
++
++    @FXML
++    private Tab tabAdministrador;
++    @FXML
++    private Label labelNombre;
++
++    @FXML
++    private Label labelApelldo;
++
++    @FXML
++    private Label labelCedula;
++
++    @FXML
++    private Label labelCuenta;
++
++    @FXML
++    private Label labelDireccion;
++
++    @FXML
++    private TextField campoNombre;
+ 
+-public class ControladorMarketplaceView {
++    @FXML
++    private TextField campoApellido;
++
++    @FXML
++    private TextField campoCedula;
++
++    @FXML
++    private TextField campoCuenta;
+ 
++    @FXML
++    private TextField campoDireccion;
++
++    Administrador administrador = INSTANCE.getModel();
++    @FXML
++    private Button botonCrearVendedor;
++
++    @FXML
++    private Button botonActualizarVendedor;
++
++    @FXML
++    private Button botonEliminarVendedor;
++
++
++    @FXML
++    private TableColumn<?, ?> colNombre;
+     @FXML
+     private TableColumn<?, ?> colApellido;
+ 
+@@ -16,12 +76,60 @@
+     private TableColumn<?, ?> colCuenta;
+ 
+     @FXML
+-    private TableColumn<?, ?> colNombre;
+-
+-    @FXML
+-    private TableColumn<?, ?> colPublicacionesVendedor;
++    private TableColumn<?, ?> colDireccion;
++
+ 
+     @FXML
+-    private TableView<?> tblVendedores;
++    private TableView<Vendedor> tblVendedores;
++
++    public void eventKey(KeyEvent keyEvent) {
++    }
++    public void eventAction(ActionEvent actionEvent) {
++    }
++
++    public void crearVendedor(){
++
++        String nombreVendedor = campoNombre.getText();
++        String apellidoVendedor = campoApellido.getText();
++        String cedulaVendedor = campoCedula.getText();
++        String cuentaVendedor = campoCuenta.getText();
++        String direccionVendedor = campoDireccion.getText();
++
++        Vendedor vendedor = new Vendedor(nombreVendedor,apellidoVendedor,cedulaVendedor,cuentaVendedor,direccionVendedor);
++        vendedores.add(vendedor);
++        tblVendedores.setItems(vendedores);
++        tblVendedores.refresh();//Actualiza la tabla
++        try {
++            administrador.crearVendedor(vendedor);
++
+ 
++        }
++        catch (Exception e){
++            e.getMessage();
++        }
++    }
++
++
++    @Override
++
++    public void initialize(URL url, ResourceBundle resourceBundle) {
++
++        //combopropietario.getItems().addAll(finca.getPropietarios());
++        this.colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
++        this.colApellido.setCellValueFactory(new PropertyValueFactory<>("apellido"));
++        this.colCedula.setCellValueFactory(new PropertyValueFactory<>("cedula"));
++        this.colCuenta.setCellValueFactory(new PropertyValueFactory<>("cuenta"));
++        this.colDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
++
++
++    }
++
++    private void llenarTabla(List<Vendedor> vendedoresList) {
++        tblVendedores.setItems(FXCollections.observableArrayList(vendedoresList));
++        tblVendedores.refresh();
++    }
+ }
++
++
++
++
+Index: programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/vista/MarketplaceView.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.Tab?>\r\n<?import javafx.scene.control.TabPane?>\r\n<?import javafx.scene.control.TableColumn?>\r\n<?import javafx.scene.control.TableView?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.shape.Rectangle?>\r\n<?import javafx.scene.text.Font?>\r\n\r\n\r\n<AnchorPane prefHeight=\"604.0\" prefWidth=\"795.0\" xmlns=\"http://javafx.com/javafx/19\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"controlador.ControladorMarketplaceView\">\r\n   <children>\r\n      <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"#3770a6\" height=\"70.0\" layoutX=\"7.0\" layoutY=\"4.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"756.0\" />\r\n      <Label layoutX=\"255.0\" layoutY=\"15.0\" prefHeight=\"48.0\" prefWidth=\"257.0\" text=\"Marketplace\" textOverrun=\"CLIP\">\r\n         <font>\r\n            <Font name=\"Arial Italic\" size=\"43.0\" />\r\n         </font>\r\n      </Label>\r\n      <TabPane layoutX=\"7.0\" layoutY=\"76.0\" prefHeight=\"503.0\" prefWidth=\"756.0\" tabClosingPolicy=\"UNAVAILABLE\">\r\n        <tabs>\r\n          <Tab text=\"Administrador\">\r\n            <content>\r\n              <AnchorPane minHeight=\"0.0\" minWidth=\"0.0\" prefHeight=\"171.0\" prefWidth=\"741.0\">\r\n                     <children>\r\n                        <TableView fx:id=\"tblVendedores\" layoutX=\"88.0\" layoutY=\"303.0\" prefHeight=\"171.0\" prefWidth=\"603.0\">\r\n                          <columns>\r\n                            <TableColumn fx:id=\"colNombre\" prefWidth=\"112.0\" text=\"Nombre\" />\r\n                            <TableColumn fx:id=\"colApellido\" prefWidth=\"98.0\" text=\"Apellido\" />\r\n                              <TableColumn fx:id=\"colCedula\" prefWidth=\"86.0\" text=\"Cedula\" />\r\n                              <TableColumn fx:id=\"colCuenta\" prefWidth=\"98.0\" text=\"Cuenta\" />\r\n                              <TableColumn prefWidth=\"99.0\" text=\"Dirección\" />\r\n                              <TableColumn fx:id=\"colPublicacionesVendedor\" prefWidth=\"112.0\" text=\"Publicaciones\" />\r\n                          </columns>\r\n                        </TableView>\r\n                     </children>\r\n                  </AnchorPane>\r\n            </content>\r\n          </Tab>\r\n          <Tab text=\"Untitled Tab 2\">\r\n            <content>\r\n              <AnchorPane minHeight=\"0.0\" minWidth=\"0.0\" prefHeight=\"180.0\" prefWidth=\"200.0\" />\r\n            </content>\r\n          </Tab>\r\n            <Tab text=\"Untitled Tab\">\r\n              <content>\r\n                <AnchorPane minHeight=\"0.0\" minWidth=\"0.0\" prefHeight=\"180.0\" prefWidth=\"200.0\" />\r\n              </content>\r\n            </Tab>\r\n            <Tab text=\"Untitled Tab\">\r\n              <content>\r\n                <AnchorPane minHeight=\"0.0\" minWidth=\"0.0\" prefHeight=\"180.0\" prefWidth=\"200.0\" />\r\n              </content>\r\n            </Tab>\r\n            <Tab text=\"Untitled Tab\">\r\n              <content>\r\n                <AnchorPane minHeight=\"0.0\" minWidth=\"0.0\" prefHeight=\"180.0\" prefWidth=\"200.0\" />\r\n              </content>\r\n            </Tab>\r\n            <Tab text=\"Untitled Tab\">\r\n              <content>\r\n                <AnchorPane minHeight=\"0.0\" minWidth=\"0.0\" prefHeight=\"180.0\" prefWidth=\"200.0\" />\r\n              </content>\r\n            </Tab>\r\n            <Tab text=\"Untitled Tab\">\r\n              <content>\r\n                <AnchorPane minHeight=\"0.0\" minWidth=\"0.0\" prefHeight=\"180.0\" prefWidth=\"200.0\" />\r\n              </content>\r\n            </Tab>\r\n            <Tab text=\"Untitled Tab\">\r\n              <content>\r\n                <AnchorPane minHeight=\"0.0\" minWidth=\"0.0\" prefHeight=\"180.0\" prefWidth=\"200.0\" />\r\n              </content>\r\n            </Tab>\r\n            <Tab text=\"Untitled Tab\">\r\n              <content>\r\n                <AnchorPane minHeight=\"0.0\" minWidth=\"0.0\" prefHeight=\"180.0\" prefWidth=\"200.0\" />\r\n              </content>\r\n            </Tab>\r\n            <Tab text=\"Untitled Tab\">\r\n              <content>\r\n                <AnchorPane minHeight=\"0.0\" minWidth=\"0.0\" prefHeight=\"180.0\" prefWidth=\"200.0\" />\r\n              </content>\r\n            </Tab>\r\n        </tabs>\r\n      </TabPane>\r\n   </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/vista/MarketplaceView.fxml b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/vista/MarketplaceView.fxml
+--- a/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/vista/MarketplaceView.fxml	
++++ b/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/vista/MarketplaceView.fxml	
+@@ -1,15 +1,18 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.ComboBox?>
+ <?import javafx.scene.control.Label?>
++<?import javafx.scene.control.ScrollBar?>
+ <?import javafx.scene.control.Tab?>
+ <?import javafx.scene.control.TabPane?>
+ <?import javafx.scene.control.TableColumn?>
+ <?import javafx.scene.control.TableView?>
++<?import javafx.scene.control.TextField?>
+ <?import javafx.scene.layout.AnchorPane?>
+ <?import javafx.scene.shape.Rectangle?>
+ <?import javafx.scene.text.Font?>
+ 
+-
+ <AnchorPane prefHeight="604.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorMarketplaceView">
+    <children>
+       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3770a6" height="70.0" layoutX="7.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="756.0" />
+@@ -20,35 +23,77 @@
+       </Label>
+       <TabPane layoutX="7.0" layoutY="76.0" prefHeight="503.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+-          <Tab text="Administrador">
++          <Tab fx:id="tabAdministrador" text="Administrador">
+             <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="741.0">
+                      <children>
+                         <TableView fx:id="tblVendedores" layoutX="88.0" layoutY="303.0" prefHeight="171.0" prefWidth="603.0">
+                           <columns>
+-                            <TableColumn fx:id="colNombre" prefWidth="112.0" text="Nombre" />
+-                            <TableColumn fx:id="colApellido" prefWidth="98.0" text="Apellido" />
+-                              <TableColumn fx:id="colCedula" prefWidth="86.0" text="Cedula" />
+-                              <TableColumn fx:id="colCuenta" prefWidth="98.0" text="Cuenta" />
+-                              <TableColumn prefWidth="99.0" text="Dirección" />
+-                              <TableColumn fx:id="colPublicacionesVendedor" prefWidth="112.0" text="Publicaciones" />
++                            <TableColumn fx:id="colNombre" prefWidth="119.0" text="Nombre" />
++                            <TableColumn fx:id="colApellido" prefWidth="103.0" text="Apellido" />
++                              <TableColumn fx:id="colCedula" minWidth="0.0" prefWidth="112.0" text="Cedula" />
++                              <TableColumn fx:id="colCuenta" prefWidth="126.0" text="Cuenta" />
++                              <TableColumn fx:id="colDireccion" minWidth="0.0" prefWidth="141.0" text="Dirección" />
+                           </columns>
+                         </TableView>
++                        <Label fx:id="labelNombre" layoutX="49.0" layoutY="39.0" text="Nombre" />
++                        <Label fx:id="labelApellido" layoutX="416.0" layoutY="39.0" text="Apellido" />
++                        <Label fx:id="labelCedula" layoutX="44.0" layoutY="95.0" prefHeight="17.0" prefWidth="58.0" text=" Cedula" />
++                        <Label fx:id="labelCuenta" layoutX="416.0" layoutY="95.0" text="Cuenta" />
++                        <TextField fx:id="campoNombre" layoutX="112.0" layoutY="35.0" />
++                        <TextField fx:id="campoCedula" layoutX="112.0" layoutY="91.0" />
++                        <TextField fx:id="campoCuenta" layoutX="479.0" layoutY="91.0" />
++                        <TextField fx:id="campoApellido" layoutX="479.0" layoutY="35.0" />
++                        <Button fx:id="botonCrearVendedor" layoutX="187.0" layoutY="237.0" mnemonicParsing="false" text="Crear vendedor" />
++                        <Button fx:id="botonActualizarVendedor" layoutX="310.0" layoutY="237.0" mnemonicParsing="false" text="Actualizar Vendedor" />
++                        <Button fx:id="botonEliminarVender" layoutX="454.0" layoutY="237.0" mnemonicParsing="false" text="Eliminar Vendedor" />
++                        <Label fx:id="labelDireccion" layoutX="44.0" layoutY="146.0" prefHeight="17.0" prefWidth="58.0" text="Dirección" />
++                        <TextField fx:id="campoDireccion" layoutX="113.0" layoutY="142.0" prefHeight="25.0" prefWidth="303.0" />
+                      </children>
+                   </AnchorPane>
+             </content>
+           </Tab>
+-          <Tab text="Untitled Tab 2">
++          <Tab text="Vendedor">
+             <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+             </content>
+           </Tab>
+-            <Tab text="Untitled Tab">
++            <Tab text="Muro">
+               <content>
+-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
++                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
++                     <children>
++                        <TabPane layoutX="7.0" layoutY="4.0" prefHeight="467.0" prefWidth="745.0" tabClosingPolicy="UNAVAILABLE">
++                          <tabs>
++                            <Tab text="Publicar">
++                              <content>
++                                <AnchorPane fx:id="seccionVendedores" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
++                                       <children>
++                                          <ScrollBar fx:id="scrollVender" layoutX="732.0" orientation="VERTICAL" prefHeight="440.0" prefWidth="20.0" />
++                                          <Button fx:id="botonVender" layoutX="22.0" layoutY="292.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" text="Publicar" />
++                                          <Label layoutX="32.0" layoutY="25.0" />
++                                          <TextField layoutX="24.0" layoutY="56.0" promptText="Nombre del producto" />
++                                          <TextField layoutX="24.0" layoutY="98.0" promptText="Precio del producto" />
++                                          <TextField layoutX="24.0" layoutY="142.0" promptText="Categoría del producto" />
++                                          <ComboBox layoutX="23.0" layoutY="188.0" prefHeight="25.0" prefWidth="151.0" promptText="Estado del producto" />
++                                          <Button layoutX="23.0" layoutY="235.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" text="Cargar imagen" />
++                                          <Label layoutX="22.0" layoutY="25.0" text="Hola! ¿Que quieres publicar hoy?" />
++                                          <Button fx:id="botonVender1" layoutX="24.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="añadir al carrito" />
++                                          <Button fx:id="botonVender11" layoutX="62.0" layoutY="399.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" text="Vender" />
++                                       </children>
++                                    </AnchorPane>
++                              </content>
++                            </Tab>
++                              <Tab text="Social Market">
++                                <content>
++                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
++                                </content>
++                              </Tab>
++                          </tabs>
++                        </TabPane>
++                     </children></AnchorPane>
+               </content>
+             </Tab>
+-            <Tab text="Untitled Tab">
++            <Tab text="Estadisticas ">
+               <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+Index: Proyectofinal_programacion.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\r\n    <exclude-output />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace\" isTestSource=\"false\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Proyectofinal_programacion.iml b/Proyectofinal_programacion.iml
+--- a/Proyectofinal_programacion.iml	
++++ b/Proyectofinal_programacion.iml	
+@@ -5,7 +5,8 @@
+     <content url="file://$MODULE_DIR$">
+       <sourceFolder url="file://$MODULE_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace" isTestSource="false" />
+     </content>
+-    <orderEntry type="inheritedJdk" />
++    <orderEntry type="jdk" jdkName="19" jdkType="JavaSDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" name="lib" level="project" />
+   </component>
+ </module>
+\ No newline at end of file

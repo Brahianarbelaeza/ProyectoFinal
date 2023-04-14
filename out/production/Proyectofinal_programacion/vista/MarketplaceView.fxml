@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="604.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorMarketplaceView">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3770a6" height="70.0" layoutX="7.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="756.0" />
+      <Label layoutX="255.0" layoutY="15.0" prefHeight="48.0" prefWidth="257.0" text="Marketplace" textOverrun="CLIP">
+         <font>
+            <Font name="Arial Italic" size="43.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="7.0" layoutY="76.0" prefHeight="503.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tabAdministrador" text="Administrador">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="741.0">
+                     <children>
+                        <TableView fx:id="tblVendedores" layoutX="88.0" layoutY="303.0" prefHeight="171.0" prefWidth="603.0">
+                          <columns>
+                            <TableColumn fx:id="colNombre" prefWidth="119.0" text="Nombre" />
+                            <TableColumn fx:id="colApellido" prefWidth="103.0" text="Apellido" />
+                              <TableColumn fx:id="colCedula" minWidth="0.0" prefWidth="112.0" text="Cedula" />
+                              <TableColumn fx:id="colCuenta" prefWidth="126.0" text="Cuenta" />
+                              <TableColumn fx:id="colDireccion" minWidth="0.0" prefWidth="141.0" text="Dirección" />
+                          </columns>
+                        </TableView>
+                        <Label fx:id="labelNombre" layoutX="49.0" layoutY="39.0" text="Nombre" />
+                        <Label fx:id="labelApellido" layoutX="416.0" layoutY="39.0" text="Apellido" />
+                        <Label fx:id="labelCedula" layoutX="44.0" layoutY="95.0" prefHeight="17.0" prefWidth="58.0" text=" Cedula" />
+                        <Label fx:id="labelCuenta" layoutX="416.0" layoutY="95.0" text="Cuenta" />
+                        <TextField fx:id="campoNombre" layoutX="112.0" layoutY="35.0" />
+                        <TextField fx:id="campoCedula" layoutX="112.0" layoutY="91.0" />
+                        <TextField fx:id="campoCuenta" layoutX="479.0" layoutY="91.0" />
+                        <TextField fx:id="campoApellido" layoutX="479.0" layoutY="35.0" />
+                        <Button fx:id="botonCrearVendedor" layoutX="187.0" layoutY="237.0" mnemonicParsing="false" text="Crear vendedor" />
+                        <Button fx:id="botonActualizarVendedor" layoutX="310.0" layoutY="237.0" mnemonicParsing="false" text="Actualizar Vendedor" />
+                        <Button fx:id="botonEliminarVender" layoutX="454.0" layoutY="237.0" mnemonicParsing="false" text="Eliminar Vendedor" />
+                        <Label fx:id="labelDireccion" layoutX="44.0" layoutY="146.0" prefHeight="17.0" prefWidth="58.0" text="Dirección" />
+                        <TextField fx:id="campoDireccion" layoutX="113.0" layoutY="142.0" prefHeight="25.0" prefWidth="303.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Vendedor">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
