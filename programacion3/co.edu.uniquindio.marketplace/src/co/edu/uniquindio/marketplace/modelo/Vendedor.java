@@ -3,7 +3,7 @@ import excepciones.VendedorException;
 import servicios.IVendedorService;
 import java.util.ArrayList;
 
-public class Vendedor extends Persona implements IVendedorService {
+public class Vendedor implements IVendedorService {
 
 
     private String direccion;
