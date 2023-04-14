@@ -10,7 +10,12 @@ public class Muro {
         this.publicaciones = publicaciones;
     }
 
-    public void crearPublicacion() {
+    public void crearPublicacion(
+
+    ) {
+
+
+
 
     }
 
