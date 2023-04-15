@@ -89,13 +89,10 @@ public class ControladorMarketplaceView {
             inicialzarAdminView();
 
     }
-
-
-
     public void inicialzarAdminView(){
         //1. Inicializar la tabla
         this.colNombreVendedor.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        this.colApellidoVendedor.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
+        this.colApellidoVendedor.setCellValueFactory(new PropertyValueFactory<>("apellido"));
         this.colCedulaVendedor.setCellValueFactory(new PropertyValueFactory<>("cedula"));
         this.colDireccionVendedor.setCellValueFactory(new PropertyValueFactory<>("direccion"));
         this.colCuentaVendedor.setCellValueFactory(new PropertyValueFactory<>("cuenta"));
@@ -114,7 +111,7 @@ public class ControladorMarketplaceView {
 
         //2. Validar la información
         if(datosValidos(nombre, apellido, cedula, direccion, cuenta, contrasena)== true){
-            Vendedor vendedor = null;
+            Vendedor vendedor= null;
             vendedor = controllerAdminView.crearVendedor(nombre, apellido, cedula, direccion, cuenta, contrasena);
             if(vendedor != null){
                listaVendedoresData.add(vendedor);

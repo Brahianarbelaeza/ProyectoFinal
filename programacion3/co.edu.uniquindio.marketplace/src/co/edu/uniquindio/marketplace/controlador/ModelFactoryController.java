@@ -7,6 +7,7 @@ import modelo.Cuenta;
 import modelo.Marketplace;
 import modelo.Vendedor;
 
+
 import java.util.ArrayList;
 
 public class ModelFactoryController {
@@ -22,7 +23,10 @@ public class ModelFactoryController {
     }
     private ModelFactoryController() {
         System.out.println("invoca clase singleton");
-        inicializarDatos();
+        if (marketplace == null) {
+            inicializarDatos();
+        }
+        registrarAccionesSistema("Inicio de sesión del usuario Admin", 1, "inicioSesión");
     }
     private void inicializarDatos() {
         marketplace = new Marketplace();
@@ -31,6 +35,8 @@ public class ModelFactoryController {
         Vendedor vendedor = new Vendedor("aleja", "Guzman", "123", new Cuenta("aleja", "123"), "calle 2") ;
         admin.getVendedores().add(vendedor);
 
+    }
+    public void registrarAccionesSistema(String mensaje, int nivel, String accion) {
 
     }
 
@@ -53,6 +59,7 @@ public class ModelFactoryController {
     public Vendedor crearVendedor(Vendedor vendedor)throws VendedorException {
         try {
             marketplace.getAdministrador().crearVendedor(vendedor);
+            registrarAccionesSistema("Vendedor creado con cedula "+vendedor.getCedula(),1 , "Crear vendedor");
         } catch (AdministradorException e) {
             throw new RuntimeException("Error al crear al vendedor"+e);
         }
