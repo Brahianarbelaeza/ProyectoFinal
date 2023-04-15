@@ -103,7 +103,7 @@ public class ControladorMarketplaceView {
         tblVendedores.getItems().clear();
         tblVendedores.setItems(getListaVendedoresData());
     }
-    private void CrearVendedor() throws VendedorException {
+    private void CrearVendedor() {
         //1. Capturar los datos
         String nombre = campoNombre.getText();
         String apellido = campoApellido.getText();
@@ -132,12 +132,7 @@ public class ControladorMarketplaceView {
 
     @FXML
     void crearVendedorAction(ActionEvent event) {
-        try {
             CrearVendedor();
-        } catch (VendedorException e) {
-            e.printStackTrace();
-        }
-
     }
     private void limpiarCamposVendedor() {
         campoNombre.setText("");

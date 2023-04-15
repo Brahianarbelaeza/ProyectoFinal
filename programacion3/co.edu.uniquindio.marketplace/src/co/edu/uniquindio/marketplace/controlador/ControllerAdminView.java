@@ -19,13 +19,9 @@ public class ControllerAdminView {
 
 
 
-    public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion, String cuenta, String contrasena) throws VendedorException {
-        Vendedor vendedor = null;
-        vendedor.setNombre(nombre);
-        vendedor.setApellido(apellido);
-        vendedor.setCedula(cedula);
-        vendedor.setDireccion(direccion);
-        vendedor.setCuenta(new Cuenta(cuenta, contrasena));
+    public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion, String cuenta, String contrasena)  {
+        Cuenta cuentaV = new Cuenta(cuenta, contrasena);
+        Vendedor vendedor = new Vendedor(nombre, apellido, cedula, cuentaV, direccion);
         return modelFactoryController.crearVendedor(vendedor);
     }
 

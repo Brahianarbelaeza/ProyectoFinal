@@ -6,6 +6,7 @@ import modelo.Administrador;
 import modelo.Cuenta;
 import modelo.Marketplace;
 import modelo.Vendedor;
+import persistencia.Persistencia;
 
 import java.util.ArrayList;
 
@@ -22,7 +23,12 @@ public class ModelFactoryController {
     }
     private ModelFactoryController() {
         System.out.println("invoca clase singleton");
-        inicializarDatos();
+        if(marketplace == null){
+            inicializarDatos();
+          //  guardarResourceXML();
+        }
+
+        registrarAccionesSistema("Inicio de sesión del usuario Admin", 1, "inicioSesión");
     }
     private void inicializarDatos() {
         marketplace = new Marketplace();
@@ -32,6 +38,9 @@ public class ModelFactoryController {
         admin.getVendedores().add(vendedor);
 
 
+    }
+    public void registrarAccionesSistema(String mensaje, int nivel, String accion) {
+        Persistencia.guardaRegistroLog(mensaje, nivel, accion);
     }
 
     public Marketplace getMarketplace() {
@@ -50,9 +59,10 @@ public class ModelFactoryController {
 //        }
         return admin;
     }
-    public Vendedor crearVendedor(Vendedor vendedor)throws VendedorException {
+    public Vendedor crearVendedor(Vendedor vendedor) {
         try {
             marketplace.getAdministrador().crearVendedor(vendedor);
+            registrarAccionesSistema("Vendedor creado con cedula "+vendedor.getCedula(),1 , "Crear vendedor");
         } catch (AdministradorException e) {
             throw new RuntimeException("Error al crear al vendedor"+e);
         }
