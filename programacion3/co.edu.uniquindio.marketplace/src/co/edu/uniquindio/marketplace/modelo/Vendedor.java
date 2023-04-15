@@ -1,16 +1,15 @@
 package modelo;
-import excepciones.VendedorException;
 import servicios.IVendedorService;
 import java.util.ArrayList;
 
-public class Vendedor implements IVendedorService {
+public class Vendedor extends Persona implements IVendedorService {
 
 
     private String direccion;
     ArrayList<Producto> listaProductos;
     ArrayList<Solitud> vendedoresAliados;
 
-    public Vendedor(String nombre, String apellidos, String cedula, String usuario, String direccion) {
+    public Vendedor(String nombre, String apellidos, String cedula, Cuenta usuario, String direccion) {
         super(nombre, apellidos, cedula, usuario);
         this.direccion = direccion;
         this.listaProductos = new ArrayList<Producto>();

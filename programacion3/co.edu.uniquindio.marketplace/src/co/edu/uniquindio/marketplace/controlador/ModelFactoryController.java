@@ -1,11 +1,11 @@
 package controlador;
 
 import excepciones.AdministradorException;
+import excepciones.VendedorException;
 import modelo.Administrador;
 import modelo.Cuenta;
 import modelo.Marketplace;
 import modelo.Vendedor;
-import persistencia.Persistencia;
 
 import java.util.ArrayList;
 
