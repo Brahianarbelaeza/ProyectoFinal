@@ -10,6 +10,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.Vendedor;
 
+import java.util.Optional;
+
 
 public class ControladorMarketplaceView {
     Aplicacion aplicacion;
@@ -95,13 +97,20 @@ public class ControladorMarketplaceView {
     public void inicialzarAdminView(){
         //1. Inicializar la tabla
         this.colNombreVendedor.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        this.colApellidoVendedor.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
+        this.colApellidoVendedor.setCellValueFactory(new PropertyValueFactory<>("apellido"));
         this.colCedulaVendedor.setCellValueFactory(new PropertyValueFactory<>("cedula"));
         this.colDireccionVendedor.setCellValueFactory(new PropertyValueFactory<>("direccion"));
         this.colCuentaVendedor.setCellValueFactory(new PropertyValueFactory<>("cuenta"));
 
         tblVendedores.getItems().clear();
         tblVendedores.setItems(getListaVendedoresData());
+        tblVendedores.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+
+            vendedorSeleccionado = newSelection;
+
+            //mostrarInformacionEmpleado(empleadoSeleccionado);
+
+        });
     }
     private void CrearVendedor() {
         //1. Capturar los datos
@@ -118,22 +127,47 @@ public class ControladorMarketplaceView {
             vendedor = controllerAdminView.crearVendedor(nombre, apellido, cedula, direccion, cuenta, contrasena);
             if(vendedor != null){
                listaVendedoresData.add(vendedor);
-                mostrarMensaje("Notificación empleado", "Empleado creado", "El empleado se ha creado con éxito", Alert.AlertType.INFORMATION);
+                mostrarMensaje("Notificación vendedor", "Vendedor creado", "El vendedor se ha creado con éxito", Alert.AlertType.INFORMATION);
                 limpiarCamposVendedor();
             }else{
-                mostrarMensaje("Notificación empleado", "Empleado no creado", "El empleado no se ha creado con éxito", Alert.AlertType.INFORMATION);
+                mostrarMensaje("Notificación vendedor", "Vendedor no creado", "El vendedor con cedula " + cedula + " ya existe", Alert.AlertType.INFORMATION);
             }
         }else{
-            mostrarMensaje("Notificación empleado", "Empleado no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+            mostrarMensaje("Notificación vendedor", "Vendedor no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
 
 
     }
+    private void eliminarVendedor(){
+        boolean empleadoEliminado = false;
 
-    @FXML
-    void crearVendedorAction(ActionEvent event) {
-            CrearVendedor();
+
+        if(vendedorSeleccionado != null){
+
+
+            if(mostrarMensajeConfirmacion("¿Estas seguro de elmininar al empleado?") == true){
+
+                empleadoEliminado = controllerAdminView.eliminarVendedor(vendedorSeleccionado.getCedula());
+
+
+                if(empleadoEliminado == true){
+                    listaVendedoresData.remove(vendedorSeleccionado);
+                    vendedorSeleccionado = null;
+
+                    tblVendedores.getSelectionModel().clearSelection();
+                    limpiarCamposVendedor();
+
+                    mostrarMensaje("Notificación empleado", "Empleado eliminado", "El empleado se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+                }else{
+                    mostrarMensaje("Notificación empleado", "Empleado no eliminado", "El empleado no se puede eliminar", Alert.AlertType.ERROR);
+                }
+            }
+        }else{
+            mostrarMensaje("Notificación empleado", "Empleado no seleccionado", "Seleccionado un empleado de la lista", Alert.AlertType.WARNING);
+        }
+
     }
+
     private void limpiarCamposVendedor() {
         campoNombre.setText("");
         campoApellido.setText("");
@@ -142,6 +176,40 @@ public class ControladorMarketplaceView {
         campoCuenta.setText("");
         campoContrasena.setText("");
     }
+
+
+    @FXML
+    void crearVendedorAction(ActionEvent event) {
+            CrearVendedor();
+    }
+
+    @FXML
+    void actualizarVendedoronAction(ActionEvent event) {
+       // actualizarVendedor();
+
+    }
+    @FXML
+    void eliminarVendedoronAction(ActionEvent event) {
+        eliminarVendedor();
+    }
+
+
+
+    private boolean mostrarMensajeConfirmacion(String mensaje) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Confirmación");
+        alert.setContentText(mensaje);
+        Optional<ButtonType> action = alert.showAndWait();
+
+        if (action.get() == ButtonType.OK) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 
     private boolean datosValidos(String nombre, String apellido, String cedula,  String direccion, String cuenta, String contrasena) {
