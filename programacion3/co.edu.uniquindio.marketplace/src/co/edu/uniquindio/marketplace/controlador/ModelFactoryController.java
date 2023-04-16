@@ -6,6 +6,7 @@ import modelo.Administrador;
 import modelo.Cuenta;
 import modelo.Marketplace;
 import modelo.Vendedor;
+import persistencia.Persistencia;
 
 import java.util.ArrayList;
 
@@ -33,7 +34,7 @@ public class ModelFactoryController {
         marketplace = new Marketplace();
         Administrador admin = crearAdministrador("Brahian", "bar@", "123", "admin", "123");
         marketplace.setAdministrador(admin);
-        Vendedor vendedor = new Vendedor("aleja", "Guzman", "123", new Cuenta("aleja", "123"), "calle 2") ;
+        Vendedor vendedor = new Vendedor("aleja", "Guzman", "123", new Cuenta("aleja@gmail.com", "123"), "calle 2") ;
         admin.getVendedores().add(vendedor);
 
 
@@ -72,6 +73,15 @@ public class ModelFactoryController {
     }
     public boolean eliminarVendedor (String cedula) {
         Vendedor vendedor = marketplace.getAdministrador().buscarVendedor(cedula);
+
+        //Es la misma logica de crear solo que se le envía la cc anterior
+    public Vendedor actualizarVendedor(Vendedor vendedor, String cedulaAnterior) {
+        marketplace.getAdministrador().actualizarVendedor(vendedor,cedulaAnterior);
+        registrarAccionesSistema("Vendedor actualizado con cedula "+vendedor.getCedula(),1 , "Actualizar vendedor");
+        return vendedor;
+    }
+
+    public void eliminarVendedor(Vendedor vendedor) throws VendedorException{
         try {
             marketplace.getAdministrador().eliminarVendedor(vendedor);
             return true;
@@ -80,9 +90,7 @@ public class ModelFactoryController {
         }
 
     }
-    public void actualizarVendedor(Vendedor vendedorSeleccionado, Vendedor vendedorNuevo){
-        marketplace.getAdministrador().actualizarVendedor(vendedorSeleccionado, vendedorNuevo);
-    }
+
     public ArrayList<Vendedor> obtenerVendedores() {
         return getMarketplace().getAdministrador().getVendedores();
     }

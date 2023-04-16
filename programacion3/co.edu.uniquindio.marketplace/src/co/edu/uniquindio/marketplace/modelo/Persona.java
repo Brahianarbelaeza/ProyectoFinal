@@ -7,11 +7,14 @@ public class Persona {
     private String cedula;
     private Cuenta cuenta;
 
+    private String cuentaDescripcion;
+
     public Persona(String nombre, String apellido, String cedula, Cuenta cuenta) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.cuenta = cuenta;
+        this.cuentaDescripcion =  cuenta.getUsuario();
     }
 
     public void agregarContactos(){
@@ -56,5 +59,13 @@ public class Persona {
 
     public void setCuenta(Cuenta cuenta) {
         this.cuenta = cuenta;
+    }
+
+    public String getCuentaDescripcion() {
+        return cuentaDescripcion;
+    }
+
+    public void setCuentaDescripcion(String cuentaDescripcion) {
+        this.cuentaDescripcion = cuentaDescripcion;
     }
 }

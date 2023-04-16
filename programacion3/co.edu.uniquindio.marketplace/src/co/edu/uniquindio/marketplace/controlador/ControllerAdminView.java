@@ -1,6 +1,5 @@
 package controlador;
 
-import excepciones.VendedorException;
 import modelo.Cuenta;
 import modelo.Marketplace;
 import modelo.Vendedor;
@@ -29,6 +28,12 @@ public class ControllerAdminView {
         Cuenta cuentaV = new Cuenta(cuenta, contrasena);
         Vendedor vendedor = new Vendedor(nombre, apellido, cedula, cuentaV, direccion);
         return modelFactoryController.crearVendedor(vendedor);
+    }
+
+    public Vendedor actualizarVendedor(String nombre, String apellido, String cedula, String direccion, String cuenta, String contrasena, String cedulaAnterior)  {
+        Cuenta cuentaV = new Cuenta(cuenta, contrasena);
+        Vendedor vendedor = new Vendedor(nombre, apellido, cedula, cuentaV, direccion);
+        return modelFactoryController.actualizarVendedor(vendedor, cedulaAnterior); //Se busca el vendedor con la cedula anterior
     }
 
     public ArrayList<Vendedor> obtenerVendedores() {

@@ -97,16 +97,16 @@ public class ControladorMarketplaceView {
         this.colApellidoVendedor.setCellValueFactory(new PropertyValueFactory<>("apellido"));
         this.colCedulaVendedor.setCellValueFactory(new PropertyValueFactory<>("cedula"));
         this.colDireccionVendedor.setCellValueFactory(new PropertyValueFactory<>("direccion"));
-        this.colCuentaVendedor.setCellValueFactory(new PropertyValueFactory<>("cuenta"));
+        this.colCuentaVendedor.setCellValueFactory(new PropertyValueFactory<>("cuentaDescripcion"));
 
         tblVendedores.getItems().clear();
         tblVendedores.setItems(getListaVendedoresData());
-        tblVendedores.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
 
-            vendedorSeleccionado = newSelection;
 
-            //mostrarInformacionEmpleado(empleadoSeleccionado);
-
+// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
+        tblVendedores.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) ->{
+            this.vendedorSeleccionado = newSelecction;
+            this.setearCamposVendedor(this.vendedorSeleccionado);
         });
     }
     private void CrearVendedor() {
@@ -125,6 +125,9 @@ public class ControladorMarketplaceView {
             if(vendedor != null){
                listaVendedoresData.add(vendedor);
                 mostrarMensaje("Notificación vendedor", "Vendedor creado", "El vendedor se ha creado con éxito", Alert.AlertType.INFORMATION);
+               //listaVendedoresData.add(vendedor);
+                refresh();
+                mostrarMensaje("Notificación empleado", "Empleado creado", "El empleado se ha creado con éxito", Alert.AlertType.INFORMATION);
                 limpiarCamposVendedor();
             }else{
                 mostrarMensaje("Notificación vendedor", "Vendedor no creado", "El vendedor con cedula " + cedula + " ya existe", Alert.AlertType.INFORMATION);
@@ -140,6 +143,44 @@ public class ControladorMarketplaceView {
 
 
         if(vendedorSeleccionado != null){
+
+        private void actualizarVendedor(){
+
+            //1. Capturar los datos
+            String nombre = campoNombre.getText();
+            String apellido = campoApellido.getText();
+            String cedula = campoCedula.getText();
+            String direccion = campoDireccion.getText();
+            String cuenta = campoCuenta.getText();
+            String contrasena = campoContrasena.getText();
+
+            //2. Validar la información
+            if(datosValidos(nombre, apellido, cedula, direccion, cuenta, contrasena)== true){
+                Vendedor vendedor= null;
+                vendedor = controllerAdminView.actualizarVendedor(nombre, apellido, cedula, direccion, cuenta, contrasena, vendedorSeleccionado.getCedula());
+                if(vendedor != null){
+                    refresh();
+                    mostrarMensaje("Notificación vendedor", "Vendedor actualizado", "El vendedor se ha actualizado con éxito", Alert.AlertType.INFORMATION);
+                    limpiarCamposVendedor();
+                }else{
+                    mostrarMensaje("Notificación vendedor", "Vendedor no actualizado", "El vendedor no se ha actualizado", Alert.AlertType.INFORMATION);
+                }
+            }else{
+                mostrarMensaje("Notificación vendedor", "Vendedor no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+            }
+
+
+    }
+    //Actualiza la lista de vehndedores dee la tabla obtener vendedores del singleton contra la de la interfaz
+    void refresh(){
+        tblVendedores.getItems().clear();
+        tblVendedores.setItems(getListaVendedoresData());
+    }
+
+    @FXML
+    void actualizarVendedorAction(ActionEvent event) {
+        actualizarVendedor();
+    }
 
 
             if(mostrarMensajeConfirmacion("¿Estas seguro de elmininar al empleado?") == true){
@@ -172,6 +213,20 @@ public class ControladorMarketplaceView {
         campoDireccion.setText("");
         campoCuenta.setText("");
         campoContrasena.setText("");
+    }
+
+    //Setea los campos de la tabla hacia los de texto
+    private void setearCamposVendedor(Vendedor vendedor) {
+
+        if(vendedor !=  null){
+            campoNombre.setText(vendedor.getNombre());
+            campoApellido.setText(vendedor.getApellido());
+            campoCedula.setText(vendedor.getCedula());
+            campoDireccion.setText(vendedor.getDireccion());
+            campoCuenta.setText(vendedor.getCuenta().getUsuario());
+            campoContrasena.setText(vendedor.getCuenta().getContrasena());
+        }
+
     }
 
 
