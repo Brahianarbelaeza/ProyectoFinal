@@ -46,7 +46,7 @@ public class Administrador extends Persona implements IAdministradorService {
 
     //Como parametro ingreso el vendedor con los datos antiguos y el vendedor con los datos nuevos y editamos al antiguo
     // con los datos del nuevo
-    public  void actualizarVendedor(Vendedor vendedorSeleccionado,  Vendedor vendedorNuevo){
+    /*public  void actualizarVendedor(Vendedor vendedorSeleccionado,  Vendedor vendedorNuevo){
 
         vendedorSeleccionado.setNombre(vendedorNuevo.getNombre());
         vendedorSeleccionado.setApellido(vendedorNuevo.getApellido());
@@ -54,7 +54,19 @@ public class Administrador extends Persona implements IAdministradorService {
         vendedorSeleccionado.setCuenta(vendedorNuevo.getCuenta());
         vendedorSeleccionado.setDireccion(vendedorNuevo.getDireccion());
         vendedorSeleccionado.setProductos(vendedorNuevo.getListaProductos());
+    }*/
+
+        //Con la cedula anterior que se busca en el arraylist se compara con la que se esta seleccionando
+    // y si es igual cambio todos los datos
+    public  void actualizarVendedor(Vendedor vendedor,String cedulaAnterior){
+        for (int i = 0; i < vendedores.size(); i++) {
+            Vendedor vendedor1 = vendedores.get(i);
+            if(vendedor1.getCedula().equals(cedulaAnterior)){
+                vendedores.set(i, vendedor);
+            }
+        }
     }
+
     public void obtenerVendedor(Vendedor vendedor){
 
     }
