@@ -5,7 +5,7 @@ import modelo.Vendedor;
 
 public interface IAdministradorService {
 
-    public void crearVendedor(Vendedor vendedor) throws Exception;
+    public Vendedor crearVendedor(Vendedor vendedor) throws Exception;
 
 
 

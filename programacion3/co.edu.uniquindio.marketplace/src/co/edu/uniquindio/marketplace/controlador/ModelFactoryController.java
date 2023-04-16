@@ -1,7 +1,6 @@
 package controlador;
 
 import excepciones.AdministradorException;
-import excepciones.VendedorException;
 import modelo.Administrador;
 import modelo.Cuenta;
 import modelo.Marketplace;
@@ -60,9 +59,12 @@ public class ModelFactoryController {
         return admin;
     }
     public Vendedor crearVendedor(Vendedor vendedor) {
+
         try {
-            marketplace.getAdministrador().crearVendedor(vendedor);
-            registrarAccionesSistema("Vendedor creado con cedula "+vendedor.getCedula(),1 , "Crear vendedor");
+            vendedor= marketplace.getAdministrador().crearVendedor(vendedor);
+            if (vendedor !=  null) {
+                registrarAccionesSistema("Vendedor creado con cedula " + vendedor.getCedula(), 1, "Crear vendedor");
+            }
         } catch (AdministradorException e) {
             throw new RuntimeException("Error al crear al vendedor"+e);
         }
@@ -76,12 +78,15 @@ public class ModelFactoryController {
         return vendedor;
     }
 
-    public void eliminarVendedor(Vendedor vendedor) throws VendedorException{
+    public boolean eliminarVendedor (String cedula) {
+        Vendedor vendedor = marketplace.getAdministrador().buscarVendedor(cedula);
         try {
             marketplace.getAdministrador().eliminarVendedor(vendedor);
+            return true;
         } catch (Exception e) {
             throw new RuntimeException("Error al eliminar al vendedor"+e);
         }
+
     }
 
     public ArrayList<Vendedor> obtenerVendedores() {

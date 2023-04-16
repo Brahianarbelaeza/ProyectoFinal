@@ -19,17 +19,30 @@ public class Administrador extends Persona implements IAdministradorService {
     }
 
 
-    public void crearVendedor(Vendedor vendedor) throws AdministradorException{
+    public Vendedor crearVendedor(Vendedor vendedor) throws AdministradorException{
+        if (compararCedula(vendedor)== false ) {
 
             if (vendedores.contains(vendedor)) {
-                throw new AdministradorException(" El vendedor " + vendedor+ " ya existe en la lista ");
-            }
-            else {
+                throw new AdministradorException(" El vendedor " + vendedor + " ya existe en la lista ");
+            } else {
                 vendedores.add(vendedor);
-                    System.out.println("Vendedor añadido correctamente  ");
+                System.out.println("Vendedor añadido correctamente  ");
+                return vendedor;
             }
+        }else {
+            vendedor = null;
+        }
+     return vendedor;
     }
 
+    private boolean compararCedula(Vendedor vendedor) {
+        for (Vendedor vendedor1 : vendedores) {
+            if (vendedor.getCedula().equals(vendedor1.getCedula())) {
+                 return true;
+            }
+        }
+        return false;
+    }
 
 
     //Verifico que la lista de vendedores no este vacia antes de eliminar un vendedor
@@ -79,5 +92,14 @@ public class Administrador extends Persona implements IAdministradorService {
 
     public void setVendedores(ArrayList<Vendedor> vendedores) {
         this.vendedores = vendedores;
+    }
+
+    public Vendedor buscarVendedor(String cedula) {
+        for (Vendedor vendedor : vendedores) {
+            if (vendedor.getCedula().equals(cedula)) {
+                return vendedor;
+            }
+        }
+        return null;
     }
 }

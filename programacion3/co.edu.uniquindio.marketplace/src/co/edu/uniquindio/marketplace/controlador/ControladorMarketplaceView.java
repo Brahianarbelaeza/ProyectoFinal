@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.Vendedor;
 
+import java.util.Optional;
+
 
 public class ControladorMarketplaceView {
     Aplicacion aplicacion;
@@ -99,7 +101,6 @@ public class ControladorMarketplaceView {
         tblVendedores.getItems().clear();
         tblVendedores.setItems(getListaVendedoresData());
 
-
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
         tblVendedores.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) ->{
             this.vendedorSeleccionado = newSelecction;
@@ -120,15 +121,14 @@ public class ControladorMarketplaceView {
             Vendedor vendedor= null;
             vendedor = controllerAdminView.crearVendedor(nombre, apellido, cedula, direccion, cuenta, contrasena);
             if(vendedor != null){
-               //listaVendedoresData.add(vendedor);
                 refresh();
                 mostrarMensaje("Notificación empleado", "Empleado creado", "El empleado se ha creado con éxito", Alert.AlertType.INFORMATION);
                 limpiarCamposVendedor();
             }else{
-                mostrarMensaje("Notificación empleado", "Empleado no creado", "El empleado no se ha creado con éxito", Alert.AlertType.INFORMATION);
+                mostrarMensaje("Notificación vendedor", "Vendedor no creado", "El vendedor con cedula " + cedula + " ya existe", Alert.AlertType.INFORMATION);
             }
         }else{
-            mostrarMensaje("Notificación empleado", "Empleado no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+            mostrarMensaje("Notificación vendedor", "Vendedor no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
 
 
@@ -171,11 +171,36 @@ public class ControladorMarketplaceView {
         actualizarVendedor();
     }
 
+    private void eliminarVendedor(){
+        boolean empleadoEliminado = false;
 
-    @FXML
-    void crearVendedorAction(ActionEvent event) {
-            CrearVendedor();
+
+        if(vendedorSeleccionado != null){
+
+
+            if(mostrarMensajeConfirmacion("¿Estas seguro de elmininar al empleado?") == true){
+
+                empleadoEliminado = controllerAdminView.eliminarVendedor(vendedorSeleccionado.getCedula());
+
+
+                if(empleadoEliminado == true){
+                    listaVendedoresData.remove(vendedorSeleccionado);
+                    vendedorSeleccionado = null;
+
+                    tblVendedores.getSelectionModel().clearSelection();
+                    limpiarCamposVendedor();
+
+                    mostrarMensaje("Notificación empleado", "Empleado eliminado", "El empleado se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+                }else{
+                    mostrarMensaje("Notificación empleado", "Empleado no eliminado", "El empleado no se puede eliminar", Alert.AlertType.ERROR);
+                }
+            }
+        }else{
+            mostrarMensaje("Notificación empleado", "Empleado no seleccionado", "Seleccionado un empleado de la lista", Alert.AlertType.WARNING);
+        }
+
     }
+
     private void limpiarCamposVendedor() {
         campoNombre.setText("");
         campoApellido.setText("");
@@ -198,6 +223,40 @@ public class ControladorMarketplaceView {
         }
 
     }
+
+
+    @FXML
+    void crearVendedorAction(ActionEvent event) {
+            CrearVendedor();
+    }
+
+    @FXML
+    void actualizarVendedoronAction(ActionEvent event) {
+       // actualizarVendedor();
+
+    }
+    @FXML
+    void eliminarVendedoronAction(ActionEvent event) {
+        eliminarVendedor();
+    }
+
+
+
+    private boolean mostrarMensajeConfirmacion(String mensaje) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Confirmación");
+        alert.setContentText(mensaje);
+        Optional<ButtonType> action = alert.showAndWait();
+
+        if (action.get() == ButtonType.OK) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 
     private boolean datosValidos(String nombre, String apellido, String cedula,  String direccion, String cuenta, String contrasena) {

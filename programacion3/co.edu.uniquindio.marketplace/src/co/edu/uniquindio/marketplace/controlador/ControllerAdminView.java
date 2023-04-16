@@ -16,6 +16,12 @@ public class ControllerAdminView {
         marketplace = modelFactoryController.getMarketplace();
     }
 
+    public boolean eliminarVendedor(String cedula) {
+        return modelFactoryController.eliminarVendedor(cedula);
+
+    }
+
+
 
 
     public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion, String cuenta, String contrasena)  {
