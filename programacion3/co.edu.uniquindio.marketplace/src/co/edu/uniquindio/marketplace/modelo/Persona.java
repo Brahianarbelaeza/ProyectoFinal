@@ -1,13 +1,19 @@
 package modelo;
 
-public class Persona {
+import java.io.Serializable;
 
+public abstract class Persona implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String nombre;
+
     private String apellido;
     private String cedula;
     private Cuenta cuenta;
 
     private String cuentaDescripcion;
+    private String cuentaContrasena;
+    public Persona() {
+    }
 
     public Persona(String nombre, String apellido, String cedula, Cuenta cuenta) {
         this.nombre = nombre;
@@ -15,18 +21,15 @@ public class Persona {
         this.cedula = cedula;
         this.cuenta = cuenta;
         this.cuentaDescripcion =  cuenta.getUsuario();
+        this.cuentaContrasena = cuenta.getContrasena();
     }
 
-    public void agregarContactos(){
-
+    public String getCuentaContrasena() {
+        return cuentaContrasena;
     }
 
-    public void actualizarContactos(){
-
-    }
-
-    public void eliminarContactos(){
-
+    public void setCuentaContrasena(String cuentaContrasena) {
+        this.cuentaContrasena = cuentaContrasena;
     }
 
     public String getNombre() {

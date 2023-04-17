@@ -1,8 +1,10 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Producto{
+public class Producto implements Serializable {
+    private final static long serialVersionUID = 1L;
     private String nombre;
     private String imagen;
 
@@ -12,6 +14,8 @@ public class Producto{
 
     private Estado estado;
 
+    public Producto() {
+    }
     public Producto(String nombre, String imagen, String categoria, double precio, Estado estado) {
         this.nombre = nombre;
         this.imagen = imagen;

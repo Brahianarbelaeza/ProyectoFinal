@@ -125,9 +125,7 @@ public class ControladorMarketplaceView {
             if(vendedor != null){
                listaVendedoresData.add(vendedor);
                 mostrarMensaje("Notificación vendedor", "Vendedor creado", "El vendedor se ha creado con éxito", Alert.AlertType.INFORMATION);
-               //listaVendedoresData.add(vendedor);
                 refresh();
-                mostrarMensaje("Notificación empleado", "Empleado creado", "El empleado se ha creado con éxito", Alert.AlertType.INFORMATION);
                 limpiarCamposVendedor();
             }else{
                 mostrarMensaje("Notificación vendedor", "Vendedor no creado", "El vendedor con cedula " + cedula + " ya existe", Alert.AlertType.INFORMATION);
@@ -138,52 +136,41 @@ public class ControladorMarketplaceView {
 
 
     }
+    private void actualizarVendedor(){
+
+        //1. Capturar los datos
+        String nombre = campoNombre.getText();
+        String apellido = campoApellido.getText();
+        String cedula = campoCedula.getText();
+        String direccion = campoDireccion.getText();
+        String cuenta = campoCuenta.getText();
+        String contrasena = campoContrasena.getText();
+
+        //2. Validar la información
+        if(datosValidos(nombre, apellido, cedula, direccion, cuenta, contrasena)== true){
+            Vendedor vendedor= null;
+            vendedor = controllerAdminView.actualizarVendedor(nombre, apellido, cedula, direccion, cuenta, contrasena, vendedorSeleccionado.getCedula());
+            if(vendedor != null){
+                refresh();
+                mostrarMensaje("Notificación vendedor", "Vendedor actualizado", "El vendedor se ha actualizado con éxito", Alert.AlertType.INFORMATION);
+                limpiarCamposVendedor();
+            }else{
+                mostrarMensaje("Notificación vendedor", "Vendedor no actualizado", "El vendedor no se ha actualizado", Alert.AlertType.INFORMATION);
+            }
+        }else{
+            mostrarMensaje("Notificación vendedor", "Vendedor no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+
+
+    }
     private void eliminarVendedor(){
         boolean empleadoEliminado = false;
 
 
         if(vendedorSeleccionado != null){
 
-        private void actualizarVendedor(){
 
-            //1. Capturar los datos
-            String nombre = campoNombre.getText();
-            String apellido = campoApellido.getText();
-            String cedula = campoCedula.getText();
-            String direccion = campoDireccion.getText();
-            String cuenta = campoCuenta.getText();
-            String contrasena = campoContrasena.getText();
-
-            //2. Validar la información
-            if(datosValidos(nombre, apellido, cedula, direccion, cuenta, contrasena)== true){
-                Vendedor vendedor= null;
-                vendedor = controllerAdminView.actualizarVendedor(nombre, apellido, cedula, direccion, cuenta, contrasena, vendedorSeleccionado.getCedula());
-                if(vendedor != null){
-                    refresh();
-                    mostrarMensaje("Notificación vendedor", "Vendedor actualizado", "El vendedor se ha actualizado con éxito", Alert.AlertType.INFORMATION);
-                    limpiarCamposVendedor();
-                }else{
-                    mostrarMensaje("Notificación vendedor", "Vendedor no actualizado", "El vendedor no se ha actualizado", Alert.AlertType.INFORMATION);
-                }
-            }else{
-                mostrarMensaje("Notificación vendedor", "Vendedor no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
-            }
-
-
-    }
-    //Actualiza la lista de vehndedores dee la tabla obtener vendedores del singleton contra la de la interfaz
-    void refresh(){
-        tblVendedores.getItems().clear();
-        tblVendedores.setItems(getListaVendedoresData());
-    }
-
-    @FXML
-    void actualizarVendedorAction(ActionEvent event) {
-        actualizarVendedor();
-    }
-
-
-            if(mostrarMensajeConfirmacion("¿Estas seguro de elmininar al empleado?") == true){
+            if(mostrarMensajeConfirmacion("¿Estas seguro de elimininar al empleado?") == true){
 
                 empleadoEliminado = controllerAdminView.eliminarVendedor(vendedorSeleccionado.getCedula());
 
@@ -204,6 +191,11 @@ public class ControladorMarketplaceView {
             mostrarMensaje("Notificación empleado", "Empleado no seleccionado", "Seleccionado un empleado de la lista", Alert.AlertType.WARNING);
         }
 
+    }
+    //Actualiza la lista de vehndedores dee la tabla obtener vendedores del singleton contra la de la interfaz
+    void refresh(){
+        tblVendedores.getItems().clear();
+        tblVendedores.setItems(getListaVendedoresData());
     }
 
     private void limpiarCamposVendedor() {
@@ -234,12 +226,12 @@ public class ControladorMarketplaceView {
     void crearVendedorAction(ActionEvent event) {
             CrearVendedor();
     }
-
     @FXML
-    void actualizarVendedoronAction(ActionEvent event) {
-       // actualizarVendedor();
-
+    void actualizarVendedorAction(ActionEvent event) {
+        actualizarVendedor();
     }
+
+
     @FXML
     void eliminarVendedoronAction(ActionEvent event) {
         eliminarVendedor();

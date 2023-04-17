@@ -1,6 +1,9 @@
 package modelo;
 
-public class Marketplace {
+import java.io.Serializable;
+
+public class Marketplace implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Administrador administrador;
 
 
