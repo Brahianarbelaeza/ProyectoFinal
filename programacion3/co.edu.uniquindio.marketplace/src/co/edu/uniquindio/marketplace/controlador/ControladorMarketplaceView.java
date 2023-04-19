@@ -90,6 +90,9 @@ public class ControladorMarketplaceView {
             inicialzarAdminView();
 
     }
+
+
+
     public void inicialzarAdminView(){
         //1. Inicializar la tabla
         this.colNombreVendedor.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -100,6 +103,9 @@ public class ControladorMarketplaceView {
 
         tblVendedores.getItems().clear();
         tblVendedores.setItems(getListaVendedoresData());
+        tblVendedores.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+
+            vendedorSeleccionado = newSelection;
 
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
         tblVendedores.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) ->{
@@ -118,7 +124,7 @@ public class ControladorMarketplaceView {
 
         //2. Validar la información
         if(datosValidos(nombre, apellido, cedula, direccion, cuenta, contrasena)== true){
-            Vendedor vendedor= null;
+            Vendedor vendedor = null;
             vendedor = controllerAdminView.crearVendedor(nombre, apellido, cedula, direccion, cuenta, contrasena);
             if(vendedor != null){
                 refresh();
@@ -199,6 +205,11 @@ public class ControladorMarketplaceView {
             mostrarMensaje("Notificación empleado", "Empleado no seleccionado", "Seleccionado un empleado de la lista", Alert.AlertType.WARNING);
         }
 
+    }
+    //Actualiza la lista de vehndedores dee la tabla obtener vendedores del singleton contra la de la interfaz
+    void refresh(){
+        tblVendedores.getItems().clear();
+        tblVendedores.setItems(getListaVendedoresData());
     }
 
     private void limpiarCamposVendedor() {
@@ -306,4 +317,3 @@ public class ControladorMarketplaceView {
     }
 
 }
-

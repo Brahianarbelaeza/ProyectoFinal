@@ -1,11 +1,14 @@
 package modelo;
 
-public class Marketplace {
-    private Administrador administrador;
+import java.io.Serializable;
 
+public class Marketplace implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private Administrador administrador;
 
     public Marketplace() {
     }
+
     public Administrador getAdministrador() {
         return administrador;
     }
@@ -13,5 +16,7 @@ public class Marketplace {
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
     }
+
+
 }
 

@@ -1,20 +1,23 @@
 package modelo;
+import excepciones.VendedorException;
 import servicios.IVendedorService;
 import java.util.ArrayList;
 
-public class Vendedor extends Persona implements IVendedorService {
+public class Vendedor extends Persona implements IVendedorService, Serializable {
 
-
+    private static final long serialVersionUID = 1L;
     private String direccion;
     ArrayList<Producto> listaProductos;
     ArrayList<Solitud> vendedoresAliados;
+    public Vendedor() {
+    }
 
-    public Vendedor(String nombre, String apellidos, String cedula, Cuenta usuario, String direccion) {
-        super(nombre, apellidos, cedula, usuario);
+    public Vendedor(String nombre, String apellidos, String cedula, Cuenta cuenta, String direccion) {
+        super(nombre, apellidos, cedula, cuenta);
         this.direccion = direccion;
         this.listaProductos = new ArrayList<Producto>();
         this.vendedoresAliados = new ArrayList<Solitud>();
-        
+
     }
 
 
@@ -44,6 +47,8 @@ public class Vendedor extends Persona implements IVendedorService {
         else System.out.println("No hay productos para eliminar, aun no has publicado productos");
 
     }
+
+
     public void actualizarProducto(Producto productoSelected, Producto productoNuevo){
        listaProductos.remove(productoSelected);
          listaProductos.add(productoNuevo);

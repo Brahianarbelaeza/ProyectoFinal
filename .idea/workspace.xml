@@ -12,20 +12,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_04_2023_10_30_a__m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_04_2023_10_30_a__m___Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_04_2023_10_30_a__m___Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_04_2023_10_30_a__m___Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/controlador/ControladorMarketplaceView.class" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/controlador/ControladorMarketplaceView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/controlador/ControllerAdminView.class" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/controlador/ControllerAdminView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/controlador/ModelFactoryController$SingletonHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/controlador/ModelFactoryController$SingletonHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/controlador/ModelFactoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/controlador/ModelFactoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/modelo/Administrador.class" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/modelo/Administrador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/persistencia/Persistencia.class" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/persistencia/Persistencia.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/servicios/IAdministradorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/servicios/IAdministradorService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/vista/MarketplaceView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/out/production/co.edu.uniquindio.marketplace/vista/MarketplaceView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControladorMarketplaceView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControladorMarketplaceView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControllerAdminView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControllerAdminView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ModelFactoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ModelFactoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Administrador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Administrador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Persona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Persona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/vista/MarketplaceView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/vista/MarketplaceView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControllerAdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControllerAdminView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ModelFactoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ModelFactoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Administrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Administrador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/persistencia/Persistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/persistencia/Persistencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/servicios/IAdministradorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/servicios/IAdministradorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Persona.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/vista/MarketplaceView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/vista/MarketplaceView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,24 +57,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/JavaFX/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/lib&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/JavaFX/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/lib",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed (1)" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="--module-path &quot;C:\JavaFX\openjfx-19.0.2.1_windows-x64_bin-sdk\javafx-sdk-19.0.2.1\lib&quot; --add-modules javafx.controls,javafx.fxml " />

@@ -68,8 +68,8 @@
                               <Font name="System Italic" />
                            </font></TextField>
                         <Button fx:id="botonCrearVendedor" layoutX="187.0" layoutY="237.0" mnemonicParsing="false" onAction="#crearVendedorAction" text="Crear vendedor" />
-                        <Button fx:id="botonActualizarVendedor" layoutX="310.0" layoutY="237.0" mnemonicParsing="false" onAction="#actualizarVendedorAction" text="Actualizar Vendedor" />
-                       <Button fx:id="botonEliminarVender" layoutX="454.0" layoutY="237.0" mnemonicParsing="false" onAction="#eliminarVendedoronAction" text="Eliminar Vendedor" AnchorPane.bottomAnchor="212.0" AnchorPane.leftAnchor="454.0" AnchorPane.rightAnchor="188.0" AnchorPane.topAnchor="237.0" />
+                        <Button fx:id="botonActualizarVendedor" layoutX="310.0" layoutY="237.0" mnemonicParsing="false" text="Actualizar Vendedor" />
+                        <Button fx:id="botonEliminarVender" layoutX="454.0" layoutY="237.0" mnemonicParsing="false" onAction="#eliminarVendedoronAction" text="Eliminar Vendedor" AnchorPane.bottomAnchor="212.0" AnchorPane.leftAnchor="454.0" AnchorPane.rightAnchor="188.0" AnchorPane.topAnchor="237.0" />
                         <Label fx:id="labelDireccion" layoutX="44.0" layoutY="146.0" prefHeight="17.0" prefWidth="58.0" text="Dirección">
                            <font>
                               <Font name="System Bold Italic" size="12.0" />
