@@ -13,6 +13,8 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 
 public class Persistencia {
+
+
     private static final String RUTA_ARCHIVO_VENDEDORES = "C://td//persistencia//archivos//archivoVendedores.txt";
     private static final String RUTA_ARCHIVO_MODELO_MARKETPLACE_BINARIO = "C://td//persistencia//modelo.dat";
     private static final String RUTA_ARCHIVO_MODELO_MARKETPLACE_XML = "C://td//persistencia//modelo.xml";
@@ -113,6 +115,17 @@ public class Persistencia {
             vendedores.add(vendedor);
         }
         return vendedores;
+    }
+
+
+    public static void guardarObjetos(ArrayList<Vendedor> vendedores, String ruta) throws IOException  {
+        String contenido = "";
+
+        for(Vendedor vendedorAux:vendedores) {
+            contenido+= vendedorAux.getNombre()+","+vendedorAux.getApellido()+","+vendedorAux.getCedula()+vendedorAux.getDireccion()
+                    +","+vendedorAux.getCuentaDescripcion()+","+vendedorAux.getDireccion()+","+vendedorAux.getContrasenia()+"\n";
+        }
+        ArchivoUtil.guardarArchivo(ruta, contenido, true);
     }
 
 

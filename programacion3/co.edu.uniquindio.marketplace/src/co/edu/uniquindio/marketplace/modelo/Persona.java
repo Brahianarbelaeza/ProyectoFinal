@@ -15,12 +15,17 @@ public abstract class Persona implements Serializable {
     public Persona() {
     }
 
+
+
+    private String contrasenia;
+
     public Persona(String nombre, String apellido, String cedula, Cuenta cuenta) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.cuenta = cuenta;
         this.cuentaDescripcion =  cuenta.getUsuario();
+        this.contrasenia= cuenta.getContrasena();
         this.cuentaContrasena = cuenta.getContrasena();
     }
 
@@ -70,5 +75,13 @@ public abstract class Persona implements Serializable {
 
     public void setCuentaDescripcion(String cuentaDescripcion) {
         this.cuentaDescripcion = cuentaDescripcion;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 }

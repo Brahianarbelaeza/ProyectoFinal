@@ -50,7 +50,7 @@ public class Administrador extends Persona implements IAdministradorService, Ser
 
 
     //Verifico que la lista de vendedores no este vacia antes de eliminar un vendedor
-    public void eliminarVendedor(Vendedor vendedor) throws Exception {
+    public void eliminarVendedor(Vendedor vendedor) throws AdministradorException {
 
         if(!vendedores.isEmpty()){
             vendedores.remove(vendedor);
@@ -107,3 +107,5 @@ public class Administrador extends Persona implements IAdministradorService, Ser
         return null;
     }
 }
+
+

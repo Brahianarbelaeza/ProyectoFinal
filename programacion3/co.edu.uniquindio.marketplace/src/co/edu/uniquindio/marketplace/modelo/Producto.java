@@ -1,12 +1,14 @@
 package modelo;
 
+import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.io.Serializable;
 import java.util.Objects;
 
 public class Producto implements Serializable {
     private final static long serialVersionUID = 1L;
     private String nombre;
-    private String imagen;
+    private BufferedImage imagen; //Con este tipo de dato se representa la imagen en memoria
 
     private String categoria;
 
@@ -16,12 +18,20 @@ public class Producto implements Serializable {
 
     public Producto() {
     }
-    public Producto(String nombre, String imagen, String categoria, double precio, Estado estado) {
+    public Producto(String nombre, BufferedImage imagen, String categoria, double precio, Estado estado) {
         this.nombre = nombre;
         this.imagen = imagen;
         this.categoria = categoria;
         this.precio = precio;
         this.estado = estado;
+
+    }
+
+    //Metodo que devuelve un objeto Jlabel  con la imagen del producto
+    //Este metodo crea un Jlabel utilizando un ImageIcon creado mediante el objeto BufferedImage que esta asociado al producto
+    // De este modo los objetos creados a partir de la clase producto podrán mostrar sus imagenes en la interfaz grafica
+    public JLabel getEtiquetaImagen(){
+        return  new JLabel(new ImageIcon(imagen));
     }
 
     @Override
@@ -42,6 +52,9 @@ public class Producto implements Serializable {
         return equals(producto);
     }
 
+
+
+
     public String getNombre() {
         return nombre;
     }
@@ -50,11 +63,11 @@ public class Producto implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getImagen() {
+    public BufferedImage getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(BufferedImage imagen) {
         this.imagen = imagen;
     }
 
