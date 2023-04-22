@@ -2,13 +2,17 @@ package modelo;
 
 import excepciones.AdministradorException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Administrador extends Persona implements IAdministradorService {
+public class Administrador extends Persona implements IAdministradorService, Serializable {
 
     //Instancia unica de la clase
     /*private static final Administrador instanciaAdmin= new Administrador("Brahiam","Arbelaez","1234",new Cuenta("brahiana","1234")); //Quemé los datos  pero luego se le pone persistencia y se evalua si eso si se puede hacer usando un singleton*/
     private ArrayList<Vendedor> vendedores;
+    private static final long serialVersionUID = 1L;
+    public Administrador() {
+    }
 
 
     public Administrador(String nombre, String apellidos, String cedula, Cuenta cuenta) {
@@ -45,7 +49,7 @@ public class Administrador extends Persona implements IAdministradorService {
 
 
     //Verifico que la lista de vendedores no este vacia antes de eliminar un vendedor
-    public void eliminarVendedor(Vendedor vendedor) throws Exception {
+    public void eliminarVendedor(Vendedor vendedor) throws AdministradorException {
 
         if(!vendedores.isEmpty()){
             vendedores.remove(vendedor);
@@ -102,3 +106,5 @@ public class Administrador extends Persona implements IAdministradorService {
         return null;
     }
 }
+
+

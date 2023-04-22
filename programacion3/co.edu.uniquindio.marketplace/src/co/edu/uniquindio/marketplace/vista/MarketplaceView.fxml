@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -13,157 +14,173 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="604.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorMarketplaceView">
-   <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3875a6" height="70.0" layoutX="7.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="756.0" />
-      <Label layoutX="238.0" layoutY="4.0" prefHeight="70.0" prefWidth="294.0" text="  Marketplace" textOverrun="CLIP">
-         <font>
-            <Font name="Arial Italic" size="43.0" />
-         </font>
-      </Label>
-      <TabPane layoutX="7.0" layoutY="76.0" prefHeight="503.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab fx:id="tabAdministrador" text="Administrador">
-            <content>
-              <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="171.0" prefWidth="741.0">
-                     <children>
-                        <TableView fx:id="tblVendedores" layoutX="88.0" layoutY="303.0" prefHeight="171.0" prefWidth="603.0">
-                          <columns>
-                            <TableColumn fx:id="colNombreVendedor" prefWidth="119.0" text="Nombre" />
-                            <TableColumn fx:id="colApellidoVendedor" prefWidth="103.0" text="Apellido" />
-                              <TableColumn fx:id="colCedulaVendedor" minWidth="0.0" prefWidth="112.0" text="Cedula" />
-                              <TableColumn fx:id="colCuentaVendedor" prefWidth="126.0" text="Cuenta" />
-                              <TableColumn fx:id="colDireccionVendedor" minWidth="0.0" prefWidth="141.0" text="Dirección" />
-                          </columns>
-                        </TableView>
-                        <Label fx:id="labelNombre" layoutX="49.0" layoutY="39.0" text="Nombre">
-                           <font>
-                              <Font name="System Bold Italic" size="12.0" />
-                           </font></Label>
-                        <Label fx:id="labelApellido" layoutX="410.0" layoutY="39.0" text="Apellido">
-                           <font>
-                              <Font name="System Bold Italic" size="12.0" />
-                           </font></Label>
-                        <Label fx:id="labelCedula" layoutX="44.0" layoutY="95.0" prefHeight="17.0" prefWidth="58.0" text=" Cedula">
-                           <font>
-                              <Font name="System Bold Italic" size="12.0" />
-                           </font></Label>
-                        <Label fx:id="labelCuenta" layoutX="408.0" layoutY="95.0" text="Cuenta">
-                           <font>
-                              <Font name="System Bold Italic" size="12.0" />
-                           </font></Label>
-                        <TextField fx:id="campoNombre" layoutX="112.0" layoutY="35.0" promptText="Ingrese su nombre">
-                           <font>
-                              <Font name="System Italic" size="12.0" />
-                           </font></TextField>
-                        <TextField fx:id="campoCedula" layoutX="112.0" layoutY="91.0" promptText="Ingrese su cedula">
-                           <font>
-                              <Font name="System Italic" size="12.0" />
-                           </font></TextField>
-                        <TextField fx:id="campoCuenta" layoutX="479.0" layoutY="91.0" promptText="Ingrese un usuario">
-                           <font>
-                              <Font name="System Italic" size="12.0" />
-                           </font></TextField>
-                        <TextField fx:id="campoApellido" layoutX="479.0" layoutY="35.0" promptText="Ingrese su apellido">
-                           <font>
-                              <Font name="System Italic" />
-                           </font></TextField>
-                        <Button fx:id="botonCrearVendedor" layoutX="187.0" layoutY="237.0" mnemonicParsing="false" onAction="#crearVendedorAction" text="Crear vendedor" />
-                        <Button fx:id="botonActualizarVendedor" layoutX="310.0" layoutY="237.0" mnemonicParsing="false" onAction="#actualizarVendedorAction" text="Actualizar Vendedor" />
-                       <Button fx:id="botonEliminarVender" layoutX="454.0" layoutY="237.0" mnemonicParsing="false" onAction="#eliminarVendedoronAction" text="Eliminar Vendedor" AnchorPane.bottomAnchor="212.0" AnchorPane.leftAnchor="454.0" AnchorPane.rightAnchor="188.0" AnchorPane.topAnchor="237.0" />
-                        <Label fx:id="labelDireccion" layoutX="44.0" layoutY="146.0" prefHeight="17.0" prefWidth="58.0" text="Dirección">
-                           <font>
-                              <Font name="System Bold Italic" size="12.0" />
-                           </font></Label>
-                        <TextField fx:id="campoDireccion" layoutX="113.0" layoutY="142.0" prefHeight="25.0" prefWidth="219.0" promptText="Ingrese su dirección">
-                           <font>
-                              <Font name="System Italic" size="12.0" />
-                           </font></TextField>
-                        <Label fx:id="labelCuenta1" layoutX="408.0" layoutY="146.0" text="Contraseña">
-                           <font>
-                              <Font name="System Bold Italic" size="12.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="campoContrasena" layoutX="479.0" layoutY="142.0" promptText="Ingrese su contraseña">
-                           <font>
-                              <Font name="System Italic" size="12.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-<<<<<<< HEAD
-          <Tab text="Vendedor">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TabPane layoutX="14.0" layoutY="10.0" prefHeight="452.0" prefWidth="726.0" tabClosingPolicy="UNAVAILABLE">
-                          <tabs>
-                            <Tab text="Muro">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="227.0" />
-                              </content>
-                            </Tab>
-                            <Tab text="Chat">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3875a6" height="70.0" layoutX="7.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="756.0" />
+        <Label layoutX="238.0" layoutY="4.0" prefHeight="70.0" prefWidth="294.0" text="  Marketplace" textOverrun="CLIP">
+            <font>
+                <Font name="Arial Italic" size="43.0" />
+            </font>
+        </Label>
+        <TabPane layoutX="7.0" layoutY="76.0" prefHeight="503.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tabAdministrador" text="Administrador">
+                    <content>
+                        <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="171.0" prefWidth="741.0">
+                            <children>
+                                <TableView fx:id="tblVendedores" layoutX="88.0" layoutY="303.0" prefHeight="171.0" prefWidth="603.0">
+                                    <columns>
+                                        <TableColumn fx:id="colNombreVendedor" prefWidth="119.0" text="Nombre" />
+                                        <TableColumn fx:id="colApellidoVendedor" prefWidth="103.0" text="Apellido" />
+                                        <TableColumn fx:id="colCedulaVendedor" minWidth="0.0" prefWidth="112.0" text="Cedula" />
+                                        <TableColumn fx:id="colCuentaVendedor" prefWidth="126.0" text="Cuenta" />
+                                        <TableColumn fx:id="colDireccionVendedor" minWidth="0.0" prefWidth="141.0" text="Dirección" />
+                                    </columns>
+                                </TableView>
+                                <Label fx:id="labelNombre" layoutX="49.0" layoutY="39.0" text="Nombre">
+                                    <font>
+                                        <Font name="System Bold Italic" size="12.0" />
+                                    </font></Label>
+                                <Label fx:id="labelApellido" layoutX="410.0" layoutY="39.0" text="Apellido">
+                                    <font>
+                                        <Font name="System Bold Italic" size="12.0" />
+                                    </font></Label>
+                                <Label fx:id="labelCedula" layoutX="44.0" layoutY="95.0" prefHeight="17.0" prefWidth="58.0" text=" Cedula">
+                                    <font>
+                                        <Font name="System Bold Italic" size="12.0" />
+                                    </font></Label>
+                                <Label fx:id="labelCuenta" layoutX="408.0" layoutY="95.0" text="Cuenta">
+                                    <font>
+                                        <Font name="System Bold Italic" size="12.0" />
+                                    </font></Label>
+                                <TextField fx:id="campoNombre" layoutX="112.0" layoutY="35.0" promptText="Ingrese su nombre">
+                                    <font>
+                                        <Font name="System Italic" size="12.0" />
+                                    </font></TextField>
+                                <TextField fx:id="campoCedula" layoutX="112.0" layoutY="91.0" promptText="Ingrese su cedula">
+                                    <font>
+                                        <Font name="System Italic" size="12.0" />
+                                    </font></TextField>
+                                <TextField fx:id="campoCuenta" layoutX="479.0" layoutY="91.0" promptText="Ingrese un usuario">
+                                    <font>
+                                        <Font name="System Italic" size="12.0" />
+                                    </font></TextField>
+                                <TextField fx:id="campoApellido" layoutX="479.0" layoutY="35.0" promptText="Ingrese su apellido">
+                                    <font>
+                                        <Font name="System Italic" />
+                                    </font></TextField>
+                                <Button fx:id="botonCrearVendedor" layoutX="187.0" layoutY="237.0" mnemonicParsing="false" onAction="#crearVendedorAction" text="Crear vendedor" />
+                                <Button fx:id="botonActualizarVendedor" layoutX="310.0" layoutY="237.0" mnemonicParsing="false" onAction="#actualizarVendedorAction" text="Actualizar Vendedor" />
+                                <Button fx:id="botonEliminarVender" layoutX="454.0" layoutY="237.0" mnemonicParsing="false" onAction="#eliminarVendedoronAction" text="Eliminar Vendedor" AnchorPane.bottomAnchor="212.0" AnchorPane.leftAnchor="454.0" AnchorPane.rightAnchor="188.0" AnchorPane.topAnchor="237.0" />
+                                <Label fx:id="labelDireccion" layoutX="44.0" layoutY="146.0" prefHeight="17.0" prefWidth="58.0" text="Dirección">
+                                    <font>
+                                        <Font name="System Bold Italic" size="12.0" />
+                                    </font></Label>
+                                <TextField fx:id="campoDireccion" layoutX="113.0" layoutY="142.0" prefHeight="25.0" prefWidth="219.0" promptText="Ingrese su dirección">
+                                    <font>
+                                        <Font name="System Italic" size="12.0" />
+                                    </font></TextField>
+                                <Label fx:id="labelCuenta1" layoutX="408.0" layoutY="146.0" text="Contraseña">
+                                    <font>
+                                        <Font name="System Bold Italic" size="12.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="campoContrasena" layoutX="479.0" layoutY="142.0" promptText="Ingrese su contraseña">
+                                    <font>
+                                        <Font name="System Italic" size="12.0" />
+                                    </font>
+                                </TextField>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Vendedor">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane layoutX="14.0" layoutY="10.0" prefHeight="452.0" prefWidth="726.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="Muro">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="227.0">
                                        <children>
-                                          <VBox layoutX="24.0" layoutY="106.0" prefHeight="181.0" prefWidth="100.0" />
-                                       </children>
-                                    </AnchorPane>
-                              </content>
-                            </Tab>
-                          </tabs>
-                        </TabPane>
-                     </children></AnchorPane>
-=======
-          <Tab text="Untitled Tab 2">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
->>>>>>> bce2588 (Se agregan cambios de la clase Vendedor)
-            </content>
-          </Tab>
-            <Tab text="Untitled Tab">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Untitled Tab">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Untitled Tab">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Untitled Tab">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Untitled Tab">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Untitled Tab">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Untitled Tab">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Untitled Tab">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-   </children>
+                                          <TextField fx:id="campoNombreProducto" layoutX="30.0" layoutY="45.0" promptText="Nombre del producto">
+                                             <font>
+                                                <Font name="System Italic" size="12.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="campoPrecioProducto" layoutX="30.0" layoutY="79.0" promptText="Precio del producto">
+                                             <font>
+                                                <Font name="System Italic" size="12.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="campoCategoriaProducto" layoutX="30.0" layoutY="115.0" promptText="Categoria del producto">
+                                             <font>
+                                                <Font name="System Italic" size="12.0" />
+                                             </font>
+                                          </TextField>
+                                          <ComboBox fx:id="comboEstadoProducto" layoutX="29.0" layoutY="155.0" prefWidth="150.0" promptText="Estado del producto" />
+                                          <Button fx:id="botonCargarImagen" layoutX="35.0" layoutY="199.0" mnemonicParsing="false" onAction="#crearVendedorAction" prefHeight="25.0" prefWidth="138.0" text="Cargar imagen" />
+                                          <Button fx:id="botonAnadirAlCarrito" layoutX="33.0" layoutY="274.0" mnemonicParsing="false" onAction="#crearVendedorAction" prefHeight="25.0" prefWidth="139.0" text="Añadir al carrito" />
+                                          <Button fx:id="botonPublicar" layoutX="34.0" layoutY="235.0" mnemonicParsing="false" onAction="#crearVendedorAction" prefHeight="25.0" prefWidth="139.0" text="Publicar" />
+                                          <Button fx:id="botonVender" layoutX="33.0" layoutY="310.0" mnemonicParsing="false" onAction="#crearVendedorAction" prefHeight="25.0" prefWidth="140.0" text="Vender" />
+                                       </children></AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Chat">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <VBox layoutX="24.0" layoutY="106.0" prefHeight="181.0" prefWidth="100.0" />
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Untitled Tab">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab text="Untitled Tab">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab text="Untitled Tab">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab text="Untitled Tab">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab text="Untitled Tab">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab text="Untitled Tab">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab text="Untitled Tab">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab text="Untitled Tab">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
 </AnchorPane>
