@@ -9,9 +9,6 @@ public abstract class Persona implements Serializable {
     private String apellido;
     private String cedula;
     private Cuenta cuenta;
-
-    private String cuentaDescripcion;
-    private String cuentaContrasena;
     public Persona() {
     }
 
@@ -24,17 +21,6 @@ public abstract class Persona implements Serializable {
         this.apellido = apellido;
         this.cedula = cedula;
         this.cuenta = cuenta;
-        this.cuentaDescripcion =  cuenta.getUsuario();
-        this.contrasenia= cuenta.getContrasena();
-        this.cuentaContrasena = cuenta.getContrasena();
-    }
-
-    public String getCuentaContrasena() {
-        return cuentaContrasena;
-    }
-
-    public void setCuentaContrasena(String cuentaContrasena) {
-        this.cuentaContrasena = cuentaContrasena;
     }
 
     public String getNombre() {
@@ -67,21 +53,5 @@ public abstract class Persona implements Serializable {
 
     public void setCuenta(Cuenta cuenta) {
         this.cuenta = cuenta;
-    }
-
-    public String getCuentaDescripcion() {
-        return cuentaDescripcion;
-    }
-
-    public void setCuentaDescripcion(String cuentaDescripcion) {
-        this.cuentaDescripcion = cuentaDescripcion;
-    }
-
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
     }
 }

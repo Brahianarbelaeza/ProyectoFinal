@@ -1,6 +1,7 @@
 package aplicacion;
 
 import controlador.ControladorMarketplaceView;
+import controlador.ControllerLoginView;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,10 +21,27 @@ public class Aplicacion extends Application {
     public void start(Stage primaryStage)  throws Exception{
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("MarketPlace");
-        mostrarVentanaPrincipal();
+        mostrarVentanaInicio();
     }
 
-    private void mostrarVentanaPrincipal() {
+    private void mostrarVentanaInicio(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Aplicacion.class.getResource("../vista/LoginView.fxml"));
+            AnchorPane pane = loader.load();
+            ControllerLoginView loginController = loader.getController();
+            loginController.setAplicacion(this);
+            Scene scene = new Scene(pane);
+
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void mostrarVentanaPrincipal() {
         try {
 
             FXMLLoader loader = new FXMLLoader();

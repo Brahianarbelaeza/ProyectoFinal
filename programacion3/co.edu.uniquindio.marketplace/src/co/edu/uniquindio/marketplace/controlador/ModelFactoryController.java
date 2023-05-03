@@ -16,6 +16,7 @@ public class ModelFactoryController {
 
 
 
+
     private static class SingletonHolder {
         private final static ModelFactoryController INSTANCE = new ModelFactoryController();
     }
@@ -24,15 +25,15 @@ public class ModelFactoryController {
     }
     public ModelFactoryController() {
         System.out.println("invoca clase singleton");
-        // inicializarSalvarDatos();
+        //inicializarSalvarDatos();
 
         //2. Cargar los datos de los archivos
-        // cargarDatosDesdeArchivos();
+        //cargarDatosDesdeArchivos();
 
 
         //3. Guardar y Cargar el recurso serializable binario
-        // guardarResourceBinario();
-        // cargarResourceBinario();
+        //guardarResourceBinario();
+        //cargarResourceBinario();
 
 
         //4. Guardar y Cargar el recurso serializable XML
@@ -40,11 +41,25 @@ public class ModelFactoryController {
         cargarResourceXML();
         if(marketplace == null){
             respaldoXML();
-            inicializarDatos();
+            //inicializarDatos();
             guardarResourceXML();
         }
 
-        registrarAccionesSistema("Inicio de sesión del usuario Admin", 1, "inicioSesión");
+    }
+    public boolean iniciarSesion(String usuario, String contrasena) {
+        if (marketplace.getAdministrador().getCuenta().getUsuario().equals(usuario) && marketplace.getAdministrador().getCuenta().getContrasena().equals(contrasena)) {
+            registrarAccionesSistema("Inicio de sesión del usuario Admin", 1, "inicioSesión");
+            return true;
+        } else {
+            for (Vendedor vendedor : marketplace.getAdministrador().getVendedores()) {
+                if (vendedor.getCuenta().getUsuario().equals(usuario) && vendedor.getCuenta().getContrasena().equals(contrasena)) {
+                    registrarAccionesSistema("Inicio de sesión del usuario Vendedor " + vendedor.getNombre(), 1, "inicioSesión");
+                    return true;
+                }
+            }
+
+            }
+        return false;
     }
 
 
@@ -58,7 +73,7 @@ public class ModelFactoryController {
         }
     }
 
-
+    // cambiar el nombre de este metodo
     private void cargarDatosDesdeArchivos() {
         this.marketplace=new Marketplace();
         Administrador admin = crearAdministrador("Brahian", "bar@", "123", "admin", "123");
@@ -123,8 +138,8 @@ public class ModelFactoryController {
         this.marketplace = marketplace;
     }
 
-    public Administrador crearAdministrador(String nombre, String email, String password, String nombreUsuario, String contrasena) {
-        Administrador admin = new Administrador(nombre, email, password, new Cuenta(nombreUsuario, contrasena));
+    public Administrador crearAdministrador(String nombre, String apellidos, String cedula, String nombreUsuario, String contrasena) {
+        Administrador admin = new Administrador(nombre, apellidos, cedula, new Cuenta(nombreUsuario, contrasena));
 
         return admin;
     }

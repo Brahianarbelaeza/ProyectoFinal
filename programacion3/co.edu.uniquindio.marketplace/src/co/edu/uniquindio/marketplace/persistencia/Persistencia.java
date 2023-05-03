@@ -117,16 +117,4 @@ public class Persistencia {
         return vendedores;
     }
 
-
-    public static void guardarObjetos(ArrayList<Vendedor> vendedores, String ruta) throws IOException  {
-        String contenido = "";
-
-        for(Vendedor vendedorAux:vendedores) {
-            contenido+= vendedorAux.getNombre()+","+vendedorAux.getApellido()+","+vendedorAux.getCedula()+vendedorAux.getDireccion()
-                    +","+vendedorAux.getCuentaDescripcion()+","+vendedorAux.getDireccion()+","+vendedorAux.getContrasenia()+"\n";
-        }
-        ArchivoUtil.guardarArchivo(ruta, contenido, true);
-    }
-
-
 }

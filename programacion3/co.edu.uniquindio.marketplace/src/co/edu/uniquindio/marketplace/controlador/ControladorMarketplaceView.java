@@ -116,7 +116,7 @@ public class ControladorMarketplaceView {
         this.colApellidoVendedor.setCellValueFactory(new PropertyValueFactory<>("apellido"));
         this.colCedulaVendedor.setCellValueFactory(new PropertyValueFactory<>("cedula"));
         this.colDireccionVendedor.setCellValueFactory(new PropertyValueFactory<>("direccion"));
-        this.colCuentaVendedor.setCellValueFactory(new PropertyValueFactory<>("cuentaDescripcion"));
+        this.colCuentaVendedor.setCellValueFactory(new PropertyValueFactory<>("cuenta"));
 
         tblVendedores.getItems().clear();
         tblVendedores.setItems(getListaVendedoresData());
