@@ -10,6 +10,8 @@ public class Administrador extends Persona implements Serializable {
     //Instancia unica de la clase
     /*private static final Administrador instanciaAdmin= new Administrador("Brahiam","Arbelaez","1234",new Cuenta("brahiana","1234")); //Quemé los datos  pero luego se le pone persistencia y se evalua si eso si se puede hacer usando un singleton*/
     private ArrayList<Vendedor> vendedores;
+
+    Vendedor vendedor;
     private static final long serialVersionUID = 1L;
     public Administrador() {
     }
@@ -104,6 +106,14 @@ public class Administrador extends Persona implements Serializable {
             }
         }
         return null;
+    }
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
     }
 }
 

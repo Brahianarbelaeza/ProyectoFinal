@@ -15,6 +15,7 @@ public class ControllerLoginView{
     ModelFactoryController modelFactoryController;
     ControladorMarketplaceView controladorMarketplaceView;
 
+
     @FXML
     void initialize () {
         modelFactoryController = ModelFactoryController.getInstance();

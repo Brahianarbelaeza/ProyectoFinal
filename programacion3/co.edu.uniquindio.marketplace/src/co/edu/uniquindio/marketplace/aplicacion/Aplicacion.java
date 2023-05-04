@@ -2,10 +2,12 @@ package aplicacion;
 
 import controlador.ControladorMarketplaceView;
 import controlador.ControllerLoginView;
+import controlador.ControllerVendedorView;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,6 +33,23 @@ public class Aplicacion extends Application {
             AnchorPane pane = loader.load();
             ControllerLoginView loginController = loader.getController();
             loginController.setAplicacion(this);
+            Scene scene = new Scene(pane);
+
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void mostrarVentanaProductos(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Aplicacion.class.getResource("../vista/VendedorView.fxml"));
+            Pane pane = loader.load();
+            ControllerVendedorView vendedorController = loader.getController();
+            vendedorController.setAplicacion(this);
             Scene scene = new Scene(pane);
 
             primaryStage.setScene(scene);

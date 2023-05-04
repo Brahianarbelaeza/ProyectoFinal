@@ -1,10 +1,7 @@
 package controlador;
 
 import excepciones.AdministradorException;
-import modelo.Administrador;
-import modelo.Cuenta;
-import modelo.Marketplace;
-import modelo.Vendedor;
+import modelo.*;
 import persistencia.Persistencia;
 
 import java.io.FileNotFoundException;
@@ -158,6 +155,7 @@ public class ModelFactoryController {
         return vendedor;
     }
 
+
     //Es la misma logica de crear solo que se le envía la cc anterior
     public Vendedor actualizarVendedor(Vendedor vendedor, String cedulaAnterior) {
         marketplace.getAdministrador().actualizarVendedor(vendedor,cedulaAnterior);
@@ -179,7 +177,48 @@ public class ModelFactoryController {
 
     }
 
+    public Producto publicarProducto(Producto producto) {
+
+        try {
+            producto= marketplace.getAdministrador().getVendedor().crearProducto(producto);
+            if (producto !=  null) {
+                registrarAccionesSistema("Producto creado con codigo " + producto.getCodigo(), 1, "Crear vendedor");
+                guardarResourceXML();
+                respaldoXML();
+            }
+        } catch (AdministradorException e) {
+            throw new RuntimeException("Error al crear el producto"+e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return producto;
+    }
+
+    //Es la misma logica de crear solo que se le envía la cc anterior
+    public Producto actualizarProducto(Producto producto, String idAnterior) {
+        marketplace.getAdministrador().getVendedor().actualizarProducto(producto,idAnterior);
+        guardarResourceXML();
+        registrarAccionesSistema("Producto actualizado con cedula "+producto.getCodigo(),1 , "Actualizar vendedor");
+        return producto;
+    }
+
+    public boolean eliminarProducto (String codigo) {
+        Producto producto = marketplace.getAdministrador().getVendedor().buscarProducto(codigo);
+        registrarAccionesSistema("Producto eliminado con codigo " + producto.getCodigo(), 2, "Eliminar producto");
+        try {
+            marketplace.getAdministrador().getVendedor().eliminarProducto(producto);
+            guardarResourceXML();
+            return true;
+        } catch (Exception e) {
+            throw new RuntimeException("Error al eliminar al vendedor" + e);
+        }
+    }
+
     public ArrayList<Vendedor> obtenerVendedores() {
         return getMarketplace().getAdministrador().getVendedores();
+    }
+
+    public ArrayList<Producto> obtenerProductos() {
+        return getMarketplace().getAdministrador().getVendedor().getListaProductos();
     }
 }

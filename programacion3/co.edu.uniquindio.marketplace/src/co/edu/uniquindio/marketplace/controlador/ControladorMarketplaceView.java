@@ -19,6 +19,15 @@ public class ControladorMarketplaceView {
     Vendedor vendedorSeleccionado;
     ObservableList<Vendedor> listaVendedoresData = FXCollections.observableArrayList();
 
+    @FXML
+    private Button botonGestionarProductos;
+
+    @FXML
+    private Button botonChatear;
+
+    @FXML
+    private Button botonVerMiMuro;
+
 
     @FXML
     private Button botonActualizarVendedor;
@@ -40,31 +49,10 @@ public class ControladorMarketplaceView {
 
     @FXML
     private TextField campoDireccion;
-
     @FXML
     private TextField campoNombre;
     @FXML
     private TextField campoContrasena;
-
-    @FXML
-    private TextField campoNombreProducto;
-
-    @FXML
-    private TextField campoPrecioProducto;
-
-    @FXML
-    private TextField campoCategoriaProducto;
-    @FXML
-    private ComboBox<?> comboEstadoProducto;
-    @FXML
-    private Button botonCargarImagen;
-    @FXML
-    private Button botonPublicar;
-    @FXML
-    private Button botonAnadirAlCarrito;
-    @FXML
-    private Button botonVender;
-
 
     @FXML
     private TableColumn<Vendedor, String> colApellidoVendedor;
@@ -201,13 +189,13 @@ public class ControladorMarketplaceView {
                     tblVendedores.getSelectionModel().clearSelection();
                     limpiarCamposVendedor();
 
-                    mostrarMensaje("Notificación empleado", "Empleado eliminado", "El empleado se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+                    mostrarMensaje("Notificación vendedor", "Vendedor eliminado", "El vendedor se ha eliminado con éxito", Alert.AlertType.INFORMATION);
                 }else{
-                    mostrarMensaje("Notificación empleado", "Empleado no eliminado", "El empleado no se puede eliminar", Alert.AlertType.ERROR);
+                    mostrarMensaje("Notificación vendedor", "Vendedor no eliminado", "El vendedor no se puede eliminar", Alert.AlertType.ERROR);
                 }
             }
         }else{
-            mostrarMensaje("Notificación empleado", "Empleado no seleccionado", "Seleccionado un empleado de la lista", Alert.AlertType.WARNING);
+            mostrarMensaje("Notificación vendedor", "Vendedor no seleccionado", "Seleccionado un vendedor de la lista", Alert.AlertType.WARNING);
         }
 
     }
@@ -254,6 +242,24 @@ public class ControladorMarketplaceView {
     @FXML
     void eliminarVendedoronAction(ActionEvent event) {
         eliminarVendedor();
+    }
+
+
+    @FXML
+    void gestionarProductosAction(ActionEvent event) {
+
+        aplicacion.mostrarVentanaProductos();
+
+    }
+
+    @FXML
+    void chatearAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void verMiMuroAction(ActionEvent event) {
+
     }
 
 

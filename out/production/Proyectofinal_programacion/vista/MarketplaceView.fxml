@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -9,7 +8,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -96,48 +94,12 @@
                 <Tab text="Vendedor">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <TabPane layoutX="14.0" layoutY="10.0" prefHeight="452.0" prefWidth="726.0" tabClosingPolicy="UNAVAILABLE">
-                                    <tabs>
-                                        <Tab text="Muro">
-                                            <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="227.0">
-                                       <children>
-                                          <TextField fx:id="campoNombreProducto" layoutX="30.0" layoutY="45.0" promptText="Nombre del producto">
-                                             <font>
-                                                <Font name="System Italic" size="12.0" />
-                                             </font>
-                                          </TextField>
-                                          <TextField fx:id="campoPrecioProducto" layoutX="30.0" layoutY="79.0" promptText="Precio del producto">
-                                             <font>
-                                                <Font name="System Italic" size="12.0" />
-                                             </font>
-                                          </TextField>
-                                          <TextField fx:id="campoCategoriaProducto" layoutX="30.0" layoutY="115.0" promptText="Categoria del producto">
-                                             <font>
-                                                <Font name="System Italic" size="12.0" />
-                                             </font>
-                                          </TextField>
-                                          <ComboBox fx:id="comboEstadoProducto" layoutX="29.0" layoutY="155.0" prefWidth="150.0" promptText="Estado del producto" />
-                                          <Button fx:id="botonCargarImagen" layoutX="35.0" layoutY="199.0" mnemonicParsing="false" onAction="#crearVendedorAction" prefHeight="25.0" prefWidth="138.0" text="Cargar imagen" />
-                                          <Button fx:id="botonAnadirAlCarrito" layoutX="33.0" layoutY="274.0" mnemonicParsing="false" onAction="#crearVendedorAction" prefHeight="25.0" prefWidth="139.0" text="Añadir al carrito" />
-                                          <Button fx:id="botonPublicar" layoutX="34.0" layoutY="235.0" mnemonicParsing="false" onAction="#crearVendedorAction" prefHeight="25.0" prefWidth="139.0" text="Publicar" />
-                                          <Button fx:id="botonVender" layoutX="33.0" layoutY="310.0" mnemonicParsing="false" onAction="#crearVendedorAction" prefHeight="25.0" prefWidth="140.0" text="Vender" />
-                                       </children></AnchorPane>
-                                            </content>
-                                        </Tab>
-                                        <Tab text="Chat">
-                                            <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                                    <children>
-                                                        <VBox layoutX="24.0" layoutY="106.0" prefHeight="181.0" prefWidth="100.0" />
-                                                    </children>
-                                                </AnchorPane>
-                                            </content>
-                                        </Tab>
-                                    </tabs>
-                                </TabPane>
-                            </children></AnchorPane>
+                     <children>
+                        <Button fx:id="botonGestionarProductos" layoutX="321.0" layoutY="122.0" mnemonicParsing="false" onAction="#gestionarProductosAction" text="Gestiónar productos" />
+                        <Label layoutX="305.0" layoutY="47.0" text="¡Hola! ¿Que deseas hacer hoy?" />
+                        <Button fx:id="botonVerMiMuro" layoutX="342.0" layoutY="191.0" mnemonicParsing="false" onAction="#verMiMuroAction" text="Ver mi muro" />
+                        <Button fx:id="botonChatear" layoutX="350.0" layoutY="261.0" mnemonicParsing="false" onAction="#chatearAction" text="Chatear" />
+                     </children></AnchorPane>
                     </content>
                 </Tab>
                 <Tab text="Untitled Tab">

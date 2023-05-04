@@ -24,7 +24,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
 
 
 
-    public void crearProducto (Producto producto) throws Exception{
+    public Producto crearProducto (Producto producto) throws Exception{
         boolean flag = false;
             for (int i = 0; i < listaProductos.size(); i++) {
                 if (producto.compararProducto(listaProductos.get(i))) {
@@ -39,6 +39,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
             } else {
                 throw new Exception("Este producto" + producto.getNombre() + "ya se guardo");
             }
+            return producto;
 
         }
 
@@ -46,12 +47,29 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
     public void eliminarProducto(Producto producto) {
 
         if (!listaProductos.isEmpty()) listaProductos.remove(producto);
-        else System.out.println("No hay productos para eliminar, aun no has publicado productos");
+        else System.out.println("No hay productos para eliminar, aún no has publicado productos");
 
     }
-    public void actualizarProducto(Producto productoSelected, Producto productoNuevo){
-       listaProductos.remove(productoSelected);
-         listaProductos.add(productoNuevo);
+
+    public void actualizarProducto(Producto producto, String idAnterior){
+        for (int i = 0; i < listaProductos.size(); i++) {
+            Producto producto1 = listaProductos.get(i);
+            if(producto1.getCodigo().equals(idAnterior)){
+                listaProductos.set(i, producto);
+            }
+        }
+
+
+    }
+
+
+    public Producto buscarProducto(String codigo) {
+        for (Producto producto:listaProductos) {
+            if (producto.getCodigo().equals(codigo)) {
+                return producto;
+            }
+        }
+        return null;
     }
 
     public void agregarVendedorAliado(Solitud solicitud) {

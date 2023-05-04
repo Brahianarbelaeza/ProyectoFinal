@@ -1,14 +1,15 @@
 package modelo;
 
 import javax.swing.*;
-import java.awt.image.BufferedImage;
 import java.io.Serializable;
 import java.util.Objects;
 
 public class Producto implements Serializable {
     private final static long serialVersionUID = 1L;
+
+    private String codigo;
     private String nombre;
-    private BufferedImage imagen; //Con este tipo de dato se representa la imagen en memoria
+    private String rutaImagen;
 
     private String categoria;
 
@@ -18,9 +19,10 @@ public class Producto implements Serializable {
 
     public Producto() {
     }
-    public Producto(String nombre, BufferedImage imagen, String categoria, double precio, Estado estado) {
+    public Producto(String codigo, String nombre, String rutaImagen, String categoria, double precio, Estado estado) {
+        this.codigo = codigo;
         this.nombre = nombre;
-        this.imagen = imagen;
+        this.rutaImagen = rutaImagen;
         this.categoria = categoria;
         this.precio = precio;
         this.estado = estado;
@@ -31,7 +33,7 @@ public class Producto implements Serializable {
     //Este metodo crea un Jlabel utilizando un ImageIcon creado mediante el objeto BufferedImage que esta asociado al producto
     // De este modo los objetos creados a partir de la clase producto podrán mostrar sus imagenes en la interfaz grafica
     public JLabel getEtiquetaImagen(){
-        return  new JLabel(new ImageIcon(imagen));
+        return  new JLabel(new ImageIcon(rutaImagen));
     }
 
     @Override
@@ -52,8 +54,13 @@ public class Producto implements Serializable {
         return equals(producto);
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
 
-
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
 
     public String getNombre() {
         return nombre;
@@ -63,12 +70,12 @@ public class Producto implements Serializable {
         this.nombre = nombre;
     }
 
-    public BufferedImage getImagen() {
-        return imagen;
+    public String getRutaImagen() {
+        return rutaImagen;
     }
 
-    public void setImagen(BufferedImage imagen) {
-        this.imagen = imagen;
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
     }
 
     public String getCategoria() {

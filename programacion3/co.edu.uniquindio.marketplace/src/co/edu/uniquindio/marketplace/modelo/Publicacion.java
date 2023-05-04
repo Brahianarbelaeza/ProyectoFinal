@@ -1,6 +1,5 @@
 package modelo;
 
-import java.awt.image.BufferedImage;
 import java.util.Date;
 
 public class Publicacion {
@@ -19,13 +18,13 @@ public class Publicacion {
     private String ubicacionVendedor = publicador.getDireccion();
     private Producto producto;
     private String nombreProducto = producto.getNombre();
-    private BufferedImage imagenDelProducto = producto.getImagen();
+    private String rutaImagenDelProducto = producto.getRutaImagen();
     private String categoriaProducto = producto.getCategoria();
     private double precioProductoi = producto.getPrecio();
     private Estado estadoProducto = producto.getEstado();
 
 
-    public Publicacion(String nombrePublicacion, int id, String descripcion, String[] metodosDePago, String[] medioDeEnvio, Date fehcaPublicacio, String nombreVendedor, String apellidoVendedor, String ubicacionVendedor, String nombreProducto, BufferedImage imagenDelProducto, String categoriaProducto, double precioProductoi, Estado estadoProducto) {
+    public Publicacion(String nombrePublicacion, int id, String descripcion, String[] metodosDePago, String[] medioDeEnvio, Date fehcaPublicacio, String nombreVendedor, String apellidoVendedor, String ubicacionVendedor, String nombreProducto, String rutaImagenDelProducto, String categoriaProducto, double precioProductoi, Estado estadoProducto) {
         this.nombrePublicacion = nombrePublicacion;
         this.id = id;
         this.descripcion = descripcion;
@@ -36,7 +35,7 @@ public class Publicacion {
         this.apellidoVendedor = apellidoVendedor;
         this.ubicacionVendedor = ubicacionVendedor;
         this.nombreProducto = nombreProducto;
-        this.imagenDelProducto = imagenDelProducto;
+        this.rutaImagenDelProducto = rutaImagenDelProducto;
         this.categoriaProducto = categoriaProducto;
         this.precioProductoi = precioProductoi;
         this.estadoProducto = estadoProducto;
@@ -138,12 +137,12 @@ public class Publicacion {
         this.nombreProducto = nombreProducto;
     }
 
-    public BufferedImage getImagenDelProducto() {
-        return imagenDelProducto;
+    public String getRutaImagenDelProducto() {
+        return rutaImagenDelProducto;
     }
 
-    public void setImagenDelProducto(BufferedImage imagenDelProducto) {
-        this.imagenDelProducto = imagenDelProducto;
+    public void setRutaImagenDelProducto(String rutaImagenDelProducto) {
+        this.rutaImagenDelProducto = rutaImagenDelProducto;
     }
 
     public String getCategoriaProducto() {
