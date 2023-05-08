@@ -42,24 +42,6 @@ public class Aplicacion extends Application {
         }
 
     }
-
-   /* public void mostrarVentanaProductos(){
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Aplicacion.class.getResource("../vista/VendedorView.fxml"));
-            Pane pane = loader.load();
-            ControllerVendedorView vendedorController = loader.getController();
-            vendedorController.setAplicacion(this);
-            Scene scene = new Scene(pane);
-
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }*/
-
     public void mostrarVentanaPrincipal() {
         try {
 

@@ -11,7 +11,6 @@ import modelo.Estado;
 import modelo.Producto;
 import modelo.Vendedor;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
 
@@ -606,6 +605,35 @@ public class ControladorMarketplaceView {
     private TabPane tabPrincipal;
 
 
+    private boolean datosValidos(String nombre, String apellido, String cedula,  String direccion, String cuenta, String contrasena) {
+
+        String mensaje = "";
+
+
+        if(nombre == null || nombre.equals(""))
+            mensaje += "El nombre es invalido \n" ;
+
+        if(apellido == null || apellido.equals(""))
+            mensaje += "El apellido es invalido \n" ;
+
+        if(cedula == null || cedula.equals(""))
+            mensaje += "El documento es invalido \n" ;
+
+        if(direccion == null || direccion.equals(""))
+            mensaje += "La direccion es invalida \n" ;
+        if(cuenta == null || cuenta.equals(""))
+            mensaje += "La direccion es invalida \n" ;
+        if(contrasena == null || contrasena.equals(""))
+            mensaje += "La direccion es invalida \n" ;
+
+
+        if(mensaje.equals("")){
+            return true;
+        }else{
+            mostrarMensaje("Notificación cliente","Datos invalidos",mensaje, Alert.AlertType.WARNING);
+            return false;
+        }
+    }
 
     private void publicarProducto(){
         String codigo = campoCodigoProducto.getText();
@@ -710,7 +738,10 @@ public class ControladorMarketplaceView {
 
     }
 
-
+    public ObservableList<Vendedor> getListaVendedoresData() {
+        listaVendedoresData.addAll(controllerAdminView.obtenerVendedores());
+        return listaVendedoresData;
+    }
 
 
     private void limpiarCamposVendedor() {
@@ -744,11 +775,6 @@ public class ControladorMarketplaceView {
         } else {
             return false;
         }
-    }
-
-    void refresh(){
-        tablaProductos.getItems().clear();
-        tablaProductos.setItems(getListaProductosVis());
     }
 
     private boolean datosValidosProducto(String codigo,String nombreProducto, String rutaImagen, String categoria,  double precio, String estadoProducto) {
@@ -925,6 +951,8 @@ public class ControladorMarketplaceView {
     void refresh(){
         tblVendedores.getItems().clear();
         tblVendedores.setItems(getListaVendedoresData());
+        tablaProductos.getItems().clear();
+        tablaProductos.setItems(getListaProductosVis());
     }
 
 
@@ -970,59 +998,5 @@ public class ControladorMarketplaceView {
 
     @FXML
     void gestionarProductosAction(ActionEvent event) {
-
-        aplicacion.mostrarVentanaPrincipal();
-
-    private boolean mostrarMensajeConfirmacion(String mensaje) {
-
-
-
-
-
-    private boolean datosValidos(String nombre, String apellido, String cedula,  String direccion, String cuenta, String contrasena) {
-
-        String mensaje = "";
-
-
-        if(nombre == null || nombre.equals(""))
-            mensaje += "El nombre es invalido \n" ;
-
-        if(apellido == null || apellido.equals(""))
-            mensaje += "El apellido es invalido \n" ;
-
-        if(cedula == null || cedula.equals(""))
-            mensaje += "El documento es invalido \n" ;
-
-        if(direccion == null || direccion.equals(""))
-            mensaje += "La direccion es invalida \n" ;
-        if(cuenta == null || cuenta.equals(""))
-            mensaje += "La direccion es invalida \n" ;
-        if(contrasena == null || contrasena.equals(""))
-            mensaje += "La direccion es invalida \n" ;
-
-
-        if(mensaje.equals("")){
-            return true;
-        }else{
-            mostrarMensaje("Notificación cliente","Datos invalidos",mensaje, Alert.AlertType.WARNING);
-            return false;
-        }
+        aplicacion.mostrarVentanaPrincipal();}
     }
-    private void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
-
-        Alert aler = new Alert(alertType);
-        aler.setTitle(titulo);
-        aler.setHeaderText(header);
-        aler.setContentText(contenido);
-        aler.showAndWait();
-    }
-    public void setAplicacion(Aplicacion aplicacion) {
-        this.aplicacion = aplicacion;
-    }
-
-    public ObservableList<Vendedor> getListaVendedoresData() {
-        listaVendedoresData.addAll(controllerAdminView.obtenerVendedores());
-        return listaVendedoresData;
-    }
-
-}
