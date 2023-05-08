@@ -47,6 +47,7 @@ public class ModelFactoryController {
         }
 
     }
+    // Validar que el usuario y la contraseña sean correctos.
     public int iniciarSesion(String usuario, String contrasena) {
         if (marketplace.getAdministrador().getCuenta().getUsuario().equals(usuario) && marketplace.getAdministrador().getCuenta().getContrasena().equals(contrasena)) {
             registrarAccionesSistema("Inicio de sesión del usuario Admin", 1, "inicioSesión");
