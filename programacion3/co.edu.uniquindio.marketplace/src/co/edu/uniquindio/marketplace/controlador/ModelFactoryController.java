@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class ModelFactoryController {
     Marketplace marketplace;
+    int sesion;
 
 
 
@@ -46,20 +47,22 @@ public class ModelFactoryController {
         }
 
     }
-    public boolean iniciarSesion(String usuario, String contrasena) {
+    public int iniciarSesion(String usuario, String contrasena) {
         if (marketplace.getAdministrador().getCuenta().getUsuario().equals(usuario) && marketplace.getAdministrador().getCuenta().getContrasena().equals(contrasena)) {
             registrarAccionesSistema("Inicio de sesión del usuario Admin", 1, "inicioSesión");
-            return true;
+            sesion = 0;
+            return sesion;
         } else {
             for (Vendedor vendedor : marketplace.getAdministrador().getVendedores()) {
                 if (vendedor.getCuenta().getUsuario().equals(usuario) && vendedor.getCuenta().getContrasena().equals(contrasena)) {
                     registrarAccionesSistema("Inicio de sesión del usuario Vendedor " + vendedor.getNombre(), 1, "inicioSesión");
-                    return true;
+                    sesion = marketplace.getAdministrador().getVendedores().indexOf(vendedor) + 1;
+                    return sesion;
                 }
             }
 
             }
-        return false;
+        return -1;
     }
 
 
@@ -149,20 +152,29 @@ public class ModelFactoryController {
             vendedor= marketplace.getAdministrador().crearVendedor(vendedor);
             if (vendedor !=  null) {
                 registrarAccionesSistema("Vendedor creado con cedula " + vendedor.getCedula(), 1, "Crear vendedor");
+                Persistencia.guardarVendedores(marketplace.getAdministrador().getVendedores());
                 guardarResourceXML();
                 respaldoXML();
             }
         } catch (AdministradorException e) {
             throw new RuntimeException("Error al crear al vendedor"+e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
         return vendedor;
     }
 
     //Es la misma logica de crear solo que se le envía la cc anterior
     public Vendedor actualizarVendedor(Vendedor vendedor, String cedulaAnterior) {
+
         marketplace.getAdministrador().actualizarVendedor(vendedor,cedulaAnterior);
         guardarResourceXML();
         registrarAccionesSistema("Vendedor actualizado con cedula "+vendedor.getCedula(),1 , "Actualizar vendedor");
+        try {
+            Persistencia.guardarVendedores(marketplace.getAdministrador().getVendedores());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         return vendedor;
     }
 
@@ -172,6 +184,8 @@ public class ModelFactoryController {
         try {
             marketplace.getAdministrador().eliminarVendedor(vendedor);
             guardarResourceXML();
+            Persistencia.guardarVendedores(marketplace.getAdministrador().getVendedores());
+            respaldoXML();
             return true;
         } catch (Exception e) {
             throw new RuntimeException("Error al eliminar al vendedor"+e);
@@ -181,5 +195,13 @@ public class ModelFactoryController {
 
     public ArrayList<Vendedor> obtenerVendedores() {
         return getMarketplace().getAdministrador().getVendedores();
+    }
+
+    public int getSesion() {
+        return sesion;
+    }
+
+    public void setSesion(int sesion) {
+        this.sesion = sesion;
     }
 }

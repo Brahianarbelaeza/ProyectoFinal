@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.Vendedor;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 
@@ -18,6 +19,7 @@ public class ControladorMarketplaceView {
     ControllerAdminView controllerAdminView;
     Vendedor vendedorSeleccionado;
     ObservableList<Vendedor> listaVendedoresData = FXCollections.observableArrayList();
+    ControllerLoginView controllerLoginView;
 
 
     @FXML
@@ -46,25 +48,6 @@ public class ControladorMarketplaceView {
     @FXML
     private TextField campoContrasena;
 
-    @FXML
-    private TextField campoNombreProducto;
-
-    @FXML
-    private TextField campoPrecioProducto;
-
-    @FXML
-    private TextField campoCategoriaProducto;
-    @FXML
-    private ComboBox<?> comboEstadoProducto;
-    @FXML
-    private Button botonCargarImagen;
-    @FXML
-    private Button botonPublicar;
-    @FXML
-    private Button botonAnadirAlCarrito;
-    @FXML
-    private Button botonVender;
-
 
     @FXML
     private TableColumn<Vendedor, String> colApellidoVendedor;
@@ -82,25 +65,14 @@ public class ControladorMarketplaceView {
     private TableColumn<Vendedor, String > colNombreVendedor;
 
     @FXML
-    private Label labelApellido;
-
-    @FXML
-    private Label labelCedula;
-
-    @FXML
-    private Label labelCuenta;
-
-    @FXML
-    private Label labelDireccion;
-
-    @FXML
-    private Label labelNombre;
-
-    @FXML
     private Tab tabAdministrador;
 
     @FXML
     private TableView<Vendedor> tblVendedores;
+
+    @FXML
+    private TabPane tabPrincipal;
+
 
 
     @FXML
@@ -108,7 +80,17 @@ public class ControladorMarketplaceView {
         modelFactoryController = ModelFactoryController.getInstance();
         controllerAdminView = new ControllerAdminView(modelFactoryController);
         inicialzarAdminView();
+        // metodo para deshabilitar los tabs y dejar solo el de inicio de sesion
+        for (int i = 0; i < tabPrincipal.getTabs().size(); i++) {
+            Tab tab = tabPrincipal.getTabs().get(i);
+            if ((tabPrincipal.getTabs().indexOf(tab) == (modelFactoryController.getSesion()))) {
+                tabPrincipal.getSelectionModel().select(i);
+                tab.setDisable(false);
+            } else {
+                tab.setDisable(true);
+            }
 
+        }
     }
     public void inicialzarAdminView(){
         //1. Inicializar la tabla

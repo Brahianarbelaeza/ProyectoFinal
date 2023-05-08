@@ -10,15 +10,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="618.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorMarketplaceView">
+<AnchorPane prefHeight="691.0" prefWidth="1364.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorMarketplaceView">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" height="78.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="815.0">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="78.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="1364.0">
          <fill>
             <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0">
                <stops>
@@ -35,17 +36,12 @@
                </stops>
             </LinearGradient>
          </fill></Rectangle>
-        <Label layoutX="217.0" layoutY="4.0" prefHeight="78.0" prefWidth="335.0" text="  Marketplace" textAlignment="CENTER" textFill="#f8f8ff" textOverrun="CLIP">
+        <Label layoutX="515.0" layoutY="4.0" prefHeight="78.0" prefWidth="335.0" text="  Marketplace" textAlignment="CENTER" textFill="#f8f8ff" textOverrun="CLIP">
             <font>
                 <Font name="Copperplate Gothic Light" size="43.0" />
             </font>
         </Label>
-      <ImageView fitHeight="78.0" fitWidth="96.0" layoutX="552.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/store-ga564a907d_1280.png" />
-         </image>
-      </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="536.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" width="815.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="609.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" width="1364.0">
          <fill>
             <LinearGradient endX="0.5071090047393365" endY="0.7156398104265402">
                <stops>
@@ -63,11 +59,11 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <TabPane layoutY="82.0" prefHeight="525.0" prefWidth="815.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabPrincipal" layoutY="84.0" prefHeight="609.0" prefWidth="1364.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab fx:id="tabAdministrador" text="Administrador">
                <content>
-                  <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="493.0" prefWidth="775.0">
+                  <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="598.0" prefWidth="1121.0">
                      <children>
                         <TableView fx:id="tblVendedores" layoutX="88.0" layoutY="303.0" prefHeight="171.0" prefWidth="603.0">
                            <columns>
@@ -120,7 +116,7 @@
                         </TextField>
                         <Button fx:id="botonCrearVendedor" layoutX="187.0" layoutY="237.0" mnemonicParsing="false" onAction="#crearVendedorAction" text="Crear vendedor" />
                         <Button fx:id="botonActualizarVendedor" layoutX="310.0" layoutY="237.0" mnemonicParsing="false" onAction="#actualizarVendedorAction" text="Actualizar Vendedor" />
-                        <Button fx:id="botonEliminarVender" layoutX="454.0" layoutY="237.0" mnemonicParsing="false" onAction="#eliminarVendedoronAction" prefHeight="24.0" prefWidth="173.0" text="Eliminar Vendedor" AnchorPane.bottomAnchor="235.0" AnchorPane.leftAnchor="454.0" AnchorPane.rightAnchor="188.0" AnchorPane.topAnchor="237.0" />
+                        <Button fx:id="botonEliminarVender" layoutX="454.0" layoutY="237.0" mnemonicParsing="false" onAction="#eliminarVendedoronAction" prefHeight="28.0" prefWidth="214.0" text="Eliminar Vendedor" AnchorPane.bottomAnchor="315.0" AnchorPane.leftAnchor="454.0" AnchorPane.rightAnchor="696.0" AnchorPane.topAnchor="237.0" />
                         <Label fx:id="labelDireccion" layoutX="44.0" layoutY="146.0" prefHeight="17.0" prefWidth="58.0" text="Dirección">
                            <font>
                               <Font name="System Bold Italic" size="12.0" />
@@ -131,7 +127,7 @@
                               <Font name="System Italic" size="12.0" />
                            </font>
                         </TextField>
-                        <Label fx:id="labelCuenta1" layoutX="408.0" layoutY="146.0" text="Contraseña">
+                        <Label fx:id="labelContrasena" layoutX="408.0" layoutY="146.0" text="Contraseña">
                            <font>
                               <Font name="System Bold Italic" size="12.0" />
                            </font>
@@ -145,52 +141,42 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Vendedor">
+            <Tab text="Vendedor 1">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="335.0" layoutY="14.0" prefHeight="48.0" prefWidth="100.0" text="Perfil">
+                           <font>
+                              <Font name="Copperplate Gothic Light" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="21.0" layoutY="62.0" prefHeight="39.0" prefWidth="237.0" text="Información Personal :">
+                           <font>
+                              <Font name="Copperplate Gothic Light" size="18.0" />
+                           </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="6.0" layoutX="21.0" layoutY="98.0" stroke="BLACK" strokeType="INSIDE" width="235.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="5.0" layoutX="21.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="118.0" />
+                        <Label alignment="CENTER" layoutX="21.0" layoutY="229.0" prefHeight="39.0" prefWidth="118.0" text="opciones : ">
+                           <font>
+                              <Font name="Copperplate Gothic Light" size="18.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="285.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" visible="false" />
+                     </children></AnchorPane>
                </content>
             </Tab>
-            <Tab text="Untitled Tab">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Untitled Tab">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Untitled Tab">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Untitled Tab">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Untitled Tab">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Untitled Tab">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Untitled Tab">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Untitled Tab">
+            <Tab text="Vendedor 2">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
          </tabs>
       </TabPane>
+      <ImageView fitHeight="78.0" fitWidth="96.0" layoutX="863.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/store-ga564a907d_1280.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
