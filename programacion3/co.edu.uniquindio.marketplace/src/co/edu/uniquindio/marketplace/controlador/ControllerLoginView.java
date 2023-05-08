@@ -13,14 +13,15 @@ public class ControllerLoginView{
 
     Aplicacion aplicacion;
     ModelFactoryController modelFactoryController;
-    ControladorMarketplaceView controladorMarketplaceView;
-
-
+    int sesion;
     @FXML
     void initialize () {
         modelFactoryController = ModelFactoryController.getInstance();
     }
 
+    public int getSesion() {
+        return sesion;
+    }
 
 
     @FXML
@@ -36,13 +37,15 @@ public class ControllerLoginView{
     void iniciarSesion(ActionEvent event) {
         String usuario = txtLoginUsuario.getText();
         String contrasena = txtLoginContrasena.getText();
-        if (modelFactoryController.iniciarSesion(usuario, contrasena)) {
+        sesion = modelFactoryController.iniciarSesion(usuario, contrasena);
+        if (sesion != -1) {
             aplicacion.mostrarVentanaPrincipal();
         }else {
             mostrarMensaje("Notificación", "Datos incorrectos", "El usuario o la contraseña son incorrectos, verifica e intenta nuevamente", Alert.AlertType.WARNING );
             txtLoginUsuario.setText("");
             txtLoginContrasena.setText("");
         }
+        System.out.println(sesion);
 
     }
     private void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {

@@ -11,6 +11,7 @@ import modelo.Estado;
 import modelo.Producto;
 import modelo.Vendedor;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 
@@ -21,6 +22,7 @@ public class ControladorMarketplaceView {
     Vendedor vendedorSeleccionado;
     Producto productoSeleccionado=new Producto();
     ObservableList<Vendedor> listaVendedoresData = FXCollections.observableArrayList();
+    ControllerLoginView controllerLoginView;
 
     ObservableList<Producto> listaProductosVis = FXCollections.observableArrayList();
 
@@ -322,19 +324,19 @@ public class ControladorMarketplaceView {
     private TextField campoUrlImagen9;
 
     @FXML
-    private TableColumn<Vendedor,String> colApellidoVendedor;
+    private TableColumn<Vendedor, String> colApellidoVendedor;
 
     @FXML
-    private TableColumn<Vendedor,String> colCedulaVendedor;
+    private TableColumn<Vendedor, String> colCedulaVendedor;
 
     @FXML
-    private TableColumn<Vendedor,String> colCuentaVendedor;
+    private TableColumn<Vendedor, String> colCuentaVendedor;
 
     @FXML
-    private TableColumn<Vendedor,String> colDireccionVendedor;
+    private TableColumn<Vendedor, String> colDireccionVendedor;
 
     @FXML
-    private TableColumn<Vendedor,String> colNombreVendedor;
+    private TableColumn<Vendedor, String > colNombreVendedor;
 
     @FXML
     private TableColumn<Producto,String> columnaCategoria;
@@ -600,6 +602,10 @@ public class ControladorMarketplaceView {
     @FXML
     private TableView<Vendedor> tblVendedores;
 
+    @FXML
+    private TabPane tabPrincipal;
+
+
 
     private void publicarProducto(){
         String codigo = campoCodigoProducto.getText();
@@ -802,7 +808,17 @@ public class ControladorMarketplaceView {
         modelFactoryController = ModelFactoryController.getInstance();
 
         inicialzarAdminView();
+        // metodo para deshabilitar los tabs y dejar solo el de inicio de sesion
+        for (int i = 0; i < tabPrincipal.getTabs().size(); i++) {
+            Tab tab = tabPrincipal.getTabs().get(i);
+            if ((tabPrincipal.getTabs().indexOf(tab) == (modelFactoryController.getSesion()))) {
+                tabPrincipal.getSelectionModel().select(i);
+                tab.setDisable(false);
+            } else {
+                tab.setDisable(true);
+            }
 
+        }
     }
     public void inicialzarAdminView(){
         //1. Inicializar la tabla
@@ -906,6 +922,10 @@ public class ControladorMarketplaceView {
 
     }
     //Actualiza la lista de vehndedores dee la tabla obtener vendedores del singleton contra la de la interfaz
+    void refresh(){
+        tblVendedores.getItems().clear();
+        tblVendedores.setItems(getListaVendedoresData());
+    }
 
 
     private void limpiarCamposProducto() {
@@ -953,18 +973,7 @@ public class ControladorMarketplaceView {
 
         aplicacion.mostrarVentanaPrincipal();
 
-    }
-
-    @FXML
-    void chatearAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void verMiMuroAction(ActionEvent event) {
-
-    }
-
+    private boolean mostrarMensajeConfirmacion(String mensaje) {
 
 
 
@@ -999,8 +1008,17 @@ public class ControladorMarketplaceView {
             return false;
         }
     }
+    private void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
 
-
+        Alert aler = new Alert(alertType);
+        aler.setTitle(titulo);
+        aler.setHeaderText(header);
+        aler.setContentText(contenido);
+        aler.showAndWait();
+    }
+    public void setAplicacion(Aplicacion aplicacion) {
+        this.aplicacion = aplicacion;
+    }
 
     public ObservableList<Vendedor> getListaVendedoresData() {
         listaVendedoresData.addAll(controllerAdminView.obtenerVendedores());
