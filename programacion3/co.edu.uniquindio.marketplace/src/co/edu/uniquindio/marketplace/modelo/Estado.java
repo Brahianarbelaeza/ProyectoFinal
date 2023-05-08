@@ -2,6 +2,6 @@ package modelo;
 
 public enum Estado {
 
-       VENDIDO,PUBLICADO,CANCELADO;
+       NUEVO,USADO,VENDIDO,PUBLICADO,CANCELADO;
 
 }

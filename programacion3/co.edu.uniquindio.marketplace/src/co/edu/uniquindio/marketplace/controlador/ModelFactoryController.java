@@ -214,6 +214,8 @@ public class ModelFactoryController {
         }
     }
 
+
+
     public ArrayList<Vendedor> obtenerVendedores() {
         return getMarketplace().getAdministrador().getVendedores();
     }

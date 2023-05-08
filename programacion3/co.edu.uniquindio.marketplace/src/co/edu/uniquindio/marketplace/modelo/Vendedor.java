@@ -9,7 +9,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
 
     private static final long serialVersionUID = 1L;
     private String direccion;
-    ArrayList<Producto> listaProductos;
+    ArrayList<Producto> listaProductos=new ArrayList<Producto>();
     ArrayList<Solitud> vendedoresAliados;
     public Vendedor() {
     }

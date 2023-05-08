@@ -37,16 +37,10 @@ public class ControllerAdminView {
         return modelFactoryController.actualizarVendedor(vendedor, cedulaAnterior); //Se busca el vendedor con la cedula anterior
     }
 
-
-
-
-
     public boolean eliminarProducto(String codigo) {
         return modelFactoryController.eliminarProducto(codigo);
 
     }
-
-
 
 
     public Producto publicarProducto(String codigo, String nombreProducto, String rutaImagen, String categoria,  double precio, Estado estado)  {
@@ -61,11 +55,9 @@ public class ControllerAdminView {
 
         return modelFactoryController.actualizarProducto(producto, idAnterior);
     }
-    public ArrayList<Producto> obtenerProducto() {
+    public ArrayList<Producto> obtenerProductos() {
         return modelFactoryController.obtenerProductos();
     }
-
-
 
     public ArrayList<Vendedor> obtenerVendedores() {
         return modelFactoryController.obtenerVendedores();

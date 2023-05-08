@@ -2,12 +2,10 @@ package aplicacion;
 
 import controlador.ControladorMarketplaceView;
 import controlador.ControllerLoginView;
-import controlador.ControllerVendedorView;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -43,7 +41,7 @@ public class Aplicacion extends Application {
 
     }
 
-    public void mostrarVentanaProductos(){
+   /* public void mostrarVentanaProductos(){
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Aplicacion.class.getResource("../vista/VendedorView.fxml"));
@@ -58,7 +56,7 @@ public class Aplicacion extends Application {
             e.printStackTrace();
         }
 
-    }
+    }*/
 
     public void mostrarVentanaPrincipal() {
         try {
