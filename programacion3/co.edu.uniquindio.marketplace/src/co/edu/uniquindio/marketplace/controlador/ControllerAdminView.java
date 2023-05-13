@@ -22,9 +22,6 @@ public class ControllerAdminView {
 
     }
 
-
-
-
     public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion, String cuenta, String contrasena)  {
         Cuenta cuentaV = new Cuenta(cuenta, contrasena);
         Vendedor vendedor = new Vendedor(nombre, apellido, cedula, cuentaV, direccion);
@@ -35,28 +32,6 @@ public class ControllerAdminView {
         Cuenta cuentaV = new Cuenta(cuenta, contrasena);
         Vendedor vendedor = new Vendedor(nombre, apellido, cedula, cuentaV, direccion);
         return modelFactoryController.actualizarVendedor(vendedor, cedulaAnterior); //Se busca el vendedor con la cedula anterior
-    }
-
-    public boolean eliminarProducto(String codigo) {
-        return modelFactoryController.eliminarProducto(codigo);
-
-    }
-
-
-    public Producto publicarProducto(String codigo, String nombreProducto, String rutaImagen, String categoria,  double precio, Estado estado)  {
-
-        Producto producto = new Producto(codigo,nombreProducto,rutaImagen,categoria,precio,estado);
-        return modelFactoryController.publicarProducto(producto);
-    }
-
-    public Producto actualizarProducto (String codigo, String nombreProducto, String rutaImagen, String categoria,  double precio, Estado estado, String idAnterior)   {
-
-        Producto producto = new Producto(codigo,nombreProducto,rutaImagen,categoria,precio,estado);
-
-        return modelFactoryController.actualizarProducto(producto, idAnterior);
-    }
-    public ArrayList<Producto> obtenerProductos() {
-        return modelFactoryController.obtenerProductos();
     }
 
     public ArrayList<Vendedor> obtenerVendedores() {

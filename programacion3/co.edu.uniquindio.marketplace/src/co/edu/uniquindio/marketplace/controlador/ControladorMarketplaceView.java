@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.Estado;
+import javafx.scene.control.ComboBox;
 import modelo.Producto;
 import modelo.Vendedor;
 
@@ -18,6 +19,8 @@ public class ControladorMarketplaceView {
     Aplicacion aplicacion;
     ModelFactoryController modelFactoryController;
     ControllerAdminView controllerAdminView;
+
+    ControllerVendedorView controllerVendedorView;
     Vendedor vendedorSeleccionado;
     Producto productoSeleccionado=new Producto();
     ObservableList<Vendedor> listaVendedoresData = FXCollections.observableArrayList();
@@ -603,8 +606,6 @@ public class ControladorMarketplaceView {
 
     @FXML
     private TabPane tabPrincipal;
-
-
     private boolean datosValidos(String nombre, String apellido, String cedula,  String direccion, String cuenta, String contrasena) {
 
         String mensaje = "";
@@ -645,7 +646,7 @@ public class ControladorMarketplaceView {
 
         if(datosValidosProducto(codigo,nombreProducto, rutaImagen, categoria, precio, estadoProducto)== true){
             Producto producto= null;
-            producto = controllerAdminView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
+            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
             if(producto != null){
                 listaProductosVis.add(producto);
                 mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
@@ -663,7 +664,6 @@ public class ControladorMarketplaceView {
 
     @FXML
     void eventoComboBox(ActionEvent event) {
-
     }
 
     @FXML
@@ -694,7 +694,7 @@ public class ControladorMarketplaceView {
         //2. Validar la información
         if(datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto)== true){
             Producto producto= null;
-            producto = controllerAdminView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto),productoSeleccionado.getCodigo() );
+            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto),productoSeleccionado.getCodigo() );
             if(producto != null){
                 refresh();
                 mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
@@ -810,7 +810,7 @@ public class ControladorMarketplaceView {
 
     public ObservableList<Producto> getListaProductosVis() {
 
-        listaProductosVis.addAll(controllerAdminView.obtenerProductos());
+        listaProductosVis.addAll(controllerVendedorView.obtenerProductos());
         return listaProductosVis;
     }
 
@@ -828,11 +828,14 @@ public class ControladorMarketplaceView {
 
     @FXML
     void initialize(){
+
         modelFactoryController = ModelFactoryController.getInstance();
         controllerAdminView = new ControllerAdminView(modelFactoryController);
-        comboEstadoProducto.getItems().addAll(Estado.values());
-        modelFactoryController = ModelFactoryController.getInstance();
+        comboEstadoProducto = new ComboBox<>();
 
+        comboEstadoProducto.getItems().setAll(Estado.values());
+
+        modelFactoryController = ModelFactoryController.getInstance();
         inicialzarAdminView();
         // metodo para deshabilitar los tabs y dejar solo el de inicio de sesion
         for (int i = 0; i < tabPrincipal.getTabs().size(); i++) {
