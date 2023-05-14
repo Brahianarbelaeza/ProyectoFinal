@@ -7,13 +7,9 @@
     <list default="true" id="707ebebc-d099-4077-bb64-b16c1cb0e947" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControladorMarketplaceView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControladorMarketplaceView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControllerAdminView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControllerAdminView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ModelFactoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ModelFactoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/vista/MarketplaceView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/vista/MarketplaceView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Estado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Estado.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControllerAdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControllerAdminView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ModelFactoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ModelFactoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/vista/MarketplaceView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/vista/MarketplaceView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Estado.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +124,10 @@
       <workItem from="1683645951391" duration="2121000" />
       <workItem from="1683900867756" duration="1280000" />
       <workItem from="1683952189455" duration="10951000" />
-      <workItem from="1683991370046" duration="2841000" />
+      <workItem from="1683991370046" duration="3435000" />
+      <workItem from="1683997100951" duration="311000" />
+      <workItem from="1683997812863" duration="6297000" />
+      <workItem from="1684010823722" duration="1019000" />
     </task>
     <servers />
   </component>
@@ -145,6 +144,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
