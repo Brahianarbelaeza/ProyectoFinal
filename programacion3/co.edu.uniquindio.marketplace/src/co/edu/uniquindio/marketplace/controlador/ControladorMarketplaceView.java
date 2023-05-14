@@ -759,12 +759,12 @@ public class ControladorMarketplaceView {
 
 
     private void limpiarCamposVendedor() {
-        campoCodigoProducto.setText("");
-        campoNombreProducto.setText("");
-        campoUrlImagen.setText("");
-        campoCategoria.setText("");
-        campoPrecio.setText("");
-        comboEstadoProducto.setItems(null);
+        campoNombre.setText("");
+        campoApellido.setText("");
+        campoCedula.setText("");
+        campoCuenta.setText("");
+        campoDireccion.setText("");
+        campoContrasena.setText("");
     }
 
     private void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
