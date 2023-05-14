@@ -116,16 +116,12 @@ public class ModelFactoryController {
     private void guardarResourceBinario() {
         Persistencia.guardarRecursoMarketplaceBinario(marketplace);
     }
-
-
     private void inicializarDatos() {
         marketplace = new Marketplace();
         Administrador admin = crearAdministrador("Brahian", "bar@", "123", "admin", "123");
         marketplace.setAdministrador(admin);
         Vendedor vendedor = new Vendedor("aleja", "Guzman", "123", new Cuenta("aleja@gmail.com", "123"), "calle 2") ;
         admin.getVendedores().add(vendedor);
-
-
     }
     public void registrarAccionesSistema(String mensaje, int nivel, String accion) {
         Persistencia.guardaRegistroLog(mensaje, nivel, accion);
@@ -134,11 +130,9 @@ public class ModelFactoryController {
     public Marketplace getMarketplace() {
         return marketplace;
     }
-
     public void setMarketplace(Marketplace marketplace) {
         this.marketplace = marketplace;
     }
-
     public Administrador crearAdministrador(String nombre, String apellidos, String cedula, String nombreUsuario, String contrasena) {
         Administrador admin = new Administrador(nombre, apellidos, cedula, new Cuenta(nombreUsuario, contrasena));
 
@@ -175,7 +169,6 @@ public class ModelFactoryController {
         }
         return vendedor;
     }
-
     public boolean eliminarVendedor (String cedula) {
         Vendedor vendedor = marketplace.getAdministrador().buscarVendedor(cedula);
         registrarAccionesSistema("Vendedor eliminado con cedula "+vendedor.getCedula(),2, "Eliminar vendedor");
@@ -188,7 +181,6 @@ public class ModelFactoryController {
         } catch (Exception e) {
             throw new RuntimeException("Error al eliminar al vendedor"+e);
         }
-
     }
 
     public Producto publicarProducto(Producto producto) {
@@ -227,9 +219,6 @@ public class ModelFactoryController {
             throw new RuntimeException("Error al eliminar al vendedor" + e);
         }
     }
-
-
-
     public ArrayList<Vendedor> obtenerVendedores() {
         return getMarketplace().getAdministrador().getVendedores();
     }

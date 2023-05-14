@@ -7,10 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 import modelo.Estado;
 import modelo.Producto;
 import modelo.Vendedor;
 
+import java.io.File;
 import java.util.Optional;
 
 
@@ -18,6 +20,8 @@ public class ControladorMarketplaceView {
     Aplicacion aplicacion;
     ModelFactoryController modelFactoryController;
     ControllerAdminView controllerAdminView;
+
+    ControllerVendedorView controllerVendedorView;
     Vendedor vendedorSeleccionado;
     Producto productoSeleccionado=new Producto();
     ObservableList<Vendedor> listaVendedoresData = FXCollections.observableArrayList();
@@ -603,8 +607,6 @@ public class ControladorMarketplaceView {
 
     @FXML
     private TabPane tabPrincipal;
-
-
     private boolean datosValidos(String nombre, String apellido, String cedula,  String direccion, String cuenta, String contrasena) {
 
         String mensaje = "";
@@ -645,7 +647,7 @@ public class ControladorMarketplaceView {
 
         if(datosValidosProducto(codigo,nombreProducto, rutaImagen, categoria, precio, estadoProducto)== true){
             Producto producto= null;
-            producto = controllerAdminView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
+            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
             if(producto != null){
                 listaProductosVis.add(producto);
                 mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
@@ -657,18 +659,30 @@ public class ControladorMarketplaceView {
         }else{
             mostrarMensaje("Notificación vendedor", "Vendedor no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
-
-
     }
 
     @FXML
     void eventoComboBox(ActionEvent event) {
-
     }
 
     @FXML
     void subirImagenAction(ActionEvent event) {
 
+        // Crear el objeto FileChooser
+        FileChooser fileChooser = new FileChooser();
+        // Configurar las opciones del objeto FileChooser
+        fileChooser.setTitle("Seleccionar imagen");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+        // Mostrar la ventana de selección de archivos
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        // Si el usuario seleccionó un archivo, cargar la imagen
+        if (selectedFile != null) {
+            // Cargar la imagen aquí
+            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
+        }
     }
     @FXML
 
@@ -694,7 +708,7 @@ public class ControladorMarketplaceView {
         //2. Validar la información
         if(datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto)== true){
             Producto producto= null;
-            producto = controllerAdminView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto),productoSeleccionado.getCodigo() );
+            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto),productoSeleccionado.getCodigo() );
             if(producto != null){
                 refresh();
                 mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
@@ -810,7 +824,7 @@ public class ControladorMarketplaceView {
 
     public ObservableList<Producto> getListaProductosVis() {
 
-        listaProductosVis.addAll(controllerAdminView.obtenerProductos());
+        listaProductosVis.addAll(controllerVendedorView.obtenerProductos());
         return listaProductosVis;
     }
 
@@ -828,11 +842,12 @@ public class ControladorMarketplaceView {
 
     @FXML
     void initialize(){
+
         modelFactoryController = ModelFactoryController.getInstance();
         controllerAdminView = new ControllerAdminView(modelFactoryController);
-        comboEstadoProducto.getItems().addAll(Estado.values());
+        controllerVendedorView = new ControllerVendedorView(modelFactoryController);
+        comboEstadoProducto.getItems().setAll(Estado.values());
         modelFactoryController = ModelFactoryController.getInstance();
-
         inicialzarAdminView();
         // metodo para deshabilitar los tabs y dejar solo el de inicio de sesion
         for (int i = 0; i < tabPrincipal.getTabs().size(); i++) {
@@ -846,6 +861,26 @@ public class ControladorMarketplaceView {
 
         }
     }
+
+
+    public void inicialzarVendedorView(){
+        //1. Inicializar la tabla
+        this.columnaNombreP.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.columnaCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.columnaPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.columnaEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        this.columnaCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+
+        tablaProductos.getItems().clear();
+        tablaProductos.setItems(getListaProductosVis());
+
+// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
+        tablaProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) ->{
+            this.productoSeleccionado = newSelecction;
+            this.setearCamposProductos(this.productoSeleccionado);
+        });
+    }
+
     public void inicialzarAdminView(){
         //1. Inicializar la tabla
         this.colNombreVendedor.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -975,6 +1010,18 @@ public class ControladorMarketplaceView {
             campoDireccion.setText(vendedor.getDireccion());
             campoCuenta.setText(vendedor.getCuenta().getUsuario());
             campoContrasena.setText(vendedor.getCuenta().getContrasena());
+        }
+
+    }
+
+    private void setearCamposProductos(Producto producto) {
+
+        if(producto !=  null){
+            campoCodigoProducto.setText(producto.getCodigo());
+            campoNombreProducto.setText(producto.getNombre());
+            campoCategoria.setText(producto.getCategoria());
+            campoPrecio.setText(String.valueOf(producto.getPrecio()));
+            comboEstadoProducto.setItems(producto.getEstado());
         }
 
     }
