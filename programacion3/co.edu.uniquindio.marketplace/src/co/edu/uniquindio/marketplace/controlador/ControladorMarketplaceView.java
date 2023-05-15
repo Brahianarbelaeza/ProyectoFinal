@@ -7,6 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import modelo.Estado;
 import modelo.Producto;
@@ -29,6 +31,8 @@ public class ControladorMarketplaceView {
 
     ObservableList<Producto> listaProductosVis = FXCollections.observableArrayList();
 
+    @FXML
+    private ImageView imagenProducto;
     @FXML
     private Button botonActualizar;
 
@@ -682,6 +686,13 @@ public class ControladorMarketplaceView {
         if (selectedFile != null) {
             // Cargar la imagen aquí
             System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
+                    String rutaImagen = selectedFile.getAbsolutePath();
+
+            // Crear un objeto Image con la ruta de la imagen
+            Image image = new Image(rutaImagen);
+
+            // Establecer la imagen en el ImageView
+            imagenProducto.setImage(image);
         }
     }
     @FXML
