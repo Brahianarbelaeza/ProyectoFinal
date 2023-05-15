@@ -731,7 +731,7 @@ public class ControladorMarketplaceView {
 
             if(mostrarMensajeConfirmacion("¿Estas seguro de elimininar al empleado?") == true){
 
-                productoEliminado = controllerAdminView.eliminarVendedor(productoSeleccionado.getCodigo());
+                productoEliminado = controllerVendedorView.eliminarProducto(productoSeleccionado.getCodigo());
 
 
                 if(productoEliminado == true){
@@ -849,6 +849,7 @@ public class ControladorMarketplaceView {
         comboEstadoProducto.getItems().setAll(Estado.values());
         modelFactoryController = ModelFactoryController.getInstance();
         inicialzarAdminView();
+        inicialzarVendedorView();
         // metodo para deshabilitar los tabs y dejar solo el de inicio de sesion
         for (int i = 0; i < tabPrincipal.getTabs().size(); i++) {
             Tab tab = tabPrincipal.getTabs().get(i);
@@ -997,7 +998,7 @@ public class ControladorMarketplaceView {
         campoUrlImagen.setText("");
         campoCategoria.setText("");
         campoPrecio.setText("");
-        comboEstadoProducto.setItems(null);
+        comboEstadoProducto.setValue(null);
     }
 
     //Setea los campos de la tabla hacia los de texto
@@ -1021,12 +1022,21 @@ public class ControladorMarketplaceView {
             campoNombreProducto.setText(producto.getNombre());
             campoCategoria.setText(producto.getCategoria());
             campoPrecio.setText(String.valueOf(producto.getPrecio()));
-            comboEstadoProducto.setItems(producto.getEstado());
+            comboEstadoProducto.setValue(producto.getEstado());
+
+            if (producto.getEstado() != null && producto.getEstado() != Estado.NULL) {
+                comboEstadoProducto.setValue(producto.getEstado());
+            } else {
+                comboEstadoProducto.setValue(null);
+            }
+        } else {
+            campoCodigoProducto.setText("");
+            campoNombreProducto.setText("");
+            campoCategoria.setText("");
+            campoPrecio.setText("");
+            comboEstadoProducto.setValue(null);
         }
-
-    }
-
-
+}
     @FXML
     void crearVendedorAction(ActionEvent event) {
         CrearVendedor();

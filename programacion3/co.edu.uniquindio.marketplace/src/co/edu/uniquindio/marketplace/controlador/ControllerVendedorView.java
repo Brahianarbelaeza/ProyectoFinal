@@ -28,8 +28,6 @@ public class ControllerVendedorView {
         return modelFactoryController.eliminarProducto(codigo);
 
     }
-
-
     public Producto publicarProducto(String codigo, String nombreProducto, String rutaImagen, String categoria, double precio, Estado estado)  {
 
         Producto producto = new Producto(codigo,nombreProducto,rutaImagen,categoria,precio,estado);

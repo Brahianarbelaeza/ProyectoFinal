@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 public enum Estado implements ObservableList<Estado> {
-       NUEVO,USADO,PUBLICADO,VENDIDO,CANCELADO;
+       NUEVO,USADO,PUBLICADO,VENDIDO,CANCELADO,NULL;
 
        @Override
        public void addListener(ListChangeListener<? super Estado> listChangeListener) {
