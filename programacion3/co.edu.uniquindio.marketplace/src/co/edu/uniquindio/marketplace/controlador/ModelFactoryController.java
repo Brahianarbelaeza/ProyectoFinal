@@ -186,7 +186,7 @@ public class ModelFactoryController {
     public Producto publicarProducto(Producto producto) {
 
         try {
-            producto= marketplace.getAdministrador().getVendedor().crearProducto(producto);
+            producto= ObtenerVendedor().crearProducto(producto);
             if (producto !=  null) {
                 registrarAccionesSistema("Producto creado con codigo " + producto.getCodigo(), 1, "Crear vendedor");
                 guardarResourceXML();
@@ -233,5 +233,13 @@ public class ModelFactoryController {
 
     public ArrayList<Producto> obtenerProductos() {
         return getMarketplace().getAdministrador().getVendedor().getListaProductos();
+    }
+    public Vendedor ObtenerVendedor (){
+        for (Vendedor v: marketplace.getAdministrador().getVendedores()) {
+            if (sesion-1 == marketplace.getAdministrador().getVendedores().indexOf(v) ){
+                return v;
+            }
+        }
+        return null;
     }
 }
