@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="707ebebc-d099-4077-bb64-b16c1cb0e947" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/aplicacion/Aplicacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/aplicacion/Aplicacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControladorMarketplaceView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControladorMarketplaceView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ModelFactoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ModelFactoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/vista/MarketplaceView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/vista/MarketplaceView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/aplicacion/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/aplicacion/Aplicacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ModelFactoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ModelFactoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/vista/MarketplaceView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/vista/MarketplaceView.fxml" afterDir="false" />
@@ -136,6 +131,8 @@
       <workItem from="1684169544956" duration="2832000" />
       <workItem from="1684199233082" duration="5332000" />
       <workItem from="1684246530598" duration="18782000" />
+      <workItem from="1684268771045" duration="32000" />
+      <workItem from="1684276524778" duration="4936000" />
     </task>
     <servers />
   </component>
@@ -158,7 +155,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java</url>
-          <line>1543</line>
+          <line>1560</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

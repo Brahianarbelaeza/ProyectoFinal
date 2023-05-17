@@ -181,51 +181,46 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TabPane layoutX="-2.0" layoutY="1.0" prefHeight="472.0" prefWidth="747.0" tabClosingPolicy="UNAVAILABLE">
+                                <TabPane layoutX="-2.0" layoutY="1.0" prefHeight="597.0" prefWidth="1372.0" tabClosingPolicy="UNAVAILABLE">
                                     <tabs>
                                         <Tab text="Gestión de productos">
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="756.0">
                                                     <children>
-                                                        <Pane layoutX="12.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="744.0">
+                                                        <Pane layoutX="12.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="1362.0">
                                                             <children>
-                                                                <Button fx:id="botonPublicar" layoutX="92.0" layoutY="411.0" mnemonicParsing="false" onAction="#publicarProductoAction" text="Publicar" />
-                                                                <Text layoutX="503.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
-                                                                <Text layoutX="492.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
-                                                                <Text layoutX="234.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
-                                                                <Text layoutX="492.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
-                                                                <Text layoutX="238.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
-                                                                <Button fx:id="botonActualizar" layoutX="238.0" layoutY="411.0" mnemonicParsing="false" onAction="#actualizarProductoAction" text="Actualizar" />
-                                                                <ImageView fitHeight="94.0" fitWidth="200.0" layoutX="57.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
-                                                                    <image>
-                                                                        <Image url="@../../../../../../../../../../Desktop/ImagenVendedor.png" />
-                                                                    </image>
-                                                                </ImageView>
-                                                                <Button fx:id="botonEliminar" layoutX="391.0" layoutY="411.0" mnemonicParsing="false" onAction="#eliminarProductoAction" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
-                                                                <ComboBox fx:id="comboEstadoProducto" layoutX="559.0" layoutY="139.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
+                                                                <Button fx:id="botonPublicar" layoutX="70.0" layoutY="301.0" mnemonicParsing="false" onAction="#publicarProductoAction" text="Publicar" />
+                                                                <Text layoutX="18.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
+                                                                <Text layoutX="19.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
+                                                                <Text layoutX="10.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
+                                                                <Text layoutX="14.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
+                                                                <Text layoutX="14.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                                                                <Button fx:id="botonActualizar" layoutX="229.0" layoutY="301.0" mnemonicParsing="false" onAction="#actualizarProductoAction" text="Actualizar" />
+                                                                <Button fx:id="botonEliminar" layoutX="365.0" layoutY="301.0" mnemonicParsing="false" onAction="#eliminarProductoAction" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                                                <ComboBox fx:id="comboEstadoProducto" layoutX="78.0" layoutY="197.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="160.0" promptText="Estado" />
                                                                 <Button fx:id="botonSubirImagen" layoutX="600.0" layoutY="411.0" mnemonicParsing="false" onAction="#subirImagenAction" text="Subir imagen" />
                                                                 <ImageView fx:id="imagenProducto" fitHeight="189.0" fitWidth="150.0" layoutX="552.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" />
-                                                                <TextField fx:id="campoNombreProducto" layoutX="298.0" layoutY="96.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese nombre del producto">
+                                                                <TextField fx:id="campoNombreProducto" layoutX="78.0" layoutY="45.0" prefHeight="25.0" prefWidth="163.0" promptText="Ingrese nombre del producto">
                                                                     <font>
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                                <TextField fx:id="campoCategoria" layoutX="298.0" layoutY="139.0" prefHeight="25.0" prefWidth="172.0" promptText="Ingrese categoría del producto">
+                                                                <TextField fx:id="campoCategoria" layoutX="79.0" layoutY="87.0" prefHeight="25.0" prefWidth="162.0" promptText="Ingrese categoría del producto">
                                                                     <font>
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                                <TextField fx:id="campoUrlImagen" layoutX="559.0" layoutY="45.0" prefHeight="25.0" prefWidth="135.0" promptText="Ingrese ruta de imagen del producto">
+                                                                <TextField fx:id="campoUrlImagen" layoutX="78.0" layoutY="240.0" prefHeight="25.0" prefWidth="160.0" promptText="Ingrese ruta de imagen del producto">
                                                                     <font>
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                                <TextField fx:id="campoPrecio" layoutX="535.0" layoutY="87.0" prefHeight="25.0" prefWidth="159.0" promptText="Ingrese precio del producto">
+                                                                <TextField fx:id="campoPrecio" layoutX="81.0" layoutY="159.0" prefHeight="25.0" prefWidth="159.0" promptText="Ingrese precio del producto">
                                                                     <font>
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                                <TableView fx:id="tablaProductos" layoutX="28.0" layoutY="192.0" prefHeight="200.0" prefWidth="497.0">
+                                                                <TableView fx:id="tablaProductos" layoutX="14.0" layoutY="354.0" prefHeight="200.0" prefWidth="497.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="columnaNombreP" prefWidth="138.0" text="Nombre" />
                                                                         <TableColumn fx:id="columnaCategoria" minWidth="6.0" text="Categoría" />
@@ -234,12 +229,35 @@
                                                                         <TableColumn fx:id="columnaCodigo" prefWidth="81.0" text="Codigo" />
                                                                     </columns>
                                                                 </TableView>
-                                                                <Text layoutX="238.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
-                                                                <TextField fx:id="campoCodigoProducto" layoutX="302.0" layoutY="45.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese codigo del producto">
+                                                                <Text layoutX="14.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
+                                                                <TextField fx:id="campoCodigoProducto" layoutX="78.0" layoutY="118.0" prefHeight="25.0" prefWidth="161.0" promptText="Ingrese codigo del producto">
                                                                     <font>
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="570.0" layoutX="708.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                   <fill>
+                                                      <LinearGradient endX="1.0" endY="1.0">
+                                                         <stops>
+                                                            <Stop>
+                                                               <color>
+                                                                  <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
+                                                               </color>
+                                                            </Stop>
+                                                            <Stop offset="0.9966442953020134">
+                                                               <color>
+                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                               </color>
+                                                            </Stop>
+                                                            <Stop offset="1.0">
+                                                               <color>
+                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                               </color>
+                                                            </Stop>
+                                                         </stops>
+                                                      </LinearGradient>
+                                                   </fill>
+                                                </Rectangle>
                                                             </children>
                                                         </Pane>
                                                     </children>
@@ -253,29 +271,6 @@
                                         </Tab>
                                     </tabs>
                                 </TabPane>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="605.0" layoutX="754.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
-                           <fill>
-                              <LinearGradient endX="1.0" endY="1.0">
-                                 <stops>
-                                    <Stop>
-                                       <color>
-                                          <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="0.9966442953020134">
-                                       <color>
-                                          <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="1.0">
-                                       <color>
-                                          <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                       </color>
-                                    </Stop>
-                                 </stops>
-                              </LinearGradient>
-                           </fill>
-                        </Rectangle>
                             </children>
                         </AnchorPane>
                     </content>
@@ -284,7 +279,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TabPane layoutX="-2.0" layoutY="1.0" prefHeight="472.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+                                <TabPane layoutX="-2.0" layoutY="1.0" prefHeight="601.0" prefWidth="1372.0" tabClosingPolicy="UNAVAILABLE">
                                     <tabs>
                                         <Tab text="Gestión de productos">
                                             <content>
@@ -356,29 +351,6 @@
                                         </Tab>
                                     </tabs>
                                 </TabPane>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="605.0" layoutX="768.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
-                           <fill>
-                              <LinearGradient endX="1.0" endY="1.0">
-                                 <stops>
-                                    <Stop>
-                                       <color>
-                                          <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="0.9966442953020134">
-                                       <color>
-                                          <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="1.0">
-                                       <color>
-                                          <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                       </color>
-                                    </Stop>
-                                 </stops>
-                              </LinearGradient>
-                           </fill>
-                        </Rectangle>
                             </children>
                         </AnchorPane>
                     </content>

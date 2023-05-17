@@ -188,7 +188,7 @@ public class ModelFactoryController {
         try {
             producto= ObtenerVendedor().crearProducto(producto);
             if (producto !=  null) {
-                registrarAccionesSistema("Producto creado con codigo " + producto.getCodigo(), 1, "Crear vendedor");
+                registrarAccionesSistema("El vendedor" + ObtenerVendedor().getNombre() + "producto creado con codigo " + producto.getCodigo(), 1, "Crear producto");
                 guardarResourceXML();
                 respaldoXML();
             }
@@ -202,17 +202,17 @@ public class ModelFactoryController {
 
     //Es la misma logica de crear solo que se le envía la cc anterior
     public Producto actualizarProducto(Producto producto, String idAnterior) {
-        marketplace.getAdministrador().getVendedor().actualizarProducto(producto,idAnterior);
+        ObtenerVendedor().actualizarProducto(producto,idAnterior);
         guardarResourceXML();
         registrarAccionesSistema("Producto actualizado con cedula "+producto.getCodigo(),1 , "Actualizar vendedor");
         return producto;
     }
 
     public boolean eliminarProducto (String codigo) {
-        Producto producto = marketplace.getAdministrador().getVendedor().buscarProducto(codigo);
+        Producto producto = ObtenerVendedor().buscarProducto(codigo);
         registrarAccionesSistema("Producto eliminado con codigo " + producto.getCodigo(), 2, "Eliminar producto");
         try {
-            marketplace.getAdministrador().getVendedor().eliminarProducto(producto);
+            ObtenerVendedor().eliminarProducto(producto);
             guardarResourceXML();
             return true;
         } catch (Exception e) {
@@ -232,7 +232,9 @@ public class ModelFactoryController {
     }
 
     public ArrayList<Producto> obtenerProductos() {
-        return getMarketplace().getAdministrador().getVendedor().getListaProductos();
+
+
+        return ObtenerVendedor().getListaProductos();
     }
     public Vendedor ObtenerVendedor (){
         for (Vendedor v: marketplace.getAdministrador().getVendedores()) {
