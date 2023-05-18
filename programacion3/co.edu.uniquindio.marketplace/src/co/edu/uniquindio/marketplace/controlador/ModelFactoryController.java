@@ -1,6 +1,7 @@
 package controlador;
 
 import excepciones.AdministradorException;
+import excepciones.CrudProductoException;
 import modelo.*;
 import persistencia.Persistencia;
 
@@ -192,7 +193,7 @@ public class ModelFactoryController {
                 guardarResourceXML();
                 respaldoXML();
             }
-        } catch (AdministradorException e) {
+        } catch (CrudProductoException e) {
             throw new RuntimeException("Error al crear el producto"+e);
         } catch (Exception e) {
             throw new RuntimeException(e);
