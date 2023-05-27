@@ -7,6 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import modelo.Estado;
 import modelo.Producto;
@@ -16,19 +18,40 @@ import java.io.File;
 import java.util.Optional;
 
 
-public class ControladorMarketplaceView {
+public class ControladorMarketplaceView  {
     Aplicacion aplicacion;
     ModelFactoryController modelFactoryController;
     ControllerAdminView controllerAdminView;
 
     ControllerVendedorView controllerVendedorView;
     Vendedor vendedorSeleccionado;
-    Producto productoSeleccionado=new Producto();
+    Producto productoSeleccionado = new Producto();
     ObservableList<Vendedor> listaVendedoresData = FXCollections.observableArrayList();
     ControllerLoginView controllerLoginView;
 
     ObservableList<Producto> listaProductosVis = FXCollections.observableArrayList();
 
+    @FXML
+    private ImageView imagenProducto;
+
+    @FXML
+    private ImageView imagenProducto1;
+    @FXML
+    private ImageView imagenProducto2;
+    @FXML
+    private ImageView imagenProducto3;
+    @FXML
+    private ImageView imagenProducto4;
+    @FXML
+    private ImageView imagenProducto5;
+    @FXML
+    private ImageView imagenProducto6;
+    @FXML
+    private ImageView imagenProducto7;
+    @FXML
+    private ImageView imagenProducto8;
+    @FXML
+    private ImageView imagenProducto9;
     @FXML
     private Button botonActualizar;
 
@@ -339,157 +362,157 @@ public class ControladorMarketplaceView {
     private TableColumn<Vendedor, String> colDireccionVendedor;
 
     @FXML
-    private TableColumn<Vendedor, String > colNombreVendedor;
+    private TableColumn<Vendedor, String> colNombreVendedor;
 
     @FXML
-    private TableColumn<Producto,String> columnaCategoria;
+    private TableColumn<Producto, String> columnaCategoria;
 
     @FXML
-    private TableColumn<Producto,String> columnaCategoria1;
+    private TableColumn<Producto, String> columnaCategoria1;
 
     @FXML
-    private TableColumn<Producto,String> columnaCategoria2;
+    private TableColumn<Producto, String> columnaCategoria2;
 
     @FXML
-    private TableColumn<Producto,String> columnaCategoria3;
+    private TableColumn<Producto, String> columnaCategoria3;
 
     @FXML
-    private TableColumn<Producto,String> columnaCategoria4;
+    private TableColumn<Producto, String> columnaCategoria4;
 
     @FXML
-    private TableColumn<Producto,String> columnaCategoria5;
+    private TableColumn<Producto, String> columnaCategoria5;
 
     @FXML
-    private TableColumn<Producto,String> columnaCategoria6;
+    private TableColumn<Producto, String> columnaCategoria6;
 
     @FXML
-    private TableColumn<Producto,String> columnaCategoria7;
+    private TableColumn<Producto, String> columnaCategoria7;
 
     @FXML
-    private TableColumn<Producto,String> columnaCategoria8;
+    private TableColumn<Producto, String> columnaCategoria8;
 
     @FXML
-    private TableColumn<Producto,String> columnaCategoria9;
+    private TableColumn<Producto, String> columnaCategoria9;
 
     @FXML
-    private TableColumn<Producto,String> columnaCodigo;
+    private TableColumn<Producto, String> columnaCodigo;
 
     @FXML
-    private TableColumn<Producto,String> columnaCodigo1;
+    private TableColumn<Producto, String> columnaCodigo1;
 
     @FXML
-    private TableColumn<Producto,String> columnaCodigo2;
+    private TableColumn<Producto, String> columnaCodigo2;
 
     @FXML
-    private TableColumn<Producto,String> columnaCodigo3;
+    private TableColumn<Producto, String> columnaCodigo3;
 
     @FXML
-    private TableColumn<Producto,String> columnaCodigo4;
+    private TableColumn<Producto, String> columnaCodigo4;
 
     @FXML
-    private TableColumn<Producto,String> columnaCodigo5;
+    private TableColumn<Producto, String> columnaCodigo5;
 
     @FXML
-    private TableColumn<Producto,String> columnaCodigo6;
+    private TableColumn<Producto, String> columnaCodigo6;
 
     @FXML
-    private TableColumn<Producto,String> columnaCodigo7;
+    private TableColumn<Producto, String> columnaCodigo7;
 
     @FXML
-    private TableColumn<Producto,String> columnaCodigo8;
+    private TableColumn<Producto, String> columnaCodigo8;
 
     @FXML
-    private TableColumn<Producto,String> columnaCodigo9;
+    private TableColumn<Producto, String> columnaCodigo9;
 
     @FXML
-    private TableColumn<Producto,String> columnaEstado;
+    private TableColumn<Producto, String> columnaEstado;
 
     @FXML
-    private TableColumn<Producto,String> columnaEstado1;
+    private TableColumn<Producto, String> columnaEstado1;
 
     @FXML
-    private TableColumn<Producto,String> columnaEstado2;
+    private TableColumn<Producto, String> columnaEstado2;
 
     @FXML
-    private TableColumn<Producto,String> columnaEstado3;
+    private TableColumn<Producto, String> columnaEstado3;
 
     @FXML
-    private TableColumn<Producto,String> columnaEstado4;
+    private TableColumn<Producto, String> columnaEstado4;
 
     @FXML
-    private TableColumn<Producto,String> columnaEstado5;
+    private TableColumn<Producto, String> columnaEstado5;
 
     @FXML
-    private TableColumn<Producto,String> columnaEstado6;
+    private TableColumn<Producto, String> columnaEstado6;
 
     @FXML
-    private TableColumn<Producto,String> columnaEstado7;
+    private TableColumn<Producto, String> columnaEstado7;
 
     @FXML
-    private TableColumn<Producto,String> columnaEstado8;
+    private TableColumn<Producto, String> columnaEstado8;
 
     @FXML
-    private TableColumn<Producto,String> columnaEstado9;
+    private TableColumn<Producto, String> columnaEstado9;
 
     @FXML
-    private TableColumn<Producto,String> columnaNombreP;
+    private TableColumn<Producto, String> columnaNombreP;
 
     @FXML
-    private TableColumn<Producto,String> columnaNombreP1;
+    private TableColumn<Producto, String> columnaNombreP1;
 
     @FXML
-    private TableColumn<Producto,String> columnaNombreP2;
+    private TableColumn<Producto, String> columnaNombreP2;
 
     @FXML
-    private TableColumn<Producto,String> columnaNombreP3;
+    private TableColumn<Producto, String> columnaNombreP3;
 
     @FXML
-    private TableColumn<Producto,String> columnaNombreP4;
+    private TableColumn<Producto, String> columnaNombreP4;
 
     @FXML
-    private TableColumn<Producto,String> columnaNombreP5;
+    private TableColumn<Producto, String> columnaNombreP5;
 
     @FXML
-    private TableColumn<Producto,String> columnaNombreP6;
+    private TableColumn<Producto, String> columnaNombreP6;
 
     @FXML
-    private TableColumn<Producto,String> columnaNombreP7;
+    private TableColumn<Producto, String> columnaNombreP7;
 
     @FXML
-    private TableColumn<Producto,String> columnaNombreP8;
+    private TableColumn<Producto, String> columnaNombreP8;
 
     @FXML
-    private TableColumn<Producto,String> columnaNombreP9;
+    private TableColumn<Producto, String> columnaNombreP9;
 
     @FXML
-    private TableColumn<Producto,String> columnaPrecio;
+    private TableColumn<Producto, String> columnaPrecio;
 
     @FXML
-    private TableColumn<Producto,String> columnaPrecio1;
+    private TableColumn<Producto, String> columnaPrecio1;
 
     @FXML
-    private TableColumn<Producto,String> columnaPrecio2;
+    private TableColumn<Producto, String> columnaPrecio2;
 
     @FXML
-    private TableColumn<Producto,String> columnaPrecio3;
+    private TableColumn<Producto, String> columnaPrecio3;
 
     @FXML
-    private TableColumn<Producto,String> columnaPrecio4;
+    private TableColumn<Producto, String> columnaPrecio4;
 
     @FXML
-    private TableColumn<Producto,String> columnaPrecio5;
+    private TableColumn<Producto, String> columnaPrecio5;
 
     @FXML
-    private TableColumn<Producto,String> columnaPrecio6;
+    private TableColumn<Producto, String> columnaPrecio6;
 
     @FXML
-    private TableColumn<Producto,String> columnaPrecio7;
+    private TableColumn<Producto, String> columnaPrecio7;
 
     @FXML
-    private TableColumn<Producto,String> columnaPrecio8;
+    private TableColumn<Producto, String> columnaPrecio8;
 
     @FXML
-    private TableColumn<Producto,String> columnaPrecio9;
+    private TableColumn<Producto, String> columnaPrecio9;
 
     @FXML
     private ComboBox<Estado> comboEstadoProducto;
@@ -607,57 +630,82 @@ public class ControladorMarketplaceView {
 
     @FXML
     private TabPane tabPrincipal;
-    private boolean datosValidos(String nombre, String apellido, String cedula,  String direccion, String cuenta, String contrasena) {
+
+    private boolean datosValidos(String nombre, String apellido, String cedula, String direccion, String cuenta, String contrasena) {
 
         String mensaje = "";
 
 
-        if(nombre == null || nombre.equals(""))
-            mensaje += "El nombre es invalido \n" ;
+        if (nombre == null || nombre.equals(""))
+            mensaje += "El nombre es invalido \n";
 
-        if(apellido == null || apellido.equals(""))
-            mensaje += "El apellido es invalido \n" ;
+        if (apellido == null || apellido.equals(""))
+            mensaje += "El apellido es invalido \n";
 
-        if(cedula == null || cedula.equals(""))
-            mensaje += "El documento es invalido \n" ;
+        if (cedula == null || cedula.equals(""))
+            mensaje += "El documento es invalido \n";
 
-        if(direccion == null || direccion.equals(""))
-            mensaje += "La direccion es invalida \n" ;
-        if(cuenta == null || cuenta.equals(""))
-            mensaje += "La direccion es invalida \n" ;
-        if(contrasena == null || contrasena.equals(""))
-            mensaje += "La direccion es invalida \n" ;
+        if (direccion == null || direccion.equals(""))
+            mensaje += "La direccion es invalida \n";
+        if (cuenta == null || cuenta.equals(""))
+            mensaje += "La direccion es invalida \n";
+        if (contrasena == null || contrasena.equals(""))
+            mensaje += "La direccion es invalida \n";
 
 
-        if(mensaje.equals("")){
+        if (mensaje.equals("")) {
             return true;
-        }else{
-            mostrarMensaje("Notificación cliente","Datos invalidos",mensaje, Alert.AlertType.WARNING);
+        } else {
+            mostrarMensaje("Notificación cliente", "Datos invalidos", mensaje, Alert.AlertType.WARNING);
             return false;
         }
     }
 
-    private void publicarProducto(){
+    private void publicarProducto() {
         String codigo = campoCodigoProducto.getText();
         String nombreProducto = campoNombreProducto.getText();
-        String rutaImagen= campoUrlImagen.getText();
+        String rutaImagen = campoUrlImagen.getText();
         String categoria = campoCategoria.getText();
         double precio = Double.parseDouble(campoPrecio.getText());
         String estadoProducto = String.valueOf(comboEstadoProducto.getValue());
 
-        if(datosValidosProducto(codigo,nombreProducto, rutaImagen, categoria, precio, estadoProducto)== true){
-            Producto producto= null;
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
             producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
-            if(producto != null){
+            if (producto != null) {
                 listaProductosVis.add(producto);
                 mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
                 refresh();
                 limpiarCamposProducto();
-            }else{
+            } else {
                 mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
             }
-        }else{
-            mostrarMensaje("Notificación vendedor", "Vendedor no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void publicarProducto1() {
+        String codigo = campoCodigoProducto1.getText();
+        String nombreProducto = campoNombreProducto1.getText();
+        String rutaImagen = campoUrlImagen1.getText();
+        String categoria = campoCategoria1.getText();
+        double precio = Double.parseDouble(campoPrecio1.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto1.getValue());
+
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
+            if (producto != null) {
+                listaProductosVis.add(producto);
+                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
+                refresh();
+                limpiarCamposProducto1();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
     }
 
@@ -682,59 +730,359 @@ public class ControladorMarketplaceView {
         if (selectedFile != null) {
             // Cargar la imagen aquí
             System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
+            String rutaImagen = selectedFile.getAbsolutePath();
+
+            // Crear un objeto Image con la ruta de la imagen
+            Image image = new Image(rutaImagen);
+
+            // Establecer la imagen en el ImageView
+            imagenProducto.setImage(image);
         }
     }
-    @FXML
-
-    void publicarProductoAction(ActionEvent event){publicarProducto();}
 
     @FXML
-    void actualizarProductoAction(ActionEvent event){actualizarProducto();}
+    void subirImagenAction1(ActionEvent event) {
+
+        // Crear el objeto FileChooser
+        FileChooser fileChooser = new FileChooser();
+        // Configurar las opciones del objeto FileChooser
+        fileChooser.setTitle("Seleccionar imagen");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+        // Mostrar la ventana de selección de archivos
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        // Si el usuario seleccionó un archivo, cargar la imagen
+        if (selectedFile != null) {
+            // Cargar la imagen aquí
+            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
+            String rutaImagen = selectedFile.getAbsolutePath();
+
+            // Crear un objeto Image con la ruta de la imagen
+            Image image = new Image(rutaImagen);
+
+            // Establecer la imagen en el ImageView
+            imagenProducto1.setImage(image);
+        }
+    }
 
     @FXML
-    void eliminarProductoAction(ActionEvent event){eliminarProducto();}
+    void subirImagenAction2(ActionEvent event) {
+
+        // Crear el objeto FileChooser
+        FileChooser fileChooser = new FileChooser();
+        // Configurar las opciones del objeto FileChooser
+        fileChooser.setTitle("Seleccionar imagen");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+        // Mostrar la ventana de selección de archivos
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        // Si el usuario seleccionó un archivo, cargar la imagen
+        if (selectedFile != null) {
+            // Cargar la imagen aquí
+            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
+            String rutaImagen = selectedFile.getAbsolutePath();
+
+            // Crear un objeto Image con la ruta de la imagen
+            Image image = new Image(rutaImagen);
+
+            // Establecer la imagen en el ImageView
+            imagenProducto2.setImage(image);
+        }
+    }
+
+    @FXML
+    void subirImagenAction3(ActionEvent event) {
+
+        // Crear el objeto FileChooser
+        FileChooser fileChooser = new FileChooser();
+        // Configurar las opciones del objeto FileChooser
+        fileChooser.setTitle("Seleccionar imagen");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+        // Mostrar la ventana de selección de archivos
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        // Si el usuario seleccionó un archivo, cargar la imagen
+        if (selectedFile != null) {
+            // Cargar la imagen aquí
+            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
+            String rutaImagen = selectedFile.getAbsolutePath();
+
+            // Crear un objeto Image con la ruta de la imagen
+            Image image = new Image(rutaImagen);
+
+            // Establecer la imagen en el ImageView
+            imagenProducto3.setImage(image);
+        }
+    }
+
+    @FXML
+    void subirImagenAction4(ActionEvent event) {
+
+        // Crear el objeto FileChooser
+        FileChooser fileChooser = new FileChooser();
+        // Configurar las opciones del objeto FileChooser
+        fileChooser.setTitle("Seleccionar imagen");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+        // Mostrar la ventana de selección de archivos
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        // Si el usuario seleccionó un archivo, cargar la imagen
+        if (selectedFile != null) {
+            // Cargar la imagen aquí
+            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
+            String rutaImagen = selectedFile.getAbsolutePath();
+
+            // Crear un objeto Image con la ruta de la imagen
+            Image image = new Image(rutaImagen);
+
+            // Establecer la imagen en el ImageView
+            imagenProducto4.setImage(image);
+        }
+    }
+
+    @FXML
+    void subirImagenAction5(ActionEvent event) {
+
+        // Crear el objeto FileChooser
+        FileChooser fileChooser = new FileChooser();
+        // Configurar las opciones del objeto FileChooser
+        fileChooser.setTitle("Seleccionar imagen");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+        // Mostrar la ventana de selección de archivos
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        // Si el usuario seleccionó un archivo, cargar la imagen
+        if (selectedFile != null) {
+            // Cargar la imagen aquí
+            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
+            String rutaImagen = selectedFile.getAbsolutePath();
+
+            // Crear un objeto Image con la ruta de la imagen
+            Image image = new Image(rutaImagen);
+
+            // Establecer la imagen en el ImageView
+            imagenProducto5.setImage(image);
+        }
+    }
+
+    @FXML
+    void subirImagenAction6(ActionEvent event) {
+
+        // Crear el objeto FileChooser
+        FileChooser fileChooser = new FileChooser();
+        // Configurar las opciones del objeto FileChooser
+        fileChooser.setTitle("Seleccionar imagen");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+        // Mostrar la ventana de selección de archivos
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        // Si el usuario seleccionó un archivo, cargar la imagen
+        if (selectedFile != null) {
+            // Cargar la imagen aquí
+            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
+            String rutaImagen = selectedFile.getAbsolutePath();
+
+            // Crear un objeto Image con la ruta de la imagen
+            Image image = new Image(rutaImagen);
+
+            // Establecer la imagen en el ImageView
+            imagenProducto6.setImage(image);
+        }
+    }
+
+    @FXML
+    void subirImagenAction7(ActionEvent event) {
+
+        // Crear el objeto FileChooser
+        FileChooser fileChooser = new FileChooser();
+        // Configurar las opciones del objeto FileChooser
+        fileChooser.setTitle("Seleccionar imagen");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+        // Mostrar la ventana de selección de archivos
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        // Si el usuario seleccionó un archivo, cargar la imagen
+        if (selectedFile != null) {
+            // Cargar la imagen aquí
+            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
+            String rutaImagen = selectedFile.getAbsolutePath();
+
+            // Crear un objeto Image con la ruta de la imagen
+            Image image = new Image(rutaImagen);
+
+            // Establecer la imagen en el ImageView
+            imagenProducto7.setImage(image);
+        }
+    }
+
+    @FXML
+    void subirImagenAction8(ActionEvent event) {
+
+        // Crear el objeto FileChooser
+        FileChooser fileChooser = new FileChooser();
+        // Configurar las opciones del objeto FileChooser
+        fileChooser.setTitle("Seleccionar imagen");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+        // Mostrar la ventana de selección de archivos
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        // Si el usuario seleccionó un archivo, cargar la imagen
+        if (selectedFile != null) {
+            // Cargar la imagen aquí
+            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
+            String rutaImagen = selectedFile.getAbsolutePath();
+
+            // Crear un objeto Image con la ruta de la imagen
+            Image image = new Image(rutaImagen);
+
+            // Establecer la imagen en el ImageView
+            imagenProducto8.setImage(image);
+        }
+    }
+
+    @FXML
+    void subirImagenAction9(ActionEvent event) {
+
+        // Crear el objeto FileChooser
+        FileChooser fileChooser = new FileChooser();
+        // Configurar las opciones del objeto FileChooser
+        fileChooser.setTitle("Seleccionar imagen");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+        // Mostrar la ventana de selección de archivos
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        // Si el usuario seleccionó un archivo, cargar la imagen
+        if (selectedFile != null) {
+            // Cargar la imagen aquí
+            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
+            String rutaImagen = selectedFile.getAbsolutePath();
+
+            // Crear un objeto Image con la ruta de la imagen
+            Image image = new Image(rutaImagen);
+
+            // Establecer la imagen en el ImageView
+            imagenProducto9.setImage(image);
+        }
+    }
 
 
+    @FXML
+    void publicarProductoAction(ActionEvent event) {
+        publicarProducto();
+    }
 
-    private void actualizarProducto(){
+    @FXML
+    void publicarProductoAction1(ActionEvent event) {
+        publicarProducto1();
+    }
+
+
+    @FXML
+    void actualizarProductoAction(ActionEvent event) {
+        actualizarProducto();
+    }
+
+    @FXML
+    void eliminarProductoAction(ActionEvent event) {
+        eliminarProducto();
+    }
+
+    @FXML
+    void actualizarProductoAction1(ActionEvent event) {
+        actualizarProducto1();
+    }
+
+    @FXML
+    void eliminarProductoAction1(ActionEvent event) {
+        eliminarProducto1();
+    }
+
+
+    private void actualizarProducto() {
 
         String codigo = campoCodigoProducto.getText();
         String nombreProducto = campoNombreProducto.getText();
-        String rutaImagen= campoUrlImagen.getText();
+        String rutaImagen = campoUrlImagen.getText();
         String categoria = campoCategoria.getText();
         double precio = Double.parseDouble(campoPrecio.getText());
         String estadoProducto = String.valueOf(comboEstadoProducto.getValue());
 
         //2. Validar la información
-        if(datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto)== true){
-            Producto producto= null;
-            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto),productoSeleccionado.getCodigo() );
-            if(producto != null){
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
+            if (producto != null) {
                 refresh();
                 mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
                 limpiarCamposProducto();
-            }else{
+            } else {
                 mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
             }
-        }else{
+        } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
 
 
     }
-    private void eliminarProducto(){
+
+    private void actualizarProducto1() {
+
+        String codigo = campoCodigoProducto1.getText();
+        String nombreProducto = campoNombreProducto1.getText();
+        String rutaImagen = campoUrlImagen1.getText();
+        String categoria = campoCategoria1.getText();
+        double precio = Double.parseDouble(campoPrecio1.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto1.getValue());
+
+        //2. Validar la información
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
+            if (producto != null) {
+                refresh();
+                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
+                limpiarCamposProducto1();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+
+
+    }
+
+    private void eliminarProducto() {
         boolean productoEliminado = false;
 
 
-        if(productoSeleccionado != null){
+        if (productoSeleccionado != null) {
 
 
-            if(mostrarMensajeConfirmacion("¿Estas seguro de elimininar al empleado?") == true){
+            if (mostrarMensajeConfirmacion("¿Estas seguro de elimininar el producto?") == true) {
 
-                productoEliminado = controllerAdminView.eliminarVendedor(productoSeleccionado.getCodigo());
+                productoEliminado = controllerVendedorView.eliminarProducto(productoSeleccionado.getCodigo());
 
 
-                if(productoEliminado == true){
+                if (productoEliminado == true) {
                     listaProductosVis.remove(productoSeleccionado);
                     productoSeleccionado = null;
 
@@ -742,15 +1090,195 @@ public class ControladorMarketplaceView {
                     limpiarCamposProducto();
 
                     mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
-                }else{
+                } else {
                     mostrarMensaje("Notificación producto", "Producto no eliminado", "El producto no se puede eliminar", Alert.AlertType.ERROR);
                 }
             }
-        }else{
+        } else {
             mostrarMensaje("Notificación producto", "Producto no seleccionado", "Seleccionado un producto de la lista", Alert.AlertType.WARNING);
         }
 
     }
+
+    private void eliminarProducto1() {
+        boolean productoEliminado = false;
+
+
+        if (productoSeleccionado != null) {
+
+
+            if (mostrarMensajeConfirmacion("¿Estas seguro de elimininar el producto?") == true) {
+
+                productoEliminado = controllerVendedorView.eliminarProducto(productoSeleccionado.getCodigo());
+
+
+                if (productoEliminado == true) {
+                    listaProductosVis.remove(productoSeleccionado);
+                    productoSeleccionado = null;
+
+                    tablaProductos1.getSelectionModel().clearSelection();
+                    limpiarCamposProducto1();
+
+                    mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+                } else {
+                    mostrarMensaje("Notificación producto", "Producto no eliminado", "El producto no se puede eliminar", Alert.AlertType.ERROR);
+                }
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no seleccionado", "Seleccionado un producto de la lista", Alert.AlertType.WARNING);
+        }
+
+    }
+
+
+    public void inicialzarVendedorView2() {
+        //1. Inicializar la tabla
+        int id = 0;
+        this.columnaNombreP2.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.columnaCategoria2.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.columnaPrecio2.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.columnaEstado2.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        this.columnaCodigo2.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+
+        tablaProductos2.getItems().clear();
+        tablaProductos2.setItems(getListaProductosVis());
+
+// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
+        tablaProductos2.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
+            this.productoSeleccionado = newSelecction;
+            this.setearCamposProductos2(this.productoSeleccionado);
+        });
+    }
+
+    private void setearCamposProductos2(Producto producto) {
+
+        if (producto != null) {
+            campoCodigoProducto2.setText(producto.getCodigo());
+            campoNombreProducto2.setText(producto.getNombre());
+            campoCategoria2.setText(producto.getCategoria());
+            campoPrecio2.setText(String.valueOf(producto.getPrecio()));
+            comboEstadoProducto2.setValue(producto.getEstado());
+
+            if (producto.getEstado() != null && producto.getEstado() != Estado.NULL) {
+                comboEstadoProducto2.setValue(producto.getEstado());
+            } else {
+                comboEstadoProducto2.setValue(null);
+            }
+        } else {
+            campoCodigoProducto2.setText("");
+            campoNombreProducto2.setText("");
+            campoCategoria2.setText("");
+            campoPrecio2.setText("");
+            comboEstadoProducto2.setValue(null);
+        }
+    }
+
+    private void limpiarCamposProducto2() {
+        campoCodigoProducto2.setText("");
+        campoNombreProducto2.setText("");
+        campoUrlImagen2.setText("");
+        campoCategoria2.setText("");
+        campoPrecio2.setText("");
+        comboEstadoProducto2.setValue(null);
+    }
+
+    private void publicarProducto2() {
+        String codigo = campoCodigoProducto2.getText();
+        String nombreProducto = campoNombreProducto2.getText();
+        String rutaImagen = campoUrlImagen2.getText();
+        String categoria = campoCategoria2.getText();
+        double precio = Double.parseDouble(campoPrecio2.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto2.getValue());
+
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
+            if (producto != null) {
+                listaProductosVis.add(producto);
+                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
+                refresh();
+                limpiarCamposProducto2();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void actualizarProducto2() {
+
+        String codigo = campoCodigoProducto2.getText();
+        String nombreProducto = campoNombreProducto2.getText();
+        String rutaImagen = campoUrlImagen2.getText();
+        String categoria = campoCategoria2.getText();
+        double precio = Double.parseDouble(campoPrecio2.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto2.getValue());
+
+        //2. Validar la información
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
+            if (producto != null) {
+                refresh();
+                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
+                limpiarCamposProducto2();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+
+
+    }
+
+    private void eliminarProducto2() {
+        boolean productoEliminado = false;
+
+
+        if (productoSeleccionado != null) {
+
+
+            if (mostrarMensajeConfirmacion("¿Estas seguro de elimininar el producto?") == true) {
+
+                productoEliminado = controllerVendedorView.eliminarProducto(productoSeleccionado.getCodigo());
+
+
+                if (productoEliminado == true) {
+                    listaProductosVis.remove(productoSeleccionado);
+                    productoSeleccionado = null;
+
+                    tablaProductos2.getSelectionModel().clearSelection();
+                    limpiarCamposProducto2();
+
+                    mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+                } else {
+                    mostrarMensaje("Notificación producto", "Producto no eliminado", "El producto no se puede eliminar", Alert.AlertType.ERROR);
+                }
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no seleccionado", "Seleccionado un producto de la lista", Alert.AlertType.WARNING);
+        }
+
+    }
+
+    @FXML
+    void publicarProductoAction2(ActionEvent event) {
+        publicarProducto2();
+    }
+
+
+    @FXML
+    void actualizarProductoAction2(ActionEvent event) {
+        actualizarProducto2();
+    }
+
+    @FXML
+    void eliminarProductoAction2(ActionEvent event) {
+        eliminarProducto2();
+    }
+
 
     public ObservableList<Vendedor> getListaVendedoresData() {
         listaVendedoresData.addAll(controllerAdminView.obtenerVendedores());
@@ -791,33 +1319,32 @@ public class ControladorMarketplaceView {
         }
     }
 
-    private boolean datosValidosProducto(String codigo,String nombreProducto, String rutaImagen, String categoria,  double precio, String estadoProducto) {
+    private boolean datosValidosProducto(String codigo, String nombreProducto, String rutaImagen, String categoria, double precio, String estadoProducto) {
 
         String mensaje = "";
 
-        if(codigo == null || codigo.equals(""))
-            mensaje += "El codigo del producto es invalido \n" ;
+        if (codigo == null || codigo.equals(""))
+            mensaje += "El codigo del producto es invalido \n";
 
-        if(nombreProducto == null || nombreProducto.equals(""))
-            mensaje += "El nombre del producto es invalido \n" ;
+        if (nombreProducto == null || nombreProducto.equals(""))
+            mensaje += "El nombre del producto es invalido \n";
 
-        if(rutaImagen == null || rutaImagen.equals(""))
-            mensaje += "La ruta de la imagen es invalida \n" ;
+        if (rutaImagen == null || rutaImagen.equals(""))
+            mensaje += "La ruta de la imagen es invalida \n";
 
-        if(categoria == null || categoria.equals(""))
-            mensaje += "La categoría del producto es invalida \n" ;
+        if (categoria == null || categoria.equals(""))
+            mensaje += "La categoría del producto es invalida \n";
 
-        if(precio<=0)
-            mensaje += "El precio del producto es invalido \n" ;
-        if(estadoProducto == null || estadoProducto.equals(""))
-            mensaje += "La direccion es invalida \n" ;
+        if (precio <= 0)
+            mensaje += "El precio del producto es invalido \n";
+        if (estadoProducto == null || estadoProducto.equals(""))
+            mensaje += "La direccion es invalida \n";
 
 
-
-        if(mensaje.equals("")){
+        if (mensaje.equals("")) {
             return true;
-        }else{
-            mostrarMensaje("Notificación cliente","Datos invalidos",mensaje, Alert.AlertType.WARNING);
+        } else {
+            mostrarMensaje("Notificación producto", "Datos invalidos", mensaje, Alert.AlertType.WARNING);
             return false;
         }
     }
@@ -841,14 +1368,59 @@ public class ControladorMarketplaceView {
     }
 
     @FXML
-    void initialize(){
+    void initialize() {
 
         modelFactoryController = ModelFactoryController.getInstance();
         controllerAdminView = new ControllerAdminView(modelFactoryController);
         controllerVendedorView = new ControllerVendedorView(modelFactoryController);
         comboEstadoProducto.getItems().setAll(Estado.values());
+        comboEstadoProducto1.getItems().setAll(Estado.values());
+        comboEstadoProducto2.getItems().setAll(Estado.values());
+        comboEstadoProducto3.getItems().setAll(Estado.values());
+        comboEstadoProducto4.getItems().setAll(Estado.values());
+        comboEstadoProducto5.getItems().setAll(Estado.values());
+        comboEstadoProducto6.getItems().setAll(Estado.values());
+        comboEstadoProducto7.getItems().setAll(Estado.values());
+        comboEstadoProducto8.getItems().setAll(Estado.values());
+        comboEstadoProducto9.getItems().setAll(Estado.values());
+
         modelFactoryController = ModelFactoryController.getInstance();
-        inicialzarAdminView();
+        switch (modelFactoryController.getSesion()) {
+            case 0:
+                inicialzarAdminView();
+                break;
+            case 1:
+                inicialzarVendedorView();
+                break;
+            case 2:
+                inicialzarVendedorView1();
+                break;
+            case 3:
+                inicialzarVendedorView2();
+                break;
+            case 4:
+                inicialzarVendedorView3();
+                break;
+            case 5:
+                inicialzarVendedorView4();
+                break;
+            case 6:
+                inicialzarVendedorView5();
+                break;
+            case 7:
+                inicialzarVendedorView6();
+                break;
+            case 8:
+                inicialzarVendedorView7();
+                break;
+            case 9:
+                inicialzarVendedorView8();
+                break;
+            case 10:
+                inicialzarVendedorView9();
+                break;
+        }
+
         // metodo para deshabilitar los tabs y dejar solo el de inicio de sesion
         for (int i = 0; i < tabPrincipal.getTabs().size(); i++) {
             Tab tab = tabPrincipal.getTabs().get(i);
@@ -862,9 +1434,9 @@ public class ControladorMarketplaceView {
         }
     }
 
-
-    public void inicialzarVendedorView(){
+    public void inicialzarVendedorView() {
         //1. Inicializar la tabla
+        int id = 0;
         this.columnaNombreP.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.columnaCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         this.columnaPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
@@ -875,13 +1447,32 @@ public class ControladorMarketplaceView {
         tablaProductos.setItems(getListaProductosVis());
 
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
-        tablaProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) ->{
+        tablaProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
             this.productoSeleccionado = newSelecction;
             this.setearCamposProductos(this.productoSeleccionado);
         });
     }
 
-    public void inicialzarAdminView(){
+    public void inicialzarVendedorView1() {
+        //1. Inicializar la tabla
+        int id = 0;
+        this.columnaNombreP1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.columnaCategoria1.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.columnaPrecio1.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.columnaEstado1.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        this.columnaCodigo1.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+
+        tablaProductos1.getItems().clear();
+        tablaProductos1.setItems(getListaProductosVis());
+
+// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
+        tablaProductos1.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
+            this.productoSeleccionado = newSelecction;
+            this.setearCamposProductos1(this.productoSeleccionado);
+        });
+    }
+
+    public void inicialzarAdminView() {
         //1. Inicializar la tabla
         this.colNombreVendedor.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.colApellidoVendedor.setCellValueFactory(new PropertyValueFactory<>("apellido"));
@@ -894,11 +1485,12 @@ public class ControladorMarketplaceView {
 
 
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
-        tblVendedores.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) ->{
+        tblVendedores.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
             this.vendedorSeleccionado = newSelecction;
             this.setearCamposVendedor(this.vendedorSeleccionado);
         });
     }
+
     private void CrearVendedor() {
         //1. Capturar los datos
         String nombre = campoNombre.getText();
@@ -909,24 +1501,25 @@ public class ControladorMarketplaceView {
         String contrasena = campoContrasena.getText();
 
         //2. Validar la información
-        if(datosValidos(nombre, apellido, cedula, direccion, cuenta, contrasena)== true){
-            Vendedor vendedor= null;
+        if (datosValidos(nombre, apellido, cedula, direccion, cuenta, contrasena) == true) {
+            Vendedor vendedor = null;
             vendedor = controllerAdminView.crearVendedor(nombre, apellido, cedula, direccion, cuenta, contrasena);
-            if(vendedor != null){
+            if (vendedor != null) {
                 listaVendedoresData.add(vendedor);
                 mostrarMensaje("Notificación vendedor", "Vendedor creado", "El vendedor se ha creado con éxito", Alert.AlertType.INFORMATION);
                 refresh();
                 limpiarCamposVendedor();
-            }else{
+            } else {
                 mostrarMensaje("Notificación vendedor", "Vendedor no creado", "El vendedor con cedula " + cedula + " ya existe", Alert.AlertType.INFORMATION);
             }
-        }else{
+        } else {
             mostrarMensaje("Notificación vendedor", "Vendedor no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
 
 
     }
-    private void actualizarVendedor(){
+
+    private void actualizarVendedor() {
 
         //1. Capturar los datos
         String nombre = campoNombre.getText();
@@ -937,35 +1530,36 @@ public class ControladorMarketplaceView {
         String contrasena = campoContrasena.getText();
 
         //2. Validar la información
-        if(datosValidos(nombre, apellido, cedula, direccion, cuenta, contrasena)== true){
-            Vendedor vendedor= null;
+        if (datosValidos(nombre, apellido, cedula, direccion, cuenta, contrasena) == true) {
+            Vendedor vendedor = null;
             vendedor = controllerAdminView.actualizarVendedor(nombre, apellido, cedula, direccion, cuenta, contrasena, vendedorSeleccionado.getCedula());
-            if(vendedor != null){
+            if (vendedor != null) {
                 refresh();
                 mostrarMensaje("Notificación vendedor", "Vendedor actualizado", "El vendedor se ha actualizado con éxito", Alert.AlertType.INFORMATION);
                 limpiarCamposVendedor();
-            }else{
+            } else {
                 mostrarMensaje("Notificación vendedor", "Vendedor no actualizado", "El vendedor no se ha actualizado", Alert.AlertType.INFORMATION);
             }
-        }else{
+        } else {
             mostrarMensaje("Notificación vendedor", "Vendedor no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
 
 
     }
-    private void eliminarVendedor(){
+
+    private void eliminarVendedor() {
         boolean empleadoEliminado = false;
 
 
-        if(vendedorSeleccionado != null){
+        if (vendedorSeleccionado != null) {
 
 
-            if(mostrarMensajeConfirmacion("¿Estas seguro de elimininar al empleado?") == true){
+            if (mostrarMensajeConfirmacion("¿Estas seguro de elimininar al empleado?") == true) {
 
                 empleadoEliminado = controllerAdminView.eliminarVendedor(vendedorSeleccionado.getCedula());
 
 
-                if(empleadoEliminado == true){
+                if (empleadoEliminado == true) {
                     listaVendedoresData.remove(vendedorSeleccionado);
                     vendedorSeleccionado = null;
 
@@ -973,37 +1567,50 @@ public class ControladorMarketplaceView {
                     limpiarCamposVendedor();
 
                     mostrarMensaje("Notificación vendedor", "Vendedor eliminado", "El vendedor se ha eliminado con éxito", Alert.AlertType.INFORMATION);
-                }else{
+                } else {
                     mostrarMensaje("Notificación vendedor", "Vendedor no eliminado", "El vendedor no se puede eliminar", Alert.AlertType.ERROR);
                 }
             }
-        }else{
+        } else {
             mostrarMensaje("Notificación vendedor", "Vendedor no seleccionado", "Seleccionado un vendedor de la lista", Alert.AlertType.WARNING);
         }
 
     }
+
     //Actualiza la lista de vehndedores dee la tabla obtener vendedores del singleton contra la de la interfaz
-    void refresh(){
+    void refresh() {
         tblVendedores.getItems().clear();
         tblVendedores.setItems(getListaVendedoresData());
         tablaProductos.getItems().clear();
         tablaProductos.setItems(getListaProductosVis());
+        tablaProductos1.getItems().clear();
+        tablaProductos1.setItems(getListaProductosVis());
+
     }
 
 
     private void limpiarCamposProducto() {
         campoCodigoProducto.setText("");
-        campoApellido.setText("");
+        campoNombreProducto.setText("");
         campoUrlImagen.setText("");
         campoCategoria.setText("");
         campoPrecio.setText("");
-        comboEstadoProducto.setItems(null);
+        comboEstadoProducto.setValue(null);
+    }
+
+    private void limpiarCamposProducto1() {
+        campoCodigoProducto1.setText("");
+        campoNombreProducto1.setText("");
+        campoUrlImagen1.setText("");
+        campoCategoria1.setText("");
+        campoPrecio1.setText("");
+        comboEstadoProducto1.setValue(null);
     }
 
     //Setea los campos de la tabla hacia los de texto
     private void setearCamposVendedor(Vendedor vendedor) {
 
-        if(vendedor !=  null){
+        if (vendedor != null) {
             campoNombre.setText(vendedor.getNombre());
             campoApellido.setText(vendedor.getApellido());
             campoCedula.setText(vendedor.getCedula());
@@ -1016,21 +1623,55 @@ public class ControladorMarketplaceView {
 
     private void setearCamposProductos(Producto producto) {
 
-        if(producto !=  null){
+        if (producto != null) {
             campoCodigoProducto.setText(producto.getCodigo());
             campoNombreProducto.setText(producto.getNombre());
             campoCategoria.setText(producto.getCategoria());
             campoPrecio.setText(String.valueOf(producto.getPrecio()));
-            comboEstadoProducto.setItems(producto.getEstado());
-        }
+            comboEstadoProducto.setValue(producto.getEstado());
 
+            if (producto.getEstado() != null && producto.getEstado() != Estado.NULL) {
+                comboEstadoProducto.setValue(producto.getEstado());
+            } else {
+                comboEstadoProducto.setValue(null);
+            }
+        } else {
+            campoCodigoProducto.setText("");
+            campoNombreProducto.setText("");
+            campoCategoria.setText("");
+            campoPrecio.setText("");
+            comboEstadoProducto.setValue(null);
+        }
     }
 
+    private void setearCamposProductos1(Producto producto) {
+
+        if (producto != null) {
+            campoCodigoProducto1.setText(producto.getCodigo());
+            campoNombreProducto1.setText(producto.getNombre());
+            campoCategoria1.setText(producto.getCategoria());
+            campoPrecio1.setText(String.valueOf(producto.getPrecio()));
+            comboEstadoProducto1.setValue(producto.getEstado());
+
+            if (producto.getEstado() != null && producto.getEstado() != Estado.NULL) {
+                comboEstadoProducto1.setValue(producto.getEstado());
+            } else {
+                comboEstadoProducto1.setValue(null);
+            }
+        } else {
+            campoCodigoProducto1.setText("");
+            campoNombreProducto1.setText("");
+            campoCategoria1.setText("");
+            campoPrecio1.setText("");
+            comboEstadoProducto1.setValue(null);
+        }
+    }
 
     @FXML
     void crearVendedorAction(ActionEvent event) {
         CrearVendedor();
     }
+
     @FXML
     void actualizarVendedorAction(ActionEvent event) {
         actualizarVendedor();
@@ -1043,7 +1684,1052 @@ public class ControladorMarketplaceView {
     }
 
 
-    @FXML
-    void gestionarProductosAction(ActionEvent event) {
-        aplicacion.mostrarVentanaPrincipal();}
+    public void inicialzarVendedorView3() {
+        //1. Inicializar la tabla
+        int id = 0;
+        this.columnaNombreP3.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.columnaCategoria3.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.columnaPrecio3.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.columnaEstado3.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        this.columnaCodigo3.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+
+        tablaProductos3.getItems().clear();
+        tablaProductos3.setItems(getListaProductosVis());
+
+// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
+        tablaProductos3.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
+            this.productoSeleccionado = newSelecction;
+            this.setearCamposProductos3(this.productoSeleccionado);
+        });
     }
+
+    private void setearCamposProductos3(Producto producto) {
+
+        if (producto != null) {
+            campoCodigoProducto3.setText(producto.getCodigo());
+            campoNombreProducto3.setText(producto.getNombre());
+            campoCategoria3.setText(producto.getCategoria());
+            campoPrecio3.setText(String.valueOf(producto.getPrecio()));
+            comboEstadoProducto3.setValue(producto.getEstado());
+
+            if (producto.getEstado() != null && producto.getEstado() != Estado.NULL) {
+                comboEstadoProducto3.setValue(producto.getEstado());
+            } else {
+                comboEstadoProducto3.setValue(null);
+            }
+        } else {
+            campoCodigoProducto3.setText("");
+            campoNombreProducto3.setText("");
+            campoCategoria3.setText("");
+            campoPrecio3.setText("");
+            comboEstadoProducto3.setValue(null);
+        }
+    }
+
+    private void limpiarCamposProducto3() {
+        campoCodigoProducto3.setText("");
+        campoNombreProducto3.setText("");
+        campoUrlImagen3.setText("");
+        campoCategoria3.setText("");
+        campoPrecio3.setText("");
+        comboEstadoProducto3.setValue(null);
+    }
+
+    private void publicarProducto3() {
+        String codigo = campoCodigoProducto3.getText();
+        String nombreProducto = campoNombreProducto3.getText();
+        String rutaImagen = campoUrlImagen3.getText();
+        String categoria = campoCategoria3.getText();
+        double precio = Double.parseDouble(campoPrecio3.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto3.getValue());
+
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
+            if (producto != null) {
+                listaProductosVis.add(producto);
+                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
+                refresh();
+                limpiarCamposProducto3();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void actualizarProducto3() {
+
+        String codigo = campoCodigoProducto3.getText();
+        String nombreProducto = campoNombreProducto3.getText();
+        String rutaImagen = campoUrlImagen3.getText();
+        String categoria = campoCategoria3.getText();
+        double precio = Double.parseDouble(campoPrecio3.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto3.getValue());
+
+        //3. Validar la información
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
+            if (producto != null) {
+                refresh();
+                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
+                limpiarCamposProducto3();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+
+
+    }
+
+    private void eliminarProducto3() {
+        boolean productoEliminado = false;
+
+
+        if (productoSeleccionado != null) {
+
+
+            if (mostrarMensajeConfirmacion("¿Estas seguro de elimininar el producto?") == true) {
+
+                productoEliminado = controllerVendedorView.eliminarProducto(productoSeleccionado.getCodigo());
+
+
+                if (productoEliminado == true) {
+                    listaProductosVis.remove(productoSeleccionado);
+                    productoSeleccionado = null;
+
+                    tablaProductos3.getSelectionModel().clearSelection();
+                    limpiarCamposProducto3();
+
+                    mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+                } else {
+                    mostrarMensaje("Notificación producto", "Producto no eliminado", "El producto no se puede eliminar", Alert.AlertType.ERROR);
+                }
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no seleccionado", "Seleccionado un producto de la lista", Alert.AlertType.WARNING);
+        }
+
+    }
+
+
+    @FXML
+    void publicarProductoAction3(ActionEvent event) {
+        publicarProducto3();
+    }
+
+
+    @FXML
+    void actualizarProductoAction3(ActionEvent event) {
+        actualizarProducto3();
+    }
+
+    @FXML
+    void eliminarProductoAction3(ActionEvent event) {
+        eliminarProducto3();
+    }
+
+
+    public void inicialzarVendedorView4() {
+        //1. Inicializar la tabla
+        int id = 0;
+        this.columnaNombreP4.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.columnaCategoria4.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.columnaPrecio4.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.columnaEstado4.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        this.columnaCodigo4.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+
+        tablaProductos4.getItems().clear();
+        tablaProductos4.setItems(getListaProductosVis());
+
+// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
+        tablaProductos4.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
+            this.productoSeleccionado = newSelecction;
+            this.setearCamposProductos4(this.productoSeleccionado);
+        });
+    }
+
+    private void setearCamposProductos4(Producto producto) {
+
+        if (producto != null) {
+            campoCodigoProducto4.setText(producto.getCodigo());
+            campoNombreProducto4.setText(producto.getNombre());
+            campoCategoria4.setText(producto.getCategoria());
+            campoPrecio4.setText(String.valueOf(producto.getPrecio()));
+            comboEstadoProducto4.setValue(producto.getEstado());
+
+            if (producto.getEstado() != null && producto.getEstado() != Estado.NULL) {
+                comboEstadoProducto4.setValue(producto.getEstado());
+            } else {
+                comboEstadoProducto4.setValue(null);
+            }
+        } else {
+            campoCodigoProducto4.setText("");
+            campoNombreProducto4.setText("");
+            campoCategoria4.setText("");
+            campoPrecio4.setText("");
+            comboEstadoProducto4.setValue(null);
+        }
+    }
+
+    private void limpiarCamposProducto4() {
+        campoCodigoProducto4.setText("");
+        campoNombreProducto4.setText("");
+        campoUrlImagen4.setText("");
+        campoCategoria4.setText("");
+        campoPrecio4.setText("");
+        comboEstadoProducto4.setValue(null);
+    }
+
+    private void publicarProducto4() {
+        String codigo = campoCodigoProducto4.getText();
+        String nombreProducto = campoNombreProducto4.getText();
+        String rutaImagen = campoUrlImagen4.getText();
+        String categoria = campoCategoria4.getText();
+        double precio = Double.parseDouble(campoPrecio4.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto4.getValue());
+
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
+            if (producto != null) {
+                listaProductosVis.add(producto);
+                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
+                refresh();
+                limpiarCamposProducto4();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void actualizarProducto4() {
+
+        String codigo = campoCodigoProducto4.getText();
+        String nombreProducto = campoNombreProducto4.getText();
+        String rutaImagen = campoUrlImagen4.getText();
+        String categoria = campoCategoria4.getText();
+        double precio = Double.parseDouble(campoPrecio4.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto4.getValue());
+
+        //4. Validar la información
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
+            if (producto != null) {
+                refresh();
+                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
+                limpiarCamposProducto4();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+
+
+    }
+
+    private void eliminarProducto4() {
+        boolean productoEliminado = false;
+
+
+        if (productoSeleccionado != null) {
+
+
+            if (mostrarMensajeConfirmacion("¿Estas seguro de elimininar el producto?") == true) {
+
+                productoEliminado = controllerVendedorView.eliminarProducto(productoSeleccionado.getCodigo());
+
+
+                if (productoEliminado == true) {
+                    listaProductosVis.remove(productoSeleccionado);
+                    productoSeleccionado = null;
+
+                    tablaProductos4.getSelectionModel().clearSelection();
+                    limpiarCamposProducto4();
+
+                    mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+                } else {
+                    mostrarMensaje("Notificación producto", "Producto no eliminado", "El producto no se puede eliminar", Alert.AlertType.ERROR);
+                }
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no seleccionado", "Seleccionado un producto de la lista", Alert.AlertType.WARNING);
+        }
+
+    }
+
+
+    @FXML
+    void publicarProductoAction4(ActionEvent event) {
+        publicarProducto4();
+    }
+
+
+    @FXML
+    void actualizarProductoAction4(ActionEvent event) {
+        actualizarProducto4();
+    }
+
+    @FXML
+    void eliminarProductoAction4(ActionEvent event) {
+        eliminarProducto4();
+    }
+
+
+    public void inicialzarVendedorView5() {
+        //1. Inicializar la tabla
+        int id = 0;
+        this.columnaNombreP5.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.columnaCategoria5.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.columnaPrecio5.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.columnaEstado5.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        this.columnaCodigo5.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+
+        tablaProductos5.getItems().clear();
+        tablaProductos5.setItems(getListaProductosVis());
+
+// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
+        tablaProductos5.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
+            this.productoSeleccionado = newSelecction;
+            this.setearCamposProductos5(this.productoSeleccionado);
+        });
+    }
+
+    private void setearCamposProductos5(Producto producto) {
+
+        if (producto != null) {
+            campoCodigoProducto5.setText(producto.getCodigo());
+            campoNombreProducto5.setText(producto.getNombre());
+            campoCategoria5.setText(producto.getCategoria());
+            campoPrecio5.setText(String.valueOf(producto.getPrecio()));
+            comboEstadoProducto5.setValue(producto.getEstado());
+
+            if (producto.getEstado() != null && producto.getEstado() != Estado.NULL) {
+                comboEstadoProducto5.setValue(producto.getEstado());
+            } else {
+                comboEstadoProducto5.setValue(null);
+            }
+        } else {
+            campoCodigoProducto5.setText("");
+            campoNombreProducto5.setText("");
+            campoCategoria5.setText("");
+            campoPrecio5.setText("");
+            comboEstadoProducto5.setValue(null);
+        }
+    }
+
+    private void limpiarCamposProducto5() {
+        campoCodigoProducto5.setText("");
+        campoNombreProducto5.setText("");
+        campoUrlImagen5.setText("");
+        campoCategoria5.setText("");
+        campoPrecio5.setText("");
+        comboEstadoProducto5.setValue(null);
+    }
+
+    private void publicarProducto5() {
+        String codigo = campoCodigoProducto5.getText();
+        String nombreProducto = campoNombreProducto5.getText();
+        String rutaImagen = campoUrlImagen5.getText();
+        String categoria = campoCategoria5.getText();
+        double precio = Double.parseDouble(campoPrecio5.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto5.getValue());
+
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
+            if (producto != null) {
+                listaProductosVis.add(producto);
+                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
+                refresh();
+                limpiarCamposProducto5();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void actualizarProducto5() {
+
+        String codigo = campoCodigoProducto5.getText();
+        String nombreProducto = campoNombreProducto5.getText();
+        String rutaImagen = campoUrlImagen5.getText();
+        String categoria = campoCategoria5.getText();
+        double precio = Double.parseDouble(campoPrecio5.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto5.getValue());
+
+        //5. Validar la información
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
+            if (producto != null) {
+                refresh();
+                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
+                limpiarCamposProducto5();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+
+
+    }
+
+    private void eliminarProducto5() {
+        boolean productoEliminado = false;
+
+
+        if (productoSeleccionado != null) {
+
+
+            if (mostrarMensajeConfirmacion("¿Estas seguro de elimininar el producto?") == true) {
+
+                productoEliminado = controllerVendedorView.eliminarProducto(productoSeleccionado.getCodigo());
+
+
+                if (productoEliminado == true) {
+                    listaProductosVis.remove(productoSeleccionado);
+                    productoSeleccionado = null;
+
+                    tablaProductos5.getSelectionModel().clearSelection();
+                    limpiarCamposProducto5();
+
+                    mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+                } else {
+                    mostrarMensaje("Notificación producto", "Producto no eliminado", "El producto no se puede eliminar", Alert.AlertType.ERROR);
+                }
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no seleccionado", "Seleccionado un producto de la lista", Alert.AlertType.WARNING);
+        }
+
+    }
+
+
+    @FXML
+    void publicarProductoAction5(ActionEvent event) {
+        publicarProducto5();
+    }
+
+
+    @FXML
+    void actualizarProductoAction5(ActionEvent event) {
+        actualizarProducto5();
+    }
+
+    @FXML
+    void eliminarProductoAction5(ActionEvent event) {
+        eliminarProducto5();
+    }
+
+
+    public void inicialzarVendedorView6() {
+        //1. Inicializar la tabla
+        int id = 0;
+        this.columnaNombreP6.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.columnaCategoria6.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.columnaPrecio6.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.columnaEstado6.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        this.columnaCodigo6.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+
+        tablaProductos6.getItems().clear();
+        tablaProductos6.setItems(getListaProductosVis());
+
+// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
+        tablaProductos6.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
+            this.productoSeleccionado = newSelecction;
+            this.setearCamposProductos6(this.productoSeleccionado);
+        });
+    }
+
+    private void setearCamposProductos6(Producto producto) {
+
+        if (producto != null) {
+            campoCodigoProducto6.setText(producto.getCodigo());
+            campoNombreProducto6.setText(producto.getNombre());
+            campoCategoria6.setText(producto.getCategoria());
+            campoPrecio6.setText(String.valueOf(producto.getPrecio()));
+            comboEstadoProducto6.setValue(producto.getEstado());
+
+            if (producto.getEstado() != null && producto.getEstado() != Estado.NULL) {
+                comboEstadoProducto6.setValue(producto.getEstado());
+            } else {
+                comboEstadoProducto6.setValue(null);
+            }
+        } else {
+            campoCodigoProducto6.setText("");
+            campoNombreProducto6.setText("");
+            campoCategoria6.setText("");
+            campoPrecio6.setText("");
+            comboEstadoProducto6.setValue(null);
+        }
+    }
+
+    private void limpiarCamposProducto6() {
+        campoCodigoProducto6.setText("");
+        campoNombreProducto6.setText("");
+        campoUrlImagen6.setText("");
+        campoCategoria6.setText("");
+        campoPrecio6.setText("");
+        comboEstadoProducto6.setValue(null);
+    }
+
+    private void publicarProducto6() {
+        String codigo = campoCodigoProducto6.getText();
+        String nombreProducto = campoNombreProducto6.getText();
+        String rutaImagen = campoUrlImagen6.getText();
+        String categoria = campoCategoria6.getText();
+        double precio = Double.parseDouble(campoPrecio6.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto6.getValue());
+
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
+            if (producto != null) {
+                listaProductosVis.add(producto);
+                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
+                refresh();
+                limpiarCamposProducto6();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void actualizarProducto6() {
+
+        String codigo = campoCodigoProducto6.getText();
+        String nombreProducto = campoNombreProducto6.getText();
+        String rutaImagen = campoUrlImagen6.getText();
+        String categoria = campoCategoria6.getText();
+        double precio = Double.parseDouble(campoPrecio6.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto6.getValue());
+
+        //6. Validar la información
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
+            if (producto != null) {
+                refresh();
+                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
+                limpiarCamposProducto6();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+
+
+    }
+
+    private void eliminarProducto6() {
+        boolean productoEliminado = false;
+
+
+        if (productoSeleccionado != null) {
+
+
+            if (mostrarMensajeConfirmacion("¿Estas seguro de elimininar el producto?") == true) {
+
+                productoEliminado = controllerVendedorView.eliminarProducto(productoSeleccionado.getCodigo());
+
+
+                if (productoEliminado == true) {
+                    listaProductosVis.remove(productoSeleccionado);
+                    productoSeleccionado = null;
+
+                    tablaProductos6.getSelectionModel().clearSelection();
+                    limpiarCamposProducto6();
+
+                    mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+                } else {
+                    mostrarMensaje("Notificación producto", "Producto no eliminado", "El producto no se puede eliminar", Alert.AlertType.ERROR);
+                }
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no seleccionado", "Seleccionado un producto de la lista", Alert.AlertType.WARNING);
+        }
+
+    }
+
+
+    @FXML
+    void publicarProductoAction6(ActionEvent event) {
+        publicarProducto6();
+    }
+
+
+    @FXML
+    void actualizarProductoAction6(ActionEvent event) {
+        actualizarProducto6();
+    }
+
+    @FXML
+    void eliminarProductoAction6(ActionEvent event) {
+        eliminarProducto6();
+    }
+
+
+    public void inicialzarVendedorView7() {
+        //1. Inicializar la tabla
+        int id = 0;
+        this.columnaNombreP7.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.columnaCategoria7.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.columnaPrecio7.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.columnaEstado7.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        this.columnaCodigo7.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+
+        tablaProductos7.getItems().clear();
+        tablaProductos7.setItems(getListaProductosVis());
+
+// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
+        tablaProductos7.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
+            this.productoSeleccionado = newSelecction;
+            this.setearCamposProductos7(this.productoSeleccionado);
+        });
+    }
+
+    private void setearCamposProductos7(Producto producto) {
+
+        if (producto != null) {
+            campoCodigoProducto7.setText(producto.getCodigo());
+            campoNombreProducto7.setText(producto.getNombre());
+            campoCategoria7.setText(producto.getCategoria());
+            campoPrecio7.setText(String.valueOf(producto.getPrecio()));
+            comboEstadoProducto7.setValue(producto.getEstado());
+
+            if (producto.getEstado() != null && producto.getEstado() != Estado.NULL) {
+                comboEstadoProducto7.setValue(producto.getEstado());
+            } else {
+                comboEstadoProducto7.setValue(null);
+            }
+        } else {
+            campoCodigoProducto7.setText("");
+            campoNombreProducto7.setText("");
+            campoCategoria7.setText("");
+            campoPrecio7.setText("");
+            comboEstadoProducto7.setValue(null);
+        }
+    }
+
+    private void limpiarCamposProducto7() {
+        campoCodigoProducto7.setText("");
+        campoNombreProducto7.setText("");
+        campoUrlImagen7.setText("");
+        campoCategoria7.setText("");
+        campoPrecio7.setText("");
+        comboEstadoProducto7.setValue(null);
+    }
+
+    private void publicarProducto7() {
+        String codigo = campoCodigoProducto7.getText();
+        String nombreProducto = campoNombreProducto7.getText();
+        String rutaImagen = campoUrlImagen7.getText();
+        String categoria = campoCategoria7.getText();
+        double precio = Double.parseDouble(campoPrecio7.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto7.getValue());
+
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
+            if (producto != null) {
+                listaProductosVis.add(producto);
+                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
+                refresh();
+                limpiarCamposProducto7();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void actualizarProducto7() {
+
+        String codigo = campoCodigoProducto7.getText();
+        String nombreProducto = campoNombreProducto7.getText();
+        String rutaImagen = campoUrlImagen7.getText();
+        String categoria = campoCategoria7.getText();
+        double precio = Double.parseDouble(campoPrecio7.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto7.getValue());
+
+        //7. Validar la información
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
+            if (producto != null) {
+                refresh();
+                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
+                limpiarCamposProducto7();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+
+
+    }
+
+    private void eliminarProducto7() {
+        boolean productoEliminado = false;
+
+
+        if (productoSeleccionado != null) {
+
+
+            if (mostrarMensajeConfirmacion("¿Estas seguro de elimininar el producto?") == true) {
+
+                productoEliminado = controllerVendedorView.eliminarProducto(productoSeleccionado.getCodigo());
+
+
+                if (productoEliminado == true) {
+                    listaProductosVis.remove(productoSeleccionado);
+                    productoSeleccionado = null;
+
+                    tablaProductos7.getSelectionModel().clearSelection();
+                    limpiarCamposProducto7();
+
+                    mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+                } else {
+                    mostrarMensaje("Notificación producto", "Producto no eliminado", "El producto no se puede eliminar", Alert.AlertType.ERROR);
+                }
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no seleccionado", "Seleccionado un producto de la lista", Alert.AlertType.WARNING);
+        }
+
+    }
+
+
+    @FXML
+    void publicarProductoAction7(ActionEvent event) {
+        publicarProducto7();
+    }
+
+
+    @FXML
+    void actualizarProductoAction7(ActionEvent event) {
+        actualizarProducto7();
+    }
+
+    @FXML
+    void eliminarProductoAction7(ActionEvent event) {
+        eliminarProducto7();
+    }
+
+
+    public void inicialzarVendedorView8() {
+        //1. Inicializar la tabla
+        int id = 0;
+        this.columnaNombreP8.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.columnaCategoria8.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.columnaPrecio8.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.columnaEstado8.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        this.columnaCodigo8.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+
+        tablaProductos8.getItems().clear();
+        tablaProductos8.setItems(getListaProductosVis());
+
+// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
+        tablaProductos8.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
+            this.productoSeleccionado = newSelecction;
+            this.setearCamposProductos8(this.productoSeleccionado);
+        });
+    }
+
+    private void setearCamposProductos8(Producto producto) {
+
+        if (producto != null) {
+            campoCodigoProducto8.setText(producto.getCodigo());
+            campoNombreProducto8.setText(producto.getNombre());
+            campoCategoria8.setText(producto.getCategoria());
+            campoPrecio8.setText(String.valueOf(producto.getPrecio()));
+            comboEstadoProducto8.setValue(producto.getEstado());
+
+            if (producto.getEstado() != null && producto.getEstado() != Estado.NULL) {
+                comboEstadoProducto8.setValue(producto.getEstado());
+            } else {
+                comboEstadoProducto8.setValue(null);
+            }
+        } else {
+            campoCodigoProducto8.setText("");
+            campoNombreProducto8.setText("");
+            campoCategoria8.setText("");
+            campoPrecio8.setText("");
+            comboEstadoProducto8.setValue(null);
+        }
+    }
+
+    private void limpiarCamposProducto8() {
+        campoCodigoProducto8.setText("");
+        campoNombreProducto8.setText("");
+        campoUrlImagen8.setText("");
+        campoCategoria8.setText("");
+        campoPrecio8.setText("");
+        comboEstadoProducto8.setValue(null);
+    }
+
+    private void publicarProducto8() {
+        String codigo = campoCodigoProducto8.getText();
+        String nombreProducto = campoNombreProducto8.getText();
+        String rutaImagen = campoUrlImagen8.getText();
+        String categoria = campoCategoria8.getText();
+        double precio = Double.parseDouble(campoPrecio8.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto8.getValue());
+
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
+            if (producto != null) {
+                listaProductosVis.add(producto);
+                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
+                refresh();
+                limpiarCamposProducto8();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void actualizarProducto8() {
+
+        String codigo = campoCodigoProducto8.getText();
+        String nombreProducto = campoNombreProducto8.getText();
+        String rutaImagen = campoUrlImagen8.getText();
+        String categoria = campoCategoria8.getText();
+        double precio = Double.parseDouble(campoPrecio8.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto8.getValue());
+
+        //8. Validar la información
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
+            if (producto != null) {
+                refresh();
+                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
+                limpiarCamposProducto8();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+
+
+    }
+
+    private void eliminarProducto8() {
+        boolean productoEliminado = false;
+
+
+        if (productoSeleccionado != null) {
+
+
+            if (mostrarMensajeConfirmacion("¿Estas seguro de elimininar el producto?") == true) {
+
+                productoEliminado = controllerVendedorView.eliminarProducto(productoSeleccionado.getCodigo());
+
+
+                if (productoEliminado == true) {
+                    listaProductosVis.remove(productoSeleccionado);
+                    productoSeleccionado = null;
+
+                    tablaProductos8.getSelectionModel().clearSelection();
+                    limpiarCamposProducto8();
+
+                    mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+                } else {
+                    mostrarMensaje("Notificación producto", "Producto no eliminado", "El producto no se puede eliminar", Alert.AlertType.ERROR);
+                }
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no seleccionado", "Seleccionado un producto de la lista", Alert.AlertType.WARNING);
+        }
+
+    }
+
+
+    @FXML
+    void publicarProductoAction8(ActionEvent event) {
+        publicarProducto8();
+    }
+
+
+    @FXML
+    void actualizarProductoAction8(ActionEvent event) {
+        actualizarProducto8();
+    }
+
+    @FXML
+    void eliminarProductoAction8(ActionEvent event) {
+        eliminarProducto8();
+    }
+
+
+    public void inicialzarVendedorView9() {
+        //1. Inicializar la tabla
+        int id = 0;
+        this.columnaNombreP9.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.columnaCategoria9.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.columnaPrecio9.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.columnaEstado9.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        this.columnaCodigo9.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+
+        tablaProductos9.getItems().clear();
+        tablaProductos9.setItems(getListaProductosVis());
+
+// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
+        tablaProductos9.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
+            this.productoSeleccionado = newSelecction;
+            this.setearCamposProductos9(this.productoSeleccionado);
+        });
+    }
+
+    private void setearCamposProductos9(Producto producto) {
+
+        if (producto != null) {
+            campoCodigoProducto9.setText(producto.getCodigo());
+            campoNombreProducto9.setText(producto.getNombre());
+            campoCategoria9.setText(producto.getCategoria());
+            campoPrecio9.setText(String.valueOf(producto.getPrecio()));
+            comboEstadoProducto9.setValue(producto.getEstado());
+
+            if (producto.getEstado() != null && producto.getEstado() != Estado.NULL) {
+                comboEstadoProducto9.setValue(producto.getEstado());
+            } else {
+                comboEstadoProducto9.setValue(null);
+            }
+        } else {
+            campoCodigoProducto9.setText("");
+            campoNombreProducto9.setText("");
+            campoCategoria9.setText("");
+            campoPrecio9.setText("");
+            comboEstadoProducto9.setValue(null);
+        }
+    }
+
+    private void limpiarCamposProducto9() {
+        campoCodigoProducto9.setText("");
+        campoNombreProducto9.setText("");
+        campoUrlImagen9.setText("");
+        campoCategoria9.setText("");
+        campoPrecio9.setText("");
+        comboEstadoProducto9.setValue(null);
+    }
+
+    private void publicarProducto9() {
+        String codigo = campoCodigoProducto9.getText();
+        String nombreProducto = campoNombreProducto9.getText();
+        String rutaImagen = campoUrlImagen9.getText();
+        String categoria = campoCategoria9.getText();
+        double precio = Double.parseDouble(campoPrecio9.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto9.getValue());
+
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
+            if (producto != null) {
+                listaProductosVis.add(producto);
+                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
+                refresh();
+                limpiarCamposProducto9();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void actualizarProducto9() {
+
+        String codigo = campoCodigoProducto9.getText();
+        String nombreProducto = campoNombreProducto9.getText();
+        String rutaImagen = campoUrlImagen9.getText();
+        String categoria = campoCategoria9.getText();
+        double precio = Double.parseDouble(campoPrecio9.getText());
+        String estadoProducto = String.valueOf(comboEstadoProducto9.getValue());
+
+        //9. Validar la información
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
+            Producto producto = null;
+            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
+            if (producto != null) {
+                refresh();
+                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
+                limpiarCamposProducto9();
+            } else {
+                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+
+
+    }
+
+    private void eliminarProducto9() {
+        boolean productoEliminado = false;
+
+
+        if (productoSeleccionado != null) {
+
+
+            if (mostrarMensajeConfirmacion("¿Estas seguro de elimininar el producto?") == true) {
+
+                productoEliminado = controllerVendedorView.eliminarProducto(productoSeleccionado.getCodigo());
+
+
+                if (productoEliminado == true) {
+                    listaProductosVis.remove(productoSeleccionado);
+                    productoSeleccionado = null;
+
+                    tablaProductos9.getSelectionModel().clearSelection();
+                    limpiarCamposProducto9();
+
+                    mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+                } else {
+                    mostrarMensaje("Notificación producto", "Producto no eliminado", "El producto no se puede eliminar", Alert.AlertType.ERROR);
+                }
+            }
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no seleccionado", "Seleccionado un producto de la lista", Alert.AlertType.WARNING);
+        }
+
+    }
+
+
+    @FXML
+    void publicarProductoAction9(ActionEvent event) {
+        publicarProducto9();
+    }
+
+
+    @FXML
+    void actualizarProductoAction9(ActionEvent event) {
+        actualizarProducto9();
+    }
+
+    @FXML
+    void eliminarProductoAction9(ActionEvent event) {
+        eliminarProducto9();
+    }
+}

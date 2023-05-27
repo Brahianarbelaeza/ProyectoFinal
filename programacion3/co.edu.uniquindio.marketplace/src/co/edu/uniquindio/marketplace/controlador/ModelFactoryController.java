@@ -1,6 +1,7 @@
 package controlador;
 
 import excepciones.AdministradorException;
+import excepciones.CrudProductoException;
 import modelo.*;
 import persistencia.Persistencia;
 
@@ -23,7 +24,7 @@ public class ModelFactoryController {
     }
     public ModelFactoryController() {
         System.out.println("invoca clase singleton");
-        //inicializarSalvarDatos();
+        inicializarSalvarDatos();
 
         //2. Cargar los datos de los archivos
         //cargarDatosDesdeArchivos();
@@ -59,7 +60,7 @@ public class ModelFactoryController {
                 }
             }
 
-            }
+        }
         return -1;
     }
 
@@ -186,13 +187,13 @@ public class ModelFactoryController {
     public Producto publicarProducto(Producto producto) {
 
         try {
-            producto= marketplace.getAdministrador().getVendedor().crearProducto(producto);
+            producto= ObtenerVendedor().crearProducto(producto);
             if (producto !=  null) {
-                registrarAccionesSistema("Producto creado con codigo " + producto.getCodigo(), 1, "Crear vendedor");
+                registrarAccionesSistema("El vendedor" + ObtenerVendedor().getNombre() + "producto creado con codigo " + producto.getCodigo(), 1, "Crear producto");
                 guardarResourceXML();
                 respaldoXML();
             }
-        } catch (AdministradorException e) {
+        } catch (CrudProductoException e) {
             throw new RuntimeException("Error al crear el producto"+e);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -202,17 +203,17 @@ public class ModelFactoryController {
 
     //Es la misma logica de crear solo que se le envía la cc anterior
     public Producto actualizarProducto(Producto producto, String idAnterior) {
-        marketplace.getAdministrador().getVendedor().actualizarProducto(producto,idAnterior);
+        ObtenerVendedor().actualizarProducto(producto,idAnterior);
         guardarResourceXML();
         registrarAccionesSistema("Producto actualizado con cedula "+producto.getCodigo(),1 , "Actualizar vendedor");
         return producto;
     }
 
     public boolean eliminarProducto (String codigo) {
-        Producto producto = marketplace.getAdministrador().getVendedor().buscarProducto(codigo);
+        Producto producto = ObtenerVendedor().buscarProducto(codigo);
         registrarAccionesSistema("Producto eliminado con codigo " + producto.getCodigo(), 2, "Eliminar producto");
         try {
-            marketplace.getAdministrador().getVendedor().eliminarProducto(producto);
+            ObtenerVendedor().eliminarProducto(producto);
             guardarResourceXML();
             return true;
         } catch (Exception e) {
@@ -232,6 +233,18 @@ public class ModelFactoryController {
     }
 
     public ArrayList<Producto> obtenerProductos() {
-        return getMarketplace().getAdministrador().getVendedor().getListaProductos();
+        if (sesion == 0 ){
+
+        }
+
+        return ObtenerVendedor().getListaProductos();
+    }
+    public Vendedor ObtenerVendedor (){
+        for (Vendedor v: marketplace.getAdministrador().getVendedores()) {
+            if (sesion-1 == marketplace.getAdministrador().getVendedores().indexOf(v) ){
+                return v;
+            }
+        }
+        return null;
     }
 }
