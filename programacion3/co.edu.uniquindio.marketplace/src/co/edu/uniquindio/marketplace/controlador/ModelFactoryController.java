@@ -1,7 +1,6 @@
 package controlador;
 
 import excepciones.AdministradorException;
-import excepciones.CrudProductoException;
 import modelo.*;
 import persistencia.Persistencia;
 
@@ -32,7 +31,7 @@ public class ModelFactoryController implements Runnable {
 
     public ModelFactoryController() {
         System.out.println("invoca clase singleton");
-        inicializarSalvarDatos();
+        //inicializarSalvarDatos();
 
         //2. Cargar los datos de los archivos
         //cargarDatosDesdeArchivos();

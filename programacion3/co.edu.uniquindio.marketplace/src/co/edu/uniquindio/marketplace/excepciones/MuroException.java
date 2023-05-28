@@ -2,7 +2,5 @@ package excepciones;
 
 public class MuroException extends Exception{
 
-    public MuroException(String message) {
-        super(message);
-    }
+    public MuroException(String message) {super(message);}
 }

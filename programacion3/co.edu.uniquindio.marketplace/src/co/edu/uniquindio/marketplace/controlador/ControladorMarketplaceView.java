@@ -503,7 +503,7 @@ public class ControladorMarketplaceView  {
     private TableColumn<Producto, String> columnaPrecio5;
 
     @FXML
-    private TableColumn<Producto, String> columnaPrecio6;
+    private TableColumn<Producto,String> columnaPrecio6;
 
     @FXML
     private TableColumn<Producto, String> columnaPrecio7;
@@ -982,8 +982,6 @@ public class ControladorMarketplaceView  {
             imagenProducto9.setImage(image);
         }
     }
-
-
     @FXML
     void publicarProductoAction(ActionEvent event) {
         publicarProducto();
@@ -1368,7 +1366,7 @@ public class ControladorMarketplaceView  {
     }
 
     @FXML
-    void initialize() {
+    void initialize(){
 
         modelFactoryController = ModelFactoryController.getInstance();
         controllerAdminView = new ControllerAdminView(modelFactoryController);
@@ -1436,7 +1434,6 @@ public class ControladorMarketplaceView  {
 
     public void inicialzarVendedorView() {
         //1. Inicializar la tabla
-        int id = 0;
         this.columnaNombreP.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.columnaCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         this.columnaPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
@@ -1455,7 +1452,7 @@ public class ControladorMarketplaceView  {
 
     public void inicialzarVendedorView1() {
         //1. Inicializar la tabla
-
+        int id = 0;
         this.columnaNombreP1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.columnaCategoria1.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         this.columnaPrecio1.setCellValueFactory(new PropertyValueFactory<>("precio"));
@@ -1501,25 +1498,24 @@ public class ControladorMarketplaceView  {
         String contrasena = campoContrasena.getText();
 
         //2. Validar la información
-        if (datosValidos(nombre, apellido, cedula, direccion, cuenta, contrasena) == true) {
-            Vendedor vendedor = null;
+        if(datosValidos(nombre, apellido, cedula, direccion, cuenta, contrasena)== true){
+            Vendedor vendedor= null;
             vendedor = controllerAdminView.crearVendedor(nombre, apellido, cedula, direccion, cuenta, contrasena);
-            if (vendedor != null) {
+            if(vendedor != null){
                 listaVendedoresData.add(vendedor);
                 mostrarMensaje("Notificación vendedor", "Vendedor creado", "El vendedor se ha creado con éxito", Alert.AlertType.INFORMATION);
                 refresh();
                 limpiarCamposVendedor();
-            } else {
+            }else{
                 mostrarMensaje("Notificación vendedor", "Vendedor no creado", "El vendedor con cedula " + cedula + " ya existe", Alert.AlertType.INFORMATION);
             }
-        } else {
+        }else{
             mostrarMensaje("Notificación vendedor", "Vendedor no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
 
 
     }
-
-    private void actualizarVendedor() {
+    private void actualizarVendedor(){
 
         //1. Capturar los datos
         String nombre = campoNombre.getText();
@@ -1583,9 +1579,6 @@ public class ControladorMarketplaceView  {
         tblVendedores.setItems(getListaVendedoresData());
         tablaProductos.getItems().clear();
         tablaProductos.setItems(getListaProductosVis());
-        tablaProductos1.getItems().clear();
-        tablaProductos1.setItems(getListaProductosVis());
-
     }
 
 

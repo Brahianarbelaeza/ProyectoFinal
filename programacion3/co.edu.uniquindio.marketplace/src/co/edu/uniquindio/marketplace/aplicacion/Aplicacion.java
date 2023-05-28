@@ -23,7 +23,8 @@ public class Aplicacion extends Application {
     public void start(Stage primaryStage)  throws Exception{
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("MarketPlace");
-        mostrarVentanaInicio();
+       mostrarVentanaInicio();
+
     }
 
     public void mostrarVentanaInicio(){
