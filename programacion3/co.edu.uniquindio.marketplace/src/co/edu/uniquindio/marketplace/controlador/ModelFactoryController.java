@@ -9,19 +9,27 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ModelFactoryController {
+public class ModelFactoryController implements Runnable {
     Marketplace marketplace;
     int sesion;
-
-
+    Thread hiloServicio1_GuardarResourceXml;
+    Thread hiloServicio2_RegistrarLog;
+    Thread hiloServicio3_GuardarResourceBinario;
+    Thread hiloServicio4_GuardarVendedores;
+    BoundedSemaphore semaphore = new BoundedSemaphore(1);
+    String mensaje;
+    int nivel;
+    String accion;
 
 
     private static class SingletonHolder {
         private final static ModelFactoryController INSTANCE = new ModelFactoryController();
     }
+
     public static ModelFactoryController getInstance() {
         return SingletonHolder.INSTANCE;
     }
+
     public ModelFactoryController() {
         System.out.println("invoca clase singleton");
         inicializarSalvarDatos();
@@ -38,13 +46,55 @@ public class ModelFactoryController {
         //4. Guardar y Cargar el recurso serializable XML
         //guardarResourceXML();
         cargarResourceXML();
-        if(marketplace == null){
+        if (marketplace == null) {
             respaldoXML();
             //inicializarDatos();
             guardarResourceXML();
         }
 
     }
+
+    @Override
+    public void run() {
+        Thread hiloActual = Thread.currentThread();
+
+        try {
+            semaphore.ocupar();
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        if (hiloActual == hiloServicio1_GuardarResourceXml) {
+            Persistencia.guardarRecursoMarketplaceXML(marketplace);
+            liberarSemaforo();
+        }
+        if (hiloActual == hiloServicio2_RegistrarLog) {
+            Persistencia.guardaRegistroLog(mensaje, nivel, accion);
+            liberarSemaforo();
+        }
+        if (hiloActual == hiloServicio3_GuardarResourceBinario) {
+            Persistencia.guardarRecursoMarketplaceBinario(marketplace);
+            liberarSemaforo();
+        }
+        if (hiloActual == hiloServicio4_GuardarVendedores) {
+            try {
+                Persistencia.guardarVendedores(getMarketplace().getAdministrador().getVendedores());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            liberarSemaforo();
+        }
+
+    }
+
+	private void liberarSemaforo() {
+    try {
+        semaphore.liberar();
+    } catch (InterruptedException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+}
     // Validar que el usuario y la contraseña sean correctos.
     public int iniciarSesion(String usuario, String contrasena) {
         if (marketplace.getAdministrador().getCuenta().getUsuario().equals(usuario) && marketplace.getAdministrador().getCuenta().getContrasena().equals(contrasena)) {
@@ -107,7 +157,9 @@ public class ModelFactoryController {
         marketplace = Persistencia.cargarRecursoMarketplaceXML();
     }
 
-    private void guardarResourceXML() {Persistencia.guardarRecursoMarketplaceXML(marketplace);
+    private void guardarResourceXML() {
+        hiloServicio1_GuardarResourceXml = new Thread(this);
+        hiloServicio1_GuardarResourceXml.start();
     }
 
     private void cargarResourceBinario() {
@@ -115,7 +167,12 @@ public class ModelFactoryController {
     }
 
     private void guardarResourceBinario() {
-        Persistencia.guardarRecursoMarketplaceBinario(marketplace);
+        hiloServicio3_GuardarResourceBinario = new Thread(this);
+        hiloServicio3_GuardarResourceBinario.start();
+    }
+    private void guardarVendedores() {
+        hiloServicio4_GuardarVendedores = new Thread(this);
+        hiloServicio4_GuardarVendedores.start();
     }
     private void inicializarDatos() {
         marketplace = new Marketplace();
@@ -125,7 +182,13 @@ public class ModelFactoryController {
         admin.getVendedores().add(vendedor);
     }
     public void registrarAccionesSistema(String mensaje, int nivel, String accion) {
-        Persistencia.guardaRegistroLog(mensaje, nivel, accion);
+
+        this.mensaje = mensaje;
+        this.nivel = nivel;
+        this.accion = accion;
+        hiloServicio2_RegistrarLog = new Thread(this);
+        hiloServicio2_RegistrarLog.start();
+
     }
 
     public Marketplace getMarketplace() {
@@ -145,14 +208,12 @@ public class ModelFactoryController {
             vendedor= marketplace.getAdministrador().crearVendedor(vendedor);
             if (vendedor !=  null) {
                 registrarAccionesSistema("Vendedor creado con cedula " + vendedor.getCedula(), 1, "Crear vendedor");
-                Persistencia.guardarVendedores(marketplace.getAdministrador().getVendedores());
+                guardarVendedores();
                 guardarResourceXML();
                 respaldoXML();
             }
         } catch (AdministradorException e) {
             throw new RuntimeException("Error al crear al vendedor"+e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
         return vendedor;
     }

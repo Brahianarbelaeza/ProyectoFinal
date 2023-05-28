@@ -1455,7 +1455,7 @@ public class ControladorMarketplaceView  {
 
     public void inicialzarVendedorView1() {
         //1. Inicializar la tabla
-        int id = 0;
+
         this.columnaNombreP1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.columnaCategoria1.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         this.columnaPrecio1.setCellValueFactory(new PropertyValueFactory<>("precio"));
