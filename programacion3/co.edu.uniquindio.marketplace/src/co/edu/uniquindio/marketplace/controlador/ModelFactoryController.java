@@ -14,8 +14,6 @@ public class ModelFactoryController {
     int sesion;
 
 
-
-
     private static class SingletonHolder {
         private final static ModelFactoryController INSTANCE = new ModelFactoryController();
     }
@@ -220,6 +218,41 @@ public class ModelFactoryController {
             throw new RuntimeException("Error al eliminar al vendedor" + e);
         }
     }
+
+    public ArrayList<Vendedor> llenarTablaSugerencias() {
+        ArrayList<Vendedor> vendedoresSugeridos = new ArrayList<>();
+        ArrayList<Vendedor> vendedores = obtenerVendedores();
+
+        if (vendedores.size() == 0) {
+            return vendedoresSugeridos;
+        }
+
+        for (int i = 0; i < vendedores.size(); i++) {
+            int sugerenciaAleatoria = (int) (Math.random() * vendedores.size());
+            vendedoresSugeridos.add(vendedores.get(sugerenciaAleatoria));
+        }
+
+        return vendedoresSugeridos;
+    }
+
+
+    public ArrayList<Solicitud> llenarTablaSolicitudesDeAmistad(){
+        Vendedor receptor = ObtenerVendedor();
+        Vendedor emisor = ObtenerVendedor();
+        Solicitud solicitudRecibida = new Solicitud(emisor, receptor, Solicitud.EstadoSolicitud.RECIBIDA);
+
+        receptor.getSolicitudesRecibidas().add(solicitudRecibida);
+        return receptor.getSolicitudesRecibidas();
+    }
+
+
+
+
+
+
+
+
+
     public ArrayList<Vendedor> obtenerVendedores() {
         return getMarketplace().getAdministrador().getVendedores();
     }

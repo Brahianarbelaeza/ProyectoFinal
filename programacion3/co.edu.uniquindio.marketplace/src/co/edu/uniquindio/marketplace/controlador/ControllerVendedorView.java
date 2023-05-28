@@ -2,9 +2,7 @@ package controlador;
 
 import aplicacion.Aplicacion;
 import javafx.fxml.FXML;
-import modelo.Estado;
-import modelo.Marketplace;
-import modelo.Producto;
+import modelo.*;
 
 import java.util.ArrayList;
 
@@ -40,6 +38,19 @@ public class ControllerVendedorView {
 
         return modelFactoryController.actualizarProducto(producto, idAnterior);
     }
+
+
+    public ArrayList<Vendedor> llenarTablaTablaSugerencias(){
+        return modelFactoryController.llenarTablaSugerencias();
+    }
+
+    public ArrayList<Solicitud> llenarTablaSolicitudes(){
+        return modelFactoryController.llenarTablaSolicitudesDeAmistad();
+    }
+
+
+
+
     public ArrayList<Producto> obtenerProductos() {
         return modelFactoryController.obtenerProductos();
     }

@@ -1,5 +1,6 @@
 package modelo;
 
+import controlador.ModelFactoryController;
 import servicios.IVendedorService;
 
 import java.io.Serializable;
@@ -10,7 +11,10 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
     private static final long serialVersionUID = 1L;
     private String direccion;
     ArrayList<Producto> listaProductos=new ArrayList<Producto>();
-    ArrayList<Solitud> vendedoresAliados;
+    ArrayList<Vendedor> vendedoresAliados;
+    ArrayList<Solicitud> solicitudesRecibidas;
+    ArrayList<Vendedor> sugerenciasVendedores;
+
     public Vendedor() {
     }
 
@@ -18,12 +22,10 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         super(nombre, apellidos, cedula, cuenta);
         this.direccion = direccion;
         this.listaProductos = new ArrayList<Producto>();
-        this.vendedoresAliados = new ArrayList<Solitud>();
+        this.vendedoresAliados = new ArrayList<Vendedor>();
+        //Poner ArrayList de solicitudes
         
     }
-
-
-
     public Producto crearProducto (Producto producto) throws Exception{
         boolean flag = false;
             for (int i = 0; i < listaProductos.size(); i++) {
@@ -72,11 +74,21 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         return null;
     }
 
-    public void agregarVendedorAliado(Solitud solicitud) {
+    public void agregarSugerenciaVendedor(Vendedor sugerencia) {
+        // Verificar si la sugerencia ya existe en la lista
+        if (!sugerenciasVendedores.contains(sugerencia)) {
+            sugerenciasVendedores.add(sugerencia);
+            System.out.println("Sugerencia de vendedor agregada");
+        } else {
+            System.out.println("Esta sugerencia de vendedor ya existe en la lista");
+        }
+    }
 
+    public void agregarVendedorAliado(Solicitud solicitud) {
+            Vendedor vendedor;
         //metodo para verificar que no se repita la solicitud
         if (!vendedoresAliados.contains(solicitud)) {
-            vendedoresAliados.add(solicitud);
+           // vendedoresAliados.add();
             System.out.println("Solicitud de amistad enviada");
 
         } else {
@@ -100,7 +112,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         this.listaProductos = listaProductos;
     }
 
-    public void setVendedoresAliados(ArrayList<Solitud> vendedoresAliados) {
+    public void setVendedoresAliados(ArrayList<Vendedor> vendedoresAliados) {
         this.vendedoresAliados = vendedoresAliados;
     }
 
@@ -108,7 +120,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         return listaProductos;
     }
 
-    public ArrayList<Solitud> getVendedoresAliados() {
+    public ArrayList<Vendedor> getVendedoresAliados() {
         return vendedoresAliados;
     }
 
@@ -116,10 +128,53 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         this.listaProductos = productos;
     }
 
+    public ArrayList<Vendedor> getSugerenciasVendedores() {
+        return sugerenciasVendedores;
+    }
+
+    public void setSugerenciasVendedores(ArrayList<Vendedor> sugerenciasVendedores) {
+        this.sugerenciasVendedores = sugerenciasVendedores;
+    }
+
     @Override
     public String toString() {
         return "Vendedor{" +
                 "listaProductos=" + listaProductos +
                 '}';
+    }
+
+
+    public boolean enviarSolicitud(Vendedor receptor){
+
+        ArrayList<Vendedor> vendedores = ModelFactoryController.getInstance().obtenerVendedores();
+        Vendedor emisor = ModelFactoryController.getInstance().ObtenerVendedor();
+
+        for (int i = 0; i < vendedores.size() ; i++) {
+            receptor= vendedores.get(i);
+            if (receptor != null) {
+                Solicitud solicitud = new Solicitud(emisor, receptor, Solicitud.EstadoSolicitud.ENVIADA);
+                receptor.responderSolicitud(solicitud);
+                return true;
+        }
+
+        }
+
+
+        return true;
+    }
+
+    public ArrayList<Solicitud> getSolicitudesRecibidas() {
+        return solicitudesRecibidas;
+    }
+
+    public void setSolicitudesRecibidas(ArrayList<Solicitud> solicitudesRecibidas) {
+        this.solicitudesRecibidas = solicitudesRecibidas;
+    }
+
+    public void responderSolicitud(Solicitud solicitud) {
+
+
+
+
     }
 }
