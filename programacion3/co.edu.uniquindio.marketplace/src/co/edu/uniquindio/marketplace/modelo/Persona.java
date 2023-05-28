@@ -1,29 +1,26 @@
 package modelo;
 
-public class Persona {
+import java.io.Serializable;
 
+
+public abstract class Persona implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String nombre;
-    private String apellidos;
+    private String apellido;
     private String cedula;
     private Cuenta cuenta;
+    public Persona() {
+    }
 
-    public Persona(String nombre, String apellidos, String cedula, Cuenta cuenta) {
+
+
+    private String contrasenia;
+
+    public Persona(String nombre, String apellido, String cedula, Cuenta cuenta) {
         this.nombre = nombre;
-        this.apellidos = apellidos;
+        this.apellido = apellido;
         this.cedula = cedula;
         this.cuenta = cuenta;
-    }
-
-    public void agregarContactos(){
-
-    }
-
-    public void actualizarContactos(){
-
-    }
-
-    public void eliminarContactos(){
-
     }
 
     public String getNombre() {
@@ -34,12 +31,12 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getCedula() {

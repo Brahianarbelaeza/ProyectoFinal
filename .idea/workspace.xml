@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="707ebebc-d099-4077-bb64-b16c1cb0e947" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControladorMarketplaceView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControladorMarketplaceView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Estado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Estado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Estado.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="branchBrahian" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/vista/MarketplaceView.fxml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2NqilMkTbHKiucO9yA5MDIql98B" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Home/IdeaProjects/co.edu.uqvirtual.marketPlaceaALE&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Unnamed">
+    <configuration name="Unnamed (1)" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="--module-path &quot;C:\JavaFX\openjfx-19.0.2.1_windows-x64_bin-sdk\javafx-sdk-19.0.2.1\lib&quot; --add-modules javafx.controls,javafx.fxml " />
+      <module name="Proyectofinal_programacion" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="aplicacion.Aplicacion" />
+      <module name="Proyectofinal_programacion" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\JavaFX\openjfx-19.0.2.1_windows-x64_bin-sdk\javafx-sdk-19.0.2.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed (1)" />
+      <item itemvalue="Application.Unnamed" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="707ebebc-d099-4077-bb64-b16c1cb0e947" name="Changes" comment="" />
+      <created>1680398163578</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680398163578</updated>
+      <workItem from="1680398165086" duration="669000" />
+      <workItem from="1680637427614" duration="5568000" />
+      <workItem from="1680791432191" duration="24043000" />
+      <workItem from="1680879401461" duration="35177000" />
+      <workItem from="1680966713384" duration="26773000" />
+      <workItem from="1681396930672" duration="7612000" />
+      <workItem from="1681405608948" duration="2146000" />
+      <workItem from="1681408817966" duration="5269000" />
+      <workItem from="1681437474677" duration="1856000" />
+      <workItem from="1681535981599" duration="4819000" />
+      <workItem from="1681564960784" duration="3221000" />
+      <workItem from="1681580422565" duration="8590000" />
+      <workItem from="1681968861344" duration="1818000" />
+      <workItem from="1682003123025" duration="12547000" />
+      <workItem from="1682094109177" duration="20483000" />
+      <workItem from="1683172613986" duration="30942000" />
+      <workItem from="1683234364361" duration="2404000" />
+      <workItem from="1683408280502" duration="20196000" />
+      <workItem from="1683492606975" duration="26933000" />
+      <workItem from="1683558359744" duration="7500000" />
+      <workItem from="1683172613986" duration="30942000" />
+      <workItem from="1683234364361" duration="2404000" />
+      <workItem from="1683408280502" duration="20196000" />
+      <workItem from="1683492606975" duration="26933000" />
+      <workItem from="1683558359744" duration="3073000" />
+      <workItem from="1683645951391" duration="2121000" />
+      <workItem from="1683900867756" duration="1280000" />
+      <workItem from="1683952189455" duration="10951000" />
+      <workItem from="1683991370046" duration="3435000" />
+      <workItem from="1683997100951" duration="311000" />
+      <workItem from="1683997812863" duration="6297000" />
+      <workItem from="1684010823722" duration="1019000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Proyectofinal_programacion$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1681572864897" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>

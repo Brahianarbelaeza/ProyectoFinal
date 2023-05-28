@@ -1,0 +1,988 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="705.0" prefWidth="1372.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorMarketplaceView">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="78.0" layoutX="-1.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="1372.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.4431372582912445" green="0.3176470696926117" blue="1.0" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="1.0" green="1.0" blue="1.0" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill></Rectangle>
+        <Label layoutX="513.0" prefHeight="70.0" prefWidth="344.0" text="  Marketplace" textOverrun="CLIP">
+            <font>
+                <Font name="Copperplate Gothic Light" size="43.0" />
+            </font>
+        </Label>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="631.0" layoutX="-1.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" width="1372.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.5493333339691162" green="0.4399999976158142" blue="1.0" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="1.0" green="1.0" blue="1.0" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <TabPane fx:id="tabPrincipal" layoutX="-2.0" layoutY="73.0" prefHeight="631.0" prefWidth="1372.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tabAdministrador" text="Administrador">
+                    <content>
+                        <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="171.0" prefWidth="741.0">
+                            <children>
+                                <TableView fx:id="tblVendedores" layoutX="25.0" layoutY="407.0" prefHeight="171.0" prefWidth="531.0">
+                                    <columns>
+                                        <TableColumn fx:id="colNombreVendedor" prefWidth="107.0" text="Nombre" />
+                                        <TableColumn fx:id="colApellidoVendedor" prefWidth="102.0" text="Apellido" />
+                                        <TableColumn fx:id="colCedulaVendedor" minWidth="0.0" prefWidth="103.0" text="Cedula" />
+                                        <TableColumn fx:id="colCuentaVendedor" prefWidth="92.0" text="Cuenta" />
+                                        <TableColumn fx:id="colDireccionVendedor" minWidth="0.0" prefWidth="120.0" text="Dirección" />
+                                    </columns>
+                                </TableView>
+                                <Label fx:id="labelNombre" layoutX="26.0" layoutY="104.0" text="Nombre">
+                                    <font>
+                                        <Font name="System Bold Italic" size="12.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="labelApellido" layoutX="25.0" layoutY="146.0" text="Apellido">
+                                    <font>
+                                        <Font name="System Bold Italic" size="12.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="labelCedula" layoutX="20.0" layoutY="190.0" prefHeight="17.0" prefWidth="58.0" text=" Cedula">
+                                    <font>
+                                        <Font name="System Bold Italic" size="12.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="labelCuenta" layoutX="20.0" layoutY="272.0" text="Cuenta">
+                                    <font>
+                                        <Font name="System Bold Italic" size="12.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="campoNombre" layoutX="108.0" layoutY="100.0" promptText="Ingrese su nombre">
+                                    <font>
+                                        <Font name="System Italic" size="12.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="campoCedula" layoutX="109.0" layoutY="186.0" promptText="Ingrese su cedula">
+                                    <font>
+                                        <Font name="System Italic" size="12.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="campoCuenta" layoutX="108.0" layoutY="268.0" promptText="Ingrese un usuario">
+                                    <font>
+                                        <Font name="System Italic" size="12.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="campoApellido" layoutX="108.0" layoutY="142.0" promptText="Ingrese su apellido">
+                                    <font>
+                                        <Font name="System Italic" />
+                                    </font>
+                                </TextField>
+                                <Button fx:id="botonCrearVendedor" layoutX="32.0" layoutY="364.0" mnemonicParsing="false" onAction="#crearVendedorAction" text="Crear vendedor" />
+                                <Button fx:id="botonActualizarVendedor" layoutX="205.0" layoutY="364.0" mnemonicParsing="false" onAction="#actualizarVendedorAction" text="Actualizar Vendedor" />
+                                <Button fx:id="botonEliminarVender" layoutX="405.0" layoutY="363.0" mnemonicParsing="false" onAction="#eliminarVendedoronAction" prefHeight="27.0" prefWidth="151.0" text="Eliminar Vendedor" AnchorPane.bottomAnchor="212.0" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="816.0" AnchorPane.topAnchor="363.0" />
+                                <Label fx:id="labelDireccion" layoutX="20.0" layoutY="230.0" prefHeight="17.0" prefWidth="58.0" text="Dirección">
+                                    <font>
+                                        <Font name="System Bold Italic" size="12.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="campoDireccion" layoutX="108.0" layoutY="226.0" prefHeight="25.0" prefWidth="149.0" promptText="Ingrese su dirección">
+                                    <font>
+                                        <Font name="System Italic" size="12.0" />
+                                    </font>
+                                </TextField>
+                                <Label fx:id="labelCuenta1" layoutX="17.0" layoutY="310.0" text="Contraseña">
+                                    <font>
+                                        <Font name="System Bold Italic" size="12.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="campoContrasena" layoutX="108.0" layoutY="306.0" promptText="Ingrese su contraseña">
+                                    <font>
+                                        <Font name="System Italic" size="12.0" />
+                                    </font>
+                                </TextField>
+                        <Label layoutX="20.0" layoutY="23.0" prefHeight="43.0" prefWidth="198.0" text="Gestión de Vendedores">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="11.0" layoutX="19.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <ImageView fitHeight="169.0" fitWidth="176.0" layoutX="349.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Administrador.png" />
+                           </image>
+                        </ImageView>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="603.0" layoutX="682.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.9966442953020134">
+                                       <color>
+                                          <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                        </Rectangle>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabVendedor" text="Vendedor">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane layoutX="-2.0" layoutY="1.0" prefHeight="472.0" prefWidth="747.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="Gestión de productos">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="756.0">
+                                                    <children>
+                                                        <Pane layoutX="12.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="744.0">
+                                                            <children>
+                                                                <Button fx:id="botonPublicar" layoutX="92.0" layoutY="411.0" mnemonicParsing="false" onAction="#publicarProductoAction" text="Publicar" />
+                                                                <Text layoutX="503.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
+                                                                <Text layoutX="492.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
+                                                                <Text layoutX="234.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
+                                                                <Text layoutX="492.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
+                                                                <Text layoutX="238.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                                                                <Button fx:id="botonActualizar" layoutX="238.0" layoutY="411.0" mnemonicParsing="false" onAction="#actualizarProductoAction" text="Actualizar" />
+                                                                <ImageView fitHeight="94.0" fitWidth="200.0" layoutX="57.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../../../../../../../../../../Desktop/ImagenVendedor.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Button fx:id="botonEliminar" layoutX="391.0" layoutY="411.0" mnemonicParsing="false" onAction="#eliminarProductoAction" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                                                <ComboBox fx:id="comboEstadoProducto" layoutX="559.0" layoutY="139.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
+                                                                <Button fx:id="botonSubirImagen" layoutX="600.0" layoutY="411.0" mnemonicParsing="false" onAction="#subirImagenAction" text="Subir imagen" />
+                                                                <ImageView fitHeight="189.0" fitWidth="150.0" layoutX="552.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" />
+                                                                <TextField fx:id="campoNombreProducto" layoutX="298.0" layoutY="96.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese nombre del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoCategoria" layoutX="298.0" layoutY="139.0" prefHeight="25.0" prefWidth="172.0" promptText="Ingrese categoría del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoUrlImagen" layoutX="559.0" layoutY="45.0" prefHeight="25.0" prefWidth="135.0" promptText="Ingrese ruta de imagen del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoPrecio" layoutX="535.0" layoutY="87.0" prefHeight="25.0" prefWidth="159.0" promptText="Ingrese precio del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TableView fx:id="tablaProductos" layoutX="28.0" layoutY="192.0" prefHeight="200.0" prefWidth="497.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="columnaNombreP" prefWidth="138.0" text="Nombre" />
+                                                                        <TableColumn fx:id="columnaCategoria" minWidth="6.0" text="Categoría" />
+                                                                        <TableColumn fx:id="columnaPrecio" prefWidth="96.0" text="Precio" />
+                                                                        <TableColumn fx:id="columnaEstado" prefWidth="101.0" text="Estado" />
+                                                                        <TableColumn fx:id="columnaCodigo" prefWidth="81.0" text="Codigo" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Text layoutX="238.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
+                                                                <TextField fx:id="campoCodigoProducto" layoutX="302.0" layoutY="45.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese codigo del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                            </children>
+                                                        </Pane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Social">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabVendedor1" text="Vendedor">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane layoutX="-2.0" layoutY="1.0" prefHeight="472.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="Gestión de productos">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="756.0">
+                                                    <children>
+                                                        <Pane layoutX="8.0" layoutY="-17.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="748.0">
+                                                            <children>
+                                                                <Button fx:id="botonPublicar1" layoutX="92.0" layoutY="411.0" mnemonicParsing="false" onAction="#publicarProductoAction" text="Publicar" />
+                                                                <Text layoutX="503.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
+                                                                <Text layoutX="492.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
+                                                                <Text layoutX="234.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
+                                                                <Text layoutX="492.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
+                                                                <Text layoutX="238.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                                                                <Button fx:id="botonActualizar1" layoutX="238.0" layoutY="411.0" mnemonicParsing="false" onAction="#actualizarProductoAction" text="Actualizar" />
+                                                                <ImageView fitHeight="94.0" fitWidth="200.0" layoutX="57.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../../../../../../../../../../Desktop/ImagenVendedor.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Button fx:id="botonEliminar1" layoutX="391.0" layoutY="411.0" mnemonicParsing="false" onAction="#eliminarProductoAction" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                                                <ComboBox fx:id="comboEstadoProducto1" layoutX="559.0" layoutY="139.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
+                                                                <Button fx:id="botonSubirImagen1" layoutX="600.0" layoutY="411.0" mnemonicParsing="false" onAction="#subirImagenAction" text="Subir imagen" />
+                                                                <ImageView fitHeight="189.0" fitWidth="150.0" layoutX="552.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" />
+                                                                <TextField fx:id="campoNombreProducto1" layoutX="298.0" layoutY="96.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese nombre del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoCategoria1" layoutX="298.0" layoutY="139.0" prefHeight="25.0" prefWidth="172.0" promptText="Ingrese categoría del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoUrlImagen1" layoutX="559.0" layoutY="45.0" prefHeight="25.0" prefWidth="135.0" promptText="Ingrese ruta de imagen del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoPrecio1" layoutX="535.0" layoutY="87.0" prefHeight="25.0" prefWidth="159.0" promptText="Ingrese precio del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TableView fx:id="tablaProductos1" layoutX="28.0" layoutY="192.0" prefHeight="200.0" prefWidth="497.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="columnaNombreP1" prefWidth="138.0" text="Nombre" />
+                                                                        <TableColumn fx:id="columnaCategoria1" minWidth="6.0" text="Categoría" />
+                                                                        <TableColumn fx:id="columnaPrecio1" prefWidth="96.0" text="Precio" />
+                                                                        <TableColumn fx:id="columnaEstado1" prefWidth="101.0" text="Estado" />
+                                                                        <TableColumn fx:id="columnaCodigo1" prefWidth="81.0" text="Codigo" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Text layoutX="238.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
+                                                                <TextField fx:id="campoCodigoProducto1" layoutX="302.0" layoutY="45.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese codigo del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                            </children>
+                                                        </Pane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Social">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabVendedor2" text="Vendedor">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane layoutX="-2.0" layoutY="1.0" prefHeight="472.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="Gestión de productos">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="756.0">
+                                                    <children>
+                                                        <Pane layoutX="8.0" layoutY="-17.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="748.0">
+                                                            <children>
+                                                                <Button fx:id="botonPublicar2" layoutX="92.0" layoutY="411.0" mnemonicParsing="false" onAction="#publicarProductoAction" text="Publicar" />
+                                                                <Text layoutX="503.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
+                                                                <Text layoutX="492.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
+                                                                <Text layoutX="234.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
+                                                                <Text layoutX="492.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
+                                                                <Text layoutX="238.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                                                                <Button fx:id="botonActualizar2" layoutX="238.0" layoutY="411.0" mnemonicParsing="false" onAction="#actualizarProductoAction" text="Actualizar" />
+                                                                <ImageView fitHeight="94.0" fitWidth="200.0" layoutX="57.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../../../../../../../../../../Desktop/ImagenVendedor.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Button fx:id="botonEliminar2" layoutX="391.0" layoutY="411.0" mnemonicParsing="false" onAction="#eliminarProductoAction" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                                                <ComboBox fx:id="comboEstadoProducto2" layoutX="559.0" layoutY="139.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
+                                                                <Button fx:id="botonSubirImagen2" layoutX="600.0" layoutY="411.0" mnemonicParsing="false" onAction="#subirImagenAction" text="Subir imagen" />
+                                                                <ImageView fitHeight="189.0" fitWidth="150.0" layoutX="552.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" />
+                                                                <TextField fx:id="campoNombreProducto2" layoutX="298.0" layoutY="96.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese nombre del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoCategoria2" layoutX="298.0" layoutY="139.0" prefHeight="25.0" prefWidth="172.0" promptText="Ingrese categoría del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoUrlImagen2" layoutX="559.0" layoutY="45.0" prefHeight="25.0" prefWidth="135.0" promptText="Ingrese ruta de imagen del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoPrecio2" layoutX="535.0" layoutY="87.0" prefHeight="25.0" prefWidth="159.0" promptText="Ingrese precio del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TableView fx:id="tablaProductos2" layoutX="28.0" layoutY="192.0" prefHeight="200.0" prefWidth="497.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="columnaNombreP2" prefWidth="138.0" text="Nombre" />
+                                                                        <TableColumn fx:id="columnaCategoria2" minWidth="6.0" text="Categoría" />
+                                                                        <TableColumn fx:id="columnaPrecio2" prefWidth="96.0" text="Precio" />
+                                                                        <TableColumn fx:id="columnaEstado2" prefWidth="101.0" text="Estado" />
+                                                                        <TableColumn fx:id="columnaCodigo2" prefWidth="81.0" text="Codigo" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Text layoutX="238.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
+                                                                <TextField fx:id="campoCodigoProducto2" layoutX="302.0" layoutY="45.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese codigo del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                            </children>
+                                                        </Pane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Social">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabVendedor3" text="Vendedor">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane layoutX="-2.0" layoutY="1.0" prefHeight="472.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="Gestión de productos">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="756.0">
+                                                    <children>
+                                                        <Pane layoutX="8.0" layoutY="-17.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="748.0">
+                                                            <children>
+                                                                <Button fx:id="botonPublicar3" layoutX="92.0" layoutY="411.0" mnemonicParsing="false" onAction="#publicarProductoAction" text="Publicar" />
+                                                                <Text layoutX="503.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
+                                                                <Text layoutX="492.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
+                                                                <Text layoutX="234.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
+                                                                <Text layoutX="492.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
+                                                                <Text layoutX="238.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                                                                <Button fx:id="botonActualizar3" layoutX="238.0" layoutY="411.0" mnemonicParsing="false" onAction="#actualizarProductoAction" text="Actualizar" />
+                                                                <ImageView fitHeight="94.0" fitWidth="200.0" layoutX="57.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../../../../../../../../../../Desktop/ImagenVendedor.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Button fx:id="botonEliminar3" layoutX="391.0" layoutY="411.0" mnemonicParsing="false" onAction="#eliminarProductoAction" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                                                <ComboBox fx:id="comboEstadoProducto3" layoutX="559.0" layoutY="139.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
+                                                                <Button fx:id="botonSubirImagen3" layoutX="600.0" layoutY="411.0" mnemonicParsing="false" onAction="#subirImagenAction" text="Subir imagen" />
+                                                                <ImageView fitHeight="189.0" fitWidth="150.0" layoutX="552.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" />
+                                                                <TextField fx:id="campoNombreProducto3" layoutX="298.0" layoutY="96.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese nombre del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoCategoria3" layoutX="298.0" layoutY="139.0" prefHeight="25.0" prefWidth="172.0" promptText="Ingrese categoría del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoUrlImagen3" layoutX="559.0" layoutY="45.0" prefHeight="25.0" prefWidth="135.0" promptText="Ingrese ruta de imagen del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoPrecio3" layoutX="535.0" layoutY="87.0" prefHeight="25.0" prefWidth="159.0" promptText="Ingrese precio del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TableView fx:id="tablaProductos3" layoutX="28.0" layoutY="192.0" prefHeight="200.0" prefWidth="497.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="columnaNombreP3" prefWidth="138.0" text="Nombre" />
+                                                                        <TableColumn fx:id="columnaCategoria3" minWidth="6.0" text="Categoría" />
+                                                                        <TableColumn fx:id="columnaPrecio3" prefWidth="96.0" text="Precio" />
+                                                                        <TableColumn fx:id="columnaEstado3" prefWidth="101.0" text="Estado" />
+                                                                        <TableColumn fx:id="columnaCodigo3" prefWidth="81.0" text="Codigo" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Text layoutX="238.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
+                                                                <TextField fx:id="campoCodigoProducto3" layoutX="302.0" layoutY="45.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese codigo del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                            </children>
+                                                        </Pane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Social">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabVendedor4" text="Vendedor">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane layoutX="-2.0" layoutY="1.0" prefHeight="472.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="Gestión de productos">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="756.0">
+                                                    <children>
+                                                        <Pane layoutX="8.0" layoutY="-17.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="748.0">
+                                                            <children>
+                                                                <Button fx:id="botonPublicar4" layoutX="92.0" layoutY="411.0" mnemonicParsing="false" onAction="#publicarProductoAction" text="Publicar" />
+                                                                <Text layoutX="503.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
+                                                                <Text layoutX="492.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
+                                                                <Text layoutX="234.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
+                                                                <Text layoutX="492.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
+                                                                <Text layoutX="238.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                                                                <Button fx:id="botonActualizar4" layoutX="238.0" layoutY="411.0" mnemonicParsing="false" onAction="#actualizarProductoAction" text="Actualizar" />
+                                                                <ImageView fitHeight="94.0" fitWidth="200.0" layoutX="57.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../../../../../../../../../../Desktop/ImagenVendedor.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Button fx:id="botonEliminar4" layoutX="391.0" layoutY="411.0" mnemonicParsing="false" onAction="#eliminarProductoAction" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                                                <ComboBox fx:id="comboEstadoProducto4" layoutX="559.0" layoutY="139.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
+                                                                <Button fx:id="botonSubirImagen4" layoutX="600.0" layoutY="411.0" mnemonicParsing="false" onAction="#subirImagenAction" text="Subir imagen" />
+                                                                <ImageView fitHeight="189.0" fitWidth="150.0" layoutX="552.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" />
+                                                                <TextField fx:id="campoNombreProducto4" layoutX="298.0" layoutY="96.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese nombre del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoCategoria4" layoutX="298.0" layoutY="139.0" prefHeight="25.0" prefWidth="172.0" promptText="Ingrese categoría del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoUrlImagen4" layoutX="559.0" layoutY="45.0" prefHeight="25.0" prefWidth="135.0" promptText="Ingrese ruta de imagen del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoPrecio4" layoutX="535.0" layoutY="87.0" prefHeight="25.0" prefWidth="159.0" promptText="Ingrese precio del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TableView fx:id="tablaProductos4" layoutX="28.0" layoutY="192.0" prefHeight="200.0" prefWidth="497.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="columnaNombreP4" prefWidth="138.0" text="Nombre" />
+                                                                        <TableColumn fx:id="columnaCategoria4" minWidth="6.0" text="Categoría" />
+                                                                        <TableColumn fx:id="columnaPrecio4" prefWidth="96.0" text="Precio" />
+                                                                        <TableColumn fx:id="columnaEstado4" prefWidth="101.0" text="Estado" />
+                                                                        <TableColumn fx:id="columnaCodigo4" prefWidth="81.0" text="Codigo" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Text layoutX="238.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
+                                                                <TextField fx:id="campoCodigoProducto4" layoutX="302.0" layoutY="45.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese codigo del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                            </children>
+                                                        </Pane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Social">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabVendedor5" text="Vendedor">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane layoutX="-2.0" layoutY="1.0" prefHeight="472.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="Gestión de productos">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="756.0">
+                                                    <children>
+                                                        <Pane layoutX="8.0" layoutY="-17.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="748.0">
+                                                            <children>
+                                                                <Button fx:id="botonPublicar5" layoutX="92.0" layoutY="411.0" mnemonicParsing="false" onAction="#publicarProductoAction" text="Publicar" />
+                                                                <Text layoutX="503.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
+                                                                <Text layoutX="492.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
+                                                                <Text layoutX="234.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
+                                                                <Text layoutX="492.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
+                                                                <Text layoutX="238.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                                                                <Button fx:id="botonActualizar5" layoutX="238.0" layoutY="411.0" mnemonicParsing="false" onAction="#actualizarProductoAction" text="Actualizar" />
+                                                                <ImageView fitHeight="94.0" fitWidth="200.0" layoutX="57.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../../../../../../../../../../Desktop/ImagenVendedor.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Button fx:id="botonEliminar5" layoutX="391.0" layoutY="411.0" mnemonicParsing="false" onAction="#eliminarProductoAction" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                                                <ComboBox fx:id="comboEstadoProducto5" layoutX="559.0" layoutY="139.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
+                                                                <Button fx:id="botonSubirImagen5" layoutX="600.0" layoutY="411.0" mnemonicParsing="false" onAction="#subirImagenAction" text="Subir imagen" />
+                                                                <ImageView fitHeight="189.0" fitWidth="150.0" layoutX="552.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" />
+                                                                <TextField fx:id="campoNombreProducto5" layoutX="298.0" layoutY="96.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese nombre del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoCategoria5" layoutX="298.0" layoutY="139.0" prefHeight="25.0" prefWidth="172.0" promptText="Ingrese categoría del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoUrlImagen5" layoutX="559.0" layoutY="45.0" prefHeight="25.0" prefWidth="135.0" promptText="Ingrese ruta de imagen del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoPrecio5" layoutX="535.0" layoutY="87.0" prefHeight="25.0" prefWidth="159.0" promptText="Ingrese precio del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TableView fx:id="tablaProductos5" layoutX="28.0" layoutY="192.0" prefHeight="200.0" prefWidth="497.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="columnaNombreP5" prefWidth="138.0" text="Nombre" />
+                                                                        <TableColumn fx:id="columnaCategoria5" minWidth="6.0" text="Categoría" />
+                                                                        <TableColumn fx:id="columnaPrecio5" prefWidth="96.0" text="Precio" />
+                                                                        <TableColumn fx:id="columnaEstado5" prefWidth="101.0" text="Estado" />
+                                                                        <TableColumn fx:id="columnaCodigo5" prefWidth="81.0" text="Codigo" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Text layoutX="238.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
+                                                                <TextField fx:id="campoCodigoProducto5" layoutX="302.0" layoutY="45.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese codigo del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                            </children>
+                                                        </Pane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Social">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabVendedor6" text="Vendedor">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane layoutX="-2.0" layoutY="1.0" prefHeight="472.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="Gestión de productos">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="756.0">
+                                                    <children>
+                                                        <Pane layoutX="8.0" layoutY="-17.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="748.0">
+                                                            <children>
+                                                                <Button fx:id="botonPublicar6" layoutX="92.0" layoutY="411.0" mnemonicParsing="false" onAction="#publicarProductoAction" text="Publicar" />
+                                                                <Text layoutX="503.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
+                                                                <Text layoutX="492.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
+                                                                <Text layoutX="234.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
+                                                                <Text layoutX="492.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
+                                                                <Text layoutX="238.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                                                                <Button fx:id="botonActualizar6" layoutX="238.0" layoutY="411.0" mnemonicParsing="false" onAction="#actualizarProductoAction" text="Actualizar" />
+                                                                <ImageView fitHeight="94.0" fitWidth="200.0" layoutX="57.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../../../../../../../../../../Desktop/ImagenVendedor.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Button fx:id="botonEliminar6" layoutX="391.0" layoutY="411.0" mnemonicParsing="false" onAction="#eliminarProductoAction" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                                                <ComboBox fx:id="comboEstadoProducto6" layoutX="559.0" layoutY="139.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
+                                                                <Button fx:id="botonSubirImagen6" layoutX="600.0" layoutY="411.0" mnemonicParsing="false" onAction="#subirImagenAction" text="Subir imagen" />
+                                                                <ImageView fitHeight="189.0" fitWidth="150.0" layoutX="552.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" />
+                                                                <TextField fx:id="campoNombreProducto6" layoutX="298.0" layoutY="96.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese nombre del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoCategoria6" layoutX="298.0" layoutY="139.0" prefHeight="25.0" prefWidth="172.0" promptText="Ingrese categoría del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoUrlImagen6" layoutX="559.0" layoutY="45.0" prefHeight="25.0" prefWidth="135.0" promptText="Ingrese ruta de imagen del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoPrecio6" layoutX="535.0" layoutY="87.0" prefHeight="25.0" prefWidth="159.0" promptText="Ingrese precio del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TableView fx:id="tablaProductos6" layoutX="28.0" layoutY="192.0" prefHeight="200.0" prefWidth="497.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="columnaNombreP6" prefWidth="138.0" text="Nombre" />
+                                                                        <TableColumn fx:id="columnaCategoria6" minWidth="6.0" text="Categoría" />
+                                                                        <TableColumn fx:id="columnaPrecio6" prefWidth="96.0" text="Precio" />
+                                                                        <TableColumn fx:id="columnaEstado6" prefWidth="101.0" text="Estado" />
+                                                                        <TableColumn fx:id="columnaCodigo6" prefWidth="81.0" text="Codigo" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Text layoutX="238.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
+                                                                <TextField fx:id="campoCodigoProducto6" layoutX="302.0" layoutY="45.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese codigo del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                            </children>
+                                                        </Pane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Social">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabVendedor7" text="Vendedor">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane layoutX="-2.0" layoutY="1.0" prefHeight="472.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="Gestión de productos">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="756.0">
+                                                    <children>
+                                                        <Pane layoutX="8.0" layoutY="-17.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="748.0">
+                                                            <children>
+                                                                <Button fx:id="botonPublicar7" layoutX="92.0" layoutY="411.0" mnemonicParsing="false" onAction="#publicarProductoAction" text="Publicar" />
+                                                                <Text layoutX="503.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
+                                                                <Text layoutX="492.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
+                                                                <Text layoutX="234.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
+                                                                <Text layoutX="492.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
+                                                                <Text layoutX="238.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                                                                <Button fx:id="botonActualizar7" layoutX="238.0" layoutY="411.0" mnemonicParsing="false" onAction="#actualizarProductoAction" text="Actualizar" />
+                                                                <ImageView fitHeight="94.0" fitWidth="200.0" layoutX="57.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../../../../../../../../../../Desktop/ImagenVendedor.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Button fx:id="botonEliminar7" layoutX="391.0" layoutY="411.0" mnemonicParsing="false" onAction="#eliminarProductoAction" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                                                <ComboBox fx:id="comboEstadoProducto7" layoutX="559.0" layoutY="139.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
+                                                                <Button fx:id="botonSubirImagen7" layoutX="600.0" layoutY="411.0" mnemonicParsing="false" onAction="#subirImagenAction" text="Subir imagen" />
+                                                                <ImageView fitHeight="189.0" fitWidth="150.0" layoutX="552.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" />
+                                                                <TextField fx:id="campoNombreProducto7" layoutX="298.0" layoutY="96.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese nombre del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoCategoria7" layoutX="298.0" layoutY="139.0" prefHeight="25.0" prefWidth="172.0" promptText="Ingrese categoría del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoUrlImagen7" layoutX="559.0" layoutY="45.0" prefHeight="25.0" prefWidth="135.0" promptText="Ingrese ruta de imagen del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoPrecio7" layoutX="535.0" layoutY="87.0" prefHeight="25.0" prefWidth="159.0" promptText="Ingrese precio del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TableView fx:id="tablaProductos7" layoutX="28.0" layoutY="192.0" prefHeight="200.0" prefWidth="497.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="columnaNombreP7" prefWidth="138.0" text="Nombre" />
+                                                                        <TableColumn fx:id="columnaCategoria7" minWidth="6.0" text="Categoría" />
+                                                                        <TableColumn fx:id="columnaPrecio7" prefWidth="96.0" text="Precio" />
+                                                                        <TableColumn fx:id="columnaEstado7" prefWidth="101.0" text="Estado" />
+                                                                        <TableColumn fx:id="columnaCodigo7" prefWidth="81.0" text="Codigo" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Text layoutX="238.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
+                                                                <TextField fx:id="campoCodigoProducto7" layoutX="302.0" layoutY="45.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese codigo del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                            </children>
+                                                        </Pane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Social">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabVendedor8" text="Vendedor">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane layoutX="-2.0" layoutY="1.0" prefHeight="472.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="Gestión de productos">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="756.0">
+                                                    <children>
+                                                        <Pane layoutX="8.0" layoutY="-17.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="748.0">
+                                                            <children>
+                                                                <Button fx:id="botonPublicar8" layoutX="92.0" layoutY="411.0" mnemonicParsing="false" onAction="#publicarProductoAction" text="Publicar" />
+                                                                <Text layoutX="503.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
+                                                                <Text layoutX="492.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
+                                                                <Text layoutX="234.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
+                                                                <Text layoutX="492.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
+                                                                <Text layoutX="238.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                                                                <Button fx:id="botonActualizar8" layoutX="238.0" layoutY="411.0" mnemonicParsing="false" onAction="#actualizarProductoAction" text="Actualizar" />
+                                                                <ImageView fitHeight="94.0" fitWidth="200.0" layoutX="57.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../../../../../../../../../../Desktop/ImagenVendedor.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Button fx:id="botonEliminar8" layoutX="391.0" layoutY="411.0" mnemonicParsing="false" onAction="#eliminarProductoAction" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                                                <ComboBox fx:id="comboEstadoProducto8" layoutX="559.0" layoutY="139.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
+                                                                <Button fx:id="botonSubirImagen8" layoutX="600.0" layoutY="411.0" mnemonicParsing="false" onAction="#subirImagenAction" text="Subir imagen" />
+                                                                <ImageView fitHeight="189.0" fitWidth="150.0" layoutX="552.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" />
+                                                                <TextField fx:id="campoNombreProducto8" layoutX="298.0" layoutY="96.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese nombre del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoCategoria8" layoutX="298.0" layoutY="139.0" prefHeight="25.0" prefWidth="172.0" promptText="Ingrese categoría del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoUrlImagen8" layoutX="559.0" layoutY="45.0" prefHeight="25.0" prefWidth="135.0" promptText="Ingrese ruta de imagen del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoPrecio8" layoutX="535.0" layoutY="87.0" prefHeight="25.0" prefWidth="159.0" promptText="Ingrese precio del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TableView fx:id="tablaProductos8" layoutX="28.0" layoutY="192.0" prefHeight="200.0" prefWidth="497.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="columnaNombreP8" prefWidth="138.0" text="Nombre" />
+                                                                        <TableColumn fx:id="columnaCategoria8" minWidth="6.0" text="Categoría" />
+                                                                        <TableColumn fx:id="columnaPrecio8" prefWidth="96.0" text="Precio" />
+                                                                        <TableColumn fx:id="columnaEstado8" prefWidth="101.0" text="Estado" />
+                                                                        <TableColumn fx:id="columnaCodigo8" prefWidth="81.0" text="Codigo" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Text layoutX="238.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
+                                                                <TextField fx:id="campoCodigoProducto8" layoutX="302.0" layoutY="45.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese codigo del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                            </children>
+                                                        </Pane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Social">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabVendedor9" text="Vendedor">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane layoutX="-2.0" layoutY="1.0" prefHeight="472.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="Gestión de productos">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="756.0">
+                                                    <children>
+                                                        <Pane layoutX="8.0" layoutY="-17.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="748.0">
+                                                            <children>
+                                                                <Button fx:id="botonPublicar9" layoutX="92.0" layoutY="411.0" mnemonicParsing="false" onAction="#publicarProductoAction" text="Publicar" />
+                                                                <Text layoutX="503.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
+                                                                <Text layoutX="492.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
+                                                                <Text layoutX="234.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
+                                                                <Text layoutX="492.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
+                                                                <Text layoutX="238.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                                                                <Button fx:id="botonActualizar9" layoutX="238.0" layoutY="411.0" mnemonicParsing="false" onAction="#actualizarProductoAction" text="Actualizar" />
+                                                                <ImageView fitHeight="94.0" fitWidth="200.0" layoutX="57.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../../../../../../../../../../Desktop/ImagenVendedor.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Button fx:id="botonEliminar9" layoutX="391.0" layoutY="411.0" mnemonicParsing="false" onAction="#eliminarProductoAction" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                                                <ComboBox fx:id="comboEstadoProducto9" layoutX="559.0" layoutY="139.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
+                                                                <Button fx:id="botonSubirImagen9" layoutX="600.0" layoutY="411.0" mnemonicParsing="false" onAction="#subirImagenAction" text="Subir imagen" />
+                                                                <ImageView fitHeight="189.0" fitWidth="150.0" layoutX="552.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" />
+                                                                <TextField fx:id="campoNombreProducto9" layoutX="298.0" layoutY="96.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese nombre del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoCategoria9" layoutX="298.0" layoutY="139.0" prefHeight="25.0" prefWidth="172.0" promptText="Ingrese categoría del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoUrlImagen9" layoutX="559.0" layoutY="45.0" prefHeight="25.0" prefWidth="135.0" promptText="Ingrese ruta de imagen del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TextField fx:id="campoPrecio9" layoutX="535.0" layoutY="87.0" prefHeight="25.0" prefWidth="159.0" promptText="Ingrese precio del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                                <TableView fx:id="tablaProductos9" layoutX="28.0" layoutY="192.0" prefHeight="200.0" prefWidth="497.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="columnaNombreP9" prefWidth="138.0" text="Nombre" />
+                                                                        <TableColumn fx:id="columnaCategoria9" minWidth="6.0" text="Categoría" />
+                                                                        <TableColumn fx:id="columnaPrecio9" prefWidth="96.0" text="Precio" />
+                                                                        <TableColumn fx:id="columnaEstado9" prefWidth="101.0" text="Estado" />
+                                                                        <TableColumn fx:id="columnaCodigo9" prefWidth="81.0" text="Codigo" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Text layoutX="238.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
+                                                                <TextField fx:id="campoCodigoProducto9" layoutX="302.0" layoutY="45.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese codigo del producto">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="12.0" />
+                                                                    </font>
+                                                                </TextField>
+                                                            </children>
+                                                        </Pane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Social">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+      <ImageView fitHeight="70.0" fitWidth="69.0" layoutX="857.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/store-ga564a907d_1280.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>
