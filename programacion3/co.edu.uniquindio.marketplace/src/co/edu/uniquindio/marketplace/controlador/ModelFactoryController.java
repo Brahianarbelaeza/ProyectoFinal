@@ -1,6 +1,8 @@
 package controlador;
 
 import excepciones.AdministradorException;
+import excepciones.CrudProductoException;
+import excepciones.VendedorException;
 import modelo.*;
 import persistencia.Persistencia;
 
@@ -15,6 +17,7 @@ public class ModelFactoryController implements Runnable {
     Thread hiloServicio2_RegistrarLog;
     Thread hiloServicio3_GuardarResourceBinario;
     Thread hiloServicio4_GuardarVendedores;
+    Thread hiloServicio5_GuardarRespaldoXML;
     BoundedSemaphore semaphore = new BoundedSemaphore(1);
     String mensaje;
     int nivel;
@@ -83,6 +86,14 @@ public class ModelFactoryController implements Runnable {
             }
             liberarSemaforo();
         }
+        if (hiloActual == hiloServicio5_GuardarRespaldoXML){
+            try {
+                Persistencia.respaldo();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            liberarSemaforo();
+        }
 
     }
 
@@ -145,11 +156,9 @@ public class ModelFactoryController implements Runnable {
 
 
     private void respaldoXML(){
-        try {
-            Persistencia.respaldo();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        hiloServicio5_GuardarRespaldoXML = new Thread(this);
+        hiloServicio5_GuardarRespaldoXML.start();
+
     }
 
     private void cargarResourceXML() {
@@ -212,7 +221,7 @@ public class ModelFactoryController implements Runnable {
                 respaldoXML();
             }
         } catch (AdministradorException e) {
-            throw new RuntimeException("Error al crear al vendedor"+e);
+            registrarAccionesSistema("Error al crear vendedor con cedula " + vendedor.getCedula(), 3, "Crear vendedor");
         }
         return vendedor;
     }
@@ -222,6 +231,7 @@ public class ModelFactoryController implements Runnable {
 
         marketplace.getAdministrador().actualizarVendedor(vendedor,cedulaAnterior);
         guardarResourceXML();
+        guardarVendedores();
         registrarAccionesSistema("Vendedor actualizado con cedula "+vendedor.getCedula(),1 , "Actualizar vendedor");
         try {
             Persistencia.guardarVendedores(marketplace.getAdministrador().getVendedores());
@@ -232,15 +242,17 @@ public class ModelFactoryController implements Runnable {
     }
     public boolean eliminarVendedor (String cedula) {
         Vendedor vendedor = marketplace.getAdministrador().buscarVendedor(cedula);
-        registrarAccionesSistema("Vendedor eliminado con cedula "+vendedor.getCedula(),2, "Eliminar vendedor");
+
         try {
             marketplace.getAdministrador().eliminarVendedor(vendedor);
+            registrarAccionesSistema("Vendedor eliminado con cedula "+vendedor.getCedula(),2, "Eliminar vendedor");
             guardarResourceXML();
-            Persistencia.guardarVendedores(marketplace.getAdministrador().getVendedores());
+            guardarVendedores();
             respaldoXML();
             return true;
         } catch (Exception e) {
-            throw new RuntimeException("Error al eliminar al vendedor"+e);
+           registrarAccionesSistema("Se ha creado una nueva excepción" + e, 2, "Eliminar vendedor");
+            return false;
         }
     }
 
@@ -253,8 +265,8 @@ public class ModelFactoryController implements Runnable {
                 guardarResourceXML();
                 respaldoXML();
             }
-        } catch (CrudProductoException e) {
-            throw new RuntimeException("Error al crear el producto"+e);
+        } catch (VendedorException e) {
+           registrarAccionesSistema("Se ha creado una nueva excepción" + e, 2, "Crear producto");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -276,8 +288,9 @@ public class ModelFactoryController implements Runnable {
             ObtenerVendedor().eliminarProducto(producto);
             guardarResourceXML();
             return true;
-        } catch (Exception e) {
-            throw new RuntimeException("Error al eliminar al vendedor" + e);
+        } catch (VendedorException e) {
+            registrarAccionesSistema("Se ha creado una nueva excepción" + e, 2, "Eliminar producto");
+            return false;
         }
     }
     public ArrayList<Vendedor> obtenerVendedores() {
@@ -294,12 +307,11 @@ public class ModelFactoryController implements Runnable {
 
     public ArrayList<Producto> obtenerProductos() {
         if (sesion == 0 ){
-
+            return null;
         }
-
         return ObtenerVendedor().getListaProductos();
     }
-    public Vendedor ObtenerVendedor (){
+    public Vendedor ObtenerVendedor () {
         for (Vendedor v: marketplace.getAdministrador().getVendedores()) {
             if (sesion-1 == marketplace.getAdministrador().getVendedores().indexOf(v) ){
                 return v;

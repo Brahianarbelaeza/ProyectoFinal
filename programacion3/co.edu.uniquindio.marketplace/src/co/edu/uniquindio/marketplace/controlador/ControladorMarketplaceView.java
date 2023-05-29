@@ -5,6 +5,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -52,134 +54,6 @@ public class ControladorMarketplaceView  {
     private ImageView imagenProducto8;
     @FXML
     private ImageView imagenProducto9;
-    @FXML
-    private Button botonActualizar;
-
-    @FXML
-    private Button botonActualizar1;
-
-    @FXML
-    private Button botonActualizar2;
-
-    @FXML
-    private Button botonActualizar3;
-
-    @FXML
-    private Button botonActualizar4;
-
-    @FXML
-    private Button botonActualizar5;
-
-    @FXML
-    private Button botonActualizar6;
-
-    @FXML
-    private Button botonActualizar7;
-
-    @FXML
-    private Button botonActualizar8;
-
-    @FXML
-    private Button botonActualizar9;
-
-    @FXML
-    private Button botonActualizarVendedor;
-
-    @FXML
-    private Button botonCrearVendedor;
-
-    @FXML
-    private Button botonEliminar;
-
-    @FXML
-    private Button botonEliminar1;
-
-    @FXML
-    private Button botonEliminar2;
-
-    @FXML
-    private Button botonEliminar3;
-
-    @FXML
-    private Button botonEliminar4;
-
-    @FXML
-    private Button botonEliminar5;
-
-    @FXML
-    private Button botonEliminar6;
-
-    @FXML
-    private Button botonEliminar7;
-
-    @FXML
-    private Button botonEliminar8;
-
-    @FXML
-    private Button botonEliminar9;
-
-    @FXML
-    private Button botonEliminarVender;
-
-    @FXML
-    private Button botonPublicar;
-
-    @FXML
-    private Button botonPublicar1;
-
-    @FXML
-    private Button botonPublicar2;
-
-    @FXML
-    private Button botonPublicar3;
-
-    @FXML
-    private Button botonPublicar4;
-
-    @FXML
-    private Button botonPublicar5;
-
-    @FXML
-    private Button botonPublicar6;
-
-    @FXML
-    private Button botonPublicar7;
-
-    @FXML
-    private Button botonPublicar8;
-
-    @FXML
-    private Button botonPublicar9;
-
-    @FXML
-    private Button botonSubirImagen;
-
-    @FXML
-    private Button botonSubirImagen1;
-
-    @FXML
-    private Button botonSubirImagen2;
-
-    @FXML
-    private Button botonSubirImagen3;
-
-    @FXML
-    private Button botonSubirImagen4;
-
-    @FXML
-    private Button botonSubirImagen5;
-
-    @FXML
-    private Button botonSubirImagen6;
-
-    @FXML
-    private Button botonSubirImagen7;
-
-    @FXML
-    private Button botonSubirImagen8;
-
-    @FXML
-    private Button botonSubirImagen9;
 
     @FXML
     private TextField campoApellido;
@@ -545,6 +419,9 @@ public class ControladorMarketplaceView  {
     private ComboBox<Estado> comboEstadoProducto9;
 
     @FXML
+    private BarChart<String, Integer> graficodeEstadisticas;
+
+    @FXML
     private Label labelApellido;
 
     @FXML
@@ -656,7 +533,6 @@ public class ControladorMarketplaceView  {
         if (mensaje.equals("")) {
             return true;
         } else {
-            mostrarMensaje("Notificación cliente", "Datos invalidos", mensaje, Alert.AlertType.WARNING);
             return false;
         }
     }
@@ -669,21 +545,14 @@ public class ControladorMarketplaceView  {
         double precio = Double.parseDouble(campoPrecio.getText());
         String estadoProducto = String.valueOf(comboEstadoProducto.getValue());
 
-        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
-            if (producto != null) {
-                listaProductosVis.add(producto);
-                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
-                refresh();
-                limpiarCamposProducto();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
-            }
+        if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto)) {
+            Estado estado = Estado.valueOf(estadoProducto);
+            crearProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 1);
         } else {
             mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
     }
+
 
     private void publicarProducto1() {
         String codigo = campoCodigoProducto1.getText();
@@ -692,18 +561,9 @@ public class ControladorMarketplaceView  {
         String categoria = campoCategoria1.getText();
         double precio = Double.parseDouble(campoPrecio1.getText());
         String estadoProducto = String.valueOf(comboEstadoProducto1.getValue());
-
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
-            if (producto != null) {
-                listaProductosVis.add(producto);
-                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
-                refresh();
-                limpiarCamposProducto1();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            crearProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 2);
         } else {
             mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -1025,21 +885,16 @@ public class ControladorMarketplaceView  {
 
         //2. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
-            if (producto != null) {
-                refresh();
-                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
-                limpiarCamposProducto();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 1);
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
 
 
     }
+
+
 
     private void actualizarProducto1() {
 
@@ -1052,15 +907,8 @@ public class ControladorMarketplaceView  {
 
         //2. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
-            if (producto != null) {
-                refresh();
-                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
-                limpiarCamposProducto1();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 2);
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -1186,19 +1034,12 @@ public class ControladorMarketplaceView  {
         String rutaImagen = campoUrlImagen2.getText();
         String categoria = campoCategoria2.getText();
         double precio = Double.parseDouble(campoPrecio2.getText());
+
         String estadoProducto = String.valueOf(comboEstadoProducto2.getValue());
 
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
-            if (producto != null) {
-                listaProductosVis.add(producto);
-                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
-                refresh();
-                limpiarCamposProducto2();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            crearProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 3);
         } else {
             mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -1215,15 +1056,8 @@ public class ControladorMarketplaceView  {
 
         //2. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
-            if (producto != null) {
-                refresh();
-                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
-                limpiarCamposProducto2();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 3);
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -1347,7 +1181,7 @@ public class ControladorMarketplaceView  {
         }
     }
 
-    public ObservableList<Producto> getListaProductosVis() {
+    public ObservableList<Producto> getListaProductosVis()  {
 
         listaProductosVis.addAll(controllerVendedorView.obtenerProductos());
         return listaProductosVis;
@@ -1486,6 +1320,15 @@ public class ControladorMarketplaceView  {
             this.vendedorSeleccionado = newSelecction;
             this.setearCamposVendedor(this.vendedorSeleccionado);
         });
+        iniciarGrafica();
+    }
+
+    private void iniciarGrafica() {
+        XYChart.Series<String, Integer> series = new XYChart.Series<>();
+        for (Vendedor vendedor : modelFactoryController.marketplace.getAdministrador().getVendedores()) {
+            series.getData().add(new XYChart.Data<>(vendedor.getNombre(), vendedor.getListaProductos().size()));
+        }
+        graficodeEstadisticas.getData().add(series);
     }
 
     private void CrearVendedor() {
@@ -1503,8 +1346,10 @@ public class ControladorMarketplaceView  {
             vendedor = controllerAdminView.crearVendedor(nombre, apellido, cedula, direccion, cuenta, contrasena);
             if(vendedor != null){
                 listaVendedoresData.add(vendedor);
+                graficodeEstadisticas.getData().clear();
+                iniciarGrafica();
                 mostrarMensaje("Notificación vendedor", "Vendedor creado", "El vendedor se ha creado con éxito", Alert.AlertType.INFORMATION);
-                refresh();
+                refresh(0);
                 limpiarCamposVendedor();
             }else{
                 mostrarMensaje("Notificación vendedor", "Vendedor no creado", "El vendedor con cedula " + cedula + " ya existe", Alert.AlertType.INFORMATION);
@@ -1530,7 +1375,7 @@ public class ControladorMarketplaceView  {
             Vendedor vendedor = null;
             vendedor = controllerAdminView.actualizarVendedor(nombre, apellido, cedula, direccion, cuenta, contrasena, vendedorSeleccionado.getCedula());
             if (vendedor != null) {
-                refresh();
+                refresh(0);
                 mostrarMensaje("Notificación vendedor", "Vendedor actualizado", "El vendedor se ha actualizado con éxito", Alert.AlertType.INFORMATION);
                 limpiarCamposVendedor();
             } else {
@@ -1558,6 +1403,8 @@ public class ControladorMarketplaceView  {
                 if (empleadoEliminado == true) {
                     listaVendedoresData.remove(vendedorSeleccionado);
                     vendedorSeleccionado = null;
+                    graficodeEstadisticas.getData().clear();
+                    iniciarGrafica();
 
                     tblVendedores.getSelectionModel().clearSelection();
                     limpiarCamposVendedor();
@@ -1574,11 +1421,54 @@ public class ControladorMarketplaceView  {
     }
 
     //Actualiza la lista de vehndedores dee la tabla obtener vendedores del singleton contra la de la interfaz
-    void refresh() {
-        tblVendedores.getItems().clear();
-        tblVendedores.setItems(getListaVendedoresData());
-        tablaProductos.getItems().clear();
-        tablaProductos.setItems(getListaProductosVis());
+    void refresh(int indicador) {
+        switch (indicador) {
+            case 0:
+                tblVendedores.getItems().clear();
+                tblVendedores.setItems(getListaVendedoresData());
+                break;
+            case 1:
+                tablaProductos.getItems().clear();
+                tablaProductos.setItems(getListaProductosVis());
+                break;
+            case 2:
+                tablaProductos1.getItems().clear();
+                tablaProductos1.setItems(getListaProductosVis());
+                break;
+            case 3:
+                tablaProductos2.getItems().clear();
+                tablaProductos2.setItems(getListaProductosVis());
+                break;
+            case 4:
+                tablaProductos3.getItems().clear();
+                tablaProductos3.setItems(getListaProductosVis());
+                break;
+            case 5:
+                tablaProductos4.getItems().clear();
+                tablaProductos4.setItems(getListaProductosVis());
+                break;
+            case 6:
+                tablaProductos5.getItems().clear();
+                tablaProductos5.setItems(getListaProductosVis());
+                break;
+            case 7:
+                tablaProductos6.getItems().clear();
+                tablaProductos6.setItems(getListaProductosVis());
+                break;
+            case 8:
+                tablaProductos7.getItems().clear();
+                tablaProductos7.setItems(getListaProductosVis());
+                break;
+            case 9:
+                tablaProductos8.getItems().clear();
+                tablaProductos8.setItems(getListaProductosVis());
+                break;
+            case 10:
+                tablaProductos9.getItems().clear();
+                tablaProductos9.setItems(getListaProductosVis());
+                break;
+        }
+
     }
 
 
@@ -1737,16 +1627,8 @@ public class ControladorMarketplaceView  {
         String estadoProducto = String.valueOf(comboEstadoProducto3.getValue());
 
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
-            if (producto != null) {
-                listaProductosVis.add(producto);
-                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
-                refresh();
-                limpiarCamposProducto3();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            crearProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 4);
         } else {
             mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -1763,15 +1645,8 @@ public class ControladorMarketplaceView  {
 
         //3. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
-            if (producto != null) {
-                refresh();
-                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
-                limpiarCamposProducto3();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado,4);
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -1887,16 +1762,8 @@ public class ControladorMarketplaceView  {
         String estadoProducto = String.valueOf(comboEstadoProducto4.getValue());
 
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
-            if (producto != null) {
-                listaProductosVis.add(producto);
-                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
-                refresh();
-                limpiarCamposProducto4();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            crearProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 5);
         } else {
             mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -1913,15 +1780,8 @@ public class ControladorMarketplaceView  {
 
         //4. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
-            if (producto != null) {
-                refresh();
-                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
-                limpiarCamposProducto4();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado,5);
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2037,16 +1897,8 @@ public class ControladorMarketplaceView  {
         String estadoProducto = String.valueOf(comboEstadoProducto5.getValue());
 
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
-            if (producto != null) {
-                listaProductosVis.add(producto);
-                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
-                refresh();
-                limpiarCamposProducto5();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            crearProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 6);
         } else {
             mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2063,15 +1915,8 @@ public class ControladorMarketplaceView  {
 
         //5. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
-            if (producto != null) {
-                refresh();
-                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
-                limpiarCamposProducto5();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 6);
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2187,16 +2032,8 @@ public class ControladorMarketplaceView  {
         String estadoProducto = String.valueOf(comboEstadoProducto6.getValue());
 
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
-            if (producto != null) {
-                listaProductosVis.add(producto);
-                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
-                refresh();
-                limpiarCamposProducto6();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            crearProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 7);
         } else {
             mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2213,15 +2050,8 @@ public class ControladorMarketplaceView  {
 
         //6. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
-            if (producto != null) {
-                refresh();
-                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
-                limpiarCamposProducto6();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 7);
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2337,16 +2167,8 @@ public class ControladorMarketplaceView  {
         String estadoProducto = String.valueOf(comboEstadoProducto7.getValue());
 
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
-            if (producto != null) {
-                listaProductosVis.add(producto);
-                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
-                refresh();
-                limpiarCamposProducto7();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            crearProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 8);
         } else {
             mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2363,15 +2185,8 @@ public class ControladorMarketplaceView  {
 
         //7. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
-            if (producto != null) {
-                refresh();
-                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
-                limpiarCamposProducto7();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 8);
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2487,16 +2302,8 @@ public class ControladorMarketplaceView  {
         String estadoProducto = String.valueOf(comboEstadoProducto8.getValue());
 
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
-            if (producto != null) {
-                listaProductosVis.add(producto);
-                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
-                refresh();
-                limpiarCamposProducto8();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            crearProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 9);
         } else {
             mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2513,15 +2320,8 @@ public class ControladorMarketplaceView  {
 
         //8. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
-            if (producto != null) {
-                refresh();
-                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
-                limpiarCamposProducto8();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 9);
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2637,16 +2437,8 @@ public class ControladorMarketplaceView  {
         String estadoProducto = String.valueOf(comboEstadoProducto9.getValue());
 
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto));
-            if (producto != null) {
-                listaProductosVis.add(producto);
-                mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
-                refresh();
-                limpiarCamposProducto9();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            crearProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 10);
         } else {
             mostrarMensaje("Notificación producto", "Producto no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2663,15 +2455,8 @@ public class ControladorMarketplaceView  {
 
         //9. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
-            Producto producto = null;
-            producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, Estado.valueOf(estadoProducto), productoSeleccionado.getCodigo());
-            if (producto != null) {
-                refresh();
-                mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
-                limpiarCamposProducto9();
-            } else {
-                mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
-            }
+            Estado estado = Estado.valueOf(estadoProducto);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 10);
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2684,7 +2469,6 @@ public class ControladorMarketplaceView  {
 
 
         if (productoSeleccionado != null) {
-
 
             if (mostrarMensajeConfirmacion("¿Estas seguro de elimininar el producto?") == true) {
 
@@ -2725,4 +2509,32 @@ public class ControladorMarketplaceView  {
     void eliminarProductoAction9(ActionEvent event) {
         eliminarProducto9();
     }
+
+    private void crearProducto (String codigo, String nombreProducto, String rutaImagen, String categoria, double precio, Estado estadoProducto, int indicador){
+        Producto producto = null;
+        producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto);
+        if (producto != null) {
+            listaProductosVis.add(producto);
+            mostrarMensaje("Notificación producto", "Producto creado", "El producto se ha creado con éxito", Alert.AlertType.INFORMATION);
+            refresh(indicador);
+            limpiarCamposProducto9();
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no creado", "El producto con codigo " + codigo + " ya existe", Alert.AlertType.INFORMATION);
+        }
+    }
+
+    private void actualizarProductos(String codigo, String nombreProducto, String rutaImagen, String categoria, double precio, Estado estadoProducto, int indicador) {
+        Producto producto = null;
+        producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto, productoSeleccionado.getCodigo());
+        if (producto != null) {
+            refresh(indicador);
+            mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
+            limpiarCamposProducto9();
+        } else {
+            mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
+        }
+    }
+
+
+
 }

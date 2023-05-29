@@ -1,5 +1,6 @@
 package modelo;
 
+import excepciones.VendedorException;
 import servicios.IVendedorService;
 
 import java.io.Serializable;
@@ -24,7 +25,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
 
 
 
-    public Producto crearProducto (Producto producto) throws Exception{
+    public Producto crearProducto (Producto producto) throws VendedorException {
         boolean flag = false;
             for (int i = 0; i < listaProductos.size(); i++) {
                 if (producto.compararProducto(listaProductos.get(i))) {
@@ -37,17 +38,20 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
                 listaProductos.add(producto);
                 producto.setEstado(Estado.PUBLICADO);
             } else {
-                throw new Exception("Este producto" + producto.getNombre() + "ya se guardo");
+                throw new VendedorException("Este producto" + producto.getNombre() + "ya se guardo");
             }
             return producto;
 
         }
 
     @Override
-    public void eliminarProducto(Producto producto) {
+    public void eliminarProducto(Producto producto) throws VendedorException {
 
-        if (!listaProductos.isEmpty()) listaProductos.remove(producto);
-        else System.out.println("No hay productos para eliminar, aún no has publicado productos");
+        if (!listaProductos.isEmpty()) {
+            listaProductos.remove(producto);
+        }else {
+            throw new VendedorException("No hay productos para eliminar");
+        }
 
     }
 

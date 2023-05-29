@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -174,6 +177,45 @@
                               </LinearGradient>
                            </fill>
                         </Rectangle>
+                        <Label layoutX="727.0" layoutY="23.0" prefHeight="43.0" prefWidth="256.0" text="Estadisticas del marketplace ">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="11.0" layoutX="727.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" width="246.0" />
+                        <ImageView fitHeight="91.0" fitWidth="69.0" layoutX="989.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Estadisticas.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="labelNombre1" layoutX="735.0" layoutY="104.0">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <BarChart fx:id="graficodeEstadisticas" layoutX="750.0" layoutY="151.0" prefHeight="243.0" prefWidth="441.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                        <Label layoutX="727.0" layoutY="104.0" prefHeight="38.0" prefWidth="291.0" text="Grafico de relación vendedor y productos:">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="942.0" layoutY="394.0" prefHeight="30.0" prefWidth="83.0" text="Vendedores">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="685.0" layoutY="232.0" prefHeight="30.0" prefWidth="101.0" rotate="-90.0" text="Productos">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
                             </children>
                         </AnchorPane>
                     </content>
