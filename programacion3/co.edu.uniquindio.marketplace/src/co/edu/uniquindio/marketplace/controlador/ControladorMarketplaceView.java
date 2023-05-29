@@ -33,6 +33,8 @@ public class ControladorMarketplaceView  {
 
     ObservableList<Producto> listaProductosVis = FXCollections.observableArrayList();
 
+    ObservableList<Vendedor> listaSugerenciasAmistad = FXCollections.observableArrayList();
+
     @FXML
     private ImageView imagenProducto;
 
@@ -506,7 +508,99 @@ public class ControladorMarketplaceView  {
     private TableView<Vendedor> tblVendedores;
 
     @FXML
+    private TableView<Vendedor> tablaSugerencias;
+    @FXML
     private TabPane tabPrincipal;
+
+    @FXML
+    private TableColumn<?, ?> contactos;
+
+    @FXML
+    private TableColumn<?, ?> contactos1;
+
+    @FXML
+    private TableColumn<?, ?> contactos2;
+
+    @FXML
+    private TableColumn<?, ?> contactos3;
+
+    @FXML
+    private TableColumn<?, ?> contactos4;
+
+    @FXML
+    private TableColumn<?, ?> contactos5;
+
+    @FXML
+    private TableColumn<?, ?> contactos6;
+
+    @FXML
+    private TableColumn<?, ?> contactos7;
+
+    @FXML
+    private TableColumn<?, ?> contactos8;
+
+    @FXML
+    private TableColumn<?, ?> contactos9;
+
+    @FXML
+    private TableColumn<?, ?> solicitudes1;
+
+    @FXML
+    private TableColumn<?, ?> solicitudes2;
+
+    @FXML
+    private TableColumn<?, ?> solicitudes3;
+
+    @FXML
+    private TableColumn<?, ?> solicitudes4;
+
+    @FXML
+    private TableColumn<?, ?> solicitudes5;
+
+    @FXML
+    private TableColumn<?, ?> solicitudes6;
+
+    @FXML
+    private TableColumn<?, ?> solicitudes7;
+
+    @FXML
+    private TableColumn<?, ?> solicitudes8;
+
+    @FXML
+    private TableColumn<?, ?> solicitudes9;
+
+    @FXML
+    private TableColumn<?, ?> solicitudes;
+
+    @FXML
+    private TableColumn<Vendedor, String> sugerencias;
+
+    @FXML
+    private TableColumn<?, ?> sugerencias1;
+
+    @FXML
+    private TableColumn<?, ?> sugerencias2;
+
+    @FXML
+    private TableColumn<?, ?> sugerencias3;
+
+    @FXML
+    private TableColumn<?, ?> sugerencias4;
+
+    @FXML
+    private TableColumn<?, ?> sugerencias5;
+
+    @FXML
+    private TableColumn<?, ?> sugerencias6;
+
+    @FXML
+    private TableColumn<?, ?> sugerencias7;
+
+    @FXML
+    private TableColumn<?, ?> sugerencias8;
+
+    @FXML
+    private TableColumn<?, ?> sugerencias9;
 
     private boolean datosValidos(String nombre, String apellido, String cedula, String direccion, String cuenta, String contrasena) {
 
@@ -533,6 +627,7 @@ public class ControladorMarketplaceView  {
         if (mensaje.equals("")) {
             return true;
         } else {
+            mostrarMensaje("Notificación cliente", "Datos invalidos", mensaje, Alert.AlertType.WARNING);
             return false;
         }
     }
@@ -553,7 +648,6 @@ public class ControladorMarketplaceView  {
         }
     }
 
-
     private void publicarProducto1() {
         String codigo = campoCodigoProducto1.getText();
         String nombreProducto = campoNombreProducto1.getText();
@@ -561,6 +655,7 @@ public class ControladorMarketplaceView  {
         String categoria = campoCategoria1.getText();
         double precio = Double.parseDouble(campoPrecio1.getText());
         String estadoProducto = String.valueOf(comboEstadoProducto1.getValue());
+
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
             Estado estado = Estado.valueOf(estadoProducto);
             crearProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 2);
@@ -842,6 +937,8 @@ public class ControladorMarketplaceView  {
             imagenProducto9.setImage(image);
         }
     }
+
+
     @FXML
     void publicarProductoAction(ActionEvent event) {
         publicarProducto();
@@ -893,8 +990,6 @@ public class ControladorMarketplaceView  {
 
 
     }
-
-
 
     private void actualizarProducto1() {
 
@@ -1034,7 +1129,6 @@ public class ControladorMarketplaceView  {
         String rutaImagen = campoUrlImagen2.getText();
         String categoria = campoCategoria2.getText();
         double precio = Double.parseDouble(campoPrecio2.getText());
-
         String estadoProducto = String.valueOf(comboEstadoProducto2.getValue());
 
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
@@ -1273,14 +1367,20 @@ public class ControladorMarketplaceView  {
         this.columnaPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         this.columnaEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
         this.columnaCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        this.sugerencias.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos.getItems().clear();
         tablaProductos.setItems(getListaProductosVis());
+        tablaSugerencias.setItems(getListaSugerenciasAmistad());
+        llenarTablaSugerencias(getListaSugerenciasAmistad());
+
+
 
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
         tablaProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
             this.productoSeleccionado = newSelecction;
             this.setearCamposProductos(this.productoSeleccionado);
+
         });
     }
 
@@ -2493,6 +2593,38 @@ public class ControladorMarketplaceView  {
 
     }
 
+    public ObservableList<Vendedor> getListaSugerenciasAmistad() {
+
+        listaSugerenciasAmistad.addAll(modelFactoryController.llenarTablaSugerencias());
+        return listaSugerenciasAmistad;
+    }
+
+    public void setListaSugerenciasAmistad(ObservableList<Vendedor> listaSugerenciasAmistad) {
+        this.listaSugerenciasAmistad = listaSugerenciasAmistad;
+    }
+
+    private void llenarTablaSugerencias(ObservableList<Vendedor> listaSugerenciasAmistad){
+
+        Vendedor vendedorSugerido = new Vendedor().agregarSugerenciaVendedor(new Vendedor());
+        if (tablaSugerencias == null) {
+            listaSugerenciasAmistad.add(vendedorSugerido);
+            listaSugerenciasAmistad.addAll(modelFactoryController.llenarTablaSugerencias());
+        }
+        tablaSugerencias.setItems(listaSugerenciasAmistad);
+    }
+
+
+    private void llenarTablaSolicitudesDeAmistad(){
+
+
+
+    }
+
+    private void llenarTablaContactos(){
+
+
+    }
+
 
     @FXML
     void publicarProductoAction9(ActionEvent event) {
@@ -2508,6 +2640,11 @@ public class ControladorMarketplaceView  {
     @FXML
     void eliminarProductoAction9(ActionEvent event) {
         eliminarProducto9();
+    }
+
+    @FXML
+    void cerrarSesionAction(ActionEvent event) {
+        aplicacion.mostrarVentanaInicio();
     }
 
     private void crearProducto (String codigo, String nombreProducto, String rutaImagen, String categoria, double precio, Estado estadoProducto, int indicador){

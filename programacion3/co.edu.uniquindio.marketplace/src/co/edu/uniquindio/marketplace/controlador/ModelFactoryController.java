@@ -27,11 +27,9 @@ public class ModelFactoryController implements Runnable {
     private static class SingletonHolder {
         private final static ModelFactoryController INSTANCE = new ModelFactoryController();
     }
-
     public static ModelFactoryController getInstance() {
         return SingletonHolder.INSTANCE;
     }
-
     public ModelFactoryController() {
         System.out.println("invoca clase singleton");
         //inicializarSalvarDatos();
@@ -48,7 +46,7 @@ public class ModelFactoryController implements Runnable {
         //4. Guardar y Cargar el recurso serializable XML
         //guardarResourceXML();
         cargarResourceXML();
-        if (marketplace == null) {
+        if(marketplace == null){
             respaldoXML();
             //inicializarDatos();
             guardarResourceXML();
@@ -120,7 +118,7 @@ public class ModelFactoryController implements Runnable {
                 }
             }
 
-        }
+            }
         return -1;
     }
 
@@ -231,7 +229,6 @@ public class ModelFactoryController implements Runnable {
 
         marketplace.getAdministrador().actualizarVendedor(vendedor,cedulaAnterior);
         guardarResourceXML();
-        guardarVendedores();
         registrarAccionesSistema("Vendedor actualizado con cedula "+vendedor.getCedula(),1 , "Actualizar vendedor");
         try {
             Persistencia.guardarVendedores(marketplace.getAdministrador().getVendedores());
@@ -293,6 +290,41 @@ public class ModelFactoryController implements Runnable {
             return false;
         }
     }
+
+    public ArrayList<Vendedor> llenarTablaSugerencias() {
+        ArrayList<Vendedor> vendedoresSugeridos = new ArrayList<>();
+        ArrayList<Vendedor> vendedores = obtenerVendedores();
+
+        if (vendedores.size() == 0) {
+            return vendedoresSugeridos;
+        }
+
+        for (int i = 0; i < vendedores.size(); i++) {
+            int sugerenciaAleatoria = (int) (Math.random() * vendedores.size());
+            vendedoresSugeridos.add(vendedores.get(sugerenciaAleatoria));
+        }
+
+        return vendedoresSugeridos;
+    }
+
+
+    public ArrayList<Solicitud> llenarTablaSolicitudesDeAmistad(){
+        Vendedor receptor = ObtenerVendedor();
+        Vendedor emisor = ObtenerVendedor();
+        Solicitud solicitudRecibida = new Solicitud(emisor, receptor, Solicitud.EstadoSolicitud.RECIBIDA);
+
+        receptor.getSolicitudesRecibidas().add(solicitudRecibida);
+        return receptor.getSolicitudesRecibidas();
+    }
+
+
+
+
+
+
+
+
+
     public ArrayList<Vendedor> obtenerVendedores() {
         return getMarketplace().getAdministrador().getVendedores();
     }
