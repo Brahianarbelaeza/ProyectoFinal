@@ -74,14 +74,16 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         return null;
     }
 
-    public void agregarSugerenciaVendedor(Vendedor sugerencia) {
+    public Vendedor agregarSugerenciaVendedor(Vendedor sugerencia) {
         // Verificar si la sugerencia ya existe en la lista
+        sugerenciasVendedores = new ArrayList<>();
         if (!sugerenciasVendedores.contains(sugerencia)) {
             sugerenciasVendedores.add(sugerencia);
             System.out.println("Sugerencia de vendedor agregada");
         } else {
             System.out.println("Esta sugerencia de vendedor ya existe en la lista");
         }
+        return sugerencia;
     }
 
     public void agregarVendedorAliado(Solicitud solicitud) {

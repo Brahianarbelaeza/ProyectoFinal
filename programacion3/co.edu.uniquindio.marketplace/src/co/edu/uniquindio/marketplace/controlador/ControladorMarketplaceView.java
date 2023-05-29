@@ -1535,16 +1535,20 @@ public class ControladorMarketplaceView {
         this.columnaPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         this.columnaEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
         this.columnaCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        this.sugerencias.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos.getItems().clear();
         tablaProductos.setItems(getListaProductosVis());
+        tablaSugerencias.setItems(getListaSugerenciasAmistad());
+        llenarTablaSugerencias(getListaSugerenciasAmistad());
+
+
 
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
         tablaProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
             this.productoSeleccionado = newSelecction;
             this.setearCamposProductos(this.productoSeleccionado);
 
-            tablaSugerencias.setItems(getListaSugerenciasAmistad());
         });
     }
 
@@ -2814,6 +2818,8 @@ public class ControladorMarketplaceView {
     }
 
     public ObservableList<Vendedor> getListaSugerenciasAmistad() {
+
+        listaSugerenciasAmistad.addAll(modelFactoryController.llenarTablaSugerencias());
         return listaSugerenciasAmistad;
     }
 
@@ -2823,13 +2829,13 @@ public class ControladorMarketplaceView {
 
     private void llenarTablaSugerencias(ObservableList<Vendedor> listaSugerenciasAmistad){
 
+        Vendedor vendedorSugerido = new Vendedor().agregarSugerenciaVendedor(new Vendedor());
         if (tablaSugerencias == null) {
-            listaSugerenciasAmistad.addAll(modelFactoryController.obtenerVendedores());
+            listaSugerenciasAmistad.add(vendedorSugerido);
+            listaSugerenciasAmistad.addAll(modelFactoryController.llenarTablaSugerencias());
         }
         tablaSugerencias.setItems(listaSugerenciasAmistad);
     }
-
-
 
 
     private void llenarTablaSolicitudesDeAmistad(){
