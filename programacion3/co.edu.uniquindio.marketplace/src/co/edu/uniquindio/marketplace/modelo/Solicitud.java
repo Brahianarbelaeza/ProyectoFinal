@@ -7,15 +7,13 @@ public class Solicitud extends Persona{
         private Vendedor receptor;
         private String nombre;
         private String apellido;
-        private EstadoSolicitud estado;
+        private EstadoSolicitud estado=EstadoSolicitud.ENVIADA;
 
         /*public SolicitudAmistad(Vendedor emisor, Vendedor receptor) {
             this.emisor = emisor;
             this.receptor = receptor;
             this.estado = EstadoSolicitud.PENDIENTE;
         }*/
-
-
         public Solicitud(String nombre, String apellido, String cedula, Cuenta cuenta, Vendedor emisor, Vendedor receptor, EstadoSolicitud estado) {
             super(nombre, apellido, cedula, cuenta);
             this.emisor = emisor;
@@ -89,6 +87,7 @@ public class Solicitud extends Persona{
         }
 
 
+
     public enum EstadoSolicitud {
 
         ENVIADA,
@@ -96,6 +95,14 @@ public class Solicitud extends Persona{
         PENDIENTE,
         ACEPTADA,
         RECHAZADA
+    }
+
+    public EstadoSolicitud getEstadoSolicitud(){
+            return estado;
+    }
+
+    public void setEstadoSolicitud(EstadoSolicitud estado){
+            this.estado = estado;
     }
 
 }

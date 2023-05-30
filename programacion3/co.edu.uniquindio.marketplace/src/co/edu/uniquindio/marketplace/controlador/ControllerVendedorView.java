@@ -44,7 +44,7 @@ public class ControllerVendedorView {
         return modelFactoryController.llenarTablaSugerencias();
     }
 
-    public ArrayList<Solicitud> llenarTablaSolicitudes(){
+    public Solicitud llenarTablaSolicitudes(){
         return modelFactoryController.llenarTablaSolicitudesDeAmistad();
     }
 

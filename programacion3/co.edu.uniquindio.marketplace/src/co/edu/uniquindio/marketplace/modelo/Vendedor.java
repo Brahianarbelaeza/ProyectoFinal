@@ -1,6 +1,6 @@
 package modelo;
 
-import controlador.ModelFactoryController;
+import controlador.ControladorMarketplaceView;
 import servicios.IVendedorService;
 
 import java.io.Serializable;
@@ -10,12 +10,15 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
 
     private static final long serialVersionUID = 1L;
     private String direccion;
-    ArrayList<Producto> listaProductos=new ArrayList<Producto>();
+    ArrayList<Producto> listaProductos = new ArrayList<Producto>();
     ArrayList<Vendedor> vendedoresAliados;
     ArrayList<Solicitud> solicitudesRecibidas;
     ArrayList<Vendedor> sugerenciasVendedores;
+    ArrayList<Solicitud> solicitudesEnviadas;
+    ControladorMarketplaceView controladorMarketplaceView = new ControladorMarketplaceView();
 
     public Vendedor() {
+
     }
 
     public Vendedor(String nombre, String apellidos, String cedula, Cuenta cuenta, String direccion) {
@@ -23,27 +26,28 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         this.direccion = direccion;
         this.listaProductos = new ArrayList<Producto>();
         this.vendedoresAliados = new ArrayList<Vendedor>();
-        //Poner ArrayList de solicitudes
-        
+        this.solicitudesRecibidas = (ArrayList<Solicitud>) controladorMarketplaceView.getListaSolicitudesAmistad();
+        this.solicitudesEnviadas = new ArrayList<Solicitud>();
+        this.sugerenciasVendedores = new ArrayList<Vendedor>();
     }
-    public Producto crearProducto (Producto producto) throws Exception{
+    public Producto crearProducto(Producto producto) throws Exception {
         boolean flag = false;
-            for (int i = 0; i < listaProductos.size(); i++) {
-                if (producto.compararProducto(listaProductos.get(i))) {
-                    flag = true;
-                    break;
-                }
+        for (int i = 0; i < listaProductos.size(); i++) {
+            if (producto.compararProducto(listaProductos.get(i))) {
+                flag = true;
+                break;
             }
-
-            if (!flag) {
-                listaProductos.add(producto);
-                producto.setEstado(Estado.PUBLICADO);
-            } else {
-                throw new Exception("Este producto" + producto.getNombre() + "ya se guardo");
-            }
-            return producto;
-
         }
+
+        if (!flag) {
+            listaProductos.add(producto);
+            producto.setEstado(Estado.PUBLICADO);
+        } else {
+            throw new Exception("Este producto" + producto.getNombre() + "ya se guardo");
+        }
+        return producto;
+
+    }
 
     @Override
     public void eliminarProducto(Producto producto) {
@@ -53,10 +57,10 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
 
     }
 
-    public void actualizarProducto(Producto producto, String idAnterior){
+    public void actualizarProducto(Producto producto, String idAnterior) {
         for (int i = 0; i < listaProductos.size(); i++) {
             Producto producto1 = listaProductos.get(i);
-            if(producto1.getCodigo().equals(idAnterior)){
+            if (producto1.getCodigo().equals(idAnterior)) {
                 listaProductos.set(i, producto);
             }
         }
@@ -66,7 +70,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
 
 
     public Producto buscarProducto(String codigo) {
-        for (Producto producto:listaProductos) {
+        for (Producto producto : listaProductos) {
             if (producto.getCodigo().equals(codigo)) {
                 return producto;
             }
@@ -87,21 +91,23 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
     }
 
     public void agregarVendedorAliado(Solicitud solicitud) {
-            Vendedor vendedor;
+        Vendedor vendedor;
         //metodo para verificar que no se repita la solicitud
         if (!vendedoresAliados.contains(solicitud)) {
-           // vendedoresAliados.add();
+            // vendedoresAliados.add();
             System.out.println("Solicitud de amistad enviada");
 
         } else {
             System.out.println("Ya se ha enviado una solicitud de amistad a este usuario");
         }
     }
+
     public void eliminarVendedorAliado(Vendedor vendedor) {
 
         vendedoresAliados.remove(vendedor);
 
     }
+
     public String getDireccion() {
         return direccion;
     }
@@ -117,55 +123,32 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
     public void setVendedoresAliados(ArrayList<Vendedor> vendedoresAliados) {
         this.vendedoresAliados = vendedoresAliados;
     }
-
     public ArrayList<Producto> getListaProductos() {
         return listaProductos;
     }
-
     public ArrayList<Vendedor> getVendedoresAliados() {
         return vendedoresAliados;
     }
-
     public void setProductos(ArrayList<Producto> productos) {
         this.listaProductos = productos;
     }
-
     public ArrayList<Vendedor> getSugerenciasVendedores() {
         return sugerenciasVendedores;
     }
-
     public void setSugerenciasVendedores(ArrayList<Vendedor> sugerenciasVendedores) {
         this.sugerenciasVendedores = sugerenciasVendedores;
     }
-
     @Override
     public String toString() {
         return "Vendedor{" +
                 "listaProductos=" + listaProductos +
                 '}';
     }
-
-
-    public boolean enviarSolicitud(Vendedor receptor){
-
-        ArrayList<Vendedor> vendedores = ModelFactoryController.getInstance().obtenerVendedores();
-        Vendedor emisor = ModelFactoryController.getInstance().ObtenerVendedor();
-
-        for (int i = 0; i < vendedores.size() ; i++) {
-            receptor= vendedores.get(i);
-            if (receptor != null) {
-                Solicitud solicitud = new Solicitud(emisor, receptor, Solicitud.EstadoSolicitud.ENVIADA);
-                receptor.responderSolicitud(solicitud);
-                return true;
-        }
-
-        }
-
-
-        return true;
-    }
-
     public ArrayList<Solicitud> getSolicitudesRecibidas() {
+
+        if (solicitudesRecibidas == null) {
+            solicitudesRecibidas = new ArrayList<>();
+        }
         return solicitudesRecibidas;
     }
 
@@ -173,10 +156,13 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         this.solicitudesRecibidas = solicitudesRecibidas;
     }
 
-    public void responderSolicitud(Solicitud solicitud) {
+    public ArrayList<Solicitud> getSolicitudesEnviadas() {
 
-
-
+        if (solicitudesEnviadas == null) {
+            solicitudesEnviadas = new ArrayList<>();
+        }
+        return solicitudesEnviadas;
 
     }
+
 }

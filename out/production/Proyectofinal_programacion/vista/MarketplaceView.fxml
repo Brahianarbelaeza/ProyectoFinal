@@ -287,11 +287,11 @@
                                                     <TableColumn fx:id="sugerencias" prefWidth="226.0" text="Sugerencias" />
                                                   </columns>
                                                 </TableView>
-                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                <Button fx:id="botonConfirmar" layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudonAction" text="Confirmar" />
+                                                <Button fx:id="botonEliminarSolicitud" layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
                                                 <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" text="Agregar" />
-                                                <TableView layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
+                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#enviarSolicitudonAction" text="Agregar" />
+                                                <TableView fx:id="tablaContactos" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
                                                   <columns>
                                                     <TableColumn fx:id="contactos" prefWidth="199.0" text="Contactos" />
                                                   </columns>

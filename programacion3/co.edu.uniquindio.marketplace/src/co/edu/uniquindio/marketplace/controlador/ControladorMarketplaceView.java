@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import modelo.Estado;
 import modelo.Producto;
+import modelo.Solicitud;
 import modelo.Vendedor;
 
 import java.io.File;
@@ -22,20 +23,17 @@ public class ControladorMarketplaceView {
     Aplicacion aplicacion;
     ModelFactoryController modelFactoryController;
     ControllerAdminView controllerAdminView;
-
     ControllerVendedorView controllerVendedorView;
     Vendedor vendedorSeleccionado;
     Producto productoSeleccionado = new Producto();
     ObservableList<Vendedor> listaVendedoresData = FXCollections.observableArrayList();
     ControllerLoginView controllerLoginView;
-
     ObservableList<Producto> listaProductosVis = FXCollections.observableArrayList();
-
     ObservableList<Vendedor> listaSugerenciasAmistad = FXCollections.observableArrayList();
-
+    ObservableList<Solicitud>listaSolicitudesAmistad = FXCollections.observableArrayList();
+    ObservableList<Vendedor> listaContactos = FXCollections.observableArrayList();
     @FXML
     private ImageView imagenProducto;
-
     @FXML
     private ImageView imagenProducto1;
     @FXML
@@ -56,16 +54,12 @@ public class ControladorMarketplaceView {
     private ImageView imagenProducto9;
     @FXML
     private Button botonActualizar;
-
     @FXML
     private Button botonActualizar1;
-
     @FXML
     private Button botonActualizar2;
-
     @FXML
     private Button botonActualizar3;
-
     @FXML
     private Button botonActualizar4;
 
@@ -182,58 +176,44 @@ public class ControladorMarketplaceView {
 
     @FXML
     private Button botonSubirImagen9;
-
+    @FXML
+    private Button botonConfirmar;
+    @FXML
+    private Button botonEliminarSolicitud;
     @FXML
     private TextField campoApellido;
-
     @FXML
     private TextField campoCategoria;
-
     @FXML
     private TextField campoCategoria1;
-
     @FXML
     private TextField campoCategoria2;
-
     @FXML
     private TextField campoCategoria3;
-
     @FXML
     private TextField campoCategoria4;
-
     @FXML
     private TextField campoCategoria5;
-
     @FXML
     private TextField campoCategoria6;
-
     @FXML
     private TextField campoCategoria7;
-
     @FXML
     private TextField campoCategoria8;
-
     @FXML
     private TextField campoCategoria9;
-
     @FXML
     private TextField campoCedula;
-
     @FXML
     private TextField campoCodigoProducto;
-
     @FXML
     private TextField campoCodigoProducto1;
-
     @FXML
     private TextField campoCodigoProducto2;
-
     @FXML
     private TextField campoCodigoProducto3;
-
     @FXML
     private TextField campoCodigoProducto4;
-
     @FXML
     private TextField campoCodigoProducto5;
 
@@ -631,7 +611,17 @@ public class ControladorMarketplaceView {
     private TableView<Vendedor> tblVendedores;
 
     @FXML
+    private TableView<Vendedor> tablaSolictudes;
+
+    @FXML
+    private TableView<Vendedor> tablaContactos;
+
+    @FXML
     private TableView<Vendedor> tablaSugerencias;
+
+    @FXML
+    private TableView<Solicitud> tablaSolicitudes;
+
     @FXML
     private TabPane tabPrincipal;
 
@@ -1536,11 +1526,14 @@ public class ControladorMarketplaceView {
         this.columnaEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
         this.columnaCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
         this.sugerencias.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.solicitudes.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos.getItems().clear();
         tablaProductos.setItems(getListaProductosVis());
         tablaSugerencias.setItems(getListaSugerenciasAmistad());
+        tablaSolicitudes.setItems(getListaSolicitudesAmistad());
         llenarTablaSugerencias(getListaSugerenciasAmistad());
+        llenarTablaSolicitudesDeAmistad(getListaSolicitudesAmistad());
 
 
 
@@ -1784,7 +1777,15 @@ public class ControladorMarketplaceView {
         eliminarVendedor();
     }
 
+    @FXML
+    void confirmarSolicitudonAction(ActionEvent event) {
 
+        llenarTablaSolicitudesDeAmistad(listaSolicitudesAmistad);
+    }
+    @FXML
+    void enviarSolicitudonAction(ActionEvent event) {
+        modelFactoryController.enviarSolicitud();
+    }
     public void inicialzarVendedorView3() {
         //1. Inicializar la tabla
         int id = 0;
@@ -2822,10 +2823,18 @@ public class ControladorMarketplaceView {
         listaSugerenciasAmistad.addAll(modelFactoryController.llenarTablaSugerencias());
         return listaSugerenciasAmistad;
     }
-
     public void setListaSugerenciasAmistad(ObservableList<Vendedor> listaSugerenciasAmistad) {
         this.listaSugerenciasAmistad = listaSugerenciasAmistad;
     }
+
+    public ObservableList<Solicitud> getListaSolicitudesAmistad() {
+        return listaSolicitudesAmistad;
+    }
+
+    public void setListaSolicitudesAmistad(ObservableList<Solicitud> listaSolicitudesAmistad) {
+        this.listaSolicitudesAmistad = listaSolicitudesAmistad;
+    }
+
 
     private void llenarTablaSugerencias(ObservableList<Vendedor> listaSugerenciasAmistad){
 
@@ -2834,18 +2843,25 @@ public class ControladorMarketplaceView {
             listaSugerenciasAmistad.add(vendedorSugerido);
             listaSugerenciasAmistad.addAll(modelFactoryController.llenarTablaSugerencias());
         }
-        tablaSugerencias.setItems(listaSugerenciasAmistad);
+          tablaSugerencias.setItems(listaSugerenciasAmistad);
     }
 
+    private void llenarTablaSolicitudesDeAmistad(ObservableList<Solicitud> listaSolicitudesAmistad){
 
-    private void llenarTablaSolicitudesDeAmistad(){
+        Solicitud solicitudRecibida = new Solicitud();
+        Vendedor vendedorRecibido = new Vendedor();
+        Solicitud posibleContacto = modelFactoryController.responderSolicitud(solicitudRecibida,vendedorRecibido);
 
+        if(posibleContacto.getEstadoSolicitud().equals(Solicitud.EstadoSolicitud.ACEPTADA)){
+            listaSolicitudesAmistad.add(posibleContacto);
+            listaSolicitudesAmistad.addAll(modelFactoryController.llenarTablaSolicitudesDeAmistad());
+            listaContactos.add(vendedorRecibido);
+            tablaSolicitudes.setItems(listaSolicitudesAmistad);
 
-
+        }
     }
 
     private void llenarTablaContactos(){
-
 
     }
 

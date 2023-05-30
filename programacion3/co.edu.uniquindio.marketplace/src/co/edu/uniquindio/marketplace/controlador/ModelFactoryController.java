@@ -218,7 +218,6 @@ public class ModelFactoryController {
             throw new RuntimeException("Error al eliminar al vendedor" + e);
         }
     }
-
     public ArrayList<Vendedor> llenarTablaSugerencias() {
         ArrayList<Vendedor> vendedoresSugeridos = new ArrayList<>();
         ArrayList<Vendedor> vendedores = obtenerVendedores();
@@ -226,24 +225,60 @@ public class ModelFactoryController {
         if (vendedores.size() == 0) {
             return vendedoresSugeridos;
         }
-
         for (int i = 0; i < vendedores.size(); i++) {
             int sugerenciaAleatoria = (int) (Math.random() * vendedores.size());
             vendedoresSugeridos.add(vendedores.get(sugerenciaAleatoria));
         }
-
         return vendedoresSugeridos;
     }
 
-
-    public ArrayList<Solicitud> llenarTablaSolicitudesDeAmistad(){
+    public Solicitud llenarTablaSolicitudesDeAmistad() {
         Vendedor receptor = ObtenerVendedor();
         Vendedor emisor = ObtenerVendedor();
-        Solicitud solicitudRecibida = new Solicitud(emisor, receptor, Solicitud.EstadoSolicitud.RECIBIDA);
-
+        Solicitud solicitudRecibida = responderSolicitud(new Solicitud(), receptor);
+        responderSolicitud(solicitudRecibida, receptor);
         receptor.getSolicitudesRecibidas().add(solicitudRecibida);
-        return receptor.getSolicitudesRecibidas();
+
+        for (int i = 0; i < receptor.getSolicitudesRecibidas().size(); i++) {
+            return receptor.getSolicitudesRecibidas().get(i);
+        }
+        return null; // Devuelve null si no hay solicitudes recibidas en la lista
     }
+
+    public Solicitud responderSolicitud(Solicitud solicitud, Vendedor receptor) {
+        if (solicitud.getEstadoSolicitud().equals(Solicitud.EstadoSolicitud.PENDIENTE)) {
+            solicitud.setEstado(Solicitud.EstadoSolicitud.ACEPTADA);
+            receptor.getSolicitudesRecibidas().add(solicitud);
+            System.out.println("Solicitud aceptada");
+            receptor.getVendedoresAliados().add(receptor);
+        }
+        if (solicitud.getEstadoSolicitud().equals(Solicitud.EstadoSolicitud.RECIBIDA)) {
+            solicitud.setEstado(Solicitud.EstadoSolicitud.RECHAZADA);
+            System.out.println("Solicitud rechazada");
+        }
+        return solicitud;
+    }
+
+
+
+    public boolean enviarSolicitud(){
+
+        Vendedor receptor;
+        ArrayList<Vendedor> vendedores = obtenerVendedores();
+        Vendedor emisor = ObtenerVendedor();
+
+        for (int i = 0; i < vendedores.size() ; i++) {
+            receptor= vendedores.get(i);
+            if (receptor != null) {
+                Solicitud solicitud = new Solicitud(emisor, receptor, Solicitud.EstadoSolicitud.ENVIADA);
+                emisor.getSolicitudesEnviadas().add(solicitud);
+                receptor.getSolicitudesRecibidas().add(solicitud);
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
 
