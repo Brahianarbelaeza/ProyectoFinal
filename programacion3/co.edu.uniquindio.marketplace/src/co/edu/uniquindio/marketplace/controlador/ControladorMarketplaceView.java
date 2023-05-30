@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import modelo.Estado;
 import modelo.Producto;
+
 import modelo.Vendedor;
 
 import java.io.File;
@@ -34,6 +35,7 @@ public class ControladorMarketplaceView  {
     ObservableList<Producto> listaProductosVis = FXCollections.observableArrayList();
 
     ObservableList<Vendedor> listaSugerenciasAmistad = FXCollections.observableArrayList();
+    ObservableList<Vendedor> listaSolicitudesAmistad = FXCollections.observableArrayList();
 
     @FXML
     private ImageView imagenProducto;
@@ -361,6 +363,9 @@ public class ControladorMarketplaceView  {
     private TableColumn<Producto, String> columnaNombreP9;
 
     @FXML
+    private TableColumn<Producto, String> colimagen;
+
+    @FXML
     private TableColumn<Producto, String> columnaPrecio;
 
     @FXML
@@ -510,6 +515,10 @@ public class ControladorMarketplaceView  {
     @FXML
     private TableView<Vendedor> tablaSugerencias;
     @FXML
+    private TableView<Vendedor> tablaSugerencias1;
+    @FXML
+    private TableView<Vendedor> tablaSolicitudes;
+    @FXML
     private TabPane tabPrincipal;
 
     @FXML
@@ -570,7 +579,7 @@ public class ControladorMarketplaceView  {
     private TableColumn<?, ?> solicitudes9;
 
     @FXML
-    private TableColumn<?, ?> solicitudes;
+    private TableColumn<Vendedor, String> solicitudes;
 
     @FXML
     private TableColumn<Vendedor, String> sugerencias;
@@ -668,275 +677,6 @@ public class ControladorMarketplaceView  {
     void eventoComboBox(ActionEvent event) {
     }
 
-    @FXML
-    void subirImagenAction(ActionEvent event) {
-
-        // Crear el objeto FileChooser
-        FileChooser fileChooser = new FileChooser();
-        // Configurar las opciones del objeto FileChooser
-        fileChooser.setTitle("Seleccionar imagen");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
-        );
-        // Mostrar la ventana de selección de archivos
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        // Si el usuario seleccionó un archivo, cargar la imagen
-        if (selectedFile != null) {
-            // Cargar la imagen aquí
-            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
-            String rutaImagen = selectedFile.getAbsolutePath();
-
-            // Crear un objeto Image con la ruta de la imagen
-            Image image = new Image(rutaImagen);
-
-            // Establecer la imagen en el ImageView
-            imagenProducto.setImage(image);
-        }
-    }
-
-    @FXML
-    void subirImagenAction1(ActionEvent event) {
-
-        // Crear el objeto FileChooser
-        FileChooser fileChooser = new FileChooser();
-        // Configurar las opciones del objeto FileChooser
-        fileChooser.setTitle("Seleccionar imagen");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
-        );
-        // Mostrar la ventana de selección de archivos
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        // Si el usuario seleccionó un archivo, cargar la imagen
-        if (selectedFile != null) {
-            // Cargar la imagen aquí
-            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
-            String rutaImagen = selectedFile.getAbsolutePath();
-
-            // Crear un objeto Image con la ruta de la imagen
-            Image image = new Image(rutaImagen);
-
-            // Establecer la imagen en el ImageView
-            imagenProducto1.setImage(image);
-        }
-    }
-
-    @FXML
-    void subirImagenAction2(ActionEvent event) {
-
-        // Crear el objeto FileChooser
-        FileChooser fileChooser = new FileChooser();
-        // Configurar las opciones del objeto FileChooser
-        fileChooser.setTitle("Seleccionar imagen");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
-        );
-        // Mostrar la ventana de selección de archivos
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        // Si el usuario seleccionó un archivo, cargar la imagen
-        if (selectedFile != null) {
-            // Cargar la imagen aquí
-            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
-            String rutaImagen = selectedFile.getAbsolutePath();
-
-            // Crear un objeto Image con la ruta de la imagen
-            Image image = new Image(rutaImagen);
-
-            // Establecer la imagen en el ImageView
-            imagenProducto2.setImage(image);
-        }
-    }
-
-    @FXML
-    void subirImagenAction3(ActionEvent event) {
-
-        // Crear el objeto FileChooser
-        FileChooser fileChooser = new FileChooser();
-        // Configurar las opciones del objeto FileChooser
-        fileChooser.setTitle("Seleccionar imagen");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
-        );
-        // Mostrar la ventana de selección de archivos
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        // Si el usuario seleccionó un archivo, cargar la imagen
-        if (selectedFile != null) {
-            // Cargar la imagen aquí
-            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
-            String rutaImagen = selectedFile.getAbsolutePath();
-
-            // Crear un objeto Image con la ruta de la imagen
-            Image image = new Image(rutaImagen);
-
-            // Establecer la imagen en el ImageView
-            imagenProducto3.setImage(image);
-        }
-    }
-
-    @FXML
-    void subirImagenAction4(ActionEvent event) {
-
-        // Crear el objeto FileChooser
-        FileChooser fileChooser = new FileChooser();
-        // Configurar las opciones del objeto FileChooser
-        fileChooser.setTitle("Seleccionar imagen");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
-        );
-        // Mostrar la ventana de selección de archivos
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        // Si el usuario seleccionó un archivo, cargar la imagen
-        if (selectedFile != null) {
-            // Cargar la imagen aquí
-            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
-            String rutaImagen = selectedFile.getAbsolutePath();
-
-            // Crear un objeto Image con la ruta de la imagen
-            Image image = new Image(rutaImagen);
-
-            // Establecer la imagen en el ImageView
-            imagenProducto4.setImage(image);
-        }
-    }
-
-    @FXML
-    void subirImagenAction5(ActionEvent event) {
-
-        // Crear el objeto FileChooser
-        FileChooser fileChooser = new FileChooser();
-        // Configurar las opciones del objeto FileChooser
-        fileChooser.setTitle("Seleccionar imagen");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
-        );
-        // Mostrar la ventana de selección de archivos
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        // Si el usuario seleccionó un archivo, cargar la imagen
-        if (selectedFile != null) {
-            // Cargar la imagen aquí
-            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
-            String rutaImagen = selectedFile.getAbsolutePath();
-
-            // Crear un objeto Image con la ruta de la imagen
-            Image image = new Image(rutaImagen);
-
-            // Establecer la imagen en el ImageView
-            imagenProducto5.setImage(image);
-        }
-    }
-
-    @FXML
-    void subirImagenAction6(ActionEvent event) {
-
-        // Crear el objeto FileChooser
-        FileChooser fileChooser = new FileChooser();
-        // Configurar las opciones del objeto FileChooser
-        fileChooser.setTitle("Seleccionar imagen");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
-        );
-        // Mostrar la ventana de selección de archivos
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        // Si el usuario seleccionó un archivo, cargar la imagen
-        if (selectedFile != null) {
-            // Cargar la imagen aquí
-            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
-            String rutaImagen = selectedFile.getAbsolutePath();
-
-            // Crear un objeto Image con la ruta de la imagen
-            Image image = new Image(rutaImagen);
-
-            // Establecer la imagen en el ImageView
-            imagenProducto6.setImage(image);
-        }
-    }
-
-    @FXML
-    void subirImagenAction7(ActionEvent event) {
-
-        // Crear el objeto FileChooser
-        FileChooser fileChooser = new FileChooser();
-        // Configurar las opciones del objeto FileChooser
-        fileChooser.setTitle("Seleccionar imagen");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
-        );
-        // Mostrar la ventana de selección de archivos
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        // Si el usuario seleccionó un archivo, cargar la imagen
-        if (selectedFile != null) {
-            // Cargar la imagen aquí
-            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
-            String rutaImagen = selectedFile.getAbsolutePath();
-
-            // Crear un objeto Image con la ruta de la imagen
-            Image image = new Image(rutaImagen);
-
-            // Establecer la imagen en el ImageView
-            imagenProducto7.setImage(image);
-        }
-    }
-
-    @FXML
-    void subirImagenAction8(ActionEvent event) {
-
-        // Crear el objeto FileChooser
-        FileChooser fileChooser = new FileChooser();
-        // Configurar las opciones del objeto FileChooser
-        fileChooser.setTitle("Seleccionar imagen");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
-        );
-        // Mostrar la ventana de selección de archivos
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        // Si el usuario seleccionó un archivo, cargar la imagen
-        if (selectedFile != null) {
-            // Cargar la imagen aquí
-            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
-            String rutaImagen = selectedFile.getAbsolutePath();
-
-            // Crear un objeto Image con la ruta de la imagen
-            Image image = new Image(rutaImagen);
-
-            // Establecer la imagen en el ImageView
-            imagenProducto8.setImage(image);
-        }
-    }
-
-    @FXML
-    void subirImagenAction9(ActionEvent event) {
-
-        // Crear el objeto FileChooser
-        FileChooser fileChooser = new FileChooser();
-        // Configurar las opciones del objeto FileChooser
-        fileChooser.setTitle("Seleccionar imagen");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
-        );
-        // Mostrar la ventana de selección de archivos
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        // Si el usuario seleccionó un archivo, cargar la imagen
-        if (selectedFile != null) {
-            // Cargar la imagen aquí
-            System.out.println("Imagen seleccionada: " + selectedFile.getAbsolutePath());
-            String rutaImagen = selectedFile.getAbsolutePath();
-
-            // Crear un objeto Image con la ruta de la imagen
-            Image image = new Image(rutaImagen);
-
-            // Establecer la imagen en el ImageView
-            imagenProducto9.setImage(image);
-        }
-    }
 
 
     @FXML
@@ -1074,7 +814,6 @@ public class ControladorMarketplaceView  {
 
     public void inicialzarVendedorView2() {
         //1. Inicializar la tabla
-        int id = 0;
         this.columnaNombreP2.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.columnaCategoria2.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         this.columnaPrecio2.setCellValueFactory(new PropertyValueFactory<>("precio"));
@@ -1088,6 +827,7 @@ public class ControladorMarketplaceView  {
         tablaProductos2.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
             this.productoSeleccionado = newSelecction;
             this.setearCamposProductos2(this.productoSeleccionado);
+
         });
     }
 
@@ -1367,12 +1107,44 @@ public class ControladorMarketplaceView  {
         this.columnaPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         this.columnaEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
         this.columnaCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        this.colimagen.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colimagen.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        System.out.println("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
+
+
         this.sugerencias.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.solicitudes.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos.getItems().clear();
         tablaProductos.setItems(getListaProductosVis());
+        tablaSugerencias.getItems().clear();
         tablaSugerencias.setItems(getListaSugerenciasAmistad());
-        llenarTablaSugerencias(getListaSugerenciasAmistad());
+        tablaSolicitudes.getItems().clear();
+        tablaSolicitudes.setItems(getListaSolicitudesAmistad());
+
+        // llenarTablaSugerencias(getListaSugerenciasAmistad());
 
 
 
@@ -1392,9 +1164,12 @@ public class ControladorMarketplaceView  {
         this.columnaPrecio1.setCellValueFactory(new PropertyValueFactory<>("precio"));
         this.columnaEstado1.setCellValueFactory(new PropertyValueFactory<>("estado"));
         this.columnaCodigo1.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        this.sugerencias1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos1.getItems().clear();
         tablaProductos1.setItems(getListaProductosVis());
+        tablaSugerencias1.getItems().clear();
+        tablaSugerencias1.setItems(getListaSugerenciasAmistad());
 
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
         tablaProductos1.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
@@ -2599,26 +2374,17 @@ public class ControladorMarketplaceView  {
         return listaSugerenciasAmistad;
     }
 
+    public ObservableList<Vendedor> getListaSolicitudesAmistad() {
+
+        listaSolicitudesAmistad.addAll(modelFactoryController.obtenerSolicitudes());
+        return listaSolicitudesAmistad;
+    }
+
     public void setListaSugerenciasAmistad(ObservableList<Vendedor> listaSugerenciasAmistad) {
         this.listaSugerenciasAmistad = listaSugerenciasAmistad;
     }
 
-    private void llenarTablaSugerencias(ObservableList<Vendedor> listaSugerenciasAmistad){
 
-        Vendedor vendedorSugerido = new Vendedor().agregarSugerenciaVendedor(new Vendedor());
-        if (tablaSugerencias == null) {
-            listaSugerenciasAmistad.add(vendedorSugerido);
-            listaSugerenciasAmistad.addAll(modelFactoryController.llenarTablaSugerencias());
-        }
-        tablaSugerencias.setItems(listaSugerenciasAmistad);
-    }
-
-
-    private void llenarTablaSolicitudesDeAmistad(){
-
-
-
-    }
 
     private void llenarTablaContactos(){
 
@@ -2672,6 +2438,34 @@ public class ControladorMarketplaceView  {
         }
     }
 
+    @FXML
+    void crearSolicitudAction(ActionEvent event) {
+        vendedorSeleccionado = tablaSugerencias.getSelectionModel().getSelectedItem();
+        crearSolicitud(vendedorSeleccionado);
+    }
+
+    @FXML
+    void crearSolicitudAction1(ActionEvent event) {
+        vendedorSeleccionado = tablaSugerencias1.getSelectionModel().getSelectedItem();
+        crearSolicitud(vendedorSeleccionado);
+    }
+
+    private void crearSolicitud(Vendedor vendedor) {
+        if (vendedor != null) {
+            if (mostrarMensajeConfirmacion("¿Estas seguro de enviar la solicitud de amistad?") == true) {
+                boolean solicitudEnviada = controllerVendedorView.crearSolicitudAmistad(vendedor);
+                if (solicitudEnviada == true) {
+                    mostrarMensaje("Notificación solicitud", "Solicitud enviada", "La solicitud se ha enviado con éxito", Alert.AlertType.INFORMATION);
+                    listaSugerenciasAmistad.remove(vendedor);
+                    tablaSugerencias.getSelectionModel().clearSelection();
+                } else {
+                    mostrarMensaje("Notificación solicitud", "Solicitud no enviada", "La solicitud no se ha enviado, ya la has enviado antes", Alert.AlertType.ERROR);
+                }
+            }
+        } else {
+            mostrarMensaje("Notificación solicitud", "Solicitud no enviada", "Selecciona un vendedor de la lista", Alert.AlertType.WARNING);
+        }
+    }
 
 
 }

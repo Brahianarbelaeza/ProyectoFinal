@@ -1,7 +1,8 @@
 package controlador;
 
 import excepciones.AdministradorException;
-import excepciones.CrudProductoException;
+
+import excepciones.EnviarSolicitudException;
 import excepciones.VendedorException;
 import modelo.*;
 import persistencia.Persistencia;
@@ -22,6 +23,8 @@ public class ModelFactoryController implements Runnable {
     String mensaje;
     int nivel;
     String accion;
+
+
 
 
     private static class SingletonHolder {
@@ -280,10 +283,11 @@ public class ModelFactoryController implements Runnable {
 
     public boolean eliminarProducto (String codigo) {
         Producto producto = ObtenerVendedor().buscarProducto(codigo);
-        registrarAccionesSistema("Producto eliminado con codigo " + producto.getCodigo(), 2, "Eliminar producto");
+
         try {
             ObtenerVendedor().eliminarProducto(producto);
             guardarResourceXML();
+            registrarAccionesSistema("Producto eliminado con codigo " + producto.getCodigo(), 2, "Eliminar producto");
             return true;
         } catch (VendedorException e) {
             registrarAccionesSistema("Se ha creado una nueva excepción" + e, 2, "Eliminar producto");
@@ -293,34 +297,46 @@ public class ModelFactoryController implements Runnable {
 
     public ArrayList<Vendedor> llenarTablaSugerencias() {
         ArrayList<Vendedor> vendedoresSugeridos = new ArrayList<>();
-        ArrayList<Vendedor> vendedores = obtenerVendedores();
-
-        if (vendedores.size() == 0) {
-            return vendedoresSugeridos;
-        }
+        ArrayList<Vendedor> vendedores = marketplace.getAdministrador().getVendedores();
 
         for (int i = 0; i < vendedores.size(); i++) {
-            int sugerenciaAleatoria = (int) (Math.random() * vendedores.size());
-            vendedoresSugeridos.add(vendedores.get(sugerenciaAleatoria));
-        }
+                int sugerenciaAleatoria = (int) (Math.random() * vendedores.size());
+
+                    vendedoresSugeridos.add(vendedores.get(sugerenciaAleatoria));
+
+            }
+
 
         return vendedoresSugeridos;
     }
 
 
-    public ArrayList<Solicitud> llenarTablaSolicitudesDeAmistad(){
+/*    public ArrayList<Solicitud> llenarTablaSolicitudesDeAmistad(){
         Vendedor receptor = ObtenerVendedor();
         Vendedor emisor = ObtenerVendedor();
         Solicitud solicitudRecibida = new Solicitud(emisor, receptor, Solicitud.EstadoSolicitud.RECIBIDA);
 
         receptor.getSolicitudesRecibidas().add(solicitudRecibida);
         return receptor.getSolicitudesRecibidas();
+    }*/
+    public boolean crearSolicitudAmistad(Vendedor receptor) throws EnviarSolicitudException {
+        Vendedor emisor = ObtenerVendedor();
+
+        try {
+            receptor.agregarSolicitudAmistad(emisor);
+            registrarAccionesSistema("Solicitud de amistad enviada a " + receptor.getNombre(), 1, "Enviar solicitud de amistad");
+            guardarResourceXML();
+            return true;
+        } catch (EnviarSolicitudException e) {
+            registrarAccionesSistema("Se ha creado una nueva excepción " + e, 2, "Enviar solicitud de amistad");
+            return false;
+        }
+
+
     }
-
-
-
-
-
+    public ArrayList<Vendedor> obtenerSolicitudes(){
+        return ObtenerVendedor().getSolicitudesRecibidas();
+    }
 
 
 

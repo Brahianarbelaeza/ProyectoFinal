@@ -1,5 +1,7 @@
 package modelo;
 
+import excepciones.EnviarSolicitudException;
+import excepciones.VendedorException;
 import servicios.IVendedorService;
 
 import java.io.Serializable;
@@ -9,9 +11,9 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
 
     private static final long serialVersionUID = 1L;
     private String direccion;
-    ArrayList<Producto> listaProductos=new ArrayList<Producto>();
+    ArrayList<Producto> listaProductos = new ArrayList<Producto>();
     ArrayList<Vendedor> vendedoresAliados;
-    ArrayList<Solicitud> solicitudesRecibidas;
+    ArrayList<Vendedor> solicitudesRecibidas;
     ArrayList<Vendedor> sugerenciasVendedores;
 
     public Vendedor() {
@@ -22,7 +24,8 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         this.direccion = direccion;
         this.listaProductos = new ArrayList<Producto>();
         this.vendedoresAliados = new ArrayList<Vendedor>();
-        //Poner ArrayList de solicitudes
+        this.solicitudesRecibidas = new ArrayList<Vendedor>();
+        this.sugerenciasVendedores = new ArrayList<Vendedor>();
         
     }
     public Producto crearProducto (Producto producto) throws Exception{
@@ -76,29 +79,6 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         return null;
     }
 
-    public Vendedor agregarSugerenciaVendedor(Vendedor sugerencia) {
-        // Verificar si la sugerencia ya existe en la lista
-        sugerenciasVendedores = new ArrayList<>();
-        if (!sugerenciasVendedores.contains(sugerencia)) {
-            sugerenciasVendedores.add(sugerencia);
-            System.out.println("Sugerencia de vendedor agregada");
-        } else {
-            System.out.println("Esta sugerencia de vendedor ya existe en la lista");
-        }
-        return sugerencia;
-    }
-
-    public void agregarVendedorAliado(Solicitud solicitud) {
-            Vendedor vendedor;
-        //metodo para verificar que no se repita la solicitud
-        if (!vendedoresAliados.contains(solicitud)) {
-           // vendedoresAliados.add();
-            System.out.println("Solicitud de amistad enviada");
-
-        } else {
-            System.out.println("Ya se ha enviado una solicitud de amistad a este usuario");
-        }
-    }
     public void eliminarVendedorAliado(Vendedor vendedor) {
 
         vendedoresAliados.remove(vendedor);
@@ -148,7 +128,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
     }
 
 
-    public boolean enviarSolicitud(Vendedor receptor){
+/*    public boolean enviarSolicitud(Vendedor receptor){
 
         ArrayList<Vendedor> vendedores = ModelFactoryController.getInstance().obtenerVendedores();
         Vendedor emisor = ModelFactoryController.getInstance().ObtenerVendedor();
@@ -165,20 +145,24 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
 
 
         return true;
-    }
+    }*/
 
-    public ArrayList<Solicitud> getSolicitudesRecibidas() {
+    public ArrayList<Vendedor> getSolicitudesRecibidas() {
         return solicitudesRecibidas;
     }
 
-    public void setSolicitudesRecibidas(ArrayList<Solicitud> solicitudesRecibidas) {
+    public void setSolicitudesRecibidas(ArrayList<Vendedor> solicitudesRecibidas) {
         this.solicitudesRecibidas = solicitudesRecibidas;
     }
 
-    public void responderSolicitud(Solicitud solicitud) {
 
-
-
+    public void agregarSolicitudAmistad(Vendedor emisor) throws EnviarSolicitudException {
+        if (!solicitudesRecibidas.contains(emisor)) {
+            solicitudesRecibidas.add(emisor);
+            System.out.println("Solicitud de amistad enviada");
+        } else {
+            throw new EnviarSolicitudException("Ya se ha enviado una solicitud de amistad a este usuario");
+        }
 
     }
 }

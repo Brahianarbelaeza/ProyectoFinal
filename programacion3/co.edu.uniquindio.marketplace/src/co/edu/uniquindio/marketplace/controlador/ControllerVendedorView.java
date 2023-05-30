@@ -1,6 +1,7 @@
 package controlador;
 
 import aplicacion.Aplicacion;
+import excepciones.EnviarSolicitudException;
 import javafx.fxml.FXML;
 import modelo.*;
 
@@ -44,9 +45,6 @@ public class ControllerVendedorView {
         return modelFactoryController.llenarTablaSugerencias();
     }
 
-    public ArrayList<Solicitud> llenarTablaSolicitudes(){
-        return modelFactoryController.llenarTablaSolicitudesDeAmistad();
-    }
 
 
 
@@ -55,4 +53,13 @@ public class ControllerVendedorView {
         return modelFactoryController.obtenerProductos();
     }
 
+    public boolean crearSolicitudAmistad(Vendedor v)  {
+        try {
+            return modelFactoryController.crearSolicitudAmistad(v);
+        } catch (EnviarSolicitudException e) {
+            modelFactoryController.registrarAccionesSistema("Error al enviar solicitud de amistad "+ e, 3, "Crear solicitud de amistad");
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
