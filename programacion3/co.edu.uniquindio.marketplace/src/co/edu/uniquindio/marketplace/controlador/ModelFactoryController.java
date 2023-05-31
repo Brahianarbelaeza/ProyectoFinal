@@ -1,10 +1,7 @@
 package controlador;
 
-import excepciones.AdministradorException;
+import excepciones.*;
 
-import excepciones.ConfirmarSolicitudException;
-import excepciones.EnviarSolicitudException;
-import excepciones.VendedorException;
 import modelo.*;
 import persistencia.Persistencia;
 
@@ -299,6 +296,7 @@ public class ModelFactoryController implements Runnable {
     public Producto actualizarProducto(Producto producto, String idAnterior) {
         ObtenerVendedor().actualizarProducto(producto,idAnterior);
         guardarResourceXML();
+        respaldoXML();
         registrarAccionesSistema("Producto actualizado con cedula "+producto.getCodigo(),1 , "Actualizar vendedor");
         return producto;
     }
@@ -309,6 +307,7 @@ public class ModelFactoryController implements Runnable {
         try {
             ObtenerVendedor().eliminarProducto(producto);
             guardarResourceXML();
+            respaldoXML();
             registrarAccionesSistema("Producto eliminado con codigo " + producto.getCodigo(), 2, "Eliminar producto");
             return true;
         } catch (VendedorException e) {
@@ -339,6 +338,7 @@ public class ModelFactoryController implements Runnable {
             receptor.agregarSolicitudAmistad(emisor);
             registrarAccionesSistema("Solicitud de amistad enviada a " + receptor.getNombre(), 1, "Enviar solicitud de amistad");
             guardarResourceXML();
+            respaldoXML();
             return true;
         } catch (EnviarSolicitudException e) {
             registrarAccionesSistema("Se ha creado una nueva excepción " + e, 2, "Enviar solicitud de amistad");
@@ -353,11 +353,19 @@ public class ModelFactoryController implements Runnable {
             receptor.confirmarSolicitudAmistad(vendedor);
             registrarAccionesSistema("Solicitud de amistad confirmada con " + vendedor.getNombre(), 1, "Confirmar solicitud de amistad");
             guardarResourceXML();
+            respaldoXML();
             return true;
         } catch (ConfirmarSolicitudException e) {
             registrarAccionesSistema("Se ha creado una nueva excepción " + e, 2, "Confirmar solicitud de amistad");
             return false;
         }
+    }
+    public ArrayList<Producto> obtenerPublicaciones () throws MuroException {
+         if (ObtenerVendedor().obtenerPublicaciones() == null){
+             throw new MuroException("No hay publicaciones");
+         }else {
+             return ObtenerVendedor().obtenerPublicaciones();
+         }
     }
 
     public ArrayList<Vendedor> obtenerSolicitudes(){
