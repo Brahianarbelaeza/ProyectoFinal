@@ -2,6 +2,7 @@ package controlador;
 
 import aplicacion.Aplicacion;
 import excepciones.ConfirmarSolicitudException;
+import excepciones.EliminarSolicitudException;
 import excepciones.EnviarSolicitudException;
 import excepciones.MuroException;
 import javafx.fxml.FXML;
@@ -80,6 +81,16 @@ public class ControllerVendedorView {
             return modelFactoryController.confirmarSolicitudAmistad(vendedor);
         } catch (ConfirmarSolicitudException e) {
             modelFactoryController.registrarAccionesSistema("Error al confirmar solicitud de amistad "+ e, 3, "Confirmar solicitud de amistad");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean eliminarSolicitudAmistad(Vendedor vendedor) {
+        try {
+            return modelFactoryController.eliminarSolicitudAmistad(vendedor);
+        } catch (EliminarSolicitudException e) {
+            modelFactoryController.registrarAccionesSistema("Error al eliminar solicitud de amistad "+ e, 3, "Eliminar solicitud de amistad");
             e.printStackTrace();
             return false;
         }

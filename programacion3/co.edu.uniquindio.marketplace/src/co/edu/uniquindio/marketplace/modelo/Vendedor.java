@@ -14,7 +14,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
     private String direccion;
     ArrayList<Producto> listaProductos = new ArrayList<Producto>();
     ArrayList<Vendedor> vendedoresAliados;
-    ArrayList<Vendedor> solicitudesRecibidas;
+    ArrayList<Vendedor> solicitudesRecibidas=new ArrayList<Vendedor>();
     ArrayList<Vendedor> sugerenciasVendedores;
     ArrayList<Producto> publicaciones = new ArrayList<Producto>();
 
@@ -132,6 +132,8 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
 
 
     public ArrayList<Vendedor> getSolicitudesRecibidas() {
+        if(solicitudesRecibidas == null)
+                solicitudesRecibidas = new ArrayList<Vendedor>();
         return solicitudesRecibidas;
     }
 
@@ -157,6 +159,15 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
             System.out.println("Solicitud de amistad confirmada");
         }else{
             throw new ConfirmarSolicitudException("Ya se ha confirmado la solicitud de amistad de este usuario");
+        }
+    }
+
+    public void eliminarSolicitudAmistad(Vendedor vendedor) throws ConfirmarSolicitudException {
+        if(solicitudesRecibidas.contains(vendedor)){
+            solicitudesRecibidas.remove(vendedor);
+            System.out.println("Solicitud de amistad eliminada");
+        }else{
+            throw new ConfirmarSolicitudException("No se ha encontrado la solicitud de amistad de este usuario");
         }
     }
     public ArrayList<Producto> obtenerPublicaciones (){

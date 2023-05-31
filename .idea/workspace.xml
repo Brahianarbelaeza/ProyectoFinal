@@ -5,19 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="707ebebc-d099-4077-bb64-b16c1cb0e947" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/excepciones/EliminarSolicitudException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControladorMarketplaceView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControllerLoginView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControllerVendedorView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ModelFactoryController$SingletonHolder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ModelFactoryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Solicitud$EstadoSolicitud.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Solicitud$EstadoSolicitud.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Solicitud.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Solicitud.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControladorMarketplaceView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControladorMarketplaceView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Muro.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Producto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Producto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Publicacion.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Vendedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Vendedor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/vista/MarketplaceView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/vista/MarketplaceView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControllerVendedorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControllerVendedorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ModelFactoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ModelFactoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/servicios/IAdministradorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/servicios/IAdministradorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/servicios/IVendedorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/servicios/IVendedorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/vista/MarketplaceView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/vista/MarketplaceView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -169,6 +168,7 @@
       <workItem from="1685378388271" duration="148000" />
       <workItem from="1685419496177" duration="29539000" />
       <workItem from="1685542424634" duration="979000" />
+      <workItem from="1685558348342" duration="1768000" />
     </task>
     <servers />
   </component>

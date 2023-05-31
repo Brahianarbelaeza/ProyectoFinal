@@ -19,7 +19,7 @@ import modelo.Vendedor;
 import java.util.Optional;
 
 
-public class ControladorMarketplaceView  {
+public class ControladorMarketplaceView {
     Aplicacion aplicacion;
     ModelFactoryController modelFactoryController;
     ControllerAdminView controllerAdminView;
@@ -379,7 +379,7 @@ public class ControladorMarketplaceView  {
     private TableColumn<Producto, String> columnaPrecio5;
 
     @FXML
-    private TableColumn<Producto,String> columnaPrecio6;
+    private TableColumn<Producto, String> columnaPrecio6;
 
     @FXML
     private TableColumn<Producto, String> columnaPrecio7;
@@ -450,19 +450,19 @@ public class ControladorMarketplaceView  {
     private TableView<Producto> tablaProductos8;
 
     @FXML
-    private TableView<Producto> tablaProductos9;
+    private TableView<Producto> tablaProductos9 = new TableView<>();
     @FXML
-    private TableView<Producto> tablaMuro;
+    private TableView<Producto> tablaMuro = new TableView<>();
     @FXML
-    private TableView<Producto> tablaMuro1;
+    private TableView<Producto> tablaMuro1 = new TableView<>();
     @FXML
-    private TableColumn<Producto, String> colNombreMuro;
+    private TableColumn<Producto, String> colNombreMuro = new TableColumn<>("nombre");
     @FXML
-    private TableColumn<Producto, String> colPrecioMuro;
+    private TableColumn<Producto, String> colPrecioMuro = new TableColumn<>("precio");
     @FXML
-    private TableColumn<Producto, String> colEstadoMuro;
+    private TableColumn<Producto, String> colEstadoMuro = new TableColumn<>();
     @FXML
-    private TableColumn<Producto, String> colImagenMuro;
+    private TableColumn<Producto, String> colImagenMuro = new TableColumn<>();
 
     @FXML
     private TableView<Vendedor> tblVendedores;
@@ -561,7 +561,7 @@ public class ControladorMarketplaceView  {
     private TableColumn<Vendedor, String> contactos1;
 
     @FXML
-    private TableColumn<Vendedor, String > contactos2;
+    private TableColumn<Vendedor, String> contactos2;
 
     @FXML
     private TableColumn<Vendedor, String> contactos3;
@@ -665,7 +665,6 @@ public class ControladorMarketplaceView  {
         if (contrasena == null || contrasena.equals(""))
             mensaje += "La direccion es invalida \n";
 
-
         if (mensaje.equals("")) {
             return true;
         } else {
@@ -709,8 +708,6 @@ public class ControladorMarketplaceView  {
     @FXML
     void eventoComboBox(ActionEvent event) {
     }
-
-
 
     @FXML
     void publicarProductoAction(ActionEvent event) {
@@ -843,8 +840,6 @@ public class ControladorMarketplaceView  {
         }
 
     }
-
-
 
 
     private void setearCamposProductos2(Producto producto) {
@@ -1031,7 +1026,7 @@ public class ControladorMarketplaceView  {
         }
     }
 
-    public ObservableList<Producto> getListaProductosVis()  {
+    public ObservableList<Producto> getListaProductosVis() {
 
         listaProductosVis.addAll(controllerVendedorView.obtenerProductos());
         return listaProductosVis;
@@ -1050,7 +1045,7 @@ public class ControladorMarketplaceView  {
     }
 
     @FXML
-    void initialize(){
+    void initialize() {
 
         modelFactoryController = ModelFactoryController.getInstance();
         controllerAdminView = new ControllerAdminView(modelFactoryController);
@@ -1155,26 +1150,27 @@ public class ControladorMarketplaceView  {
         String contrasena = campoContrasena.getText();
 
         //2. Validar la información
-        if(datosValidos(nombre, apellido, cedula, direccion, cuenta, contrasena)== true){
-            Vendedor vendedor= null;
+        if (datosValidos(nombre, apellido, cedula, direccion, cuenta, contrasena) == true) {
+            Vendedor vendedor = null;
             vendedor = controllerAdminView.crearVendedor(nombre, apellido, cedula, direccion, cuenta, contrasena);
-            if(vendedor != null){
+            if (vendedor != null) {
                 listaVendedoresData.add(vendedor);
                 graficodeEstadisticas.getData().clear();
                 iniciarGrafica();
                 mostrarMensaje("Notificación vendedor", "Vendedor creado", "El vendedor se ha creado con éxito", Alert.AlertType.INFORMATION);
                 refresh(0);
                 limpiarCamposVendedor();
-            }else{
+            } else {
                 mostrarMensaje("Notificación vendedor", "Vendedor no creado", "El vendedor con cedula " + cedula + " ya existe", Alert.AlertType.INFORMATION);
             }
-        }else{
+        } else {
             mostrarMensaje("Notificación vendedor", "Vendedor no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
 
 
     }
-    private void actualizarVendedor(){
+
+    private void actualizarVendedor() {
 
         //1. Capturar los datos
         String nombre = campoNombre.getText();
@@ -1458,7 +1454,6 @@ public class ControladorMarketplaceView  {
         // llenarTablaSugerencias(getListaSugerenciasAmistad());
 
 
-
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
         tablaProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
             this.productoSeleccionado = newSelecction;
@@ -1521,6 +1516,7 @@ public class ControladorMarketplaceView  {
             this.setearCamposProductos1(this.productoSeleccionado);
         });
     }
+
     public void inicialzarVendedorView2() {
         //1. Inicializar la tabla
         this.columnaNombreP2.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -1572,7 +1568,6 @@ public class ControladorMarketplaceView  {
 
         });
     }
-
 
 
     public void inicialzarVendedorView3() {
@@ -1687,7 +1682,7 @@ public class ControladorMarketplaceView  {
         //3. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
             Estado estado = Estado.valueOf(estadoProducto);
-            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado,4);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 4);
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -1854,7 +1849,7 @@ public class ControladorMarketplaceView  {
         //4. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
             Estado estado = Estado.valueOf(estadoProducto);
-            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado,5);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 5);
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2098,7 +2093,7 @@ public class ControladorMarketplaceView  {
                     if (empty || rutaImagen == null) {
                         setGraphic(null);
                     } else {
-                        Image image = new Image("file:" +rutaImagen);
+                        Image image = new Image("file:" + rutaImagen);
                         imageView.setImage(image);
                         imageView.setFitWidth(150);
                         imageView.setFitHeight(150);
@@ -2738,6 +2733,7 @@ public class ControladorMarketplaceView  {
         listaSugerenciasAmistad.addAll(modelFactoryController.llenarTablaSugerencias());
         return listaSugerenciasAmistad;
     }
+
     private ObservableList<Vendedor> getListaContactosAmistad() {
         listaContactos.addAll(modelFactoryController.obtenerContactos());
         return listaContactos;
@@ -2759,8 +2755,7 @@ public class ControladorMarketplaceView  {
     }
 
 
-
-    private void llenarTablaContactos(){
+    private void llenarTablaContactos() {
 
 
     }
@@ -2787,7 +2782,7 @@ public class ControladorMarketplaceView  {
         aplicacion.mostrarVentanaInicio();
     }
 
-    private void crearProducto (String codigo, String nombreProducto, String rutaImagen, String categoria, double precio, Estado estadoProducto, int indicador){
+    private void crearProducto(String codigo, String nombreProducto, String rutaImagen, String categoria, double precio, Estado estadoProducto, int indicador) {
         Producto producto = null;
         producto = controllerVendedorView.publicarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto);
         if (producto != null) {
@@ -2815,53 +2810,61 @@ public class ControladorMarketplaceView  {
     @FXML
     void crearSolicitudAction(ActionEvent event) {
         vendedorSeleccionado = tablaSugerencias.getSelectionModel().getSelectedItem();
-        crearSolicitud(vendedorSeleccionado,0);
+        crearSolicitud(vendedorSeleccionado, 0);
     }
 
     @FXML
     void crearSolicitudAction1(ActionEvent event) {
         vendedorSeleccionado = tablaSugerencias1.getSelectionModel().getSelectedItem();
-        crearSolicitud(vendedorSeleccionado,1);
+        crearSolicitud(vendedorSeleccionado, 1);
     }
+
     @FXML
     void crearSolicitudAction2(ActionEvent event) {
         vendedorSeleccionado = tablaSugerencias2.getSelectionModel().getSelectedItem();
-        crearSolicitud(vendedorSeleccionado,2);
+        crearSolicitud(vendedorSeleccionado, 2);
     }
+
     @FXML
     void crearSolicitudAction3(ActionEvent event) {
         vendedorSeleccionado = tablaSugerencias3.getSelectionModel().getSelectedItem();
-        crearSolicitud(vendedorSeleccionado,3);
+        crearSolicitud(vendedorSeleccionado, 3);
     }
+
     @FXML
     void crearSolicitudAction4(ActionEvent event) {
         vendedorSeleccionado = tablaSugerencias4.getSelectionModel().getSelectedItem();
-        crearSolicitud(vendedorSeleccionado,4);
+        crearSolicitud(vendedorSeleccionado, 4);
     }
+
     @FXML
     void crearSolicitudAction5(ActionEvent event) {
         vendedorSeleccionado = tablaSugerencias5.getSelectionModel().getSelectedItem();
-        crearSolicitud(vendedorSeleccionado,5);
+        crearSolicitud(vendedorSeleccionado, 5);
     }
+
     @FXML
     void crearSolicitudAction6(ActionEvent event) {
         vendedorSeleccionado = tablaSugerencias6.getSelectionModel().getSelectedItem();
-        crearSolicitud(vendedorSeleccionado,6);
+        crearSolicitud(vendedorSeleccionado, 6);
     }
+
     @FXML
     void crearSolicitudAction7(ActionEvent event) {
         vendedorSeleccionado = tablaSugerencias7.getSelectionModel().getSelectedItem();
-        crearSolicitud(vendedorSeleccionado,7);
+        crearSolicitud(vendedorSeleccionado, 7);
     }
+
     @FXML
     void crearSolicitudAction8(ActionEvent event) {
         vendedorSeleccionado = tablaSugerencias8.getSelectionModel().getSelectedItem();
-        crearSolicitud(vendedorSeleccionado,8);
+        crearSolicitud(vendedorSeleccionado, 8);
     }
+
     @FXML
     void crearSolicitudAction9(ActionEvent event) {
         vendedorSeleccionado = tablaSugerencias9.getSelectionModel().getSelectedItem();
-        crearSolicitud(vendedorSeleccionado,9);
+        crearSolicitud(vendedorSeleccionado, 9);
     }
 
     private void crearSolicitud(Vendedor vendedor, int indicador) {
@@ -2885,52 +2888,120 @@ public class ControladorMarketplaceView  {
         vendedorSeleccionado = tablaSolicitudes.getSelectionModel().getSelectedItem();
         confirmarSolicitud(vendedorSeleccionado, 0);
     }
+
     @FXML
     void confirmarSolicitudAction1(ActionEvent event) {
         vendedorSeleccionado = tablaSolicitudes1.getSelectionModel().getSelectedItem();
         confirmarSolicitud(vendedorSeleccionado, 1);
     }
+
     @FXML
     void confirmarSolicitudAction2(ActionEvent event) {
         vendedorSeleccionado = tablaSolicitudes2.getSelectionModel().getSelectedItem();
         confirmarSolicitud(vendedorSeleccionado, 2);
     }
+
     @FXML
     void confirmarSolicitudAction3(ActionEvent event) {
         vendedorSeleccionado = tablaSolicitudes3.getSelectionModel().getSelectedItem();
         confirmarSolicitud(vendedorSeleccionado, 3);
     }
+
     @FXML
     void confirmarSolicitudAction4(ActionEvent event) {
         vendedorSeleccionado = tablaSolicitudes4.getSelectionModel().getSelectedItem();
         confirmarSolicitud(vendedorSeleccionado, 4);
     }
+
     @FXML
     void confirmarSolicitudAction5(ActionEvent event) {
         vendedorSeleccionado = tablaSolicitudes5.getSelectionModel().getSelectedItem();
         confirmarSolicitud(vendedorSeleccionado, 5);
     }
+
     @FXML
     void confirmarSolicitudAction6(ActionEvent event) {
         vendedorSeleccionado = tablaSolicitudes6.getSelectionModel().getSelectedItem();
         confirmarSolicitud(vendedorSeleccionado, 6);
     }
+
     @FXML
     void confirmarSolicitudAction7(ActionEvent event) {
         vendedorSeleccionado = tablaSolicitudes7.getSelectionModel().getSelectedItem();
-        confirmarSolicitud(vendedorSeleccionado,7);
+        confirmarSolicitud(vendedorSeleccionado, 7);
     }
+
     @FXML
     void confirmarSolicitudAction8(ActionEvent event) {
         vendedorSeleccionado = tablaSolicitudes8.getSelectionModel().getSelectedItem();
         confirmarSolicitud(vendedorSeleccionado, 8);
     }
+
     @FXML
     void confirmarSolicitudAction9(ActionEvent event) {
         vendedorSeleccionado = tablaSolicitudes9.getSelectionModel().getSelectedItem();
         confirmarSolicitud(vendedorSeleccionado, 9);
     }
 
+    @FXML
+    void eliminarSolicitudAction(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes.getSelectionModel().getSelectedItem();
+        eliminarSolicitud(vendedorSeleccionado, 0);
+    }
+
+    @FXML
+    void eliminarSolicitudAction1(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes1.getSelectionModel().getSelectedItem();
+        eliminarSolicitud(vendedorSeleccionado, 1);
+    }
+
+    @FXML
+    void eliminarSolicitudAction2(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes2.getSelectionModel().getSelectedItem();
+        eliminarSolicitud(vendedorSeleccionado, 2);
+    }
+
+    @FXML
+    void eliminarSolicitudAction3(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes3.getSelectionModel().getSelectedItem();
+        eliminarSolicitud(vendedorSeleccionado, 3);
+    }
+
+    @FXML
+    void eliminarSolicitudAction4(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes4.getSelectionModel().getSelectedItem();
+        eliminarSolicitud(vendedorSeleccionado, 4);
+    }
+
+    @FXML
+    void eliminarSolicitudAction5(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes5.getSelectionModel().getSelectedItem();
+        eliminarSolicitud(vendedorSeleccionado, 5);
+    }
+
+    @FXML
+    void eliminarSolicitudAction6(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes6.getSelectionModel().getSelectedItem();
+        eliminarSolicitud(vendedorSeleccionado, 6);
+    }
+
+    @FXML
+    void eliminarSolicitudAction7(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes7.getSelectionModel().getSelectedItem();
+        eliminarSolicitud(vendedorSeleccionado, 7);
+    }
+
+    @FXML
+    void eliminarSolicitudAction8(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes8.getSelectionModel().getSelectedItem();
+        eliminarSolicitud(vendedorSeleccionado, 8);
+    }
+
+    @FXML
+    void eliminarSolicitudAction9(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes9.getSelectionModel().getSelectedItem();
+        eliminarSolicitud(vendedorSeleccionado, 9);
+    }
 
     private void confirmarSolicitud(Vendedor vendedor, int indicador) {
         if (vendedor != null) {
@@ -2946,109 +3017,123 @@ public class ControladorMarketplaceView  {
         }
     }
 
-    private void refreshTablasSocial(int indicador) {
-        switch (indicador){
-            case 0:
-                tablaSolicitudes.getItems().clear();
-                tablaSolicitudes.setItems(getListaSolicitudesAmistad());
-                tablaSolicitudes.getSelectionModel().clearSelection();
-                tablaSugerencias.getItems().clear();
-                tablaSugerencias.setItems(getListaSugerenciasAmistad());
-                tablaSugerencias.getSelectionModel().clearSelection();
-                tablaContactos.getItems().clear();
-                tablaContactos.setItems(getListaContactosAmistad());
-                break;
-            case 1:
-                tablaSolicitudes1.getItems().clear();
-                tablaSolicitudes1.setItems(getListaSolicitudesAmistad());
-                tablaSolicitudes1.getSelectionModel().clearSelection();
-                tablaSugerencias1.getItems().clear();
-                tablaSugerencias1.setItems(getListaSugerenciasAmistad());
-                tablaSugerencias1.getSelectionModel().clearSelection();
-                tablaContactos1.getItems().clear();
-                tablaContactos1.setItems(getListaContactosAmistad());
-                break;
-            case 2:
-                tablaSolicitudes2.getItems().clear();
-                tablaSolicitudes2.setItems(getListaSolicitudesAmistad());
-                tablaSolicitudes2.getSelectionModel().clearSelection();
-                tablaSugerencias2.getItems().clear();
-                tablaSugerencias2.setItems(getListaSugerenciasAmistad());
-                tablaSugerencias2.getSelectionModel().clearSelection();
-                tablaContactos2.getItems().clear();
-                tablaContactos2.setItems(getListaContactosAmistad());
-                break;
-            case 3:
-                tablaSolicitudes3.getItems().clear();
-                tablaSolicitudes3.setItems(getListaSolicitudesAmistad());
-                tablaSolicitudes3.getSelectionModel().clearSelection();
-                tablaSugerencias3.getItems().clear();
-                tablaSugerencias3.setItems(getListaSugerenciasAmistad());
-                tablaSugerencias3.getSelectionModel().clearSelection();
-                tablaContactos3.getItems().clear();
-                tablaContactos3.setItems(getListaContactosAmistad());
-                break;
-            case 4:
-                tablaSolicitudes4.getItems().clear();
-                tablaSolicitudes4.setItems(getListaSolicitudesAmistad());
-                tablaSolicitudes4.getSelectionModel().clearSelection();
-                tablaSugerencias4.getItems().clear();
-                tablaSugerencias4.setItems(getListaSugerenciasAmistad());
-                tablaSugerencias4.getSelectionModel().clearSelection();
-                tablaContactos4.getItems().clear();
-                tablaContactos4.setItems(getListaContactosAmistad());
-                break;
-            case 5:
-                tablaSolicitudes5.getItems().clear();
-                tablaSolicitudes5.setItems(getListaSolicitudesAmistad());
-                tablaSolicitudes5.getSelectionModel().clearSelection();
-                tablaSugerencias5.getItems().clear();
-                tablaSugerencias5.setItems(getListaSugerenciasAmistad());
-                tablaSugerencias5.getSelectionModel().clearSelection();
-                tablaContactos5.getItems().clear();
-                tablaContactos5.setItems(getListaContactosAmistad());
-                break;
-            case 6:
-                tablaSolicitudes6.getItems().clear();
-                tablaSolicitudes6.setItems(getListaSolicitudesAmistad());
-                tablaSolicitudes6.getSelectionModel().clearSelection();
-                tablaSugerencias6.getItems().clear();
-                tablaSugerencias6.setItems(getListaSugerenciasAmistad());
-                tablaSugerencias6.getSelectionModel().clearSelection();
-                tablaContactos6.getItems().clear();
-                tablaContactos6.setItems(getListaContactosAmistad());
-                break;
-            case 7:
-                tablaSolicitudes7.getItems().clear();
-                tablaSolicitudes7.setItems(getListaSolicitudesAmistad());
-                tablaSolicitudes7.getSelectionModel().clearSelection();
-                tablaSugerencias7.getItems().clear();
-                tablaSugerencias7.setItems(getListaSugerenciasAmistad());
-                tablaSugerencias7.getSelectionModel().clearSelection();
-                tablaContactos7.getItems().clear();
-                tablaContactos7.setItems(getListaContactosAmistad());
-                break;
-            case 8:
-                tablaSolicitudes8.getItems().clear();
-                tablaSolicitudes8.setItems(getListaSolicitudesAmistad());
-                tablaSolicitudes8.getSelectionModel().clearSelection();
-                tablaSugerencias8.getItems().clear();
-                tablaSugerencias8.setItems(getListaSugerenciasAmistad());
-                tablaSugerencias8.getSelectionModel().clearSelection();
-                tablaContactos8.getItems().clear();
-                tablaContactos8.setItems(getListaContactosAmistad());
-                break;
-            case 9:
-                tablaSolicitudes9.getItems().clear();
-                tablaSolicitudes9.setItems(getListaSolicitudesAmistad());
-                tablaSolicitudes9.getSelectionModel().clearSelection();
-                tablaSugerencias9.getItems().clear();
-                tablaSugerencias9.setItems(getListaSugerenciasAmistad());
-                tablaSugerencias9.getSelectionModel().clearSelection();
-                tablaContactos9.getItems().clear();
-                tablaContactos9.setItems(getListaContactosAmistad());
-                break;
+    private void eliminarSolicitud(Vendedor vendedor, int indicador) {
+        if (vendedor != null) {
+            if (mostrarMensajeConfirmacion("¿Estas seguro de eliminar la solicitud de amistad?") == true) {
+                boolean solicitudEliminada = controllerVendedorView.eliminarSolicitudAmistad(vendedor);
+                if (solicitudEliminada == true) {
+                    mostrarMensaje("Notificación solicitud", "Solicitud eliminada", "La solicitud se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+                    refreshTablasSocial(indicador);
+                } else {
+                    mostrarMensaje("Notificación solicitud", "Solicitud no eliminada", "La solicitud no se ha eliminado, ya la has eliminado antes", Alert.AlertType.ERROR);
+                }
+            }
         }
     }
 
-}
+            private void refreshTablasSocial ( int indicador){
+                switch (indicador) {
+                    case 0:
+                        tablaSolicitudes.getItems().clear();
+                        tablaSolicitudes.setItems(getListaSolicitudesAmistad());
+                        tablaSolicitudes.getSelectionModel().clearSelection();
+                        tablaSugerencias.getItems().clear();
+                        tablaSugerencias.setItems(getListaSugerenciasAmistad());
+                        tablaSugerencias.getSelectionModel().clearSelection();
+                        tablaContactos.getItems().clear();
+                        tablaContactos.setItems(getListaContactosAmistad());
+                        break;
+                    case 1:
+                        tablaSolicitudes1.getItems().clear();
+                        tablaSolicitudes1.setItems(getListaSolicitudesAmistad());
+                        tablaSolicitudes1.getSelectionModel().clearSelection();
+                        tablaSugerencias1.getItems().clear();
+                        tablaSugerencias1.setItems(getListaSugerenciasAmistad());
+                        tablaSugerencias1.getSelectionModel().clearSelection();
+                        tablaContactos1.getItems().clear();
+                        tablaContactos1.setItems(getListaContactosAmistad());
+                        break;
+                    case 2:
+                        tablaSolicitudes2.getItems().clear();
+                        tablaSolicitudes2.setItems(getListaSolicitudesAmistad());
+                        tablaSolicitudes2.getSelectionModel().clearSelection();
+                        tablaSugerencias2.getItems().clear();
+                        tablaSugerencias2.setItems(getListaSugerenciasAmistad());
+                        tablaSugerencias2.getSelectionModel().clearSelection();
+                        tablaContactos2.getItems().clear();
+                        tablaContactos2.setItems(getListaContactosAmistad());
+                        break;
+                    case 3:
+                        tablaSolicitudes3.getItems().clear();
+                        tablaSolicitudes3.setItems(getListaSolicitudesAmistad());
+                        tablaSolicitudes3.getSelectionModel().clearSelection();
+                        tablaSugerencias3.getItems().clear();
+                        tablaSugerencias3.setItems(getListaSugerenciasAmistad());
+                        tablaSugerencias3.getSelectionModel().clearSelection();
+                        tablaContactos3.getItems().clear();
+                        tablaContactos3.setItems(getListaContactosAmistad());
+                        break;
+                    case 4:
+                        tablaSolicitudes4.getItems().clear();
+                        tablaSolicitudes4.setItems(getListaSolicitudesAmistad());
+                        tablaSolicitudes4.getSelectionModel().clearSelection();
+                        tablaSugerencias4.getItems().clear();
+                        tablaSugerencias4.setItems(getListaSugerenciasAmistad());
+                        tablaSugerencias4.getSelectionModel().clearSelection();
+                        tablaContactos4.getItems().clear();
+                        tablaContactos4.setItems(getListaContactosAmistad());
+                        break;
+                    case 5:
+                        tablaSolicitudes5.getItems().clear();
+                        tablaSolicitudes5.setItems(getListaSolicitudesAmistad());
+                        tablaSolicitudes5.getSelectionModel().clearSelection();
+                        tablaSugerencias5.getItems().clear();
+                        tablaSugerencias5.setItems(getListaSugerenciasAmistad());
+                        tablaSugerencias5.getSelectionModel().clearSelection();
+                        tablaContactos5.getItems().clear();
+                        tablaContactos5.setItems(getListaContactosAmistad());
+                        break;
+                    case 6:
+                        tablaSolicitudes6.getItems().clear();
+                        tablaSolicitudes6.setItems(getListaSolicitudesAmistad());
+                        tablaSolicitudes6.getSelectionModel().clearSelection();
+                        tablaSugerencias6.getItems().clear();
+                        tablaSugerencias6.setItems(getListaSugerenciasAmistad());
+                        tablaSugerencias6.getSelectionModel().clearSelection();
+                        tablaContactos6.getItems().clear();
+                        tablaContactos6.setItems(getListaContactosAmistad());
+                        break;
+                    case 7:
+                        tablaSolicitudes7.getItems().clear();
+                        tablaSolicitudes7.setItems(getListaSolicitudesAmistad());
+                        tablaSolicitudes7.getSelectionModel().clearSelection();
+                        tablaSugerencias7.getItems().clear();
+                        tablaSugerencias7.setItems(getListaSugerenciasAmistad());
+                        tablaSugerencias7.getSelectionModel().clearSelection();
+                        tablaContactos7.getItems().clear();
+                        tablaContactos7.setItems(getListaContactosAmistad());
+                        break;
+                    case 8:
+                        tablaSolicitudes8.getItems().clear();
+                        tablaSolicitudes8.setItems(getListaSolicitudesAmistad());
+                        tablaSolicitudes8.getSelectionModel().clearSelection();
+                        tablaSugerencias8.getItems().clear();
+                        tablaSugerencias8.setItems(getListaSugerenciasAmistad());
+                        tablaSugerencias8.getSelectionModel().clearSelection();
+                        tablaContactos8.getItems().clear();
+                        tablaContactos8.setItems(getListaContactosAmistad());
+                        break;
+                    case 9:
+                        tablaSolicitudes9.getItems().clear();
+                        tablaSolicitudes9.setItems(getListaSolicitudesAmistad());
+                        tablaSolicitudes9.getSelectionModel().clearSelection();
+                        tablaSugerencias9.getItems().clear();
+                        tablaSugerencias9.setItems(getListaSugerenciasAmistad());
+                        tablaSugerencias9.getSelectionModel().clearSelection();
+                        tablaContactos9.getItems().clear();
+                        tablaContactos9.setItems(getListaContactosAmistad());
+                        break;
+                }
+            }
+
+        }

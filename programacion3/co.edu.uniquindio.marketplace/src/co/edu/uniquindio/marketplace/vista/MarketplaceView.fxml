@@ -144,80 +144,80 @@
                                         <Font name="System Italic" size="12.0" />
                                     </font>
                                 </TextField>
-                        <Label layoutX="20.0" layoutY="23.0" prefHeight="43.0" prefWidth="198.0" text="Gestión de Vendedores">
-                           <font>
-                              <Font name="System Bold Italic" size="18.0" />
-                           </font>
-                        </Label>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="11.0" layoutX="19.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-                        <ImageView fitHeight="169.0" fitWidth="176.0" layoutX="349.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/Administrador.png" />
-                           </image>
-                        </ImageView>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="603.0" layoutX="682.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
-                           <fill>
-                              <LinearGradient endX="1.0" endY="1.0">
-                                 <stops>
-                                    <Stop>
-                                       <color>
-                                          <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="0.9966442953020134">
-                                       <color>
-                                          <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="1.0">
-                                       <color>
-                                          <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                       </color>
-                                    </Stop>
-                                 </stops>
-                              </LinearGradient>
-                           </fill>
-                        </Rectangle>
-                        <Button fx:id="bttCerrarSesionAdmin" layoutX="1258.0" layoutY="553.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
-                        <Label layoutX="727.0" layoutY="23.0" prefHeight="43.0" prefWidth="256.0" text="Estadisticas del marketplace ">
-                           <font>
-                              <Font name="System Bold Italic" size="18.0" />
-                           </font>
-                        </Label>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="11.0" layoutX="727.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" width="246.0" />
-                        <ImageView fitHeight="91.0" fitWidth="69.0" layoutX="989.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/Estadisticas.png" />
-                           </image>
-                        </ImageView>
-                        <Label fx:id="labelNombre1" layoutX="735.0" layoutY="104.0">
-                           <font>
-                              <Font name="System Bold Italic" size="12.0" />
-                           </font>
-                        </Label>
-                        <BarChart fx:id="graficodeEstadisticas" layoutX="750.0" layoutY="151.0" prefHeight="243.0" prefWidth="441.0">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </BarChart>
-                        <Label layoutX="727.0" layoutY="104.0" prefHeight="38.0" prefWidth="291.0" text="Grafico de relación vendedor y productos:">
-                           <font>
-                              <Font name="System Bold Italic" size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="942.0" layoutY="394.0" prefHeight="30.0" prefWidth="83.0" text="Vendedores">
-                           <font>
-                              <Font name="System Bold Italic" size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="685.0" layoutY="232.0" prefHeight="30.0" prefWidth="101.0" rotate="-90.0" text="Productos">
-                           <font>
-                              <Font name="System Bold Italic" size="14.0" />
-                           </font>
-                        </Label>
+                                <Label layoutX="20.0" layoutY="23.0" prefHeight="43.0" prefWidth="198.0" text="Gestión de Vendedores">
+                                    <font>
+                                        <Font name="System Bold Italic" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="11.0" layoutX="19.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                                <ImageView fitHeight="169.0" fitWidth="176.0" layoutX="349.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/Administrador.png" />
+                                    </image>
+                                </ImageView>
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="603.0" layoutX="682.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                    <fill>
+                                        <LinearGradient endX="1.0" endY="1.0">
+                                            <stops>
+                                                <Stop>
+                                                    <color>
+                                                        <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
+                                                    </color>
+                                                </Stop>
+                                                <Stop offset="0.9966442953020134">
+                                                    <color>
+                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                    </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                    <color>
+                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                    </color>
+                                                </Stop>
+                                            </stops>
+                                        </LinearGradient>
+                                    </fill>
+                                </Rectangle>
+                                <Button fx:id="bttCerrarSesionAdmin" layoutX="1258.0" layoutY="553.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                <Label layoutX="727.0" layoutY="23.0" prefHeight="43.0" prefWidth="256.0" text="Estadisticas del marketplace ">
+                                    <font>
+                                        <Font name="System Bold Italic" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="11.0" layoutX="727.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" width="246.0" />
+                                <ImageView fitHeight="91.0" fitWidth="69.0" layoutX="989.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/Estadisticas.png" />
+                                    </image>
+                                </ImageView>
+                                <Label fx:id="labelNombre1" layoutX="735.0" layoutY="104.0">
+                                    <font>
+                                        <Font name="System Bold Italic" size="12.0" />
+                                    </font>
+                                </Label>
+                                <BarChart fx:id="graficodeEstadisticas" layoutX="750.0" layoutY="151.0" prefHeight="243.0" prefWidth="441.0">
+                                    <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                    </xAxis>
+                                    <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                    </yAxis>
+                                </BarChart>
+                                <Label layoutX="727.0" layoutY="104.0" prefHeight="38.0" prefWidth="291.0" text="Grafico de relación vendedor y productos:">
+                                    <font>
+                                        <Font name="System Bold Italic" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="942.0" layoutY="394.0" prefHeight="30.0" prefWidth="83.0" text="Vendedores">
+                                    <font>
+                                        <Font name="System Bold Italic" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="685.0" layoutY="232.0" prefHeight="30.0" prefWidth="101.0" rotate="-90.0" text="Productos">
+                                    <font>
+                                        <Font name="System Bold Italic" size="14.0" />
+                                    </font>
+                                </Label>
                             </children>
                         </AnchorPane>
                     </content>
@@ -270,7 +270,7 @@
                                                                         <TableColumn fx:id="columnaPrecio" prefWidth="84.0" text="Precio" />
                                                                         <TableColumn fx:id="columnaEstado" prefWidth="93.0" text="Estado" />
                                                                         <TableColumn fx:id="columnaCodigo" prefWidth="92.0" text="Codigo" />
-                                                      <TableColumn fx:id="colimagen" prefWidth="170.0" text="Imagen" />
+                                                                        <TableColumn fx:id="colimagen" prefWidth="170.0" text="Imagen" />
                                                                     </columns>
                                                                 </TableView>
                                                                 <Text layoutX="50.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
@@ -279,75 +279,89 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="574.0" layoutX="708.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
-                                                   <fill>
-                                                      <LinearGradient endX="1.0" endY="1.0">
-                                                         <stops>
-                                                            <Stop>
-                                                               <color>
-                                                                  <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="0.9966442953020134">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="1.0">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                         </stops>
-                                                      </LinearGradient>
-                                                   </fill>
-                                                </Rectangle>
-                                                <Button layoutX="1258.0" layoutY="535.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
-                                                <ImageView fitHeight="162.0" fitWidth="237.0" layoutX="413.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/carritoo.png" />
-                                                   </image>
-                                                </ImageView>
+                                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="574.0" layoutX="708.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                                    <fill>
+                                                                        <LinearGradient endX="1.0" endY="1.0">
+                                                                            <stops>
+                                                                                <Stop>
+                                                                                    <color>
+                                                                                        <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="0.9966442953020134">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="1.0">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                            </stops>
+                                                                        </LinearGradient>
+                                                                    </fill>
+                                                                </Rectangle>
+                                                                <Button layoutX="1256.0" layoutY="24.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                                <ImageView fitHeight="162.0" fitWidth="237.0" layoutX="413.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../images/carritoo.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Label layoutX="746.0" layoutY="15.0" prefHeight="43.0" prefWidth="198.0" text="Muro de productos">
+                                                                    <font>
+                                                                        <Font name="System Bold Italic" size="18.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="11.0" layoutX="738.0" layoutY="52.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                                                                <TableView fx:id="tablaMuro" layoutX="779.0" layoutY="78.0" prefHeight="356.0" prefWidth="505.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="colNombreMuro" prefWidth="75.0" text="Nombre" />
+                                                                        <TableColumn fx:id="colPrecioMuro" prefWidth="75.0" text="Precio" />
+                                                                        <TableColumn fx:id="colEstadoMuro" prefWidth="75.0" text="Estado" />
+                                                                        <TableColumn fx:id="colImagenMuro" prefWidth="279.0" text="Imagen" />
+                                                                    </columns>
+                                                                </TableView>
                                                             </children>
-                                             <effect>
-                                                <Blend />
-                                             </effect>
+                                                            <effect>
+                                                                <Blend />
+                                                            </effect>
                                                         </Pane>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
                                         </Tab>
                                         <Tab text="Social">
-                                 <content>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <AnchorPane layoutX="6.0" layoutY="1.0" prefHeight="564.0" prefWidth="1372.0">
-                                             <children>
-                                                <TableView fx:id="tablaSugerencias" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
-                                                  <columns>
-                                                    <TableColumn fx:id="sugerencias" prefWidth="226.0" text="Sugerencias" />
-                                                  </columns>
-                                                </TableView>
-                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction" text="Agregar" />
-                                                <TableView fx:id="tablaContactos" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
-                                                  <columns>
-                                                    <TableColumn fx:id="contactos" prefWidth="199.0" text="Contactos" />
-                                                  </columns>
-                                                </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <TableView fx:id="tablaSolicitudes" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
-                                                  <columns>
-                                                    <TableColumn fx:id="solicitudes" prefWidth="234.0" text="Solicitudes de amistad" />
-                                                  </columns>
-                                                </TableView>
-                                             </children>
-                                          </AnchorPane>
-                                       </children>
-                                    </AnchorPane>
-                                 </content></Tab>
+                                            <content>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                    <children>
+                                                        <AnchorPane layoutX="6.0" layoutY="1.0" prefHeight="564.0" prefWidth="1372.0">
+                                                            <children>
+                                                                <TableView fx:id="tablaSugerencias" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="sugerencias" prefWidth="226.0" text="Sugerencias" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction" text="Confirmar" />
+                                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction" text="Eliminar" />
+                                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction" text="Agregar" />
+                                                                <TableView fx:id="tablaContactos" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="contactos" prefWidth="199.0" text="Contactos" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <TableView fx:id="tablaSolicitudes" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="solicitudes" prefWidth="234.0" text="Solicitudes de amistad" />
+                                                                    </columns>
+                                                                </TableView>
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content></Tab>
                                     </tabs>
                                 </TabPane>
                             </children>
@@ -402,7 +416,7 @@
                                                                         <TableColumn fx:id="columnaPrecio1" prefWidth="96.0" text="Precio" />
                                                                         <TableColumn fx:id="columnaEstado1" prefWidth="90.0" text="Estado" />
                                                                         <TableColumn fx:id="columnaCodigo1" prefWidth="85.0" text="Codigo" />
-                                                      <TableColumn fx:id="colimagen1" prefWidth="141.0" text="Imagen" />
+                                                                        <TableColumn fx:id="colimagen1" prefWidth="141.0" text="Imagen" />
                                                                     </columns>
                                                                 </TableView>
                                                                 <Text layoutX="51.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
@@ -411,84 +425,84 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <ImageView fitHeight="182.0" fitWidth="231.0" layoutX="422.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/carritoo.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Button fx:id="bttCerrarSesionAdmin2" layoutX="1233.0" layoutY="536.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="574.0" layoutX="690.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
-                                                   <fill>
-                                                      <LinearGradient endX="1.0" endY="1.0">
-                                                         <stops>
-                                                            <Stop>
-                                                               <color>
-                                                                  <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="0.9966442953020134">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="1.0">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                         </stops>
-                                                      </LinearGradient>
-                                                   </fill>
-                                                </Rectangle>
+                                                                <ImageView fitHeight="182.0" fitWidth="231.0" layoutX="422.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../images/carritoo.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Button fx:id="bttCerrarSesionAdmin2" layoutX="1233.0" layoutY="536.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="574.0" layoutX="690.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                                    <fill>
+                                                                        <LinearGradient endX="1.0" endY="1.0">
+                                                                            <stops>
+                                                                                <Stop>
+                                                                                    <color>
+                                                                                        <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="0.9966442953020134">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="1.0">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                            </stops>
+                                                                        </LinearGradient>
+                                                                    </fill>
+                                                                </Rectangle>
                                                             </children>
                                                         </Pane>
-                                          <TableView fx:id="tablaMuro1" layoutX="789.0" layoutY="88.0" prefHeight="356.0" prefWidth="505.0">
-                                             <columns>
-                                                <TableColumn fx:id="colNombreMuro1" prefWidth="75.0" text="Nombre" />
-                                                <TableColumn fx:id="colPrecioMuro1" prefWidth="75.0" text="Precio" />
-                                                <TableColumn fx:id="colEstadoMuro1" prefWidth="75.0" text="Estado" />
-                                                <TableColumn fx:id="colImagenMuro1" prefWidth="279.0" text="Imagen" />
-                                             </columns>
-                                          </TableView>
+                                                        <TableView fx:id="tablaMuro1" layoutX="789.0" layoutY="88.0" prefHeight="356.0" prefWidth="505.0">
+                                                            <columns>
+                                                                <TableColumn fx:id="colNombreMuro1" prefWidth="75.0" text="Nombre" />
+                                                                <TableColumn fx:id="colPrecioMuro1" prefWidth="75.0" text="Precio" />
+                                                                <TableColumn fx:id="colEstadoMuro1" prefWidth="75.0" text="Estado" />
+                                                                <TableColumn fx:id="colImagenMuro1" prefWidth="279.0" text="Imagen" />
+                                                            </columns>
+                                                        </TableView>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
                                         </Tab>
                                         <Tab text="Social">
-                                 <content>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <Pane prefHeight="570.0" prefWidth="1366.0">
-                                             <children>
-                                                <AnchorPane prefHeight="564.0" prefWidth="1372.0">
-                                                   <children>
-                                                      <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
-                                                      <TableView fx:id="tablaSugerencias1" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
-                                                         <columns>
-                                                            <TableColumn fx:id="sugerencias1" prefWidth="226.0" text="Sugerencias" />
-                                                         </columns>
-                                                      </TableView>
-                                                      <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction1" text="Confirmar" />
-                                                      <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                      <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                      <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction1" text="Agregar" />
-                                                      <TableView fx:id="tablaContactos1" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
-                                                         <columns>
-                                                            <TableColumn fx:id="contactos1" prefWidth="199.0" text="Contactos" />
-                                                         </columns>
-                                                      </TableView>
-                                                      <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                      <TableView fx:id="tablaSolicitudes1" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
-                                                         <columns>
-                                                            <TableColumn fx:id="solicitudes1" prefWidth="234.0" text="Solicitudes de amistad" />
-                                                         </columns>
-                                                      </TableView>
-                                                   </children>
-                                                </AnchorPane>
-                                             </children>
-                                          </Pane>
-                                       </children></AnchorPane>
-                                 </content></Tab>
+                                            <content>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Pane prefHeight="570.0" prefWidth="1366.0">
+                                                            <children>
+                                                                <AnchorPane prefHeight="564.0" prefWidth="1372.0">
+                                                                    <children>
+                                                                        <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
+                                                                        <TableView fx:id="tablaSugerencias1" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
+                                                                            <columns>
+                                                                                <TableColumn fx:id="sugerencias1" prefWidth="226.0" text="Sugerencias" />
+                                                                            </columns>
+                                                                        </TableView>
+                                                                        <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction1" text="Confirmar" />
+                                                                        <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction1" text="Eliminar" />
+                                                                        <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                        <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction1" text="Agregar" />
+                                                                        <TableView fx:id="tablaContactos1" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
+                                                                            <columns>
+                                                                                <TableColumn fx:id="contactos1" prefWidth="199.0" text="Contactos" />
+                                                                            </columns>
+                                                                        </TableView>
+                                                                        <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                        <TableView fx:id="tablaSolicitudes1" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
+                                                                            <columns>
+                                                                                <TableColumn fx:id="solicitudes1" prefWidth="234.0" text="Solicitudes de amistad" />
+                                                                            </columns>
+                                                                        </TableView>
+                                                                    </children>
+                                                                </AnchorPane>
+                                                            </children>
+                                                        </Pane>
+                                                    </children></AnchorPane>
+                                            </content></Tab>
                                     </tabs>
                                 </TabPane>
                             </children>
@@ -505,16 +519,16 @@
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="541.0" prefWidth="756.0">
                                                     <children>
-                                                        <Pane layoutX="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="1366.0">
+                                                        <Pane layoutX="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1366.0">
                                                             <children>
-                                                                <Button fx:id="botonPublicar2" layoutX="101.0" layoutY="546.0" mnemonicParsing="false" onAction="#publicarProductoAction2" text="Publicar" />
+                                                                <Button fx:id="botonPublicar2" layoutX="103.0" layoutY="534.0" mnemonicParsing="false" onAction="#publicarProductoAction2" text="Publicar" />
                                                                 <Text layoutX="51.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
                                                                 <Text layoutX="53.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
                                                                 <Text layoutX="37.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
                                                                 <Text layoutX="33.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
                                                                 <Text layoutX="45.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
-                                                                <Button fx:id="botonActualizar2" layoutX="189.0" layoutY="546.0" mnemonicParsing="false" onAction="#actualizarProductoAction2" text="Actualizar" />
-                                                                <Button fx:id="botonEliminar2" layoutX="277.0" layoutY="546.0" mnemonicParsing="false" onAction="#eliminarProductoAction2" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                                                <Button fx:id="botonActualizar2" layoutX="184.0" layoutY="534.0" mnemonicParsing="false" onAction="#actualizarProductoAction2" text="Actualizar" />
+                                                                <Button fx:id="botonEliminar2" layoutX="282.0" layoutY="534.0" mnemonicParsing="false" onAction="#eliminarProductoAction2" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
                                                                 <ComboBox fx:id="comboEstadoProducto2" layoutX="101.0" layoutY="215.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
                                                                 <TextField fx:id="campoNombreProducto2" layoutX="101.0" layoutY="45.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese nombre del producto">
                                                                     <font>
@@ -536,14 +550,14 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                                <TableView fx:id="tablaProductos2" layoutX="24.0" layoutY="336.0" prefHeight="200.0" prefWidth="637.0">
+                                                                <TableView fx:id="tablaProductos2" layoutX="21.0" layoutY="316.0" prefHeight="200.0" prefWidth="637.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="columnaNombreP2" prefWidth="138.0" text="Nombre" />
                                                                         <TableColumn fx:id="columnaCategoria2" minWidth="6.0" text="Categoría" />
                                                                         <TableColumn fx:id="columnaPrecio2" prefWidth="96.0" text="Precio" />
                                                                         <TableColumn fx:id="columnaEstado2" prefWidth="101.0" text="Estado" />
                                                                         <TableColumn fx:id="columnaCodigo2" prefWidth="81.0" text="Codigo" />
-                                                      <TableColumn fx:id="colimagen2" prefWidth="140.0" text="Imagen" />
+                                                                        <TableColumn fx:id="colimagen2" prefWidth="140.0" text="Imagen" />
                                                                     </columns>
                                                                 </TableView>
                                                                 <Text layoutX="43.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
@@ -552,45 +566,45 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <ImageView fitHeight="168.0" fitWidth="250.0" layoutX="401.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/carritoo.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <TableView fx:id="tablaMuro2" layoutX="783.0" layoutY="69.0" prefHeight="385.0" prefWidth="524.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="colNombreMuro2" prefWidth="75.0" text="Nombre" />
-                                                      <TableColumn fx:id="colPrecioMuro2" prefWidth="75.0" text="Precio" />
-                                                      <TableColumn fx:id="colEstadoMuro2" prefWidth="75.0" text="Estado" />
-                                                      <TableColumn fx:id="colImagenMuro2" prefWidth="279.0" text="Imagen" />
-                                                   </columns>
-                                                </TableView>
+                                                                <ImageView fitHeight="168.0" fitWidth="250.0" layoutX="401.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../images/carritoo.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <TableView fx:id="tablaMuro2" layoutX="783.0" layoutY="69.0" prefHeight="385.0" prefWidth="524.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="colNombreMuro2" prefWidth="75.0" text="Nombre" />
+                                                                        <TableColumn fx:id="colPrecioMuro2" prefWidth="75.0" text="Precio" />
+                                                                        <TableColumn fx:id="colEstadoMuro2" prefWidth="75.0" text="Estado" />
+                                                                        <TableColumn fx:id="colImagenMuro2" prefWidth="279.0" text="Imagen" />
+                                                                    </columns>
+                                                                </TableView>
                                                             </children>
                                                         </Pane>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" height="593.0" layoutX="718.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
-                                             <fill>
-                                                <LinearGradient endX="1.0" endY="1.0">
-                                                   <stops>
-                                                      <Stop>
-                                                         <color>
-                                                            <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
-                                                         </color>
-                                                      </Stop>
-                                                      <Stop offset="0.9966442953020134">
-                                                         <color>
-                                                            <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                         </color>
-                                                      </Stop>
-                                                      <Stop offset="1.0">
-                                                         <color>
-                                                            <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                         </color>
-                                                      </Stop>
-                                                   </stops>
-                                                </LinearGradient>
-                                             </fill>
-                                          </Rectangle>
-                                          <Button layoutX="1257.0" layoutY="529.0" mnemonicParsing="false" onAction="#cerrarSesionAction" prefHeight="25.0" prefWidth="107.0" text="CerrarSesion" />
+                                                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="593.0" layoutX="718.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                            <fill>
+                                                                <LinearGradient endX="1.0" endY="1.0">
+                                                                    <stops>
+                                                                        <Stop>
+                                                                            <color>
+                                                                                <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
+                                                                            </color>
+                                                                        </Stop>
+                                                                        <Stop offset="0.9966442953020134">
+                                                                            <color>
+                                                                                <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                            </color>
+                                                                        </Stop>
+                                                                        <Stop offset="1.0">
+                                                                            <color>
+                                                                                <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                            </color>
+                                                                        </Stop>
+                                                                    </stops>
+                                                                </LinearGradient>
+                                                            </fill>
+                                                        </Rectangle>
+                                                        <Button layoutX="1257.0" layoutY="529.0" mnemonicParsing="false" onAction="#cerrarSesionAction" prefHeight="25.0" prefWidth="107.0" text="CerrarSesion" />
                                                     </children>
                                                 </AnchorPane>
                                             </content>
@@ -598,33 +612,33 @@
                                         <Tab text="Social">
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <AnchorPane layoutX="-16.0" prefHeight="512.0" prefWidth="1385.0">
-                                             <children>
-                                                <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
-                                                <TableView fx:id="tablaSugerencias2" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="sugerencias2" prefWidth="226.0" text="Sugerencias" />
-                                                   </columns>
-                                                </TableView>
-                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction2" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction2" text="Agregar" />
-                                                <TableView fx:id="tablaContactos2" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="contactos2" prefWidth="199.0" text="Contactos" />
-                                                   </columns>
-                                                </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <TableView fx:id="tablaSolicitudes2" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="solicitudes2" prefWidth="234.0" text="Solicitudes de amistad" />
-                                                   </columns>
-                                                </TableView>
-                                             </children>
-                                          </AnchorPane>
-                                       </children></AnchorPane>
+                                                    <children>
+                                                        <AnchorPane layoutX="-16.0" prefHeight="512.0" prefWidth="1385.0">
+                                                            <children>
+                                                                <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
+                                                                <TableView fx:id="tablaSugerencias2" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="sugerencias2" prefWidth="226.0" text="Sugerencias" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction2" text="Confirmar" />
+                                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction2" text="Eliminar" />
+                                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction2" text="Agregar" />
+                                                                <TableView fx:id="tablaContactos2" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="contactos2" prefWidth="199.0" text="Contactos" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <TableView fx:id="tablaSolicitudes2" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="solicitudes2" prefWidth="234.0" text="Solicitudes de amistad" />
+                                                                    </columns>
+                                                                </TableView>
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </children></AnchorPane>
                                             </content>
                                         </Tab>
                                     </tabs>
@@ -655,9 +669,9 @@
                                                                 <Button fx:id="botonEliminar3" layoutX="276.0" layoutY="519.0" mnemonicParsing="false" onAction="#eliminarProductoAction3" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
                                                                 <ComboBox fx:id="comboEstadoProducto3" layoutX="120.0" layoutY="209.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
                                                                 <ImageView fitHeight="177.0" fitWidth="236.0" layoutX="426.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/carritoo.png" />
-                                                   </image></ImageView>
+                                                                    <image>
+                                                                        <Image url="@../images/carritoo.png" />
+                                                                    </image></ImageView>
                                                                 <TextField fx:id="campoNombreProducto3" layoutX="120.0" layoutY="52.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese nombre del producto">
                                                                     <font>
                                                                         <Font name="System Italic" size="12.0" />
@@ -685,7 +699,7 @@
                                                                         <TableColumn fx:id="columnaPrecio3" prefWidth="96.0" text="Precio" />
                                                                         <TableColumn fx:id="columnaEstado3" prefWidth="101.0" text="Estado" />
                                                                         <TableColumn fx:id="columnaCodigo3" prefWidth="81.0" text="Codigo" />
-                                                      <TableColumn fx:id="colimagen3" prefWidth="155.0" text="Imagen" />
+                                                                        <TableColumn fx:id="colimagen3" prefWidth="155.0" text="Imagen" />
                                                                     </columns>
                                                                 </TableView>
                                                                 <Text layoutX="56.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" wrappingWidth="38.53125" />
@@ -694,32 +708,48 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <Button layoutX="1247.0" layoutY="519.0" mnemonicParsing="false" onAction="#cerrarSesionAction" prefHeight="25.0" prefWidth="107.0" text="CerrarSesion" />
+                                                                <Button layoutX="1247.0" layoutY="519.0" mnemonicParsing="false" onAction="#cerrarSesionAction" prefHeight="25.0" prefWidth="107.0" text="CerrarSesion" />
                                                             </children>
                                                         </Pane>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" height="589.0" layoutX="718.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
-                                             <fill>
-                                                <LinearGradient endX="1.0" endY="1.0">
-                                                   <stops>
-                                                      <Stop>
-                                                         <color>
-                                                            <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
-                                                         </color>
-                                                      </Stop>
-                                                      <Stop offset="0.9966442953020134">
-                                                         <color>
-                                                            <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                         </color>
-                                                      </Stop>
-                                                      <Stop offset="1.0">
-                                                         <color>
-                                                            <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                         </color>
-                                                      </Stop>
-                                                   </stops>
-                                                </LinearGradient>
-                                             </fill>
-                                          </Rectangle>
+                                                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="589.0" layoutX="718.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                            <fill>
+                                                                <LinearGradient endX="1.0" endY="1.0">
+                                                                    <stops>
+                                                                        <Stop>
+                                                                            <color>
+                                                                                <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
+                                                                            </color>
+                                                                        </Stop>
+                                                                        <Stop offset="0.9966442953020134">
+                                                                            <color>
+                                                                                <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                            </color>
+                                                                        </Stop>
+                                                                        <Stop offset="1.0">
+                                                                            <color>
+                                                                                <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                            </color>
+                                                                        </Stop>
+                                                                    </stops>
+                                                                </LinearGradient>
+                                                            </fill>
+                                                        </Rectangle>
+                                                        <TableView layoutX="789.0" layoutY="88.0" prefHeight="356.0" prefWidth="505.0">
+                                                            <columns>
+                                                                <TableColumn fx:id="colNombreMuro3" prefWidth="75.0" text="Nombre" />
+                                                                <TableColumn fx:id="colPrecioMuro3" prefWidth="75.0" text="Precio" />
+                                                                <TableColumn fx:id="colEstadoMuro3" prefWidth="75.0" text="Estado" />
+                                                                <TableColumn fx:id="colImagenMuro3" prefWidth="279.0" text="Imagen" />
+                                                            </columns>
+                                                        </TableView>
+                                                        <TableView fx:id="tablaMuro3" layoutX="789.0" layoutY="88.0" prefHeight="356.0" prefWidth="505.0">
+                                                            <columns>
+                                                                <TableColumn fx:id="colNombreMuro3" prefWidth="75.0" text="Nombre" />
+                                                                <TableColumn fx:id="colPrecioMuro3" prefWidth="75.0" text="Precio" />
+                                                                <TableColumn fx:id="colEstadoMuro3" prefWidth="75.0" text="Estado" />
+                                                                <TableColumn fx:id="colImagenMuro3" prefWidth="279.0" text="Imagen" />
+                                                            </columns>
+                                                        </TableView>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
@@ -737,7 +767,7 @@
                                                                     </columns>
                                                                 </TableView>
                                                                 <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction3" text="Confirmar" />
-                                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction3" text="Eliminar" />
                                                                 <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
                                                                 <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction3" text="Agregar" />
                                                                 <TableView fx:id="tablaContactos3" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
@@ -811,7 +841,7 @@
                                                                         <TableColumn fx:id="columnaPrecio4" prefWidth="96.0" text="Precio" />
                                                                         <TableColumn fx:id="columnaEstado4" prefWidth="101.0" text="Estado" />
                                                                         <TableColumn fx:id="columnaCodigo4" prefWidth="81.0" text="Codigo" />
-                                                      <TableColumn fx:id="colimagen4" prefWidth="150.0" text="Imagen" />
+                                                                        <TableColumn fx:id="colimagen4" prefWidth="150.0" text="Imagen" />
                                                                     </columns>
                                                                 </TableView>
                                                                 <Text layoutX="60.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
@@ -820,45 +850,45 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <Button fx:id="bttCerrarSesionAdmin5" layoutX="1242.0" layoutY="543.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="705.0" layoutX="717.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
-                                                   <fill>
-                                                      <LinearGradient endX="1.0" endY="1.0">
-                                                         <stops>
-                                                            <Stop>
-                                                               <color>
-                                                                  <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="0.9966442953020134">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="1.0">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                         </stops>
-                                                      </LinearGradient>
-                                                   </fill>
-                                                </Rectangle>
-                                                <ImageView fitHeight="176.0" fitWidth="217.0" layoutX="419.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/carritoo.png" />
-                                                   </image>
-                                                </ImageView>
+                                                                <Button fx:id="bttCerrarSesionAdmin5" layoutX="1242.0" layoutY="543.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="705.0" layoutX="717.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                                    <fill>
+                                                                        <LinearGradient endX="1.0" endY="1.0">
+                                                                            <stops>
+                                                                                <Stop>
+                                                                                    <color>
+                                                                                        <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="0.9966442953020134">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="1.0">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                            </stops>
+                                                                        </LinearGradient>
+                                                                    </fill>
+                                                                </Rectangle>
+                                                                <ImageView fitHeight="176.0" fitWidth="217.0" layoutX="419.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../images/carritoo.png" />
+                                                                    </image>
+                                                                </ImageView>
                                                             </children>
                                                         </Pane>
-                                          <TableView fx:id="tablaMuro4" layoutX="799.0" layoutY="98.0" prefHeight="356.0" prefWidth="505.0">
-                                             <columns>
-                                                <TableColumn fx:id="colNombreMuro4" prefWidth="75.0" text="Nombre" />
-                                                <TableColumn fx:id="colPrecioMuro4" prefWidth="75.0" text="Precio" />
-                                                <TableColumn fx:id="colEstadoMuro4" prefWidth="75.0" text="Estado" />
-                                                <TableColumn fx:id="colImagenMuro4" prefWidth="279.0" text="Imagen" />
-                                             </columns>
-                                          </TableView>
+                                                        <TableView fx:id="tablaMuro4" layoutX="799.0" layoutY="98.0" prefHeight="356.0" prefWidth="505.0">
+                                                            <columns>
+                                                                <TableColumn fx:id="colNombreMuro4" prefWidth="75.0" text="Nombre" />
+                                                                <TableColumn fx:id="colPrecioMuro4" prefWidth="75.0" text="Precio" />
+                                                                <TableColumn fx:id="colEstadoMuro4" prefWidth="75.0" text="Estado" />
+                                                                <TableColumn fx:id="colImagenMuro4" prefWidth="279.0" text="Imagen" />
+                                                            </columns>
+                                                        </TableView>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
@@ -866,33 +896,33 @@
                                         <Tab text="Social">
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <AnchorPane layoutX="-6.0" prefHeight="512.0" prefWidth="1385.0">
-                                             <children>
-                                                <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
-                                                <TableView fx:id="tablaSugerencias4" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="sugerencias4" prefWidth="226.0" text="Sugerencias" />
-                                                   </columns>
-                                                </TableView>
-                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction4" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction4" text="Agregar" />
-                                                <TableView fx:id="tablaContactos4" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="contactos4" prefWidth="199.0" text="Contactos" />
-                                                   </columns>
-                                                </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <TableView fx:id="tablaSolicitudes4" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="solicitudes4" prefWidth="234.0" text="Solicitudes de amistad" />
-                                                   </columns>
-                                                </TableView>
-                                             </children>
-                                          </AnchorPane>
-                                       </children></AnchorPane>
+                                                    <children>
+                                                        <AnchorPane layoutX="-6.0" prefHeight="512.0" prefWidth="1385.0">
+                                                            <children>
+                                                                <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
+                                                                <TableView fx:id="tablaSugerencias4" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="sugerencias4" prefWidth="226.0" text="Sugerencias" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction4" text="Confirmar" />
+                                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction4" text="Eliminar" />
+                                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction4" text="Agregar" />
+                                                                <TableView fx:id="tablaContactos4" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="contactos4" prefWidth="199.0" text="Contactos" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <TableView fx:id="tablaSolicitudes4" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="solicitudes4" prefWidth="234.0" text="Solicitudes de amistad" />
+                                                                    </columns>
+                                                                </TableView>
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </children></AnchorPane>
                                             </content>
                                         </Tab>
                                     </tabs>
@@ -911,9 +941,9 @@
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="534.0" prefWidth="756.0">
                                                     <children>
-                                                        <Pane layoutX="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="1362.0">
+                                                        <Pane layoutX="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="1362.0">
                                                             <children>
-                                                                <Button fx:id="botonPublicar5" layoutX="92.0" layoutY="543.0" mnemonicParsing="false" onAction="#publicarProductoAction5" text="Publicar" />
+                                                                <Button fx:id="botonPublicar5" layoutX="92.0" layoutY="531.0" mnemonicParsing="false" onAction="#publicarProductoAction5" text="Publicar" />
                                                                 <Text layoutX="82.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
                                                                 <Text layoutX="84.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
                                                                 <Text layoutX="66.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
@@ -949,7 +979,7 @@
                                                                         <TableColumn fx:id="columnaPrecio5" prefWidth="91.0" text="Precio" />
                                                                         <TableColumn fx:id="columnaEstado5" prefWidth="90.0" text="Estado" />
                                                                         <TableColumn fx:id="columnaCodigo5" prefWidth="82.0" text="Codigo" />
-                                                      <TableColumn fx:id="colimagen5" prefWidth="152.0" text="Imagen" />
+                                                                        <TableColumn fx:id="colimagen5" prefWidth="152.0" text="Imagen" />
                                                                     </columns>
                                                                 </TableView>
                                                                 <Text layoutX="80.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
@@ -958,35 +988,35 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <Button fx:id="bttCerrarSesionAdmin6" layoutX="1248.0" layoutY="556.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="573.0" layoutX="711.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
-                                                   <fill>
-                                                      <LinearGradient endX="1.0" endY="1.0">
-                                                         <stops>
-                                                            <Stop>
-                                                               <color>
-                                                                  <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="0.9966442953020134">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="1.0">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                         </stops>
-                                                      </LinearGradient>
-                                                   </fill>
-                                                </Rectangle>
-                                                <ImageView fitHeight="201.0" fitWidth="229.0" layoutX="406.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/carritoo.png" />
-                                                   </image>
-                                                </ImageView>
+                                                                <Button fx:id="bttCerrarSesionAdmin6" layoutX="1248.0" layoutY="556.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="573.0" layoutX="711.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                                    <fill>
+                                                                        <LinearGradient endX="1.0" endY="1.0">
+                                                                            <stops>
+                                                                                <Stop>
+                                                                                    <color>
+                                                                                        <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="0.9966442953020134">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="1.0">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                            </stops>
+                                                                        </LinearGradient>
+                                                                    </fill>
+                                                                </Rectangle>
+                                                                <ImageView fitHeight="201.0" fitWidth="229.0" layoutX="406.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../images/carritoo.png" />
+                                                                    </image>
+                                                                </ImageView>
                                                             </children>
                                                         </Pane>
                                                     </children>
@@ -996,33 +1026,33 @@
                                         <Tab text="Social">
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <AnchorPane prefHeight="512.0" prefWidth="1385.0">
-                                             <children>
-                                                <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
-                                                <TableView fx:id="tablaSugerencias5" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="sugerencias5" prefWidth="226.0" text="Sugerencias" />
-                                                   </columns>
-                                                </TableView>
-                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction5" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction5" text="Agregar" />
-                                                <TableView fx:id="tablaContactos5" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="contactos5" prefWidth="199.0" text="Contactos" />
-                                                   </columns>
-                                                </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <TableView fx:id="tablaSolicitudes5" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="solicitudes5" prefWidth="234.0" text="Solicitudes de amistad" />
-                                                   </columns>
-                                                </TableView>
-                                             </children>
-                                          </AnchorPane>
-                                       </children></AnchorPane>
+                                                    <children>
+                                                        <AnchorPane prefHeight="512.0" prefWidth="1385.0">
+                                                            <children>
+                                                                <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
+                                                                <TableView fx:id="tablaSugerencias5" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="sugerencias5" prefWidth="226.0" text="Sugerencias" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction5" text="Confirmar" />
+                                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction5" text="Eliminar" />
+                                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction5" text="Agregar" />
+                                                                <TableView fx:id="tablaContactos5" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="contactos5" prefWidth="199.0" text="Contactos" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <TableView fx:id="tablaSolicitudes5" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="solicitudes5" prefWidth="234.0" text="Solicitudes de amistad" />
+                                                                    </columns>
+                                                                </TableView>
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </children></AnchorPane>
                                             </content>
                                         </Tab>
                                     </tabs>
@@ -1079,7 +1109,7 @@
                                                                         <TableColumn fx:id="columnaPrecio6" prefWidth="96.0" text="Precio" />
                                                                         <TableColumn fx:id="columnaEstado6" prefWidth="101.0" text="Estado" />
                                                                         <TableColumn fx:id="columnaCodigo6" prefWidth="81.0" text="Codigo" />
-                                                      <TableColumn fx:id="colimagen6" prefWidth="164.0" text="Imagen" />
+                                                                        <TableColumn fx:id="colimagen6" prefWidth="164.0" text="Imagen" />
                                                                     </columns>
                                                                 </TableView>
                                                                 <Text layoutX="79.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
@@ -1088,35 +1118,35 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <Button fx:id="bttCerrarSesionAdmin7" layoutX="1264.0" layoutY="546.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="512.0" layoutX="749.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
-                                                   <fill>
-                                                      <LinearGradient endX="1.0" endY="1.0">
-                                                         <stops>
-                                                            <Stop>
-                                                               <color>
-                                                                  <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="0.9966442953020134">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="1.0">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                         </stops>
-                                                      </LinearGradient>
-                                                   </fill>
-                                                </Rectangle>
-                                                <ImageView fitHeight="201.0" fitWidth="251.0" layoutX="406.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/carritoo.png" />
-                                                   </image>
-                                                </ImageView>
+                                                                <Button fx:id="bttCerrarSesionAdmin7" layoutX="1264.0" layoutY="546.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="512.0" layoutX="749.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                                    <fill>
+                                                                        <LinearGradient endX="1.0" endY="1.0">
+                                                                            <stops>
+                                                                                <Stop>
+                                                                                    <color>
+                                                                                        <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="0.9966442953020134">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="1.0">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                            </stops>
+                                                                        </LinearGradient>
+                                                                    </fill>
+                                                                </Rectangle>
+                                                                <ImageView fitHeight="201.0" fitWidth="251.0" layoutX="406.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../images/carritoo.png" />
+                                                                    </image>
+                                                                </ImageView>
                                                             </children>
                                                         </Pane>
                                                     </children>
@@ -1126,33 +1156,33 @@
                                         <Tab text="Social">
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <AnchorPane prefHeight="512.0" prefWidth="1385.0">
-                                             <children>
-                                                <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
-                                                <TableView fx:id="tablaSugerencias6" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="sugerencias6" prefWidth="226.0" text="Sugerencias" />
-                                                   </columns>
-                                                </TableView>
-                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction6" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction6" text="Agregar" />
-                                                <TableView fx:id="tablaContactos6" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="contactos6" prefWidth="199.0" text="Contactos" />
-                                                   </columns>
-                                                </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <TableView fx:id="tablaSolicitudes6" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="solicitudes6" prefWidth="234.0" text="Solicitudes de amistad" />
-                                                   </columns>
-                                                </TableView>
-                                             </children>
-                                          </AnchorPane>
-                                       </children></AnchorPane>
+                                                    <children>
+                                                        <AnchorPane prefHeight="512.0" prefWidth="1385.0">
+                                                            <children>
+                                                                <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
+                                                                <TableView fx:id="tablaSugerencias6" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="sugerencias6" prefWidth="226.0" text="Sugerencias" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction6" text="Confirmar" />
+                                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction6" text="Eliminar" />
+                                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction6" text="Agregar" />
+                                                                <TableView fx:id="tablaContactos6" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="contactos6" prefWidth="199.0" text="Contactos" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <TableView fx:id="tablaSolicitudes6" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="solicitudes6" prefWidth="234.0" text="Solicitudes de amistad" />
+                                                                    </columns>
+                                                                </TableView>
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </children></AnchorPane>
                                             </content>
                                         </Tab>
                                     </tabs>
@@ -1209,7 +1239,7 @@
                                                                         <TableColumn fx:id="columnaPrecio7" prefWidth="96.0" text="Precio" />
                                                                         <TableColumn fx:id="columnaEstado7" prefWidth="101.0" text="Estado" />
                                                                         <TableColumn fx:id="columnaCodigo7" prefWidth="81.0" text="Codigo" />
-                                                      <TableColumn fx:id="colImagen7" prefWidth="144.0" text="Imagen" />
+                                                                        <TableColumn fx:id="colImagen7" prefWidth="144.0" text="Imagen" />
                                                                     </columns>
                                                                 </TableView>
                                                                 <Text layoutX="90.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
@@ -1218,35 +1248,35 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <Button fx:id="bttCerrarSesionAdmin8" layoutX="1260.0" layoutY="553.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="570.0" layoutX="699.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
-                                                   <fill>
-                                                      <LinearGradient endX="1.0" endY="1.0">
-                                                         <stops>
-                                                            <Stop>
-                                                               <color>
-                                                                  <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="0.9966442953020134">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="1.0">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                         </stops>
-                                                      </LinearGradient>
-                                                   </fill>
-                                                </Rectangle>
-                                                <ImageView fitHeight="162.0" fitWidth="247.0" layoutX="413.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/carritoo.png" />
-                                                   </image>
-                                                </ImageView>
+                                                                <Button fx:id="bttCerrarSesionAdmin8" layoutX="1260.0" layoutY="553.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="570.0" layoutX="699.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                                    <fill>
+                                                                        <LinearGradient endX="1.0" endY="1.0">
+                                                                            <stops>
+                                                                                <Stop>
+                                                                                    <color>
+                                                                                        <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="0.9966442953020134">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="1.0">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                            </stops>
+                                                                        </LinearGradient>
+                                                                    </fill>
+                                                                </Rectangle>
+                                                                <ImageView fitHeight="162.0" fitWidth="247.0" layoutX="413.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../images/carritoo.png" />
+                                                                    </image>
+                                                                </ImageView>
                                                             </children>
                                                         </Pane>
                                                     </children>
@@ -1256,33 +1286,33 @@
                                         <Tab text="Social">
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <AnchorPane prefHeight="568.0" prefWidth="1385.0">
-                                             <children>
-                                                <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
-                                                <TableView fx:id="tablaSugerencias7" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="sugerencias7" prefWidth="226.0" text="Sugerencias" />
-                                                   </columns>
-                                                </TableView>
-                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction7" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction7" text="Agregar" />
-                                                <TableView fx:id="tablaContactos7" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="contactos7" prefWidth="199.0" text="Contactos" />
-                                                   </columns>
-                                                </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <TableView fx:id="tablaSolicitudes7" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="solicitudes7" prefWidth="234.0" text="Solicitudes de amistad" />
-                                                   </columns>
-                                                </TableView>
-                                             </children>
-                                          </AnchorPane>
-                                       </children></AnchorPane>
+                                                    <children>
+                                                        <AnchorPane prefHeight="568.0" prefWidth="1385.0">
+                                                            <children>
+                                                                <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
+                                                                <TableView fx:id="tablaSugerencias7" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="sugerencias7" prefWidth="226.0" text="Sugerencias" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction7" text="Confirmar" />
+                                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction7" text="Eliminar" />
+                                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction7" text="Agregar" />
+                                                                <TableView fx:id="tablaContactos7" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="contactos7" prefWidth="199.0" text="Contactos" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <TableView fx:id="tablaSolicitudes7" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="solicitudes7" prefWidth="234.0" text="Solicitudes de amistad" />
+                                                                    </columns>
+                                                                </TableView>
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </children></AnchorPane>
                                             </content>
                                         </Tab>
                                     </tabs>
@@ -1339,7 +1369,7 @@
                                                                         <TableColumn fx:id="columnaPrecio8" prefWidth="96.0" text="Precio" />
                                                                         <TableColumn fx:id="columnaEstado8" prefWidth="101.0" text="Estado" />
                                                                         <TableColumn fx:id="columnaCodigo8" prefWidth="81.0" text="Codigo" />
-                                                      <TableColumn fx:id="colimagen8" prefWidth="141.0" text="Imagen" />
+                                                                        <TableColumn fx:id="colimagen8" prefWidth="141.0" text="Imagen" />
                                                                     </columns>
                                                                 </TableView>
                                                                 <Text layoutX="76.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
@@ -1348,35 +1378,35 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <Button fx:id="bttCerrarSesionAdmin9" layoutX="1256.0" layoutY="554.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="575.0" layoutX="677.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
-                                                   <fill>
-                                                      <LinearGradient endX="1.0" endY="1.0">
-                                                         <stops>
-                                                            <Stop>
-                                                               <color>
-                                                                  <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="0.9966442953020134">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="1.0">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                         </stops>
-                                                      </LinearGradient>
-                                                   </fill>
-                                                </Rectangle>
-                                                <ImageView fitHeight="190.0" fitWidth="243.0" layoutX="388.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/carritoo.png" />
-                                                   </image>
-                                                </ImageView>
+                                                                <Button fx:id="bttCerrarSesionAdmin9" layoutX="1256.0" layoutY="554.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="575.0" layoutX="677.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                                    <fill>
+                                                                        <LinearGradient endX="1.0" endY="1.0">
+                                                                            <stops>
+                                                                                <Stop>
+                                                                                    <color>
+                                                                                        <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="0.9966442953020134">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="1.0">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                            </stops>
+                                                                        </LinearGradient>
+                                                                    </fill>
+                                                                </Rectangle>
+                                                                <ImageView fitHeight="190.0" fitWidth="243.0" layoutX="388.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../images/carritoo.png" />
+                                                                    </image>
+                                                                </ImageView>
                                                             </children>
                                                         </Pane>
                                                     </children>
@@ -1386,33 +1416,33 @@
                                         <Tab text="Social">
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <AnchorPane prefHeight="512.0" prefWidth="1385.0">
-                                             <children>
-                                                <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
-                                                <TableView fx:id="tablaSugerencias8" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="sugerencias8" prefWidth="226.0" text="Sugerencias" />
-                                                   </columns>
-                                                </TableView>
-                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction8" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction8" text="Agregar" />
-                                                <TableView fx:id="tablaContactos8" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="contactos8" prefWidth="199.0" text="Contactos" />
-                                                   </columns>
-                                                </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <TableView fx:id="tablaSolicitudes8" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="solicitudes8" prefWidth="234.0" text="Solicitudes de amistad" />
-                                                   </columns>
-                                                </TableView>
-                                             </children>
-                                          </AnchorPane>
-                                       </children></AnchorPane>
+                                                    <children>
+                                                        <AnchorPane prefHeight="512.0" prefWidth="1385.0">
+                                                            <children>
+                                                                <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
+                                                                <TableView fx:id="tablaSugerencias8" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="sugerencias8" prefWidth="226.0" text="Sugerencias" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction8" text="Confirmar" />
+                                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction8" text="Eliminar" />
+                                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction8" text="Agregar" />
+                                                                <TableView fx:id="tablaContactos8" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="contactos8" prefWidth="199.0" text="Contactos" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <TableView fx:id="tablaSolicitudes8" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="solicitudes8" prefWidth="234.0" text="Solicitudes de amistad" />
+                                                                    </columns>
+                                                                </TableView>
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </children></AnchorPane>
                                             </content>
                                         </Tab>
                                     </tabs>
@@ -1469,7 +1499,7 @@
                                                                         <TableColumn fx:id="columnaPrecio9" prefWidth="96.0" text="Precio" />
                                                                         <TableColumn fx:id="columnaEstado9" prefWidth="101.0" text="Estado" />
                                                                         <TableColumn fx:id="columnaCodigo9" prefWidth="81.0" text="Codigo" />
-                                                      <TableColumn fx:id="colimagen9" prefWidth="156.0" text="Imagen" />
+                                                                        <TableColumn fx:id="colimagen9" prefWidth="156.0" text="Imagen" />
                                                                     </columns>
                                                                 </TableView>
                                                                 <Text layoutX="82.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo" />
@@ -1478,35 +1508,35 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <ImageView fitHeight="177.0" fitWidth="227.0" layoutX="420.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/carritoo.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Button fx:id="bttCerrarSesionAdmin10" layoutX="1246.0" layoutY="546.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="571.0" layoutX="737.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
-                                                   <fill>
-                                                      <LinearGradient endX="1.0" endY="1.0">
-                                                         <stops>
-                                                            <Stop>
-                                                               <color>
-                                                                  <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="0.9966442953020134">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                            <Stop offset="1.0">
-                                                               <color>
-                                                                  <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
-                                                               </color>
-                                                            </Stop>
-                                                         </stops>
-                                                      </LinearGradient>
-                                                   </fill>
-                                                </Rectangle>
+                                                                <ImageView fitHeight="177.0" fitWidth="227.0" layoutX="420.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../images/carritoo.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Button fx:id="bttCerrarSesionAdmin10" layoutX="1246.0" layoutY="546.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="571.0" layoutX="737.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                                    <fill>
+                                                                        <LinearGradient endX="1.0" endY="1.0">
+                                                                            <stops>
+                                                                                <Stop>
+                                                                                    <color>
+                                                                                        <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="0.9966442953020134">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                                <Stop offset="1.0">
+                                                                                    <color>
+                                                                                        <Color red="0.03947368264198303" green="0.037828948348760605" blue="0.037828948348760605" />
+                                                                                    </color>
+                                                                                </Stop>
+                                                                            </stops>
+                                                                        </LinearGradient>
+                                                                    </fill>
+                                                                </Rectangle>
                                                             </children>
                                                         </Pane>
                                                     </children>
@@ -1516,33 +1546,33 @@
                                         <Tab text="Social">
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <AnchorPane prefHeight="569.0" prefWidth="1385.0">
-                                             <children>
-                                                <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
-                                                <TableView fx:id="tablaSugerencias9" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="sugerencias9" prefWidth="226.0" text="Sugerencias" />
-                                                   </columns>
-                                                </TableView>
-                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction9" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction9" text="Agregar" />
-                                                <TableView fx:id="tablaContactos9" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="contactos9" prefWidth="199.0" text="Contactos" />
-                                                   </columns>
-                                                </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <TableView fx:id="tablaSolicitudes9" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
-                                                   <columns>
-                                                      <TableColumn fx:id="solicitudes9" prefWidth="234.0" text="Solicitudes de amistad" />
-                                                   </columns>
-                                                </TableView>
-                                             </children>
-                                          </AnchorPane>
-                                       </children></AnchorPane>
+                                                    <children>
+                                                        <AnchorPane prefHeight="569.0" prefWidth="1385.0">
+                                                            <children>
+                                                                <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
+                                                                <TableView fx:id="tablaSugerencias9" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="sugerencias9" prefWidth="226.0" text="Sugerencias" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction9" text="Confirmar" />
+                                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction9" text="Eliminar" />
+                                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction9" text="Agregar" />
+                                                                <TableView fx:id="tablaContactos9" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="contactos9" prefWidth="199.0" text="Contactos" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <TableView fx:id="tablaSolicitudes9" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="solicitudes9" prefWidth="234.0" text="Solicitudes de amistad" />
+                                                                    </columns>
+                                                                </TableView>
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </children></AnchorPane>
                                             </content>
                                         </Tab>
                                     </tabs>
@@ -1553,10 +1583,10 @@
                 </Tab>
             </tabs>
         </TabPane>
-      <ImageView fitHeight="70.0" fitWidth="69.0" layoutX="857.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/store-ga564a907d_1280.png" />
-         </image>
-      </ImageView>
+        <ImageView fitHeight="70.0" fitWidth="69.0" layoutX="857.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/store-ga564a907d_1280.png" />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>

@@ -360,6 +360,18 @@ public class ModelFactoryController implements Runnable {
             return false;
         }
     }
+    public boolean eliminarSolicitudAmistad(Vendedor vendedor) throws EliminarSolicitudException {
+        Vendedor receptor = ObtenerVendedor();
+        try {
+            receptor.eliminarSolicitudAmistad(vendedor);
+            registrarAccionesSistema("Solicitud de amistad eliminada con " + vendedor.getNombre(), 1, "Eliminar solicitud de amistad");
+            guardarResourceXML();
+            respaldoXML();
+            return true;
+        } catch (ConfirmarSolicitudException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public ArrayList<Producto> obtenerPublicaciones () throws MuroException {
          if (ObtenerVendedor().obtenerPublicaciones() == null){
              throw new MuroException("No hay publicaciones");
