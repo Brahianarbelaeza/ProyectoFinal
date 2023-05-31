@@ -1,7 +1,6 @@
 package servicios;
 
 import excepciones.AdministradorException;
-import modelo.Producto;
 import modelo.Vendedor;
 
 public interface IAdministradorService {
@@ -12,6 +11,7 @@ public interface IAdministradorService {
     public Vendedor buscarVendedor(String cedula);
     public boolean compararCedula(Vendedor vendedor);
 
+  //  public boolean agregarVendedorAliado(Vendedor vendedor);
 
 
 

@@ -127,10 +127,8 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
                 "listaProductos=" + listaProductos +
                 '}';
     }
-
-
     public ArrayList<Vendedor> getSolicitudesRecibidas() {
-        return solicitudesRecibidas;
+        return solicitudesRecibidas=new ArrayList<>();
     }
 
     public void setSolicitudesRecibidas(ArrayList<Vendedor> solicitudesRecibidas) {
@@ -157,4 +155,5 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
             throw new ConfirmarSolicitudException("Ya se ha confirmado la solicitud de amistad de este usuario.");
         }
     }
+
 }

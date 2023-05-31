@@ -11,7 +11,6 @@ public interface IVendedorService {
     public void eliminarProducto(Producto producto) throws VendedorException;
     public void actualizarProducto(Producto productoSelected, String id);
     public Producto buscarProducto(String id);
-
     public void eliminarVendedorAliado(Vendedor vendedor);
 
 }
