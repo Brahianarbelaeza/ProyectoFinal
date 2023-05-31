@@ -1,5 +1,6 @@
 package modelo;
 
+import excepciones.ConfirmarSolicitudException;
 import excepciones.EnviarSolicitudException;
 import excepciones.VendedorException;
 import servicios.IVendedorService;
@@ -128,25 +129,6 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
     }
 
 
-/*    public boolean enviarSolicitud(Vendedor receptor){
-
-        ArrayList<Vendedor> vendedores = ModelFactoryController.getInstance().obtenerVendedores();
-        Vendedor emisor = ModelFactoryController.getInstance().ObtenerVendedor();
-
-        for (int i = 0; i < vendedores.size() ; i++) {
-            receptor= vendedores.get(i);
-            if (receptor != null) {
-                Solicitud solicitud = new Solicitud(emisor, receptor, Solicitud.EstadoSolicitud.ENVIADA);
-                receptor.responderSolicitud(solicitud);
-                return true;
-        }
-
-        }
-
-
-        return true;
-    }*/
-
     public ArrayList<Vendedor> getSolicitudesRecibidas() {
         return solicitudesRecibidas;
     }
@@ -164,5 +146,15 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
             throw new EnviarSolicitudException("Ya se ha enviado una solicitud de amistad a este usuario");
         }
 
+    }
+
+    public void confirmarSolicitudAmistad(Vendedor vendedor) throws ConfirmarSolicitudException {
+        if(!vendedoresAliados.contains(vendedor)){
+            vendedoresAliados.add(vendedor);
+            solicitudesRecibidas.remove(vendedor);
+            System.out.println("Solicitud de amistad confirmada");
+        }else{
+            throw new ConfirmarSolicitudException("Ya se ha confirmado la solicitud de amistad de este usuario");
+        }
     }
 }
