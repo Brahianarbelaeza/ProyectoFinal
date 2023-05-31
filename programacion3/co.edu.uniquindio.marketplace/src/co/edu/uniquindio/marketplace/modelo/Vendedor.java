@@ -154,7 +154,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
             solicitudesRecibidas.remove(vendedor);
             System.out.println("Solicitud de amistad confirmada");
         }else{
-            throw new ConfirmarSolicitudException("Ya se ha confirmado la solicitud de amistad de este usuario");
+            throw new ConfirmarSolicitudException("Ya se ha confirmado la solicitud de amistad de este usuario.");
         }
     }
 }
