@@ -1,11 +1,12 @@
 package modelo;
 
 import excepciones.AdministradorException;
+import servicios.IAdministradorService;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Administrador extends Persona implements Serializable {
+public class Administrador extends Persona implements IAdministradorService, Serializable  {
 
     //Instancia unica de la clase
     /*private static final Administrador instanciaAdmin= new Administrador("Brahiam","Arbelaez","1234",new Cuenta("brahiana","1234")); //Quemé los datos  pero luego se le pone persistencia y se evalua si eso si se puede hacer usando un singleton*/
@@ -40,7 +41,7 @@ public class Administrador extends Persona implements Serializable {
      return vendedor;
     }
 
-    private boolean compararCedula(Vendedor vendedor) {
+    public boolean compararCedula(Vendedor vendedor) {
         for (Vendedor vendedor1 : vendedores) {
             if (vendedor.getCedula().equals(vendedor1.getCedula())) {
                  return true;
@@ -83,10 +84,6 @@ public class Administrador extends Persona implements Serializable {
                 vendedores.set(i, vendedor);
             }
         }
-    }
-
-    public void obtenerVendedor(Vendedor vendedor){
-
     }
 
 

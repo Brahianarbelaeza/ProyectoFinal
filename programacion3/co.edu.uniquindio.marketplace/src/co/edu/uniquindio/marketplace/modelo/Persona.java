@@ -14,7 +14,6 @@ public abstract class Persona implements Serializable {
 
 
 
-    private String contrasenia;
 
     public Persona(String nombre, String apellido, String cedula, Cuenta cuenta) {
         this.nombre = nombre;

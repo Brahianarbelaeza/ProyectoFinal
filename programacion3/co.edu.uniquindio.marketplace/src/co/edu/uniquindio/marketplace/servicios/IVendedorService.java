@@ -1,11 +1,17 @@
 package servicios;
 
+import excepciones.VendedorException;
 import modelo.Producto;
-import modelo.Solicitud;
+
+
+import modelo.Vendedor;
 
 public interface IVendedorService {
     public Producto crearProducto(Producto producto) throws Exception;
-    public void eliminarProducto(Producto producto);
+    public void eliminarProducto(Producto producto) throws VendedorException;
     public void actualizarProducto(Producto productoSelected, String id);
-    public void agregarVendedorAliado(Solicitud solitud);
+    public Producto buscarProducto(String id);
+
+    public void eliminarVendedorAliado(Vendedor vendedor);
+
 }

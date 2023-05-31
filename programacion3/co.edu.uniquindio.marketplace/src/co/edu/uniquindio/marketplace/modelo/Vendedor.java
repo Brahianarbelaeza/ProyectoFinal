@@ -1,6 +1,7 @@
 package modelo;
 
-import controlador.ControladorMarketplaceView;
+import excepciones.EnviarSolicitudException;
+import excepciones.VendedorException;
 import servicios.IVendedorService;
 
 import java.io.Serializable;
@@ -12,7 +13,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
     private String direccion;
     ArrayList<Producto> listaProductos = new ArrayList<Producto>();
     ArrayList<Vendedor> vendedoresAliados;
-    ArrayList<Solicitud> solicitudesRecibidas;
+    ArrayList<Vendedor> solicitudesRecibidas;
     ArrayList<Vendedor> sugerenciasVendedores;
     ArrayList<Solicitud> solicitudesEnviadas;
     ControladorMarketplaceView controladorMarketplaceView = new ControladorMarketplaceView();
@@ -26,9 +27,9 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         this.direccion = direccion;
         this.listaProductos = new ArrayList<Producto>();
         this.vendedoresAliados = new ArrayList<Vendedor>();
-        this.solicitudesRecibidas = (ArrayList<Solicitud>) controladorMarketplaceView.getListaSolicitudesAmistad();
-        this.solicitudesEnviadas = new ArrayList<Solicitud>();
+        this.solicitudesRecibidas = new ArrayList<Vendedor>();
         this.sugerenciasVendedores = new ArrayList<Vendedor>();
+        
     }
     public Producto crearProducto(Producto producto) throws Exception {
         boolean flag = false;
@@ -37,6 +38,15 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
                 flag = true;
                 break;
             }
+
+            if (!flag) {
+                listaProductos.add(producto);
+                producto.setEstado(Estado.PUBLICADO);
+            } else {
+                throw new VendedorException("Este producto" + producto.getNombre() + "ya se guardo");
+            }
+            return producto;
+
         }
 
         if (!flag) {
@@ -50,10 +60,13 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
     }
 
     @Override
-    public void eliminarProducto(Producto producto) {
+    public void eliminarProducto(Producto producto) throws VendedorException {
 
-        if (!listaProductos.isEmpty()) listaProductos.remove(producto);
-        else System.out.println("No hay productos para eliminar, aún no has publicado productos");
+        if (!listaProductos.isEmpty()) {
+            listaProductos.remove(producto);
+        }else {
+            throw new VendedorException("No hay productos para eliminar");
+        }
 
     }
 
@@ -144,24 +157,43 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
                 "listaProductos=" + listaProductos +
                 '}';
     }
-    public ArrayList<Solicitud> getSolicitudesRecibidas() {
 
-        if (solicitudesRecibidas == null) {
-            solicitudesRecibidas = new ArrayList<>();
+
+/*    public boolean enviarSolicitud(Vendedor receptor){
+
+        ArrayList<Vendedor> vendedores = ModelFactoryController.getInstance().obtenerVendedores();
+        Vendedor emisor = ModelFactoryController.getInstance().ObtenerVendedor();
+
+        for (int i = 0; i < vendedores.size() ; i++) {
+            receptor= vendedores.get(i);
+            if (receptor != null) {
+                Solicitud solicitud = new Solicitud(emisor, receptor, Solicitud.EstadoSolicitud.ENVIADA);
+                receptor.responderSolicitud(solicitud);
+                return true;
         }
+
+        }
+
+
+        return true;
+    }*/
+
+    public ArrayList<Vendedor> getSolicitudesRecibidas() {
         return solicitudesRecibidas;
     }
 
-    public void setSolicitudesRecibidas(ArrayList<Solicitud> solicitudesRecibidas) {
+    public void setSolicitudesRecibidas(ArrayList<Vendedor> solicitudesRecibidas) {
         this.solicitudesRecibidas = solicitudesRecibidas;
     }
 
-    public ArrayList<Solicitud> getSolicitudesEnviadas() {
 
-        if (solicitudesEnviadas == null) {
-            solicitudesEnviadas = new ArrayList<>();
+    public void agregarSolicitudAmistad(Vendedor emisor) throws EnviarSolicitudException {
+        if (!solicitudesRecibidas.contains(emisor)) {
+            solicitudesRecibidas.add(emisor);
+            System.out.println("Solicitud de amistad enviada");
+        } else {
+            throw new EnviarSolicitudException("Ya se ha enviado una solicitud de amistad a este usuario");
         }
-        return solicitudesEnviadas;
 
     }
 

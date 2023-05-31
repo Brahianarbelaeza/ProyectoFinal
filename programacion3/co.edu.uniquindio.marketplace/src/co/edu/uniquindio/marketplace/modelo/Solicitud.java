@@ -1,30 +1,17 @@
 package modelo;
 
-public class Solicitud extends Persona{
+import java.io.Serializable;
 
+public class Solicitud implements Serializable {
 
+        private static final long serialVersionUID = 1L;
         private Vendedor emisor;
         private Vendedor receptor;
-        private String nombre;
-        private String apellido;
-        private EstadoSolicitud estado=EstadoSolicitud.ENVIADA;
+        private EstadoSolicitud estado;
 
-        /*public SolicitudAmistad(Vendedor emisor, Vendedor receptor) {
-            this.emisor = emisor;
-            this.receptor = receptor;
-            this.estado = EstadoSolicitud.PENDIENTE;
-        }*/
-        public Solicitud(String nombre, String apellido, String cedula, Cuenta cuenta, Vendedor emisor, Vendedor receptor, EstadoSolicitud estado) {
-            super(nombre, apellido, cedula, cuenta);
-            this.emisor = emisor;
-            this.receptor = receptor;
-            this.estado = estado;
-        }
+    public Solicitud() {
 
-        public Solicitud(){
-            super();
-        }
-
+    }
     public Solicitud(Vendedor emisor, Vendedor receptor, EstadoSolicitud estado) {
             this.emisor = emisor;
             this.receptor = receptor;
@@ -37,16 +24,15 @@ public class Solicitud extends Persona{
     public Vendedor getEmisor() {
             return emisor;
         }
-
-        public Vendedor getReceptor() {
+    public Vendedor getReceptor() {
             return receptor;
         }
 
-        public EstadoSolicitud getEstado() {
+    public EstadoSolicitud getEstado() {
             return estado;
         }
 
-        public void setEmisor(Vendedor emisor) {
+    public void setEmisor(Vendedor emisor) {
             this.emisor = emisor;
         }
 
@@ -56,26 +42,6 @@ public class Solicitud extends Persona{
 
         public void setEstado(EstadoSolicitud estado) {
             this.estado = estado;
-        }
-
-        @Override
-        public String getNombre() {
-            return nombre;
-        }
-
-        @Override
-        public void setNombre(String nombre) {
-            this.nombre = nombre;
-        }
-
-        @Override
-        public String getApellido() {
-            return apellido;
-        }
-
-        @Override
-        public void setApellido(String apellido) {
-            this.apellido = apellido;
         }
 
         public void aceptar() {
