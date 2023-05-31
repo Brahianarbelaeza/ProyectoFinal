@@ -2,6 +2,7 @@ package controlador;
 
 import excepciones.AdministradorException;
 
+import excepciones.ConfirmarSolicitudException;
 import excepciones.EnviarSolicitudException;
 import excepciones.VendedorException;
 import modelo.*;
@@ -30,9 +31,11 @@ public class ModelFactoryController implements Runnable {
     private static class SingletonHolder {
         private final static ModelFactoryController INSTANCE = new ModelFactoryController();
     }
+
     public static ModelFactoryController getInstance() {
         return SingletonHolder.INSTANCE;
     }
+
     public ModelFactoryController() {
         System.out.println("invoca clase singleton");
         //inicializarSalvarDatos();
@@ -49,7 +52,7 @@ public class ModelFactoryController implements Runnable {
         //4. Guardar y Cargar el recurso serializable XML
         //guardarResourceXML();
         cargarResourceXML();
-        if(marketplace == null){
+        if (marketplace == null) {
             respaldoXML();
             //inicializarDatos();
             guardarResourceXML();
@@ -87,7 +90,7 @@ public class ModelFactoryController implements Runnable {
             }
             liberarSemaforo();
         }
-        if (hiloActual == hiloServicio5_GuardarRespaldoXML){
+        if (hiloActual == hiloServicio5_GuardarRespaldoXML) {
             try {
                 Persistencia.respaldo();
             } catch (IOException e) {
@@ -98,14 +101,15 @@ public class ModelFactoryController implements Runnable {
 
     }
 
-	private void liberarSemaforo() {
-    try {
-        semaphore.liberar();
-    } catch (InterruptedException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+    private void liberarSemaforo() {
+        try {
+            semaphore.liberar();
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
-}
+
     // Validar que el usuario y la contraseña sean correctos.
     public int iniciarSesion(String usuario, String contrasena) {
         if (marketplace.getAdministrador().getCuenta().getUsuario().equals(usuario) && marketplace.getAdministrador().getCuenta().getContrasena().equals(contrasena)) {
@@ -121,12 +125,12 @@ public class ModelFactoryController implements Runnable {
                 }
             }
 
-            }
+        }
         return -1;
     }
 
 
-    private void inicializarSalvarDatos(){
+    private void inicializarSalvarDatos() {
         inicializarDatos();
 
         try {
@@ -138,12 +142,12 @@ public class ModelFactoryController implements Runnable {
 
     // cambiar el nombre de este metodo
     private void cargarDatosDesdeArchivos() {
-        this.marketplace=new Marketplace();
+        this.marketplace = new Marketplace();
         Administrador admin = crearAdministrador("Brahian", "bar@", "123", "admin", "123");
         marketplace.setAdministrador(admin);
 
         try {
-            ArrayList<Vendedor> vendedores =new ArrayList<Vendedor>();
+            ArrayList<Vendedor> vendedores = new ArrayList<Vendedor>();
             vendedores = Persistencia.cargarVendedores();
             getMarketplace().getAdministrador().getVendedores().addAll(vendedores);
         } catch (FileNotFoundException e) {
@@ -155,8 +159,7 @@ public class ModelFactoryController implements Runnable {
     }
 
 
-
-    private void respaldoXML(){
+    private void respaldoXML() {
         hiloServicio5_GuardarRespaldoXML = new Thread(this);
         hiloServicio5_GuardarRespaldoXML.start();
 
@@ -179,17 +182,20 @@ public class ModelFactoryController implements Runnable {
         hiloServicio3_GuardarResourceBinario = new Thread(this);
         hiloServicio3_GuardarResourceBinario.start();
     }
+
     private void guardarVendedores() {
         hiloServicio4_GuardarVendedores = new Thread(this);
         hiloServicio4_GuardarVendedores.start();
     }
+
     private void inicializarDatos() {
         marketplace = new Marketplace();
         Administrador admin = crearAdministrador("Brahian", "bar@", "123", "admin", "123");
         marketplace.setAdministrador(admin);
-        Vendedor vendedor = new Vendedor("aleja", "Guzman", "123", new Cuenta("aleja@gmail.com", "123"), "calle 2") ;
+        Vendedor vendedor = new Vendedor("aleja", "Guzman", "123", new Cuenta("aleja@gmail.com", "123"), "calle 2");
         admin.getVendedores().add(vendedor);
     }
+
     public void registrarAccionesSistema(String mensaje, int nivel, String accion) {
 
         this.mensaje = mensaje;
@@ -203,19 +209,22 @@ public class ModelFactoryController implements Runnable {
     public Marketplace getMarketplace() {
         return marketplace;
     }
+
     public void setMarketplace(Marketplace marketplace) {
         this.marketplace = marketplace;
     }
+
     public Administrador crearAdministrador(String nombre, String apellidos, String cedula, String nombreUsuario, String contrasena) {
         Administrador admin = new Administrador(nombre, apellidos, cedula, new Cuenta(nombreUsuario, contrasena));
 
         return admin;
     }
+
     public Vendedor crearVendedor(Vendedor vendedor) {
 
         try {
-            vendedor= marketplace.getAdministrador().crearVendedor(vendedor);
-            if (vendedor !=  null) {
+            vendedor = marketplace.getAdministrador().crearVendedor(vendedor);
+            if (vendedor != null) {
                 registrarAccionesSistema("Vendedor creado con cedula " + vendedor.getCedula(), 1, "Crear vendedor");
                 guardarVendedores();
                 guardarResourceXML();
@@ -230,9 +239,9 @@ public class ModelFactoryController implements Runnable {
     //Es la misma logica de crear solo que se le envía la cc anterior
     public Vendedor actualizarVendedor(Vendedor vendedor, String cedulaAnterior) {
 
-        marketplace.getAdministrador().actualizarVendedor(vendedor,cedulaAnterior);
+        marketplace.getAdministrador().actualizarVendedor(vendedor, cedulaAnterior);
         guardarResourceXML();
-        registrarAccionesSistema("Vendedor actualizado con cedula "+vendedor.getCedula(),1 , "Actualizar vendedor");
+        registrarAccionesSistema("Vendedor actualizado con cedula " + vendedor.getCedula(), 1, "Actualizar vendedor");
         try {
             Persistencia.guardarVendedores(marketplace.getAdministrador().getVendedores());
         } catch (IOException e) {
@@ -240,19 +249,32 @@ public class ModelFactoryController implements Runnable {
         }
         return vendedor;
     }
-    public boolean eliminarVendedor (String cedula) {
+
+    public boolean eliminarVendedor(String cedula) {
         Vendedor vendedor = marketplace.getAdministrador().buscarVendedor(cedula);
 
         try {
             marketplace.getAdministrador().eliminarVendedor(vendedor);
-            registrarAccionesSistema("Vendedor eliminado con cedula "+vendedor.getCedula(),2, "Eliminar vendedor");
+            eliminarVendedorAliado(vendedor);
+            registrarAccionesSistema("Vendedor eliminado con cedula " + vendedor.getCedula(), 2, "Eliminar vendedor");
             guardarResourceXML();
             guardarVendedores();
             respaldoXML();
             return true;
         } catch (Exception e) {
-           registrarAccionesSistema("Se ha creado una nueva excepción" + e, 2, "Eliminar vendedor");
+            registrarAccionesSistema("Se ha creado una nueva excepción" + e, 2, "Eliminar vendedor");
             return false;
+        }
+    }
+
+    public void eliminarVendedorAliado(Vendedor vendedor) {
+        for (Vendedor v : marketplace.getAdministrador().getVendedores()) {
+            if (v.getVendedoresAliados().contains(vendedor)) {
+                v.getVendedoresAliados().remove(vendedor);
+            }
+            if (v.getSolicitudesRecibidas().contains(vendedor)) {
+                v.getSolicitudesRecibidas().remove(vendedor);
+            }
         }
     }
 
@@ -294,30 +316,22 @@ public class ModelFactoryController implements Runnable {
             return false;
         }
     }
+
     public ArrayList<Vendedor> llenarTablaSugerencias() {
         ArrayList<Vendedor> vendedoresSugeridos = new ArrayList<>();
         ArrayList<Vendedor> vendedores = marketplace.getAdministrador().getVendedores();
 
         for (int i = 0; i < vendedores.size(); i++) {
                 int sugerenciaAleatoria = (int) (Math.random() * vendedores.size());
-
+                if (!vendedoresSugeridos.contains(vendedores.get(sugerenciaAleatoria)) && !vendedores.get(sugerenciaAleatoria).equals(ObtenerVendedor()) && !ObtenerVendedor().getSolicitudesRecibidas().contains(vendedores.get(sugerenciaAleatoria))) {
                     vendedoresSugeridos.add(vendedores.get(sugerenciaAleatoria));
-
+                }
             }
 
 
         return vendedoresSugeridos;
     }
 
-
-/*    public ArrayList<Solicitud> llenarTablaSolicitudesDeAmistad(){
-        Vendedor receptor = ObtenerVendedor();
-        Vendedor emisor = ObtenerVendedor();
-        Solicitud solicitudRecibida = responderSolicitud(new Solicitud(), receptor);
-        responderSolicitud(solicitudRecibida, receptor);
-        receptor.getSolicitudesRecibidas().add(solicitudRecibida);
-        return receptor.getSolicitudesRecibidas();
-    }*/
     public boolean crearSolicitudAmistad(Vendedor receptor) throws EnviarSolicitudException {
         Vendedor emisor = ObtenerVendedor();
 
@@ -333,11 +347,25 @@ public class ModelFactoryController implements Runnable {
 
 
     }
+    public boolean confirmarSolicitudAmistad(Vendedor vendedor) throws ConfirmarSolicitudException {
+        Vendedor receptor = ObtenerVendedor();
+        try {
+            receptor.confirmarSolicitudAmistad(vendedor);
+            registrarAccionesSistema("Solicitud de amistad confirmada con " + vendedor.getNombre(), 1, "Confirmar solicitud de amistad");
+            guardarResourceXML();
+            return true;
+        } catch (ConfirmarSolicitudException e) {
+            registrarAccionesSistema("Se ha creado una nueva excepción " + e, 2, "Confirmar solicitud de amistad");
+            return false;
+        }
+    }
+
     public ArrayList<Vendedor> obtenerSolicitudes(){
         return ObtenerVendedor().getSolicitudesRecibidas();
     }
-
-
+    public ArrayList<Vendedor> obtenerContactos() {
+        return ObtenerVendedor().getVendedoresAliados();
+    }
 
 
     public ArrayList<Vendedor> obtenerVendedores() {

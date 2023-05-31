@@ -11,12 +11,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
 import modelo.Estado;
 import modelo.Producto;
+
 import modelo.Vendedor;
 
-import java.io.File;
 import java.util.Optional;
 
 
@@ -24,69 +23,69 @@ public class ControladorMarketplaceView  {
     Aplicacion aplicacion;
     ModelFactoryController modelFactoryController;
     ControllerAdminView controllerAdminView;
+
     ControllerVendedorView controllerVendedorView;
     Vendedor vendedorSeleccionado;
     Producto productoSeleccionado = new Producto();
     ObservableList<Vendedor> listaVendedoresData = FXCollections.observableArrayList();
-    ControllerLoginView controllerLoginView;
     ObservableList<Producto> listaProductosVis = FXCollections.observableArrayList();
+
     ObservableList<Vendedor> listaSugerenciasAmistad = FXCollections.observableArrayList();
     ObservableList<Vendedor> listaSolicitudesAmistad = FXCollections.observableArrayList();
+    ObservableList<Vendedor> listaContactos = FXCollections.observableArrayList();
+
 
     @FXML
-    private ImageView imagenProducto;
-    @FXML
-    private ImageView imagenProducto1;
-    @FXML
-    private ImageView imagenProducto2;
-    @FXML
-    private ImageView imagenProducto3;
-    @FXML
-    private ImageView imagenProducto4;
-    @FXML
-    private ImageView imagenProducto5;
-    @FXML
-    private ImageView imagenProducto6;
-    @FXML
-    private ImageView imagenProducto7;
-    @FXML
-    private ImageView imagenProducto8;
-    @FXML
-    private ImageView imagenProducto9;
-    @FXML
     private TextField campoApellido;
+
     @FXML
     private TextField campoCategoria;
+
     @FXML
     private TextField campoCategoria1;
+
     @FXML
     private TextField campoCategoria2;
+
     @FXML
     private TextField campoCategoria3;
+
     @FXML
     private TextField campoCategoria4;
+
     @FXML
     private TextField campoCategoria5;
+
     @FXML
     private TextField campoCategoria6;
+
     @FXML
     private TextField campoCategoria7;
+
     @FXML
     private TextField campoCategoria8;
+
     @FXML
     private TextField campoCategoria9;
+
     @FXML
     private TextField campoCedula;
+
     @FXML
     private TextField campoCodigoProducto;
+
     @FXML
     private TextField campoCodigoProducto1;
+
     @FXML
     private TextField campoCodigoProducto2;
+
     @FXML
     private TextField campoCodigoProducto3;
+
     @FXML
     private TextField campoCodigoProducto4;
+
     @FXML
     private TextField campoCodigoProducto5;
 
@@ -343,6 +342,25 @@ public class ControladorMarketplaceView  {
     private TableColumn<Producto, String> colimagen;
 
     @FXML
+    private TableColumn<Producto, String> colimagen1;
+    @FXML
+    private TableColumn<Producto, String> colimagen2;
+    @FXML
+    private TableColumn<Producto, String> colimagen3;
+    @FXML
+    private TableColumn<Producto, String> colimagen4;
+    @FXML
+    private TableColumn<Producto, String> colimagen5;
+    @FXML
+    private TableColumn<Producto, String> colimagen6;
+    @FXML
+    private TableColumn<Producto, String> colimagen7;
+    @FXML
+    private TableColumn<Producto, String> colimagen8;
+    @FXML
+    private TableColumn<Producto, String> colimagen9;
+
+    @FXML
     private TableColumn<Producto, String> columnaPrecio;
 
     @FXML
@@ -404,58 +422,6 @@ public class ControladorMarketplaceView  {
 
     @FXML
     private BarChart<String, Integer> graficodeEstadisticas;
-
-    @FXML
-    private Label labelApellido;
-
-    @FXML
-    private Label labelCedula;
-
-    @FXML
-    private Label labelCuenta;
-
-    @FXML
-    private Label labelCuenta1;
-
-    @FXML
-    private Label labelDireccion;
-
-    @FXML
-    private Label labelNombre;
-
-    @FXML
-    private Tab tabAdministrador;
-
-    @FXML
-    private Tab tabVendedor;
-
-    @FXML
-    private Tab tabVendedor1;
-
-    @FXML
-    private Tab tabVendedor2;
-
-    @FXML
-    private Tab tabVendedor3;
-
-    @FXML
-    private Tab tabVendedor4;
-
-    @FXML
-    private Tab tabVendedor5;
-
-    @FXML
-    private Tab tabVendedor6;
-
-    @FXML
-    private Tab tabVendedor7;
-
-    @FXML
-    private Tab tabVendedor8;
-
-    @FXML
-    private Tab tabVendedor9;
-
     @FXML
     private TableView<Producto> tablaProductos;
 
@@ -490,80 +456,148 @@ public class ControladorMarketplaceView  {
     private TableView<Vendedor> tblVendedores;
 
     @FXML
-    private TableView<Vendedor> tablaSolictudes;
+    private TableView<Vendedor> tablaSugerencias;
+    @FXML
+    private TableView<Vendedor> tablaSugerencias1;
+    @FXML
+    private TableView<Vendedor> tablaSugerencias2;
 
+    @FXML
+    private TableView<Vendedor> tablaSugerencias3;
+    @FXML
+    private TableView<Vendedor> tablaSugerencias4;
+
+    @FXML
+    private TableView<Vendedor> tablaSugerencias5;
+
+    @FXML
+    private TableView<Vendedor> tablaSugerencias6;
+
+    @FXML
+    private TableView<Vendedor> tablaSugerencias7;
+
+    @FXML
+    private TableView<Vendedor> tablaSugerencias8;
+
+    @FXML
+    private TableView<Vendedor> tablaSugerencias9;
+    @FXML
+    private TableView<Vendedor> tablaSolicitudes;
+    @FXML
+    private TableView<Vendedor> tablaSolicitudes1;
+
+    @FXML
+    private TableView<Vendedor> tablaSolicitudes2;
+
+    @FXML
+    private TableView<Vendedor> tablaSolicitudes3;
+
+    @FXML
+    private TableView<Vendedor> tablaSolicitudes4;
+
+    @FXML
+    private TableView<Vendedor> tablaSolicitudes5;
+
+    @FXML
+    private TableView<Vendedor> tablaSolicitudes6;
+
+    @FXML
+    private TableView<Vendedor> tablaSolicitudes7;
+
+    @FXML
+    private TableView<Vendedor> tablaSolicitudes8;
+
+    @FXML
+    private TableView<Vendedor> tablaSolicitudes9;
     @FXML
     private TableView<Vendedor> tablaContactos;
 
     @FXML
-    private TableView<Vendedor> tablaSugerencias;
+    private TableView<Vendedor> tablaContactos1;
 
     @FXML
-    private TableView<Solicitud> tablaSolicitudes;
+    private TableView<Vendedor> tablaContactos2;
 
     @FXML
-    private TableView<Vendedor> tablaSugerencias1;
+    private TableView<Vendedor> tablaContactos3;
+
     @FXML
-    private TableView<Vendedor> tablaSolicitudes;
+    private TableView<Vendedor> tablaContactos4;
+
+    @FXML
+    private TableView<Vendedor> tablaContactos5;
+
+    @FXML
+    private TableView<Vendedor> tablaContactos6;
+
+    @FXML
+    private TableView<Vendedor> tablaContactos7;
+
+    @FXML
+    private TableView<Vendedor> tablaContactos8;
+
+    @FXML
+    private TableView<Vendedor> tablaContactos9;
+
     @FXML
     private TabPane tabPrincipal;
 
     @FXML
-    private TableColumn<?, ?> contactos;
+    private TableColumn<Vendedor, String> contactos;
 
     @FXML
-    private TableColumn<?, ?> contactos1;
+    private TableColumn<Vendedor, String> contactos1;
 
     @FXML
-    private TableColumn<?, ?> contactos2;
+    private TableColumn<Vendedor, String > contactos2;
 
     @FXML
-    private TableColumn<?, ?> contactos3;
+    private TableColumn<Vendedor, String> contactos3;
 
     @FXML
-    private TableColumn<?, ?> contactos4;
+    private TableColumn<Vendedor, String> contactos4;
 
     @FXML
-    private TableColumn<?, ?> contactos5;
+    private TableColumn<Vendedor, String> contactos5;
 
     @FXML
-    private TableColumn<?, ?> contactos6;
+    private TableColumn<Vendedor, String> contactos6;
 
     @FXML
-    private TableColumn<?, ?> contactos7;
+    private TableColumn<Vendedor, String> contactos7;
 
     @FXML
-    private TableColumn<?, ?> contactos8;
+    private TableColumn<Vendedor, String> contactos8;
 
     @FXML
-    private TableColumn<?, ?> contactos9;
+    private TableColumn<Vendedor, String> contactos9;
 
     @FXML
-    private TableColumn<?, ?> solicitudes1;
+    private TableColumn<Vendedor, String> solicitudes1;
 
     @FXML
-    private TableColumn<?, ?> solicitudes2;
+    private TableColumn<Vendedor, String> solicitudes2;
 
     @FXML
-    private TableColumn<?, ?> solicitudes3;
+    private TableColumn<Vendedor, String> solicitudes3;
 
     @FXML
-    private TableColumn<?, ?> solicitudes4;
+    private TableColumn<Vendedor, String> solicitudes4;
 
     @FXML
-    private TableColumn<?, ?> solicitudes5;
+    private TableColumn<Vendedor, String> solicitudes5;
 
     @FXML
-    private TableColumn<?, ?> solicitudes6;
+    private TableColumn<Vendedor, String> solicitudes6;
 
     @FXML
-    private TableColumn<?, ?> solicitudes7;
+    private TableColumn<Vendedor, String> solicitudes7;
 
     @FXML
-    private TableColumn<?, ?> solicitudes8;
+    private TableColumn<Vendedor, String> solicitudes8;
 
     @FXML
-    private TableColumn<?, ?> solicitudes9;
+    private TableColumn<Vendedor, String> solicitudes9;
 
     @FXML
     private TableColumn<Vendedor, String> solicitudes;
@@ -572,31 +606,31 @@ public class ControladorMarketplaceView  {
     private TableColumn<Vendedor, String> sugerencias;
 
     @FXML
-    private TableColumn<?, ?> sugerencias1;
+    private TableColumn<Vendedor, String> sugerencias1;
 
     @FXML
-    private TableColumn<?, ?> sugerencias2;
+    private TableColumn<Vendedor, String> sugerencias2;
 
     @FXML
-    private TableColumn<?, ?> sugerencias3;
+    private TableColumn<Vendedor, String> sugerencias3;
 
     @FXML
-    private TableColumn<?, ?> sugerencias4;
+    private TableColumn<Vendedor, String> sugerencias4;
 
     @FXML
-    private TableColumn<?, ?> sugerencias5;
+    private TableColumn<Vendedor, String> sugerencias5;
 
     @FXML
-    private TableColumn<?, ?> sugerencias6;
+    private TableColumn<Vendedor, String> sugerencias6;
 
     @FXML
-    private TableColumn<?, ?> sugerencias7;
+    private TableColumn<Vendedor, String> sugerencias7;
 
     @FXML
-    private TableColumn<?, ?> sugerencias8;
+    private TableColumn<Vendedor, String> sugerencias8;
 
     @FXML
-    private TableColumn<?, ?> sugerencias9;
+    private TableColumn<Vendedor, String> sugerencias9;
 
     private boolean datosValidos(String nombre, String apellido, String cedula, String direccion, String cuenta, String contrasena) {
 
@@ -799,24 +833,7 @@ public class ControladorMarketplaceView  {
     }
 
 
-    public void inicialzarVendedorView2() {
-        //1. Inicializar la tabla
-        this.columnaNombreP2.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        this.columnaCategoria2.setCellValueFactory(new PropertyValueFactory<>("categoria"));
-        this.columnaPrecio2.setCellValueFactory(new PropertyValueFactory<>("precio"));
-        this.columnaEstado2.setCellValueFactory(new PropertyValueFactory<>("estado"));
-        this.columnaCodigo2.setCellValueFactory(new PropertyValueFactory<>("codigo"));
 
-        tablaProductos2.getItems().clear();
-        tablaProductos2.setItems(getListaProductosVis());
-
-// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
-        tablaProductos2.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
-            this.productoSeleccionado = newSelecction;
-            this.setearCamposProductos2(this.productoSeleccionado);
-
-        });
-    }
 
     private void setearCamposProductos2(Producto producto) {
 
@@ -1087,83 +1104,6 @@ public class ControladorMarketplaceView  {
         }
     }
 
-    public void inicialzarVendedorView() {
-        //1. Inicializar la tabla
-        this.columnaNombreP.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        this.columnaCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
-        this.columnaPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
-        this.columnaEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
-        this.columnaCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
-        this.colimagen.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
-        this.colimagen.setCellFactory(column -> {
-            TableCell<Producto, String> cell = new TableCell<>() {
-                private final ImageView imageView = new ImageView();
-
-                @Override
-                protected void updateItem(String rutaImagen, boolean empty) {
-                    super.updateItem(rutaImagen, empty);
-
-                    if (empty || rutaImagen == null) {
-                        setGraphic(null);
-                    } else {
-                        Image image = new Image("file:" + rutaImagen);
-                        System.out.println("file:" + rutaImagen);
-                        imageView.setImage(image);
-                        imageView.setFitWidth(150);
-                        imageView.setFitHeight(150);
-                        imageView.setPreserveRatio(true);
-                        imageView.setSmooth(true);
-                        setGraphic(imageView);
-                    }
-                }
-            };
-            return cell;
-        });
-
-
-        this.sugerencias.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        this.solicitudes.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-
-        tablaProductos.getItems().clear();
-        tablaProductos.setItems(getListaProductosVis());
-        tablaSugerencias.getItems().clear();
-        tablaSugerencias.setItems(getListaSugerenciasAmistad());
-        tablaSolicitudes.getItems().clear();
-        tablaSolicitudes.setItems(getListaSolicitudesAmistad());
-
-        // llenarTablaSugerencias(getListaSugerenciasAmistad());
-
-
-
-// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
-        tablaProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
-            this.productoSeleccionado = newSelecction;
-            this.setearCamposProductos(this.productoSeleccionado);
-
-        });
-    }
-
-    public void inicialzarVendedorView1() {
-        //1. Inicializar la tabla
-        int id = 0;
-        this.columnaNombreP1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        this.columnaCategoria1.setCellValueFactory(new PropertyValueFactory<>("categoria"));
-        this.columnaPrecio1.setCellValueFactory(new PropertyValueFactory<>("precio"));
-        this.columnaEstado1.setCellValueFactory(new PropertyValueFactory<>("estado"));
-        this.columnaCodigo1.setCellValueFactory(new PropertyValueFactory<>("codigo"));
-        this.sugerencias1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-
-        tablaProductos1.getItems().clear();
-        tablaProductos1.setItems(getListaProductosVis());
-        tablaSugerencias1.getItems().clear();
-        tablaSugerencias1.setItems(getListaSugerenciasAmistad());
-
-// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
-        tablaProductos1.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
-            this.productoSeleccionado = newSelecction;
-            this.setearCamposProductos1(this.productoSeleccionado);
-        });
-    }
 
     public void inicialzarAdminView() {
         //1. Inicializar la tabla
@@ -1428,26 +1368,216 @@ public class ControladorMarketplaceView  {
         eliminarVendedor();
     }
 
-    @FXML
-    void confirmarSolicitudonAction(ActionEvent event) {
+    public void inicialzarVendedorView() {
+        //1. Inicializar la tabla
+        this.columnaNombreP.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.columnaCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.columnaPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.columnaEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        this.columnaCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        this.colimagen.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colimagen.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
 
-        llenarTablaSolicitudesDeAmistad(listaSolicitudesAmistad);
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
+
+
+        this.sugerencias.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.solicitudes.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.contactos.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+
+        tablaProductos.getItems().clear();
+        tablaProductos.setItems(getListaProductosVis());
+        tablaSugerencias.getItems().clear();
+        tablaSugerencias.setItems(getListaSugerenciasAmistad());
+        tablaSolicitudes.getItems().clear();
+        tablaSolicitudes.setItems(getListaSolicitudesAmistad());
+        tablaContactos.getItems().clear();
+        tablaContactos.setItems(getListaContactosAmistad());
+
+        // llenarTablaSugerencias(getListaSugerenciasAmistad());
+
+
+
+// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
+        tablaProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
+            this.productoSeleccionado = newSelecction;
+            this.setearCamposProductos(this.productoSeleccionado);
+
+        });
     }
-    @FXML
-    void enviarSolicitudonAction(ActionEvent event) {
-        modelFactoryController.enviarSolicitud();
-    }
-    public void inicialzarVendedorView3() {
+
+
+    public void inicialzarVendedorView1() {
         //1. Inicializar la tabla
         int id = 0;
+        this.columnaNombreP1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.columnaCategoria1.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.columnaPrecio1.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.columnaEstado1.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        this.columnaCodigo1.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        this.colimagen1.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colimagen1.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
+
+
+        this.sugerencias1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.solicitudes1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.contactos1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+
+        tablaProductos1.getItems().clear();
+        tablaProductos1.setItems(getListaProductosVis());
+        tablaSugerencias1.getItems().clear();
+        tablaSugerencias1.setItems(getListaSugerenciasAmistad());
+        tablaSolicitudes1.getItems().clear();
+        tablaSolicitudes1.setItems(getListaSolicitudesAmistad());
+        tablaContactos1.getItems().clear();
+        tablaContactos1.setItems(getListaContactosAmistad());
+
+// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
+        tablaProductos1.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
+            this.productoSeleccionado = newSelecction;
+            this.setearCamposProductos1(this.productoSeleccionado);
+        });
+    }
+    public void inicialzarVendedorView2() {
+        //1. Inicializar la tabla
+        this.columnaNombreP2.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.columnaCategoria2.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.columnaPrecio2.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.columnaEstado2.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        this.columnaCodigo2.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        this.colimagen2.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colimagen2.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
+        this.sugerencias2.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.solicitudes2.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.contactos2.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+
+        tablaProductos2.getItems().clear();
+        tablaProductos2.setItems(getListaProductosVis());
+        tablaSugerencias2.getItems().clear();
+        tablaSugerencias2.setItems(getListaSugerenciasAmistad());
+        tablaSolicitudes2.getItems().clear();
+        tablaSolicitudes2.setItems(getListaSolicitudesAmistad());
+        tablaContactos2.getItems().clear();
+        tablaContactos2.setItems(getListaContactosAmistad());
+
+// Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
+        tablaProductos2.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
+            this.productoSeleccionado = newSelecction;
+            this.setearCamposProductos2(this.productoSeleccionado);
+
+        });
+    }
+
+
+
+    public void inicialzarVendedorView3() {
+        //1. Inicializar la tabla
         this.columnaNombreP3.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.columnaCategoria3.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         this.columnaPrecio3.setCellValueFactory(new PropertyValueFactory<>("precio"));
         this.columnaEstado3.setCellValueFactory(new PropertyValueFactory<>("estado"));
         this.columnaCodigo3.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        this.colimagen3.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colimagen3.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
+        this.sugerencias3.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.solicitudes3.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.contactos3.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+
 
         tablaProductos3.getItems().clear();
         tablaProductos3.setItems(getListaProductosVis());
+        tablaSugerencias3.getItems().clear();
+        tablaSugerencias3.setItems(getListaSugerenciasAmistad());
+        tablaSolicitudes3.getItems().clear();
+        tablaSolicitudes3.setItems(getListaSolicitudesAmistad());
+        tablaContactos3.getItems().clear();
+        tablaContactos3.setItems(getListaContactosAmistad());
 
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
         tablaProductos3.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
@@ -1574,15 +1704,47 @@ public class ControladorMarketplaceView  {
 
     public void inicialzarVendedorView4() {
         //1. Inicializar la tabla
-        int id = 0;
         this.columnaNombreP4.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.columnaCategoria4.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         this.columnaPrecio4.setCellValueFactory(new PropertyValueFactory<>("precio"));
         this.columnaEstado4.setCellValueFactory(new PropertyValueFactory<>("estado"));
         this.columnaCodigo4.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        this.colimagen4.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colimagen4.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
+        this.sugerencias4.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.solicitudes4.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.contactos4.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos4.getItems().clear();
         tablaProductos4.setItems(getListaProductosVis());
+        tablaSugerencias4.getItems().clear();
+        tablaSugerencias4.setItems(getListaSugerenciasAmistad());
+        tablaSolicitudes4.getItems().clear();
+        tablaSolicitudes4.setItems(getListaSolicitudesAmistad());
+        tablaContactos4.getItems().clear();
+        tablaContactos4.setItems(getListaContactosAmistad());
 
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
         tablaProductos4.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
@@ -1709,15 +1871,48 @@ public class ControladorMarketplaceView  {
 
     public void inicialzarVendedorView5() {
         //1. Inicializar la tabla
-        int id = 0;
         this.columnaNombreP5.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.columnaCategoria5.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         this.columnaPrecio5.setCellValueFactory(new PropertyValueFactory<>("precio"));
         this.columnaEstado5.setCellValueFactory(new PropertyValueFactory<>("estado"));
         this.columnaCodigo5.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        this.colimagen5.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colimagen5.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
+        this.sugerencias5.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.solicitudes5.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.contactos5.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos5.getItems().clear();
         tablaProductos5.setItems(getListaProductosVis());
+        tablaSugerencias5.getItems().clear();
+        tablaSugerencias5.setItems(getListaSugerenciasAmistad());
+        tablaSolicitudes5.getItems().clear();
+        tablaSolicitudes5.setItems(getListaSolicitudesAmistad());
+        tablaContactos5.getItems().clear();
+        tablaContactos5.setItems(getListaContactosAmistad());
+
 
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
         tablaProductos5.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
@@ -1844,15 +2039,49 @@ public class ControladorMarketplaceView  {
 
     public void inicialzarVendedorView6() {
         //1. Inicializar la tabla
-        int id = 0;
+
         this.columnaNombreP6.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.columnaCategoria6.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         this.columnaPrecio6.setCellValueFactory(new PropertyValueFactory<>("precio"));
         this.columnaEstado6.setCellValueFactory(new PropertyValueFactory<>("estado"));
         this.columnaCodigo6.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        this.colimagen6.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colimagen6.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" +rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
+        this.sugerencias6.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.solicitudes6.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.contactos6.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos6.getItems().clear();
         tablaProductos6.setItems(getListaProductosVis());
+        tablaSugerencias6.getItems().clear();
+        tablaSugerencias6.setItems(getListaSugerenciasAmistad());
+        tablaSolicitudes6.getItems().clear();
+        tablaSolicitudes6.setItems(getListaSolicitudesAmistad());
+        tablaContactos6.getItems().clear();
+        tablaContactos6.setItems(getListaContactosAmistad());
+
 
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
         tablaProductos6.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
@@ -1979,15 +2208,49 @@ public class ControladorMarketplaceView  {
 
     public void inicialzarVendedorView7() {
         //1. Inicializar la tabla
-        int id = 0;
+
         this.columnaNombreP7.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.columnaCategoria7.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         this.columnaPrecio7.setCellValueFactory(new PropertyValueFactory<>("precio"));
         this.columnaEstado7.setCellValueFactory(new PropertyValueFactory<>("estado"));
         this.columnaCodigo7.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        this.colimagen7.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colimagen7.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
+        this.sugerencias7.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.solicitudes7.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.contactos7.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos7.getItems().clear();
         tablaProductos7.setItems(getListaProductosVis());
+        tablaSugerencias7.getItems().clear();
+        tablaSugerencias7.setItems(getListaSugerenciasAmistad());
+        tablaSolicitudes7.getItems().clear();
+        tablaSolicitudes7.setItems(getListaSolicitudesAmistad());
+        tablaContactos7.getItems().clear();
+        tablaContactos7.setItems(getListaContactosAmistad());
+
 
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
         tablaProductos7.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
@@ -2114,15 +2377,48 @@ public class ControladorMarketplaceView  {
 
     public void inicialzarVendedorView8() {
         //1. Inicializar la tabla
-        int id = 0;
         this.columnaNombreP8.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.columnaCategoria8.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         this.columnaPrecio8.setCellValueFactory(new PropertyValueFactory<>("precio"));
         this.columnaEstado8.setCellValueFactory(new PropertyValueFactory<>("estado"));
         this.columnaCodigo8.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        this.colimagen8.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colimagen8.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
+        this.sugerencias8.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.solicitudes8.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.contactos8.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos8.getItems().clear();
         tablaProductos8.setItems(getListaProductosVis());
+        tablaSugerencias8.getItems().clear();
+        tablaSugerencias8.setItems(getListaSugerenciasAmistad());
+        tablaSolicitudes8.getItems().clear();
+        tablaSolicitudes8.setItems(getListaSolicitudesAmistad());
+        tablaContactos8.getItems().clear();
+        tablaContactos8.setItems(getListaContactosAmistad());
+
 
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
         tablaProductos8.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
@@ -2249,15 +2545,48 @@ public class ControladorMarketplaceView  {
 
     public void inicialzarVendedorView9() {
         //1. Inicializar la tabla
-        int id = 0;
         this.columnaNombreP9.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.columnaCategoria9.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         this.columnaPrecio9.setCellValueFactory(new PropertyValueFactory<>("precio"));
         this.columnaEstado9.setCellValueFactory(new PropertyValueFactory<>("estado"));
         this.columnaCodigo9.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        this.colimagen9.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colimagen9.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
+        this.sugerencias9.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.solicitudes9.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.contactos9.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos9.getItems().clear();
         tablaProductos9.setItems(getListaProductosVis());
+        tablaSugerencias9.getItems().clear();
+        tablaSugerencias9.setItems(getListaSugerenciasAmistad());
+        tablaSolicitudes9.getItems().clear();
+        tablaSolicitudes9.setItems(getListaSolicitudesAmistad());
+        tablaContactos9.getItems().clear();
+        tablaContactos9.setItems(getListaContactosAmistad());
+
 
 // Cada vez que se le da clic setea los campos de la tabla hacia los campos de texto
         tablaProductos9.getSelectionModel().selectedItemProperty().addListener((obs, oldSelecction, newSelecction) -> {
@@ -2368,6 +2697,10 @@ public class ControladorMarketplaceView  {
         listaSugerenciasAmistad.addAll(modelFactoryController.llenarTablaSugerencias());
         return listaSugerenciasAmistad;
     }
+    private ObservableList<Vendedor> getListaContactosAmistad() {
+        listaContactos.addAll(modelFactoryController.obtenerContactos());
+        return listaContactos;
+    }
 
     public ObservableList<Vendedor> getListaSolicitudesAmistad() {
 
@@ -2380,7 +2713,9 @@ public class ControladorMarketplaceView  {
     }
 
 
+
     private void llenarTablaContactos(){
+
 
     }
 
@@ -2434,23 +2769,62 @@ public class ControladorMarketplaceView  {
     @FXML
     void crearSolicitudAction(ActionEvent event) {
         vendedorSeleccionado = tablaSugerencias.getSelectionModel().getSelectedItem();
-        crearSolicitud(vendedorSeleccionado);
+        crearSolicitud(vendedorSeleccionado,0);
     }
 
     @FXML
     void crearSolicitudAction1(ActionEvent event) {
         vendedorSeleccionado = tablaSugerencias1.getSelectionModel().getSelectedItem();
-        crearSolicitud(vendedorSeleccionado);
+        crearSolicitud(vendedorSeleccionado,1);
+    }
+    @FXML
+    void crearSolicitudAction2(ActionEvent event) {
+        vendedorSeleccionado = tablaSugerencias2.getSelectionModel().getSelectedItem();
+        crearSolicitud(vendedorSeleccionado,2);
+    }
+    @FXML
+    void crearSolicitudAction3(ActionEvent event) {
+        vendedorSeleccionado = tablaSugerencias3.getSelectionModel().getSelectedItem();
+        crearSolicitud(vendedorSeleccionado,3);
+    }
+    @FXML
+    void crearSolicitudAction4(ActionEvent event) {
+        vendedorSeleccionado = tablaSugerencias4.getSelectionModel().getSelectedItem();
+        crearSolicitud(vendedorSeleccionado,4);
+    }
+    @FXML
+    void crearSolicitudAction5(ActionEvent event) {
+        vendedorSeleccionado = tablaSugerencias5.getSelectionModel().getSelectedItem();
+        crearSolicitud(vendedorSeleccionado,5);
+    }
+    @FXML
+    void crearSolicitudAction6(ActionEvent event) {
+        vendedorSeleccionado = tablaSugerencias6.getSelectionModel().getSelectedItem();
+        crearSolicitud(vendedorSeleccionado,6);
+    }
+    @FXML
+    void crearSolicitudAction7(ActionEvent event) {
+        vendedorSeleccionado = tablaSugerencias7.getSelectionModel().getSelectedItem();
+        crearSolicitud(vendedorSeleccionado,7);
+    }
+    @FXML
+    void crearSolicitudAction8(ActionEvent event) {
+        vendedorSeleccionado = tablaSugerencias8.getSelectionModel().getSelectedItem();
+        crearSolicitud(vendedorSeleccionado,8);
+    }
+    @FXML
+    void crearSolicitudAction9(ActionEvent event) {
+        vendedorSeleccionado = tablaSugerencias9.getSelectionModel().getSelectedItem();
+        crearSolicitud(vendedorSeleccionado,9);
     }
 
-    private void crearSolicitud(Vendedor vendedor) {
+    private void crearSolicitud(Vendedor vendedor, int indicador) {
         if (vendedor != null) {
             if (mostrarMensajeConfirmacion("¿Estas seguro de enviar la solicitud de amistad?") == true) {
                 boolean solicitudEnviada = controllerVendedorView.crearSolicitudAmistad(vendedor);
                 if (solicitudEnviada == true) {
                     mostrarMensaje("Notificación solicitud", "Solicitud enviada", "La solicitud se ha enviado con éxito", Alert.AlertType.INFORMATION);
-                    listaSugerenciasAmistad.remove(vendedor);
-                    tablaSugerencias.getSelectionModel().clearSelection();
+                    refreshTablasSocial(indicador);
                 } else {
                     mostrarMensaje("Notificación solicitud", "Solicitud no enviada", "La solicitud no se ha enviado, ya la has enviado antes", Alert.AlertType.ERROR);
                 }
@@ -2460,5 +2834,175 @@ public class ControladorMarketplaceView  {
         }
     }
 
+    @FXML
+    void confirmarSolicitudAction(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes.getSelectionModel().getSelectedItem();
+        confirmarSolicitud(vendedorSeleccionado, 0);
+    }
+    @FXML
+    void confirmarSolicitudAction1(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes1.getSelectionModel().getSelectedItem();
+        confirmarSolicitud(vendedorSeleccionado, 1);
+    }
+    @FXML
+    void confirmarSolicitudAction2(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes2.getSelectionModel().getSelectedItem();
+        confirmarSolicitud(vendedorSeleccionado, 2);
+    }
+    @FXML
+    void confirmarSolicitudAction3(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes3.getSelectionModel().getSelectedItem();
+        confirmarSolicitud(vendedorSeleccionado, 3);
+    }
+    @FXML
+    void confirmarSolicitudAction4(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes4.getSelectionModel().getSelectedItem();
+        confirmarSolicitud(vendedorSeleccionado, 4);
+    }
+    @FXML
+    void confirmarSolicitudAction5(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes5.getSelectionModel().getSelectedItem();
+        confirmarSolicitud(vendedorSeleccionado, 5);
+    }
+    @FXML
+    void confirmarSolicitudAction6(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes6.getSelectionModel().getSelectedItem();
+        confirmarSolicitud(vendedorSeleccionado, 6);
+    }
+    @FXML
+    void confirmarSolicitudAction7(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes7.getSelectionModel().getSelectedItem();
+        confirmarSolicitud(vendedorSeleccionado,7);
+    }
+    @FXML
+    void confirmarSolicitudAction8(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes8.getSelectionModel().getSelectedItem();
+        confirmarSolicitud(vendedorSeleccionado, 8);
+    }
+    @FXML
+    void confirmarSolicitudAction9(ActionEvent event) {
+        vendedorSeleccionado = tablaSolicitudes9.getSelectionModel().getSelectedItem();
+        confirmarSolicitud(vendedorSeleccionado, 9);
+    }
+
+
+    private void confirmarSolicitud(Vendedor vendedor, int indicador) {
+        if (vendedor != null) {
+            if (mostrarMensajeConfirmacion("¿Estas seguro de confirmar la solicitud de amistad?") == true) {
+                boolean solicitudConfirmada = controllerVendedorView.confirmarSolicitudAmistad(vendedor);
+                if (solicitudConfirmada == true) {
+                    mostrarMensaje("Notificación solicitud", "Solicitud confirmada", "La solicitud se ha confirmado con éxito", Alert.AlertType.INFORMATION);
+                    refreshTablasSocial(indicador);
+                } else {
+                    mostrarMensaje("Notificación solicitud", "Solicitud no confirmada", "La solicitud no se ha confirmado, ya la has confirmado antes", Alert.AlertType.ERROR);
+                }
+            }
+        }
+    }
+
+    private void refreshTablasSocial(int indicador) {
+        switch (indicador){
+            case 0:
+                tablaSolicitudes.getItems().clear();
+                tablaSolicitudes.setItems(getListaSolicitudesAmistad());
+                tablaSolicitudes.getSelectionModel().clearSelection();
+                tablaSugerencias.getItems().clear();
+                tablaSugerencias.setItems(getListaSugerenciasAmistad());
+                tablaSugerencias.getSelectionModel().clearSelection();
+                tablaContactos.getItems().clear();
+                tablaContactos.setItems(getListaContactosAmistad());
+                break;
+            case 1:
+                tablaSolicitudes1.getItems().clear();
+                tablaSolicitudes1.setItems(getListaSolicitudesAmistad());
+                tablaSolicitudes1.getSelectionModel().clearSelection();
+                tablaSugerencias1.getItems().clear();
+                tablaSugerencias1.setItems(getListaSugerenciasAmistad());
+                tablaSugerencias1.getSelectionModel().clearSelection();
+                tablaContactos1.getItems().clear();
+                tablaContactos1.setItems(getListaContactosAmistad());
+                break;
+            case 2:
+                tablaSolicitudes2.getItems().clear();
+                tablaSolicitudes2.setItems(getListaSolicitudesAmistad());
+                tablaSolicitudes2.getSelectionModel().clearSelection();
+                tablaSugerencias2.getItems().clear();
+                tablaSugerencias2.setItems(getListaSugerenciasAmistad());
+                tablaSugerencias2.getSelectionModel().clearSelection();
+                tablaContactos2.getItems().clear();
+                tablaContactos2.setItems(getListaContactosAmistad());
+                break;
+            case 3:
+                tablaSolicitudes3.getItems().clear();
+                tablaSolicitudes3.setItems(getListaSolicitudesAmistad());
+                tablaSolicitudes3.getSelectionModel().clearSelection();
+                tablaSugerencias3.getItems().clear();
+                tablaSugerencias3.setItems(getListaSugerenciasAmistad());
+                tablaSugerencias3.getSelectionModel().clearSelection();
+                tablaContactos3.getItems().clear();
+                tablaContactos3.setItems(getListaContactosAmistad());
+                break;
+            case 4:
+                tablaSolicitudes4.getItems().clear();
+                tablaSolicitudes4.setItems(getListaSolicitudesAmistad());
+                tablaSolicitudes4.getSelectionModel().clearSelection();
+                tablaSugerencias4.getItems().clear();
+                tablaSugerencias4.setItems(getListaSugerenciasAmistad());
+                tablaSugerencias4.getSelectionModel().clearSelection();
+                tablaContactos4.getItems().clear();
+                tablaContactos4.setItems(getListaContactosAmistad());
+                break;
+            case 5:
+                tablaSolicitudes5.getItems().clear();
+                tablaSolicitudes5.setItems(getListaSolicitudesAmistad());
+                tablaSolicitudes5.getSelectionModel().clearSelection();
+                tablaSugerencias5.getItems().clear();
+                tablaSugerencias5.setItems(getListaSugerenciasAmistad());
+                tablaSugerencias5.getSelectionModel().clearSelection();
+                tablaContactos5.getItems().clear();
+                tablaContactos5.setItems(getListaContactosAmistad());
+                break;
+            case 6:
+                tablaSolicitudes6.getItems().clear();
+                tablaSolicitudes6.setItems(getListaSolicitudesAmistad());
+                tablaSolicitudes6.getSelectionModel().clearSelection();
+                tablaSugerencias6.getItems().clear();
+                tablaSugerencias6.setItems(getListaSugerenciasAmistad());
+                tablaSugerencias6.getSelectionModel().clearSelection();
+                tablaContactos6.getItems().clear();
+                tablaContactos6.setItems(getListaContactosAmistad());
+                break;
+            case 7:
+                tablaSolicitudes7.getItems().clear();
+                tablaSolicitudes7.setItems(getListaSolicitudesAmistad());
+                tablaSolicitudes7.getSelectionModel().clearSelection();
+                tablaSugerencias7.getItems().clear();
+                tablaSugerencias7.setItems(getListaSugerenciasAmistad());
+                tablaSugerencias7.getSelectionModel().clearSelection();
+                tablaContactos7.getItems().clear();
+                tablaContactos7.setItems(getListaContactosAmistad());
+                break;
+            case 8:
+                tablaSolicitudes8.getItems().clear();
+                tablaSolicitudes8.setItems(getListaSolicitudesAmistad());
+                tablaSolicitudes8.getSelectionModel().clearSelection();
+                tablaSugerencias8.getItems().clear();
+                tablaSugerencias8.setItems(getListaSugerenciasAmistad());
+                tablaSugerencias8.getSelectionModel().clearSelection();
+                tablaContactos8.getItems().clear();
+                tablaContactos8.setItems(getListaContactosAmistad());
+                break;
+            case 9:
+                tablaSolicitudes9.getItems().clear();
+                tablaSolicitudes9.setItems(getListaSolicitudesAmistad());
+                tablaSolicitudes9.getSelectionModel().clearSelection();
+                tablaSugerencias9.getItems().clear();
+                tablaSugerencias9.setItems(getListaSugerenciasAmistad());
+                tablaSugerencias9.getSelectionModel().clearSelection();
+                tablaContactos9.getItems().clear();
+                tablaContactos9.setItems(getListaContactosAmistad());
+                break;
+        }
+    }
 
 }
