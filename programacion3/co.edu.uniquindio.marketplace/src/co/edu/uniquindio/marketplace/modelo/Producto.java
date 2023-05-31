@@ -2,6 +2,7 @@ package modelo;
 
 import javax.swing.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Producto implements Serializable {
@@ -16,6 +17,8 @@ public class Producto implements Serializable {
     private double precio;
 
     private Estado estado;
+    private int megustas;
+    private ArrayList<String> comentarios;
 
     public Producto() {
     }
@@ -26,14 +29,9 @@ public class Producto implements Serializable {
         this.categoria = categoria;
         this.precio = precio;
         this.estado = estado;
+        this.megustas = 0;
+        this.comentarios = new ArrayList<>();
 
-    }
-
-    //Metodo que devuelve un objeto Jlabel  con la imagen del producto
-    //Este metodo crea un Jlabel utilizando un ImageIcon creado mediante el objeto BufferedImage que esta asociado al producto
-    // De este modo los objetos creados a partir de la clase producto podrán mostrar sus imagenes en la interfaz grafica
-    public JLabel getEtiquetaImagen(){
-        return  new JLabel(new ImageIcon(rutaImagen));
     }
 
     @Override

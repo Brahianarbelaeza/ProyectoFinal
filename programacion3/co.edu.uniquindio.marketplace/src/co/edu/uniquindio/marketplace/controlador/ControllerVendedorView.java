@@ -3,6 +3,7 @@ package controlador;
 import aplicacion.Aplicacion;
 import excepciones.ConfirmarSolicitudException;
 import excepciones.EnviarSolicitudException;
+import excepciones.MuroException;
 import javafx.fxml.FXML;
 import modelo.*;
 
@@ -52,6 +53,16 @@ public class ControllerVendedorView {
 
     public ArrayList<Producto> obtenerProductos() {
         return modelFactoryController.obtenerProductos();
+    }
+
+    public ArrayList<Producto> obtenerPublicaciones() {
+        try {
+            return modelFactoryController.obtenerPublicaciones();
+        } catch (MuroException e) {
+            modelFactoryController.registrarAccionesSistema("Error al obtener publicaciones "+ e, 3, "Obtener publicaciones");
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public boolean crearSolicitudAmistad(Vendedor v)  {

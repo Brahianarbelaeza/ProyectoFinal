@@ -33,7 +33,7 @@ public class ControladorMarketplaceView  {
     ObservableList<Vendedor> listaSugerenciasAmistad = FXCollections.observableArrayList();
     ObservableList<Vendedor> listaSolicitudesAmistad = FXCollections.observableArrayList();
     ObservableList<Vendedor> listaContactos = FXCollections.observableArrayList();
-
+    ObservableList<Producto> listaPublicaciones = FXCollections.observableArrayList();
 
     @FXML
     private TextField campoApellido;
@@ -451,6 +451,18 @@ public class ControladorMarketplaceView  {
 
     @FXML
     private TableView<Producto> tablaProductos9;
+    @FXML
+    private TableView<Producto> tablaMuro;
+    @FXML
+    private TableView<Producto> tablaMuro1;
+    @FXML
+    private TableColumn<Producto, String> colNombreMuro;
+    @FXML
+    private TableColumn<Producto, String> colPrecioMuro;
+    @FXML
+    private TableColumn<Producto, String> colEstadoMuro;
+    @FXML
+    private TableColumn<Producto, String> colImagenMuro;
 
     @FXML
     private TableView<Vendedor> tblVendedores;
@@ -1400,13 +1412,42 @@ public class ControladorMarketplaceView  {
             return cell;
         });
 
+        this.colNombreMuro.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.colPrecioMuro.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.colEstadoMuro.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.colImagenMuro.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colImagenMuro.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
 
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
         this.sugerencias.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.solicitudes.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.contactos.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
+
         tablaProductos.getItems().clear();
         tablaProductos.setItems(getListaProductosVis());
+        tablaMuro.getItems().clear();
+        tablaMuro.setItems(getListaPublicaciones());
         tablaSugerencias.getItems().clear();
         tablaSugerencias.setItems(getListaSugerenciasAmistad());
         tablaSolicitudes.getItems().clear();
@@ -2706,6 +2747,11 @@ public class ControladorMarketplaceView  {
 
         listaSolicitudesAmistad.addAll(modelFactoryController.obtenerSolicitudes());
         return listaSolicitudesAmistad;
+    }
+
+    public ObservableList<Producto> getListaPublicaciones() {
+        listaPublicaciones.addAll(controllerVendedorView.obtenerPublicaciones());
+        return listaPublicaciones;
     }
 
     public void setListaSugerenciasAmistad(ObservableList<Vendedor> listaSugerenciasAmistad) {

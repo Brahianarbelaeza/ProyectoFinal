@@ -16,6 +16,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
     ArrayList<Vendedor> vendedoresAliados;
     ArrayList<Vendedor> solicitudesRecibidas;
     ArrayList<Vendedor> sugerenciasVendedores;
+    ArrayList<Producto> publicaciones = new ArrayList<Producto>();
 
     public Vendedor() {
     }
@@ -27,7 +28,8 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         this.vendedoresAliados = new ArrayList<Vendedor>();
         this.solicitudesRecibidas = new ArrayList<Vendedor>();
         this.sugerenciasVendedores = new ArrayList<Vendedor>();
-        
+        this.publicaciones = new ArrayList<Producto>();
+
     }
     public Producto crearProducto (Producto producto) throws Exception{
         boolean flag = false;
@@ -127,8 +129,10 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
                 "listaProductos=" + listaProductos +
                 '}';
     }
+
+
     public ArrayList<Vendedor> getSolicitudesRecibidas() {
-        return solicitudesRecibidas=new ArrayList<>();
+        return solicitudesRecibidas;
     }
 
     public void setSolicitudesRecibidas(ArrayList<Vendedor> solicitudesRecibidas) {
@@ -152,8 +156,22 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
             solicitudesRecibidas.remove(vendedor);
             System.out.println("Solicitud de amistad confirmada");
         }else{
-            throw new ConfirmarSolicitudException("Ya se ha confirmado la solicitud de amistad de este usuario.");
+            throw new ConfirmarSolicitudException("Ya se ha confirmado la solicitud de amistad de este usuario");
         }
     }
-
+    public ArrayList<Producto> obtenerPublicaciones (){
+        for (int i = 0; i < vendedoresAliados.size(); i++) {
+            Vendedor vendedor = vendedoresAliados.get(i);
+            for (int j = 0; j < vendedor.getListaProductos().size(); j++) {
+                Producto producto = vendedor.getListaProductos().get(j);
+                if (publicaciones.contains(producto)) {
+                    continue;
+                }
+                if(producto.getEstado().equals(Estado.PUBLICADO)){
+                    publicaciones.add(producto);
+                }
+            }
+        }
+        return publicaciones;
+    }
 }
