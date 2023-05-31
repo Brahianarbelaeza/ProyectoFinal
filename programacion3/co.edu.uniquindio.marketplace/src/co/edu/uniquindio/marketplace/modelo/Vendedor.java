@@ -1,6 +1,7 @@
 package modelo;
 
 import excepciones.ConfirmarSolicitudException;
+import excepciones.EliminarContactoException;
 import excepciones.EnviarSolicitudException;
 import excepciones.VendedorException;
 import servicios.IVendedorService;
@@ -168,6 +169,15 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
             System.out.println("Solicitud de amistad eliminada");
         }else{
             throw new ConfirmarSolicitudException("No se ha encontrado la solicitud de amistad de este usuario");
+        }
+    }
+
+    public void eliminarContacto(Vendedor vendedor) throws  EliminarContactoException {
+        if(vendedoresAliados.contains(vendedor)){
+            vendedoresAliados.remove(vendedor);
+            System.out.println("Contacto eliminado");
+        }else{
+            throw new EliminarContactoException("No se ha encontrado el contacto a eliminar");
         }
     }
     public ArrayList<Producto> obtenerPublicaciones (){

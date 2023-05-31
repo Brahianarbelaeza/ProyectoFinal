@@ -351,7 +351,7 @@
                                                                         <TableColumn fx:id="contactos" prefWidth="199.0" text="Contactos" />
                                                                     </columns>
                                                                 </TableView>
-                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction" text="Eliminar" />
                                                                 <TableView fx:id="tablaSolicitudes" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="solicitudes" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -491,7 +491,7 @@
                                                                                 <TableColumn fx:id="contactos1" prefWidth="199.0" text="Contactos" />
                                                                             </columns>
                                                                         </TableView>
-                                                                        <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                        <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction1" text="Eliminar" />
                                                                         <TableView fx:id="tablaSolicitudes1" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                                             <columns>
                                                                                 <TableColumn fx:id="solicitudes1" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -630,7 +630,7 @@
                                                                         <TableColumn fx:id="contactos2" prefWidth="199.0" text="Contactos" />
                                                                     </columns>
                                                                 </TableView>
-                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction2" text="Eliminar" />
                                                                 <TableView fx:id="tablaSolicitudes2" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="solicitudes2" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -775,7 +775,7 @@
                                                                         <TableColumn fx:id="contactos3" prefWidth="199.0" text="Contactos" />
                                                                     </columns>
                                                                 </TableView>
-                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction3" text="Eliminar" />
                                                                 <TableView fx:id="tablaSolicitudes3" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="solicitudes3" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -914,7 +914,7 @@
                                                                         <TableColumn fx:id="contactos4" prefWidth="199.0" text="Contactos" />
                                                                     </columns>
                                                                 </TableView>
-                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction4" text="Eliminar" />
                                                                 <TableView fx:id="tablaSolicitudes4" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="solicitudes4" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -1044,7 +1044,7 @@
                                                                         <TableColumn fx:id="contactos5" prefWidth="199.0" text="Contactos" />
                                                                     </columns>
                                                                 </TableView>
-                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction5" text="Eliminar" />
                                                                 <TableView fx:id="tablaSolicitudes5" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="solicitudes5" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -1174,7 +1174,7 @@
                                                                         <TableColumn fx:id="contactos6" prefWidth="199.0" text="Contactos" />
                                                                     </columns>
                                                                 </TableView>
-                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction6" text="Eliminar" />
                                                                 <TableView fx:id="tablaSolicitudes6" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="solicitudes6" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -1304,7 +1304,7 @@
                                                                         <TableColumn fx:id="contactos7" prefWidth="199.0" text="Contactos" />
                                                                     </columns>
                                                                 </TableView>
-                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction7" text="Eliminar" />
                                                                 <TableView fx:id="tablaSolicitudes7" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="solicitudes7" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -1434,7 +1434,7 @@
                                                                         <TableColumn fx:id="contactos8" prefWidth="199.0" text="Contactos" />
                                                                     </columns>
                                                                 </TableView>
-                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction8" text="Eliminar" />
                                                                 <TableView fx:id="tablaSolicitudes8" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="solicitudes8" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -1451,7 +1451,7 @@
                         </AnchorPane>
                     </content>
                 </Tab>
-                <Tab fx:id="tabVendedor9" text="Vendedor 10">
+                <Tab fx:id="tabVendedor9" onSelectionChanged="#eliminarContactoAction9" text="Vendedor 10">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
@@ -1564,7 +1564,7 @@
                                                                         <TableColumn fx:id="contactos9" prefWidth="199.0" text="Contactos" />
                                                                     </columns>
                                                                 </TableView>
-                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction9" text="Eliminar" />
                                                                 <TableView fx:id="tablaSolicitudes9" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="solicitudes9" prefWidth="234.0" text="Solicitudes de amistad" />

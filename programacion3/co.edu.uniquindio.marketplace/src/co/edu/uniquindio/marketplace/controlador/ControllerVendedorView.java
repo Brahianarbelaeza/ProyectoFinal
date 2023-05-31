@@ -1,10 +1,7 @@
 package controlador;
 
 import aplicacion.Aplicacion;
-import excepciones.ConfirmarSolicitudException;
-import excepciones.EliminarSolicitudException;
-import excepciones.EnviarSolicitudException;
-import excepciones.MuroException;
+import excepciones.*;
 import javafx.fxml.FXML;
 import modelo.*;
 
@@ -95,4 +92,9 @@ public class ControllerVendedorView {
             return false;
         }
     }
+
+ public boolean eliminarContacto(Vendedor vendedor){
+     return modelFactoryController.eliminarContacto(vendedor);
+ }
+
 }

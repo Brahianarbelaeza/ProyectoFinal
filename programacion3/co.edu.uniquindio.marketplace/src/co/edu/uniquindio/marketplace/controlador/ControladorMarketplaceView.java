@@ -3003,6 +3003,63 @@ public class ControladorMarketplaceView {
         eliminarSolicitud(vendedorSeleccionado, 9);
     }
 
+    @FXML
+    void eliminarContactoAction(ActionEvent event) {
+        vendedorSeleccionado = tablaContactos.getSelectionModel().getSelectedItem();
+        eliminarContacto(vendedorSeleccionado, 0);
+    }
+    @FXML
+    void eliminarContactoAction1(ActionEvent event) {
+        vendedorSeleccionado = tablaContactos1.getSelectionModel().getSelectedItem();
+        eliminarContacto(vendedorSeleccionado, 1);
+    }
+    @FXML
+    void eliminarContactoAction2(ActionEvent event) {
+        vendedorSeleccionado = tablaContactos2.getSelectionModel().getSelectedItem();
+        eliminarContacto(vendedorSeleccionado, 2);
+    }
+    @FXML
+    void eliminarContactoAction3(ActionEvent event) {
+        vendedorSeleccionado = tablaContactos3.getSelectionModel().getSelectedItem();
+        eliminarContacto(vendedorSeleccionado, 3);
+    }
+
+    @FXML
+    void eliminarContactoAction4(ActionEvent event) {
+        vendedorSeleccionado = tablaContactos4.getSelectionModel().getSelectedItem();
+        eliminarContacto(vendedorSeleccionado, 4);
+    }
+
+    @FXML
+    void eliminarContactoAction5(ActionEvent event) {
+        vendedorSeleccionado = tablaContactos5.getSelectionModel().getSelectedItem();
+        eliminarContacto(vendedorSeleccionado, 5);
+    }
+
+    @FXML
+    void eliminarContactoAction6(ActionEvent event) {
+        vendedorSeleccionado = tablaContactos6.getSelectionModel().getSelectedItem();
+        eliminarContacto(vendedorSeleccionado, 6);
+    }
+
+    @FXML
+    void eliminarContactoAction7(ActionEvent event) {
+        vendedorSeleccionado = tablaContactos7.getSelectionModel().getSelectedItem();
+        eliminarContacto(vendedorSeleccionado, 7);
+    }
+
+    @FXML
+    void eliminarContactoAction8(ActionEvent event) {
+        vendedorSeleccionado = tablaContactos8.getSelectionModel().getSelectedItem();
+        eliminarContacto(vendedorSeleccionado, 8);
+    }
+
+    @FXML
+    void eliminarContactoAction9(ActionEvent event) {
+        vendedorSeleccionado = tablaContactos9.getSelectionModel().getSelectedItem();
+        eliminarContacto(vendedorSeleccionado, 9);
+    }
+
     private void confirmarSolicitud(Vendedor vendedor, int indicador) {
         if (vendedor != null) {
             if (mostrarMensajeConfirmacion("¿Estas seguro de confirmar la solicitud de amistad?") == true) {
@@ -3029,6 +3086,21 @@ public class ControladorMarketplaceView {
                 }
             }
         }
+    }
+
+    private void eliminarContacto(Vendedor vendedor, int indicador) {
+        if(vendedor!=null){
+            if(mostrarMensajeConfirmacion("¿Estas seguro de eliminar el contacto?")==true){
+                boolean contactoEliminado = controllerVendedorView.eliminarContacto(vendedor);
+                if(contactoEliminado==true){
+                    mostrarMensaje("Notificación contacto", "Contacto eliminado", "El contacto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+                    refreshTablasSocial(indicador);
+                }else{
+                    mostrarMensaje("Notificación contacto", "Contacto no eliminado", "El contacto no se ha eliminado, ya lo has eliminado antes", Alert.AlertType.ERROR);
+                }
+            }
+        }
+
     }
 
             private void refreshTablasSocial ( int indicador){

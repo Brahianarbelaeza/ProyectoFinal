@@ -372,6 +372,19 @@ public class ModelFactoryController implements Runnable {
             throw new RuntimeException(e);
         }
     }
+
+    public boolean eliminarContacto(Vendedor vendedor){
+        Vendedor receptor = ObtenerVendedor();
+        try {
+            receptor.eliminarContacto(vendedor);
+            registrarAccionesSistema("Contacto eliminado con " + vendedor.getNombre(), 1, "Eliminar contacto");
+            guardarResourceXML();
+            respaldoXML();
+            return true;
+        } catch (EliminarContactoException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public ArrayList<Producto> obtenerPublicaciones () throws MuroException {
          if (ObtenerVendedor().obtenerPublicaciones() == null){
              throw new MuroException("No hay publicaciones");
@@ -386,7 +399,6 @@ public class ModelFactoryController implements Runnable {
     public ArrayList<Vendedor> obtenerContactos() {
         return ObtenerVendedor().getVendedoresAliados();
     }
-
 
     public ArrayList<Vendedor> obtenerVendedores() {
         return getMarketplace().getAdministrador().getVendedores();

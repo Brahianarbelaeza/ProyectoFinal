@@ -1,5 +1,6 @@
 package servicios;
 
+import excepciones.EliminarContactoException;
 import excepciones.VendedorException;
 import modelo.Producto;
 
@@ -11,6 +12,6 @@ public interface IVendedorService {
     public void eliminarProducto(Producto producto) throws VendedorException;
     public void actualizarProducto(Producto productoSelected, String id);
     public Producto buscarProducto(String id);
-    public void eliminarVendedorAliado(Vendedor vendedor);
+    public void eliminarVendedorAliado(Vendedor vendedor) throws EliminarContactoException;
 
 }
