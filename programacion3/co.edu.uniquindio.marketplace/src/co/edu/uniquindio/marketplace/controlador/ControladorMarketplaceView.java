@@ -16,6 +16,7 @@ import modelo.Producto;
 
 import modelo.Vendedor;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -34,6 +35,36 @@ public class ControladorMarketplaceView  {
     ObservableList<Vendedor> listaSolicitudesAmistad = FXCollections.observableArrayList();
     ObservableList<Vendedor> listaContactos = FXCollections.observableArrayList();
     ObservableList<Producto> listaPublicaciones = FXCollections.observableArrayList();
+
+    @FXML
+    private Label labelMegusta;
+
+    @FXML
+    private Label labelMegusta1;
+
+    @FXML
+    private Label labelMegusta2;
+
+    @FXML
+    private Label labelMegusta3;
+
+    @FXML
+    private Label labelMegusta4;
+
+    @FXML
+    private Label labelMegusta5;
+
+    @FXML
+    private Label labelMegusta6;
+
+    @FXML
+    private Label labelMegusta7;
+
+    @FXML
+    private Label labelMegusta8;
+
+    @FXML
+    private Label labelMegusta9;
 
     @FXML
     private TextField campoApellido;
@@ -202,6 +233,28 @@ public class ControladorMarketplaceView  {
 
     @FXML
     private TextField campoUrlImagen9;
+    @FXML
+    private TextField txtComentario;
+    @FXML
+    private TextField txtComentario1;
+    @FXML
+    private TextField txtComentario2;
+    @FXML
+    private TextField txtComentario3;
+    @FXML
+    private TextField txtComentario4;
+    @FXML
+    private TextField txtComentario5;
+    @FXML
+    private TextField txtComentario6;
+    @FXML
+    private TextField txtComentario7;
+    @FXML
+    private TextField txtComentario8;
+    @FXML
+    private TextField txtComentario9;
+
+
 
     @FXML
     private TableColumn<Vendedor, String> colApellidoVendedor;
@@ -423,6 +476,8 @@ public class ControladorMarketplaceView  {
     @FXML
     private BarChart<String, Integer> graficodeEstadisticas;
     @FXML
+    private BarChart<String, Integer> graficodeEstadisticas1;
+    @FXML
     private TableView<Producto> tablaProductos;
 
     @FXML
@@ -458,12 +513,84 @@ public class ControladorMarketplaceView  {
     @FXML
     private TableColumn<Producto, String> colNombreMuro;
     @FXML
+    private TableColumn<Producto, String> colNombreMuro1;
+    @FXML
+    private TableColumn<Producto, String> colNombreMuro2;
+    @FXML
+    private TableColumn<Producto, String> colNombreMuro3;
+    @FXML
+    private TableColumn<Producto, String> colNombreMuro4;
+    @FXML
+    private TableColumn<Producto, String> colNombreMuro5;
+    @FXML
+    private TableColumn<Producto, String> colNombreMuro6;
+    @FXML
+    private TableColumn<Producto, String> colNombreMuro7;
+    @FXML
+    private TableColumn<Producto, String> colNombreMuro8;
+    @FXML
+    private TableColumn<Producto, String> colNombreMuro9;
+
+    @FXML
     private TableColumn<Producto, String> colPrecioMuro;
+    @FXML
+    private TableColumn<Producto, String> colPrecioMuro1;
+    @FXML
+    private TableColumn<Producto, String> colPrecioMuro2;
+    @FXML
+    private TableColumn<Producto, String> colPrecioMuro3;
+    @FXML
+    private TableColumn<Producto, String> colPrecioMuro4;
+    @FXML
+    private TableColumn<Producto, String> colPrecioMuro5;
+    @FXML
+    private TableColumn<Producto, String> colPrecioMuro6;
+    @FXML
+    private TableColumn<Producto, String> colPrecioMuro7;
+    @FXML
+    private TableColumn<Producto, String> colPrecioMuro8;
+    @FXML
+    private TableColumn<Producto, String> colPrecioMuro9;
     @FXML
     private TableColumn<Producto, String> colEstadoMuro;
     @FXML
+    private TableColumn<Producto, String> colEstadoMuro1;
+    @FXML
+    private TableColumn<Producto, String> colEstadoMuro2;
+    @FXML
+    private TableColumn<Producto, String> colEstadoMuro3;
+    @FXML
+    private TableColumn<Producto, String> colEstadoMuro4;
+    @FXML
+    private TableColumn<Producto, String> colEstadoMuro5;
+    @FXML
+    private TableColumn<Producto, String> colEstadoMuro6;
+    @FXML
+    private TableColumn<Producto, String> colEstadoMuro7;
+    @FXML
+    private TableColumn<Producto, String> colEstadoMuro8;
+    @FXML
+    private TableColumn<Producto, String> colEstadoMuro9;
+    @FXML
     private TableColumn<Producto, String> colImagenMuro;
-
+    @FXML
+    private TableColumn<Producto, String> colImagenMuro1;
+    @FXML
+    private TableColumn<Producto, String> colImagenMuro2;
+    @FXML
+    private TableColumn<Producto, String> colImagenMuro3;
+    @FXML
+    private TableColumn<Producto, String> colImagenMuro4;
+    @FXML
+    private TableColumn<Producto, String> colImagenMuro5;
+    @FXML
+    private TableColumn<Producto, String> colImagenMuro6;
+    @FXML
+    private TableColumn<Producto, String> colImagenMuro7;
+    @FXML
+    private TableColumn<Producto, String> colImagenMuro8;
+    @FXML
+    private TableColumn<Producto, String> colImagenMuro9;
     @FXML
     private TableView<Vendedor> tblVendedores;
 
@@ -643,6 +770,37 @@ public class ControladorMarketplaceView  {
 
     @FXML
     private TableColumn<Vendedor, String> sugerencias9;
+    @FXML
+    private ListView<String> listaComentarios;
+
+    @FXML
+    private ListView<String> listaComentarios1;
+
+    @FXML
+    private ListView<String> listaComentarios2;
+
+    @FXML
+    private ListView<String> listaComentarios3;
+
+    @FXML
+    private ListView<String> listaComentarios4;
+
+    @FXML
+    private ListView<String> listaComentarios5;
+
+    @FXML
+    private ListView<String> listaComentarios6;
+
+    @FXML
+    private ListView<String> listaComentarios7;
+
+    @FXML
+    private ListView<String> listaComentarios8;
+
+    @FXML
+    private ListView<String> listaComentarios9;
+
+
 
     private boolean datosValidos(String nombre, String apellido, String cedula, String direccion, String cuenta, String contrasena) {
 
@@ -745,7 +903,7 @@ public class ControladorMarketplaceView  {
 
 
     private void actualizarProducto() {
-
+        productoSeleccionado= tablaProductos.getSelectionModel().getSelectedItem();
         String codigo = campoCodigoProducto.getText();
         String nombreProducto = campoNombreProducto.getText();
         String rutaImagen = campoUrlImagen.getText();
@@ -756,7 +914,8 @@ public class ControladorMarketplaceView  {
         //2. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
             Estado estado = Estado.valueOf(estadoProducto);
-            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 1);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 1, productoSeleccionado);
+            limpiarCamposProducto();
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -765,7 +924,7 @@ public class ControladorMarketplaceView  {
     }
 
     private void actualizarProducto1() {
-
+        productoSeleccionado = tablaProductos1.getSelectionModel().getSelectedItem();
         String codigo = campoCodigoProducto1.getText();
         String nombreProducto = campoNombreProducto1.getText();
         String rutaImagen = campoUrlImagen1.getText();
@@ -776,7 +935,8 @@ public class ControladorMarketplaceView  {
         //2. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
             Estado estado = Estado.valueOf(estadoProducto);
-            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 2);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 2, productoSeleccionado);
+            limpiarCamposProducto1();
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -797,11 +957,15 @@ public class ControladorMarketplaceView  {
 
 
                 if (productoEliminado == true) {
+
                     listaProductosVis.remove(productoSeleccionado);
                     productoSeleccionado = null;
+                    listaPublicaciones.remove(productoSeleccionado);
+
 
                     tablaProductos.getSelectionModel().clearSelection();
                     limpiarCamposProducto();
+                    refresh(1);
 
                     mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
                 } else {
@@ -828,10 +992,12 @@ public class ControladorMarketplaceView  {
 
                 if (productoEliminado == true) {
                     listaProductosVis.remove(productoSeleccionado);
+                    listaPublicaciones.remove(productoSeleccionado);
                     productoSeleccionado = null;
 
                     tablaProductos1.getSelectionModel().clearSelection();
                     limpiarCamposProducto1();
+                    refresh(2);
 
                     mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
                 } else {
@@ -896,7 +1062,7 @@ public class ControladorMarketplaceView  {
     }
 
     private void actualizarProducto2() {
-
+        productoSeleccionado = tablaProductos2.getSelectionModel().getSelectedItem();
         String codigo = campoCodigoProducto2.getText();
         String nombreProducto = campoNombreProducto2.getText();
         String rutaImagen = campoUrlImagen2.getText();
@@ -907,7 +1073,8 @@ public class ControladorMarketplaceView  {
         //2. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
             Estado estado = Estado.valueOf(estadoProducto);
-            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 3);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 3,productoSeleccionado);
+            limpiarCamposProducto2();
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -929,10 +1096,13 @@ public class ControladorMarketplaceView  {
 
                 if (productoEliminado == true) {
                     listaProductosVis.remove(productoSeleccionado);
+                    listaPublicaciones.remove(productoSeleccionado);
                     productoSeleccionado = null;
+
 
                     tablaProductos2.getSelectionModel().clearSelection();
                     limpiarCamposProducto2();
+                    refresh(3);
 
                     mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
                 } else {
@@ -1135,6 +1305,7 @@ public class ControladorMarketplaceView  {
             this.setearCamposVendedor(this.vendedorSeleccionado);
         });
         iniciarGrafica();
+        iniciarGrafica1();
     }
 
     private void iniciarGrafica() {
@@ -1144,6 +1315,14 @@ public class ControladorMarketplaceView  {
         }
         graficodeEstadisticas.getData().add(series);
     }
+    private void iniciarGrafica1 (){
+        XYChart.Series<String, Integer> series = new XYChart.Series<>();
+        for (Vendedor vendedor : modelFactoryController.marketplace.getAdministrador().getVendedores()) {
+            series.getData().add(new XYChart.Data<>(vendedor.getNombre(), vendedor.getVendedoresAliados().size()));
+        }
+        graficodeEstadisticas1.getData().add(series);
+    }
+
 
     private void CrearVendedor() {
         //1. Capturar los datos
@@ -1161,7 +1340,9 @@ public class ControladorMarketplaceView  {
             if(vendedor != null){
                 listaVendedoresData.add(vendedor);
                 graficodeEstadisticas.getData().clear();
+                graficodeEstadisticas1.getData().clear();
                 iniciarGrafica();
+                iniciarGrafica1();
                 mostrarMensaje("Notificación vendedor", "Vendedor creado", "El vendedor se ha creado con éxito", Alert.AlertType.INFORMATION);
                 refresh(0);
                 limpiarCamposVendedor();
@@ -1218,7 +1399,9 @@ public class ControladorMarketplaceView  {
                     listaVendedoresData.remove(vendedorSeleccionado);
                     vendedorSeleccionado = null;
                     graficodeEstadisticas.getData().clear();
+                    graficodeEstadisticas1.getData().clear();
                     iniciarGrafica();
+                    iniciarGrafica1();
 
                     tblVendedores.getSelectionModel().clearSelection();
                     limpiarCamposVendedor();
@@ -1244,42 +1427,62 @@ public class ControladorMarketplaceView  {
             case 1:
                 tablaProductos.getItems().clear();
                 tablaProductos.setItems(getListaProductosVis());
+                tablaMuro.getItems().clear();
+                tablaMuro.setItems(getListaPublicaciones());
                 break;
             case 2:
                 tablaProductos1.getItems().clear();
                 tablaProductos1.setItems(getListaProductosVis());
+                tablaMuro1.getItems().clear();
+                tablaMuro1.setItems(getListaPublicaciones());
                 break;
             case 3:
                 tablaProductos2.getItems().clear();
                 tablaProductos2.setItems(getListaProductosVis());
+                tablaMuro2.getItems().clear();
+                tablaMuro2.setItems(getListaPublicaciones());
                 break;
             case 4:
                 tablaProductos3.getItems().clear();
                 tablaProductos3.setItems(getListaProductosVis());
+                tablaMuro3.getItems().clear();
+                tablaMuro3.setItems(getListaPublicaciones());
                 break;
             case 5:
                 tablaProductos4.getItems().clear();
                 tablaProductos4.setItems(getListaProductosVis());
+                tablaMuro4.getItems().clear();
+                tablaMuro4.setItems(getListaPublicaciones());
                 break;
             case 6:
                 tablaProductos5.getItems().clear();
                 tablaProductos5.setItems(getListaProductosVis());
+                tablaMuro5.getItems().clear();
+                tablaMuro5.setItems(getListaPublicaciones());
                 break;
             case 7:
                 tablaProductos6.getItems().clear();
                 tablaProductos6.setItems(getListaProductosVis());
+                tablaMuro6.getItems().clear();
+                tablaMuro6.setItems(getListaPublicaciones());
                 break;
             case 8:
                 tablaProductos7.getItems().clear();
                 tablaProductos7.setItems(getListaProductosVis());
+                tablaMuro7.getItems().clear();
+                tablaMuro7.setItems(getListaPublicaciones());
                 break;
             case 9:
                 tablaProductos8.getItems().clear();
                 tablaProductos8.setItems(getListaProductosVis());
+                tablaMuro8.getItems().clear();
+                tablaMuro8.setItems(getListaPublicaciones());
                 break;
             case 10:
                 tablaProductos9.getItems().clear();
                 tablaProductos9.setItems(getListaProductosVis());
+                tablaMuro9.getItems().clear();
+                tablaMuro9.setItems(getListaPublicaciones());
                 break;
         }
 
@@ -1448,6 +1651,13 @@ public class ControladorMarketplaceView  {
         tablaProductos.setItems(getListaProductosVis());
         tablaMuro.getItems().clear();
         tablaMuro.setItems(getListaPublicaciones());
+        tablaMuro.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                Producto productoSeleccionado = newSelection;
+                cargarComentariosYMeGusta(productoSeleccionado);
+            }
+        });
+
         tablaSugerencias.getItems().clear();
         tablaSugerencias.setItems(getListaSugerenciasAmistad());
         tablaSolicitudes.getItems().clear();
@@ -1465,6 +1675,412 @@ public class ControladorMarketplaceView  {
             this.setearCamposProductos(this.productoSeleccionado);
 
         });
+    }
+
+    private void cargarComentariosYMeGusta(Producto productoSeleccionado) {
+        // Obtener los comentarios del producto
+        List<String> comentarios = productoSeleccionado.getComentarios();
+
+        // Obtener el número de "Me gusta"
+        int meGustas = productoSeleccionado.getMegustas();
+        ObservableList<String> comentariosList = FXCollections.observableArrayList(comentarios);
+        listaComentarios.setItems(comentariosList);
+
+        // Mostrar los comentarios en la lista de comentarios
+
+
+        // Mostrar el número de "Me gusta"
+        labelMegusta.setText(" "+ meGustas);
+    }
+    private void cargarComentariosYMeGusta1(Producto productoSeleccionado) {
+        // Obtener los comentarios del producto
+        List<String> comentarios = productoSeleccionado.getComentarios();
+
+        // Obtener el número de "Me gusta"
+        int meGustas = productoSeleccionado.getMegustas();
+        ObservableList<String> comentariosList = FXCollections.observableArrayList(comentarios);
+        listaComentarios1.setItems(comentariosList);
+
+        // Mostrar los comentarios en la lista de comentarios
+
+
+        // Mostrar el número de "Me gusta"
+        labelMegusta1.setText(" "+ meGustas);
+    }
+    private void cargarComentariosYMeGusta2(Producto productoSeleccionado) {
+        // Obtener los comentarios del producto
+        List<String> comentarios = productoSeleccionado.getComentarios();
+
+        // Obtener el número de "Me gusta"
+        int meGustas = productoSeleccionado.getMegustas();
+        ObservableList<String> comentariosList = FXCollections.observableArrayList(comentarios);
+        listaComentarios2.setItems(comentariosList);
+
+        // Mostrar los comentarios en la lista de comentarios
+
+
+        // Mostrar el número de "Me gusta"
+        labelMegusta2.setText(" "+ meGustas);
+    }
+    private void cargarComentariosYMeGusta3(Producto productoSeleccionado) {
+        // Obtener los comentarios del producto
+        List<String> comentarios = productoSeleccionado.getComentarios();
+
+        // Obtener el número de "Me gusta"
+        int meGustas = productoSeleccionado.getMegustas();
+        ObservableList<String> comentariosList = FXCollections.observableArrayList(comentarios);
+        listaComentarios3.setItems(comentariosList);
+
+        // Mostrar los comentarios en la lista de comentarios
+
+
+        // Mostrar el número de "Me gusta"
+        labelMegusta3.setText(" "+ meGustas);
+    }
+    private void cargarComentariosYMeGusta4(Producto productoSeleccionado) {
+        // Obtener los comentarios del producto
+        List<String> comentarios = productoSeleccionado.getComentarios();
+
+        // Obtener el número de "Me gusta"
+        int meGustas = productoSeleccionado.getMegustas();
+        ObservableList<String> comentariosList = FXCollections.observableArrayList(comentarios);
+        listaComentarios4.setItems(comentariosList);
+
+        // Mostrar los comentarios en la lista de comentarios
+
+
+        // Mostrar el número de "Me gusta"
+        labelMegusta4.setText(" "+ meGustas);
+    }
+    private void cargarComentariosYMeGusta5(Producto productoSeleccionado) {
+        // Obtener los comentarios del producto
+        List<String> comentarios = productoSeleccionado.getComentarios();
+
+        // Obtener el número de "Me gusta"
+        int meGustas = productoSeleccionado.getMegustas();
+        ObservableList<String> comentariosList = FXCollections.observableArrayList(comentarios);
+        listaComentarios5.setItems(comentariosList);
+
+        // Mostrar los comentarios en la lista de comentarios
+
+
+        // Mostrar el número de "Me gusta"
+        labelMegusta5.setText(" "+ meGustas);
+    }
+    private void cargarComentariosYMeGusta6(Producto productoSeleccionado) {
+        // Obtener los comentarios del producto
+        List<String> comentarios = productoSeleccionado.getComentarios();
+
+        // Obtener el número de "Me gusta"
+        int meGustas = productoSeleccionado.getMegustas();
+        ObservableList<String> comentariosList = FXCollections.observableArrayList(comentarios);
+        listaComentarios6.setItems(comentariosList);
+
+        // Mostrar los comentarios en la lista de comentarios
+        // Mostrar el número de "Me gusta"
+        labelMegusta5.setText(" "+ meGustas);
+    }
+    private void cargarComentariosYMeGusta7(Producto productoSeleccionado) {
+        // Obtener los comentarios del producto
+        List<String> comentarios = productoSeleccionado.getComentarios();
+
+        // Obtener el número de "Me gusta"
+        int meGustas = productoSeleccionado.getMegustas();
+        ObservableList<String> comentariosList = FXCollections.observableArrayList(comentarios);
+        listaComentarios7.setItems(comentariosList);
+
+        // Mostrar los comentarios en la lista de comentarios
+        // Mostrar el número de "Me gusta"
+        labelMegusta7.setText(" "+ meGustas);
+    }
+    private void cargarComentariosYMeGusta8(Producto productoSeleccionado) {
+        // Obtener los comentarios del producto
+        List<String> comentarios = productoSeleccionado.getComentarios();
+
+        // Obtener el número de "Me gusta"
+        int meGustas = productoSeleccionado.getMegustas();
+        ObservableList<String> comentariosList = FXCollections.observableArrayList(comentarios);
+        listaComentarios8.setItems(comentariosList);
+
+        // Mostrar los comentarios en la lista de comentarios
+        // Mostrar el número de "Me gusta"
+        labelMegusta8.setText(" "+ meGustas);
+    }
+    private void cargarComentariosYMeGusta9(Producto productoSeleccionado) {
+        // Obtener los comentarios del producto
+        List<String> comentarios = productoSeleccionado.getComentarios();
+
+        // Obtener el número de "Me gusta"
+        int meGustas = productoSeleccionado.getMegustas();
+        ObservableList<String> comentariosList = FXCollections.observableArrayList(comentarios);
+        listaComentarios9.setItems(comentariosList);
+
+        // Mostrar los comentarios en la lista de comentarios
+        // Mostrar el número de "Me gusta"
+        labelMegusta9.setText(" "+ meGustas);
+    }
+
+
+
+
+    @FXML
+    void MegustaAction (){
+        Producto producto = tablaMuro.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            controllerVendedorView.anadirMeGusta(producto);
+            cargarComentariosYMeGusta(producto);
+        }
+    }
+    @FXML
+    void MegustaAction1 (){
+        Producto producto = tablaMuro1.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            controllerVendedorView.anadirMeGusta(producto);
+            cargarComentariosYMeGusta1(producto);
+        }
+    }
+    @FXML
+    void MegustaAction2 (){
+        Producto producto = tablaMuro2.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            controllerVendedorView.anadirMeGusta(producto);
+            cargarComentariosYMeGusta2(producto);
+        }
+    }
+    @FXML
+    void MegustaAction3 (){
+        Producto producto = tablaMuro3.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            controllerVendedorView.anadirMeGusta(producto);
+            cargarComentariosYMeGusta3(producto);
+        }
+    }
+    @FXML
+    void MegustaAction4 (){
+        Producto producto = tablaMuro4.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            controllerVendedorView.anadirMeGusta(producto);
+            cargarComentariosYMeGusta4(producto);
+        }
+    }
+    @FXML
+    void MegustaAction5 (){
+        Producto producto = tablaMuro5.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            controllerVendedorView.anadirMeGusta(producto);
+            cargarComentariosYMeGusta5(producto);
+        }
+    }
+    @FXML
+    void MegustaAction6 (){
+        Producto producto = tablaMuro6.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            controllerVendedorView.anadirMeGusta(producto);
+            cargarComentariosYMeGusta6(producto);
+        }
+    }
+    @FXML
+    void MegustaAction7 (){
+        Producto producto = tablaMuro7.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            controllerVendedorView.anadirMeGusta(producto);
+            cargarComentariosYMeGusta7(producto);
+        }
+    }
+    @FXML
+    void MegustaAction8 (){
+        Producto producto = tablaMuro8.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            controllerVendedorView.anadirMeGusta(producto);
+            cargarComentariosYMeGusta8(producto);
+        }
+    }
+    @FXML
+    void MegustaAction9 (){
+        Producto producto = tablaMuro9.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            controllerVendedorView.anadirMeGusta(producto);
+            cargarComentariosYMeGusta9(producto);
+        }
+    }
+
+    @FXML
+    void comentarAction(){
+        Producto producto = tablaMuro.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            String comentario = txtComentario.getText();
+            if(controllerVendedorView.anadirComentario(producto, comentario)) {
+                cargarComentariosYMeGusta(producto);
+                txtComentario.setText("");
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error al comentar");
+                alert.setContentText("No se pudo comentar el producto");
+                alert.showAndWait();
+            }
+        }
+    }
+    @FXML
+    void comentarAction1(){
+        Producto producto = tablaMuro1.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            String comentario = txtComentario1.getText();
+            if(controllerVendedorView.anadirComentario(producto, comentario)) {
+                cargarComentariosYMeGusta1(producto);
+                txtComentario1.setText("");
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error al comentar");
+                alert.setContentText("No se pudo comentar el producto");
+                alert.showAndWait();
+            }
+        }
+    }
+
+    @FXML
+    void comentarAction2(){
+        Producto producto = tablaMuro2.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            String comentario = txtComentario2.getText();
+            if(controllerVendedorView.anadirComentario(producto, comentario)) {
+                cargarComentariosYMeGusta2(producto);
+                txtComentario2.setText("");
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error al comentar");
+                alert.setContentText("No se pudo comentar el producto");
+                alert.showAndWait();
+            }
+        }
+    }
+
+    @FXML
+    void comentarAction3(){
+        Producto producto = tablaMuro3.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            String comentario = txtComentario3.getText();
+            if(controllerVendedorView.anadirComentario(producto, comentario)) {
+                cargarComentariosYMeGusta3(producto);
+                txtComentario3.setText("");
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error al comentar");
+                alert.setContentText("No se pudo comentar el producto");
+                alert.showAndWait();
+            }
+        }
+    }
+
+    @FXML
+    void comentarAction4(){
+        Producto producto = tablaMuro4.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            String comentario = txtComentario4.getText();
+            if(controllerVendedorView.anadirComentario(producto, comentario)) {
+                cargarComentariosYMeGusta4(producto);
+                txtComentario4.setText("");
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error al comentar");
+                alert.setContentText("No se pudo comentar el producto");
+                alert.showAndWait();
+            }
+        }
+    }
+
+    @FXML
+    void comentarAction5(){
+        Producto producto = tablaMuro5.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            String comentario = txtComentario5.getText();
+            if(controllerVendedorView.anadirComentario(producto, comentario)) {
+                cargarComentariosYMeGusta5(producto);
+                txtComentario5.setText("");
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error al comentar");
+                alert.setContentText("No se pudo comentar el producto");
+                alert.showAndWait();
+            }
+        }
+    }
+
+    @FXML
+    void comentarAction6(){
+        Producto producto = tablaMuro6.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            String comentario = txtComentario6.getText();
+            if(controllerVendedorView.anadirComentario(producto, comentario)) {
+                cargarComentariosYMeGusta6(producto);
+                txtComentario6.setText("");
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error al comentar");
+                alert.setContentText("No se pudo comentar el producto");
+                alert.showAndWait();
+            }
+        }
+    }
+
+    @FXML
+    void comentarAction7(){
+        Producto producto = tablaMuro7.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            String comentario = txtComentario7.getText();
+            if(controllerVendedorView.anadirComentario(producto, comentario)) {
+                cargarComentariosYMeGusta7(producto);
+                txtComentario7.setText("");
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error al comentar");
+                alert.setContentText("No se pudo comentar el producto");
+                alert.showAndWait();
+            }
+        }
+    }
+
+    @FXML
+    void comentarAction8(){
+        Producto producto = tablaMuro8.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            String comentario = txtComentario8.getText();
+            if(controllerVendedorView.anadirComentario(producto, comentario)) {
+                cargarComentariosYMeGusta8(producto);
+                txtComentario8.setText("");
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error al comentar");
+                alert.setContentText("No se pudo comentar el producto");
+                alert.showAndWait();
+            }
+        }
+    }
+
+    @FXML
+    void comentarAction9(){
+        Producto producto = tablaMuro9.getSelectionModel().getSelectedItem();
+        if (producto != null) {
+            String comentario = txtComentario9.getText();
+            if(controllerVendedorView.anadirComentario(producto, comentario)) {
+                cargarComentariosYMeGusta9(producto);
+                txtComentario9.setText("");
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error al comentar");
+                alert.setContentText("No se pudo comentar el producto");
+                alert.showAndWait();
+            }
+        }
     }
 
 
@@ -1500,6 +2116,33 @@ public class ControladorMarketplaceView  {
             };
             return cell;
         });
+        this.colNombreMuro1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.colPrecioMuro1.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.colEstadoMuro1.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.colImagenMuro1.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colImagenMuro1.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
 
 
         this.sugerencias1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -1508,6 +2151,14 @@ public class ControladorMarketplaceView  {
 
         tablaProductos1.getItems().clear();
         tablaProductos1.setItems(getListaProductosVis());
+        tablaMuro1.getItems().clear();
+        tablaMuro1.setItems(getListaPublicaciones());
+        tablaMuro1.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                Producto productoSeleccionado = newSelection;
+                cargarComentariosYMeGusta1(productoSeleccionado);
+            }
+        });
         tablaSugerencias1.getItems().clear();
         tablaSugerencias1.setItems(getListaSugerenciasAmistad());
         tablaSolicitudes1.getItems().clear();
@@ -1552,12 +2203,48 @@ public class ControladorMarketplaceView  {
             };
             return cell;
         });
+        this.colNombreMuro2.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.colPrecioMuro2.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.colEstadoMuro2.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.colImagenMuro2.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colImagenMuro2.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
+
         this.sugerencias2.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.solicitudes2.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.contactos2.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos2.getItems().clear();
         tablaProductos2.setItems(getListaProductosVis());
+        tablaMuro2.getItems().clear();
+        tablaMuro2.setItems(getListaPublicaciones());
+        tablaMuro2.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                Producto productoSeleccionado = newSelection;
+                cargarComentariosYMeGusta2(productoSeleccionado);
+            }
+        });
         tablaSugerencias2.getItems().clear();
         tablaSugerencias2.setItems(getListaSugerenciasAmistad());
         tablaSolicitudes2.getItems().clear();
@@ -1606,6 +2293,33 @@ public class ControladorMarketplaceView  {
             };
             return cell;
         });
+        this.colNombreMuro3.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.colPrecioMuro3.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.colEstadoMuro3.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.colImagenMuro3.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colImagenMuro3.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
         this.sugerencias3.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.solicitudes3.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.contactos3.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -1613,6 +2327,14 @@ public class ControladorMarketplaceView  {
 
         tablaProductos3.getItems().clear();
         tablaProductos3.setItems(getListaProductosVis());
+        tablaMuro3.getItems().clear();
+        tablaMuro3.setItems(getListaPublicaciones());
+        tablaMuro3.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                Producto productoSeleccionado = newSelection;
+                cargarComentariosYMeGusta3(productoSeleccionado);
+            }
+        });
         tablaSugerencias3.getItems().clear();
         tablaSugerencias3.setItems(getListaSugerenciasAmistad());
         tablaSolicitudes3.getItems().clear();
@@ -1676,7 +2398,7 @@ public class ControladorMarketplaceView  {
     }
 
     private void actualizarProducto3() {
-
+        productoSeleccionado = tablaProductos3.getSelectionModel().getSelectedItem();
         String codigo = campoCodigoProducto3.getText();
         String nombreProducto = campoNombreProducto3.getText();
         String rutaImagen = campoUrlImagen3.getText();
@@ -1687,7 +2409,8 @@ public class ControladorMarketplaceView  {
         //3. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
             Estado estado = Estado.valueOf(estadoProducto);
-            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado,4);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado,4, productoSeleccionado);
+            limpiarCamposProducto3();
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -1709,10 +2432,13 @@ public class ControladorMarketplaceView  {
 
                 if (productoEliminado == true) {
                     listaProductosVis.remove(productoSeleccionado);
+                    listaPublicaciones.remove(productoSeleccionado);
                     productoSeleccionado = null;
 
                     tablaProductos3.getSelectionModel().clearSelection();
                     limpiarCamposProducto3();
+                    refresh(4);
+
 
                     mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
                 } else {
@@ -1774,12 +2500,47 @@ public class ControladorMarketplaceView  {
             };
             return cell;
         });
+        this.colNombreMuro4.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.colPrecioMuro4.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.colEstadoMuro4.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.colImagenMuro4.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colImagenMuro4.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
         this.sugerencias4.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.solicitudes4.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.contactos4.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos4.getItems().clear();
         tablaProductos4.setItems(getListaProductosVis());
+        tablaMuro4.getItems().clear();
+        tablaMuro4.setItems(getListaPublicaciones());
+        tablaMuro4.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                Producto productoSeleccionado = newSelection;
+                cargarComentariosYMeGusta4(productoSeleccionado);
+            }
+        });
         tablaSugerencias4.getItems().clear();
         tablaSugerencias4.setItems(getListaSugerenciasAmistad());
         tablaSolicitudes4.getItems().clear();
@@ -1843,7 +2604,7 @@ public class ControladorMarketplaceView  {
     }
 
     private void actualizarProducto4() {
-
+        productoSeleccionado = tablaProductos4.getSelectionModel().getSelectedItem();
         String codigo = campoCodigoProducto4.getText();
         String nombreProducto = campoNombreProducto4.getText();
         String rutaImagen = campoUrlImagen4.getText();
@@ -1854,7 +2615,8 @@ public class ControladorMarketplaceView  {
         //4. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
             Estado estado = Estado.valueOf(estadoProducto);
-            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado,5);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado,5, productoSeleccionado);
+            limpiarCamposProducto4();
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -1876,10 +2638,12 @@ public class ControladorMarketplaceView  {
 
                 if (productoEliminado == true) {
                     listaProductosVis.remove(productoSeleccionado);
+                    listaPublicaciones.remove(productoSeleccionado);
                     productoSeleccionado = null;
 
                     tablaProductos4.getSelectionModel().clearSelection();
                     limpiarCamposProducto4();
+                    refresh(5);
 
                     mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
                 } else {
@@ -1941,12 +2705,47 @@ public class ControladorMarketplaceView  {
             };
             return cell;
         });
+        this.colNombreMuro5.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.colPrecioMuro5.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.colEstadoMuro5.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.colImagenMuro5.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colImagenMuro5.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
         this.sugerencias5.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.solicitudes5.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.contactos5.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos5.getItems().clear();
         tablaProductos5.setItems(getListaProductosVis());
+        tablaMuro5.getItems().clear();
+        tablaMuro5.setItems(getListaPublicaciones());
+        tablaMuro5.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                Producto productoSeleccionado = newSelection;
+                cargarComentariosYMeGusta5(productoSeleccionado);
+            }
+        });
         tablaSugerencias5.getItems().clear();
         tablaSugerencias5.setItems(getListaSugerenciasAmistad());
         tablaSolicitudes5.getItems().clear();
@@ -2011,7 +2810,7 @@ public class ControladorMarketplaceView  {
     }
 
     private void actualizarProducto5() {
-
+        productoSeleccionado = tablaProductos5.getSelectionModel().getSelectedItem();
         String codigo = campoCodigoProducto5.getText();
         String nombreProducto = campoNombreProducto5.getText();
         String rutaImagen = campoUrlImagen5.getText();
@@ -2022,7 +2821,8 @@ public class ControladorMarketplaceView  {
         //5. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
             Estado estado = Estado.valueOf(estadoProducto);
-            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 6);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 6, productoSeleccionado);
+            limpiarCamposProducto5();
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2044,10 +2844,12 @@ public class ControladorMarketplaceView  {
 
                 if (productoEliminado == true) {
                     listaProductosVis.remove(productoSeleccionado);
+                    listaPublicaciones.remove(productoSeleccionado);
                     productoSeleccionado = null;
 
                     tablaProductos5.getSelectionModel().clearSelection();
                     limpiarCamposProducto5();
+                    refresh(6);
 
                     mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
                 } else {
@@ -2110,12 +2912,47 @@ public class ControladorMarketplaceView  {
             };
             return cell;
         });
+        this.colNombreMuro6.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.colPrecioMuro6.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.colEstadoMuro6.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.colImagenMuro6.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colImagenMuro6.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
         this.sugerencias6.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.solicitudes6.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.contactos6.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos6.getItems().clear();
         tablaProductos6.setItems(getListaProductosVis());
+        tablaMuro6.getItems().clear();
+        tablaMuro6.setItems(getListaPublicaciones());
+        tablaMuro6.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                Producto productoSeleccionado = newSelection;
+                cargarComentariosYMeGusta6(productoSeleccionado);
+            }
+        });
         tablaSugerencias6.getItems().clear();
         tablaSugerencias6.setItems(getListaSugerenciasAmistad());
         tablaSolicitudes6.getItems().clear();
@@ -2180,7 +3017,7 @@ public class ControladorMarketplaceView  {
     }
 
     private void actualizarProducto6() {
-
+        productoSeleccionado = tablaProductos6.getSelectionModel().getSelectedItem();
         String codigo = campoCodigoProducto6.getText();
         String nombreProducto = campoNombreProducto6.getText();
         String rutaImagen = campoUrlImagen6.getText();
@@ -2191,7 +3028,8 @@ public class ControladorMarketplaceView  {
         //6. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
             Estado estado = Estado.valueOf(estadoProducto);
-            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 7);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 7, productoSeleccionado);
+            limpiarCamposProducto6();
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2213,10 +3051,12 @@ public class ControladorMarketplaceView  {
 
                 if (productoEliminado == true) {
                     listaProductosVis.remove(productoSeleccionado);
+                    listaPublicaciones.remove(productoSeleccionado);
                     productoSeleccionado = null;
 
                     tablaProductos6.getSelectionModel().clearSelection();
                     limpiarCamposProducto6();
+                    refresh(7);
 
                     mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
                 } else {
@@ -2279,12 +3119,47 @@ public class ControladorMarketplaceView  {
             };
             return cell;
         });
+        this.colNombreMuro7.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.colPrecioMuro7.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.colEstadoMuro7.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.colImagenMuro7.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colImagenMuro7.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
         this.sugerencias7.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.solicitudes7.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.contactos7.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos7.getItems().clear();
         tablaProductos7.setItems(getListaProductosVis());
+        tablaMuro7.getItems().clear();
+        tablaMuro7.setItems(getListaPublicaciones());
+        tablaMuro7.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                Producto productoSeleccionado = newSelection;
+                cargarComentariosYMeGusta7(productoSeleccionado);
+            }
+        });
         tablaSugerencias7.getItems().clear();
         tablaSugerencias7.setItems(getListaSugerenciasAmistad());
         tablaSolicitudes7.getItems().clear();
@@ -2349,7 +3224,7 @@ public class ControladorMarketplaceView  {
     }
 
     private void actualizarProducto7() {
-
+        productoSeleccionado = tablaProductos7.getSelectionModel().getSelectedItem();
         String codigo = campoCodigoProducto7.getText();
         String nombreProducto = campoNombreProducto7.getText();
         String rutaImagen = campoUrlImagen7.getText();
@@ -2360,7 +3235,8 @@ public class ControladorMarketplaceView  {
         //7. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
             Estado estado = Estado.valueOf(estadoProducto);
-            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 8);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 8, productoSeleccionado);
+            limpiarCamposProducto7();
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2382,10 +3258,12 @@ public class ControladorMarketplaceView  {
 
                 if (productoEliminado == true) {
                     listaProductosVis.remove(productoSeleccionado);
+                    listaPublicaciones.remove(productoSeleccionado);
                     productoSeleccionado = null;
 
                     tablaProductos7.getSelectionModel().clearSelection();
                     limpiarCamposProducto7();
+                    refresh(8);
 
                     mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
                 } else {
@@ -2447,12 +3325,47 @@ public class ControladorMarketplaceView  {
             };
             return cell;
         });
+        this.colNombreMuro8.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.colPrecioMuro8.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.colEstadoMuro8.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.colImagenMuro8.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colImagenMuro8.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
         this.sugerencias8.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.solicitudes8.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.contactos8.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos8.getItems().clear();
         tablaProductos8.setItems(getListaProductosVis());
+        tablaMuro8.getItems().clear();
+        tablaMuro8.setItems(getListaPublicaciones());
+        tablaMuro8.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                Producto productoSeleccionado = newSelection;
+                cargarComentariosYMeGusta8(productoSeleccionado);
+            }
+        });
         tablaSugerencias8.getItems().clear();
         tablaSugerencias8.setItems(getListaSugerenciasAmistad());
         tablaSolicitudes8.getItems().clear();
@@ -2517,7 +3430,7 @@ public class ControladorMarketplaceView  {
     }
 
     private void actualizarProducto8() {
-
+        productoSeleccionado = tablaProductos8.getSelectionModel().getSelectedItem();
         String codigo = campoCodigoProducto8.getText();
         String nombreProducto = campoNombreProducto8.getText();
         String rutaImagen = campoUrlImagen8.getText();
@@ -2528,7 +3441,8 @@ public class ControladorMarketplaceView  {
         //8. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
             Estado estado = Estado.valueOf(estadoProducto);
-            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 9);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 9, productoSeleccionado);
+            limpiarCamposProducto8();
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2550,10 +3464,12 @@ public class ControladorMarketplaceView  {
 
                 if (productoEliminado == true) {
                     listaProductosVis.remove(productoSeleccionado);
+                    listaPublicaciones.remove(productoSeleccionado);
                     productoSeleccionado = null;
 
                     tablaProductos8.getSelectionModel().clearSelection();
                     limpiarCamposProducto8();
+                    refresh(9);
 
                     mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
                 } else {
@@ -2615,12 +3531,47 @@ public class ControladorMarketplaceView  {
             };
             return cell;
         });
+        this.colNombreMuro9.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.colPrecioMuro9.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        this.colEstadoMuro9.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        this.colImagenMuro9.setCellValueFactory(new PropertyValueFactory<>("rutaImagen"));
+        this.colImagenMuro9.setCellFactory(column -> {
+            TableCell<Producto, String> cell = new TableCell<>() {
+                private final ImageView imageView = new ImageView();
+
+                @Override
+                protected void updateItem(String rutaImagen, boolean empty) {
+                    super.updateItem(rutaImagen, empty);
+
+                    if (empty || rutaImagen == null) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image("file:" + rutaImagen);
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150);
+                        imageView.setFitHeight(150);
+                        imageView.setPreserveRatio(true);
+                        imageView.setSmooth(true);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+            return cell;
+        });
         this.sugerencias9.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.solicitudes9.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.contactos9.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
         tablaProductos9.getItems().clear();
         tablaProductos9.setItems(getListaProductosVis());
+        tablaMuro9.getItems().clear();
+        tablaMuro9.setItems(getListaPublicaciones());
+        tablaMuro9.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                Producto productoSeleccionado = newSelection;
+                cargarComentariosYMeGusta9(productoSeleccionado);
+            }
+        });
         tablaSugerencias9.getItems().clear();
         tablaSugerencias9.setItems(getListaSugerenciasAmistad());
         tablaSolicitudes9.getItems().clear();
@@ -2685,7 +3636,7 @@ public class ControladorMarketplaceView  {
     }
 
     private void actualizarProducto9() {
-
+        productoSeleccionado= tablaProductos9.getSelectionModel().getSelectedItem();
         String codigo = campoCodigoProducto9.getText();
         String nombreProducto = campoNombreProducto9.getText();
         String rutaImagen = campoUrlImagen9.getText();
@@ -2696,7 +3647,8 @@ public class ControladorMarketplaceView  {
         //9. Validar la información
         if (datosValidosProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto) == true) {
             Estado estado = Estado.valueOf(estadoProducto);
-            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 10);
+            actualizarProductos(codigo, nombreProducto, rutaImagen, categoria, precio, estado, 10, productoSeleccionado);
+            limpiarCamposProducto9();
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -2717,11 +3669,12 @@ public class ControladorMarketplaceView  {
 
                 if (productoEliminado == true) {
                     listaProductosVis.remove(productoSeleccionado);
+                    listaPublicaciones.remove(productoSeleccionado);
                     productoSeleccionado = null;
 
                     tablaProductos9.getSelectionModel().clearSelection();
                     limpiarCamposProducto9();
-
+                    refresh(10);
                     mostrarMensaje("Notificación producto", "Producto eliminado", "El producto se ha eliminado con éxito", Alert.AlertType.INFORMATION);
                 } else {
                     mostrarMensaje("Notificación producto", "Producto no eliminado", "El producto no se puede eliminar", Alert.AlertType.ERROR);
@@ -2757,6 +3710,7 @@ public class ControladorMarketplaceView  {
     public void setListaSugerenciasAmistad(ObservableList<Vendedor> listaSugerenciasAmistad) {
         this.listaSugerenciasAmistad = listaSugerenciasAmistad;
     }
+
 
 
 
@@ -2800,13 +3754,13 @@ public class ControladorMarketplaceView  {
         }
     }
 
-    private void actualizarProductos(String codigo, String nombreProducto, String rutaImagen, String categoria, double precio, Estado estadoProducto, int indicador) {
+    private void actualizarProductos(String codigo, String nombreProducto, String rutaImagen, String categoria, double precio, Estado estadoProducto, int indicador, Producto productoSeleccionado) {
         Producto producto = null;
         producto = controllerVendedorView.actualizarProducto(codigo, nombreProducto, rutaImagen, categoria, precio, estadoProducto, productoSeleccionado.getCodigo());
         if (producto != null) {
             refresh(indicador);
             mostrarMensaje("Notificación producto", "Producto actualizado", "El producto se ha actualizado con éxito", Alert.AlertType.INFORMATION);
-            limpiarCamposProducto9();
+
         } else {
             mostrarMensaje("Notificación producto", "Producto no actualizado", "El producto no se ha actualizado", Alert.AlertType.INFORMATION);
         }
@@ -2957,6 +3911,8 @@ public class ControladorMarketplaceView  {
                 tablaSugerencias.getSelectionModel().clearSelection();
                 tablaContactos.getItems().clear();
                 tablaContactos.setItems(getListaContactosAmistad());
+                tablaMuro.getItems().clear();
+                tablaMuro.setItems(getListaPublicaciones());
                 break;
             case 1:
                 tablaSolicitudes1.getItems().clear();
@@ -2967,6 +3923,8 @@ public class ControladorMarketplaceView  {
                 tablaSugerencias1.getSelectionModel().clearSelection();
                 tablaContactos1.getItems().clear();
                 tablaContactos1.setItems(getListaContactosAmistad());
+                tablaMuro1.getItems().clear();
+                tablaMuro1.setItems(getListaPublicaciones());
                 break;
             case 2:
                 tablaSolicitudes2.getItems().clear();
@@ -2977,6 +3935,8 @@ public class ControladorMarketplaceView  {
                 tablaSugerencias2.getSelectionModel().clearSelection();
                 tablaContactos2.getItems().clear();
                 tablaContactos2.setItems(getListaContactosAmistad());
+                tablaMuro2.getItems().clear();
+                tablaMuro2.setItems(getListaPublicaciones());
                 break;
             case 3:
                 tablaSolicitudes3.getItems().clear();
@@ -2987,6 +3947,8 @@ public class ControladorMarketplaceView  {
                 tablaSugerencias3.getSelectionModel().clearSelection();
                 tablaContactos3.getItems().clear();
                 tablaContactos3.setItems(getListaContactosAmistad());
+                tablaMuro3.getItems().clear();
+                tablaMuro3.setItems(getListaPublicaciones());
                 break;
             case 4:
                 tablaSolicitudes4.getItems().clear();
@@ -2997,6 +3959,8 @@ public class ControladorMarketplaceView  {
                 tablaSugerencias4.getSelectionModel().clearSelection();
                 tablaContactos4.getItems().clear();
                 tablaContactos4.setItems(getListaContactosAmistad());
+                tablaMuro4.getItems().clear();
+                tablaMuro4.setItems(getListaPublicaciones());
                 break;
             case 5:
                 tablaSolicitudes5.getItems().clear();
@@ -3007,6 +3971,8 @@ public class ControladorMarketplaceView  {
                 tablaSugerencias5.getSelectionModel().clearSelection();
                 tablaContactos5.getItems().clear();
                 tablaContactos5.setItems(getListaContactosAmistad());
+                tablaMuro5.getItems().clear();
+                tablaMuro5.setItems(getListaPublicaciones());
                 break;
             case 6:
                 tablaSolicitudes6.getItems().clear();
@@ -3017,6 +3983,8 @@ public class ControladorMarketplaceView  {
                 tablaSugerencias6.getSelectionModel().clearSelection();
                 tablaContactos6.getItems().clear();
                 tablaContactos6.setItems(getListaContactosAmistad());
+                tablaMuro6.getItems().clear();
+                tablaMuro6.setItems(getListaPublicaciones());
                 break;
             case 7:
                 tablaSolicitudes7.getItems().clear();
@@ -3027,6 +3995,8 @@ public class ControladorMarketplaceView  {
                 tablaSugerencias7.getSelectionModel().clearSelection();
                 tablaContactos7.getItems().clear();
                 tablaContactos7.setItems(getListaContactosAmistad());
+                tablaMuro7.getItems().clear();
+                tablaMuro7.setItems(getListaPublicaciones());
                 break;
             case 8:
                 tablaSolicitudes8.getItems().clear();
@@ -3037,6 +4007,8 @@ public class ControladorMarketplaceView  {
                 tablaSugerencias8.getSelectionModel().clearSelection();
                 tablaContactos8.getItems().clear();
                 tablaContactos8.setItems(getListaContactosAmistad());
+                tablaMuro8.getItems().clear();
+                tablaMuro8.setItems(getListaPublicaciones());
                 break;
             case 9:
                 tablaSolicitudes9.getItems().clear();
@@ -3047,6 +4019,8 @@ public class ControladorMarketplaceView  {
                 tablaSugerencias9.getSelectionModel().clearSelection();
                 tablaContactos9.getItems().clear();
                 tablaContactos9.setItems(getListaContactosAmistad());
+                tablaMuro9.getItems().clear();
+                tablaMuro9.setItems(getListaPublicaciones());
                 break;
         }
     }

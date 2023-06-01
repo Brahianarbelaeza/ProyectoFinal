@@ -1,9 +1,7 @@
 package controlador;
 
 import aplicacion.Aplicacion;
-import excepciones.ConfirmarSolicitudException;
-import excepciones.EnviarSolicitudException;
-import excepciones.MuroException;
+import excepciones.*;
 import javafx.fxml.FXML;
 import modelo.*;
 
@@ -82,6 +80,38 @@ public class ControllerVendedorView {
             modelFactoryController.registrarAccionesSistema("Error al confirmar solicitud de amistad "+ e, 3, "Confirmar solicitud de amistad");
             e.printStackTrace();
             return false;
+        }
+    }
+
+
+    public boolean eliminarSolicitudAmistad(Vendedor vendedor) {
+        try {
+            return modelFactoryController.eliminarSolicitudAmistad(vendedor);
+        } catch (EliminarSolicitudException e) {
+            modelFactoryController.registrarAccionesSistema("Error al eliminar solicitud de amistad "+ e, 3, "Eliminar solicitud de amistad");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean eliminarContacto(Vendedor vendedor){
+        return modelFactoryController.eliminarContacto(vendedor);
+    }
+
+    public boolean anadirComentario(Producto producto, String comentario) {
+        try {
+            return modelFactoryController.anadirComentario(producto, comentario);
+        } catch (ComentariosException e) {
+            modelFactoryController.registrarAccionesSistema("Error al añadir comentario "+ e, 3, "Añadir comentario");
+            return false;
+        }
+    }
+
+    public void anadirMeGusta(Producto producto) {
+        try {
+            modelFactoryController.anadirMeGusta(producto);
+        } catch (MegustaException e) {
+            modelFactoryController.registrarAccionesSistema("Error al añadir me gusta "+ e, 3, "Añadir me gusta");
         }
     }
 }

@@ -26,16 +26,20 @@ public class Administrador extends Persona implements IAdministradorService, Ser
 
 
     public Vendedor crearVendedor(Vendedor vendedor) throws AdministradorException{
-        if (compararCedula(vendedor)== false ) {
+        if (vendedores.size() <= 10) {
 
-            if (vendedores.contains(vendedor)) {
-                throw new AdministradorException(" El vendedor " + vendedor + " ya existe en la lista ");
-            } else {
-                vendedores.add(vendedor);
-                System.out.println("Vendedor añadido correctamente  ");
-                return vendedor;
+            if (compararCedula(vendedor) == false) {
+
+                if (vendedores.contains(vendedor)) {
+                    throw new AdministradorException(" El vendedor " + vendedor + " ya existe en la lista ");
+                } else {
+                    vendedores.add(vendedor);
+                    System.out.println("Vendedor añadido correctamente  ");
+                    return vendedor;
+                }
             }
         }else {
+
             vendedor = null;
         }
      return vendedor;

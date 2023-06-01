@@ -7,6 +7,7 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -72,7 +73,7 @@
                     <content>
                         <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="171.0" prefWidth="741.0">
                             <children>
-                                <TableView fx:id="tblVendedores" layoutX="25.0" layoutY="407.0" prefHeight="171.0" prefWidth="531.0">
+                                <TableView fx:id="tblVendedores" layoutX="19.0" layoutY="409.0" prefHeight="171.0" prefWidth="531.0">
                                     <columns>
                                         <TableColumn fx:id="colNombreVendedor" prefWidth="107.0" text="Nombre" />
                                         <TableColumn fx:id="colApellidoVendedor" prefWidth="102.0" text="Apellido" />
@@ -178,7 +179,7 @@
                               </LinearGradient>
                            </fill>
                         </Rectangle>
-                        <Button fx:id="bttCerrarSesionAdmin" layoutX="1258.0" layoutY="553.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                        <Button fx:id="bttCerrarSesionAdmin" layoutX="1258.0" layoutY="11.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
                         <Label layoutX="727.0" layoutY="23.0" prefHeight="43.0" prefWidth="256.0" text="Estadisticas del marketplace ">
                            <font>
                               <Font name="System Bold Italic" size="18.0" />
@@ -195,7 +196,7 @@
                               <Font name="System Bold Italic" size="12.0" />
                            </font>
                         </Label>
-                        <BarChart fx:id="graficodeEstadisticas" layoutX="750.0" layoutY="151.0" prefHeight="243.0" prefWidth="441.0">
+                        <BarChart fx:id="graficodeEstadisticas" layoutX="753.0" layoutY="127.0" prefHeight="195.0" prefWidth="441.0">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -203,17 +204,40 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </BarChart>
-                        <Label layoutX="727.0" layoutY="104.0" prefHeight="38.0" prefWidth="291.0" text="Grafico de relación vendedor y productos:">
+                        <Label layoutX="727.0" layoutY="81.0" prefHeight="38.0" prefWidth="291.0" text="Grafico de relación vendedor y productos:">
                            <font>
                               <Font name="System Bold Italic" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="942.0" layoutY="394.0" prefHeight="30.0" prefWidth="83.0" text="Vendedores">
+                        <Label layoutX="942.0" layoutY="316.0" prefHeight="30.0" prefWidth="83.0" text="Vendedores">
                            <font>
                               <Font name="System Bold Italic" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="685.0" layoutY="232.0" prefHeight="30.0" prefWidth="101.0" rotate="-90.0" text="Productos">
+                        <Label layoutX="692.0" layoutY="184.0" prefHeight="30.0" prefWidth="101.0" rotate="-90.0" text="Productos">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <BarChart fx:id="graficodeEstadisticas1" layoutX="752.0" layoutY="377.0" prefHeight="196.0" prefWidth="437.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                        <Label layoutX="727.0" layoutY="340.0" prefHeight="38.0" prefWidth="291.0" text="Grafico de relación vendedor y contactos:">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="943.0" layoutY="565.0" prefHeight="30.0" prefWidth="83.0" text="Vendedores">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="702.0" layoutY="460.0" prefHeight="30.0" prefWidth="82.0" rotate="-90.0" text="Contactos">
                            <font>
                               <Font name="System Bold Italic" size="14.0" />
                            </font>
@@ -232,7 +256,7 @@
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="756.0">
                                                     <children>
-                                                        <Pane layoutX="-4.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="1372.0">
+                                                        <Pane layoutX="6.0" layoutY="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="1372.0">
                                                             <children>
                                                                 <Button fx:id="botonPublicar" layoutX="116.0" layoutY="522.0" mnemonicParsing="false" onAction="#publicarProductoAction" text="Publicar" />
                                                                 <Text layoutX="51.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
@@ -302,19 +326,19 @@
                                                       </LinearGradient>
                                                    </fill>
                                                 </Rectangle>
-                                                <Button layoutX="1256.0" layoutY="24.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                <Button layoutX="1271.0" layoutY="12.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
                                                 <ImageView fitHeight="162.0" fitWidth="237.0" layoutX="413.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../images/carritoo.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label layoutX="746.0" layoutY="15.0" prefHeight="43.0" prefWidth="198.0" text="Muro de productos">
+                                                <Label layoutX="731.0" layoutY="397.0" prefHeight="29.0" prefWidth="135.0" text="Comentarios:">
                                                    <font>
                                                       <Font name="System Bold Italic" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="11.0" layoutX="738.0" layoutY="52.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-                                                <TableView fx:id="tablaMuro" layoutX="779.0" layoutY="78.0" prefHeight="356.0" prefWidth="505.0">
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="11.0" layoutX="738.0" layoutY="41.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                                                <TableView fx:id="tablaMuro" layoutX="731.0" layoutY="64.0" prefHeight="323.0" prefWidth="504.0">
                                                   <columns>
                                                     <TableColumn fx:id="colNombreMuro" prefWidth="75.0" text="Nombre" />
                                                     <TableColumn fx:id="colPrecioMuro" prefWidth="75.0" text="Precio" />
@@ -322,6 +346,30 @@
                                                       <TableColumn fx:id="colImagenMuro" prefWidth="279.0" text="Imagen" />
                                                   </columns>
                                                 </TableView>
+                                                <ListView fx:id="listaComentarios" layoutX="731.0" layoutY="426.0" prefHeight="124.0" prefWidth="187.0" />
+                                                <Label layoutX="739.0" layoutY="11.0" prefHeight="43.0" prefWidth="198.0" text="Muro de productos">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="957.0" layoutY="397.0" prefHeight="29.0" prefWidth="184.0" text="Añadir Comentario:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="txtComentario" layoutX="957.0" layoutY="441.0" prefHeight="25.0" prefWidth="235.0" />
+                                                <Button layoutX="957.0" layoutY="488.0" mnemonicParsing="false" onAction="#comentarAction" text="Comentar" />
+                                                <Label layoutX="1271.0" layoutY="445.0" />
+                                                <Label fx:id="labelMegusta" layoutX="1228.0" layoutY="440.0" prefHeight="28.0" prefWidth="69.0">
+                                                   <font>
+                                                      <Font name="Copperplate Gothic Light" size="14.0" />
+                                                   </font></Label>
+                                                <Label layoutX="1219.0" layoutY="399.0" prefHeight="29.0" prefWidth="135.0" text="Me gustas:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button layoutX="1271.0" layoutY="213.0" mnemonicParsing="false" onAction="#MegustaAction" text="Me gusta" />
                                                             </children>
                                              <effect>
                                                 <Blend />
@@ -343,15 +391,14 @@
                                                   </columns>
                                                 </TableView>
                                                 <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction" text="Agregar" />
+                                                <Button fx:id="eliminarSolicitudAction" layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                <Button layoutX="420.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction" text="Agregar" />
                                                 <TableView fx:id="tablaContactos" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
                                                   <columns>
                                                     <TableColumn fx:id="contactos" prefWidth="199.0" text="Contactos" />
                                                   </columns>
                                                 </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction" text="Eliminar" />
                                                 <TableView fx:id="tablaSolicitudes" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                   <columns>
                                                     <TableColumn fx:id="solicitudes" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -376,9 +423,9 @@
                                     <tabs>
                                         <Tab text="Gestión de productos">
                                             <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="756.0">
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="572.0" prefWidth="1358.0">
                                                     <children>
-                                                        <Pane layoutX="8.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="1363.0">
+                                                        <Pane layoutX="8.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="1349.0">
                                                             <children>
                                                                 <Button fx:id="botonPublicar1" layoutX="79.0" layoutY="548.0" mnemonicParsing="false" onAction="#publicarProductoAction1" text="Publicar" />
                                                                 <Text layoutX="45.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
@@ -430,8 +477,8 @@
                                                       <Image url="@../images/carritoo.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Button fx:id="bttCerrarSesionAdmin2" layoutX="1233.0" layoutY="536.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="574.0" layoutX="690.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                <Button fx:id="bttCerrarSesionAdmin2" layoutX="1241.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="583.0" layoutX="690.0" layoutY="5.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
                                                    <fill>
                                                       <LinearGradient endX="1.0" endY="1.0">
                                                          <stops>
@@ -454,16 +501,45 @@
                                                       </LinearGradient>
                                                    </fill>
                                                 </Rectangle>
+                                                <TableView fx:id="tablaMuro1" layoutX="723.0" layoutY="59.0" prefHeight="339.0" prefWidth="505.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="colNombreMuro1" prefWidth="75.0" text="Nombre" />
+                                                      <TableColumn fx:id="colPrecioMuro1" prefWidth="75.0" text="Precio" />
+                                                      <TableColumn fx:id="colEstadoMuro1" prefWidth="75.0" text="Estado" />
+                                                      <TableColumn fx:id="colImagenMuro1" prefWidth="279.0" text="Imagen" />
+                                                   </columns>
+                                                </TableView>
+                                                <ListView fx:id="listaComentarios1" layoutX="723.0" layoutY="444.0" prefHeight="124.0" prefWidth="187.0" />
+                                                <Label layoutX="723.0" layoutY="13.0" prefHeight="43.0" prefWidth="198.0" text="Muro de productos">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button layoutX="961.0" layoutY="506.0" mnemonicParsing="false" onAction="#comentarAction1" text="Comentar" />
+                                                <Label layoutX="961.0" layoutY="416.0" prefHeight="29.0" prefWidth="184.0" text="Añadir Comentario:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="718.0" layoutY="416.0" prefHeight="29.0" prefWidth="135.0" text="Comentarios:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="labelMegusta1" layoutX="1241.0" layoutY="453.0" prefHeight="28.0" prefWidth="69.0">
+                                                   <font>
+                                                      <Font name="Copperplate Gothic Light" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button layoutX="1257.0" layoutY="234.0" mnemonicParsing="false" onAction="#MegustaAction1" text="Me gusta" />
                                                             </children>
                                                         </Pane>
-                                          <TableView fx:id="tablaMuro1" layoutX="789.0" layoutY="88.0" prefHeight="356.0" prefWidth="505.0">
-                                             <columns>
-                                                <TableColumn fx:id="colNombreMuro1" prefWidth="75.0" text="Nombre" />
-                                                <TableColumn fx:id="colPrecioMuro1" prefWidth="75.0" text="Precio" />
-                                                <TableColumn fx:id="colEstadoMuro1" prefWidth="75.0" text="Estado" />
-                                                <TableColumn fx:id="colImagenMuro1" prefWidth="279.0" text="Imagen" />
-                                             </columns>
-                                          </TableView>
+                                          <TextField fx:id="txtComentario1" layoutX="967.0" layoutY="451.0" prefHeight="25.0" prefWidth="235.0" />
+                                          <Label layoutX="1229.0" layoutY="409.0" prefHeight="29.0" prefWidth="135.0" text="Me gustas:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
@@ -483,15 +559,14 @@
                                                          </columns>
                                                       </TableView>
                                                       <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction1" text="Confirmar" />
-                                                      <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                      <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                      <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction1" text="Agregar" />
+                                                      <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction1" text="Eliminar" />
+                                                      <Button layoutX="422.0" layoutY="470.0" mnemonicParsing="false" onAction="#crearSolicitudAction1" text="Agregar" />
                                                       <TableView fx:id="tablaContactos1" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
                                                          <columns>
                                                             <TableColumn fx:id="contactos1" prefWidth="199.0" text="Contactos" />
                                                          </columns>
                                                       </TableView>
-                                                      <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                      <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction1" text="Eliminar" />
                                                       <TableView fx:id="tablaSolicitudes1" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                          <columns>
                                                             <TableColumn fx:id="solicitudes1" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -571,7 +646,7 @@
                                                       <Image url="@../images/carritoo.png" />
                                                    </image>
                                                 </ImageView>
-                                                <TableView fx:id="tablaMuro2" layoutX="783.0" layoutY="69.0" prefHeight="385.0" prefWidth="524.0">
+                                                <TableView fx:id="tablaMuro2" layoutX="745.0" layoutY="54.0" prefHeight="342.0" prefWidth="501.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNombreMuro2" prefWidth="75.0" text="Nombre" />
                                                       <TableColumn fx:id="colPrecioMuro2" prefWidth="75.0" text="Precio" />
@@ -579,6 +654,18 @@
                                                       <TableColumn fx:id="colImagenMuro2" prefWidth="279.0" text="Imagen" />
                                                    </columns>
                                                 </TableView>
+                                                <Label layoutX="745.0" layoutY="14.0" prefHeight="43.0" prefWidth="198.0" text="Muro de productos">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="745.0" layoutY="402.0" prefHeight="29.0" prefWidth="135.0" text="Comentarios:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <ListView fx:id="listaComentarios2" layoutX="745.0" layoutY="431.0" prefHeight="124.0" prefWidth="187.0" />
+                                                <Button layoutX="1242.0" layoutY="17.0" mnemonicParsing="false" onAction="#cerrarSesionAction" prefHeight="25.0" prefWidth="107.0" text="CerrarSesion" />
                                                             </children>
                                                         </Pane>
                                           <Rectangle arcHeight="5.0" arcWidth="5.0" height="593.0" layoutX="718.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
@@ -604,7 +691,24 @@
                                                 </LinearGradient>
                                              </fill>
                                           </Rectangle>
-                                          <Button layoutX="1257.0" layoutY="529.0" mnemonicParsing="false" onAction="#cerrarSesionAction" prefHeight="25.0" prefWidth="107.0" text="CerrarSesion" />
+                                          <TextField fx:id="txtComentario2" layoutX="967.0" layoutY="451.0" prefHeight="25.0" prefWidth="235.0" />
+                                          <Label fx:id="labelMegusta2" layoutX="1238.0" layoutY="450.0" prefHeight="28.0" prefWidth="69.0">
+                                             <font>
+                                                <Font name="Copperplate Gothic Light" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button layoutX="967.0" layoutY="498.0" mnemonicParsing="false" onAction="#comentarAction2" text="Comentar" />
+                                          <Button layoutX="1281.0" layoutY="223.0" mnemonicParsing="false" onAction="#MegustaAction2" text="Me gusta" />
+                                          <Label layoutX="967.0" layoutY="407.0" prefHeight="29.0" prefWidth="184.0" text="Añadir Comentario:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="1229.0" layoutY="409.0" prefHeight="29.0" prefWidth="135.0" text="Me gustas:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
@@ -622,15 +726,14 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction2" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction2" text="Agregar" />
+                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction2" text="Eliminar" />
+                                                <Button layoutX="421.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction2" text="Agregar" />
                                                 <TableView fx:id="tablaContactos2" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
                                                    <columns>
                                                       <TableColumn fx:id="contactos2" prefWidth="199.0" text="Contactos" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction2" text="Eliminar" />
                                                 <TableView fx:id="tablaSolicitudes2" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                    <columns>
                                                       <TableColumn fx:id="solicitudes2" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -708,7 +811,28 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <Button layoutX="1247.0" layoutY="519.0" mnemonicParsing="false" onAction="#cerrarSesionAction" prefHeight="25.0" prefWidth="107.0" text="CerrarSesion" />
+                                                <Button layoutX="1264.0" layoutY="9.0" mnemonicParsing="false" onAction="#cerrarSesionAction" prefHeight="25.0" prefWidth="90.0" text="CerrarSesion" />
+                                                <TableView fx:id="tablaMuro3" layoutX="742.0" layoutY="44.0" prefHeight="356.0" prefWidth="497.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="colNombreMuro3" prefWidth="75.0" text="Nombre" />
+                                                      <TableColumn fx:id="colPrecioMuro3" prefWidth="75.0" text="Precio" />
+                                                      <TableColumn fx:id="colEstadoMuro3" prefWidth="75.0" text="Estado" />
+                                                      <TableColumn fx:id="colImagenMuro3" prefWidth="279.0" text="Imagen" />
+                                                   </columns>
+                                                </TableView>
+                                                <ListView fx:id="listaComentarios3" layoutX="742.0" layoutY="435.0" prefHeight="124.0" prefWidth="187.0" />
+                                                <Label layoutX="742.0" prefHeight="43.0" prefWidth="198.0" text="Muro de productos">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="txtComentario3" layoutX="959.0" layoutY="446.0" prefHeight="25.0" prefWidth="235.0" />
+                                                <Label layoutX="742.0" layoutY="407.0" prefHeight="29.0" prefWidth="135.0" text="Comentarios:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button layoutX="975.0" layoutY="483.0" mnemonicParsing="false" onAction="#comentarAction3" text="Comentar" />
                                                             </children>
                                                         </Pane>
                                           <Rectangle arcHeight="5.0" arcWidth="5.0" height="589.0" layoutX="718.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
@@ -734,22 +858,22 @@
                                                 </LinearGradient>
                                              </fill>
                                           </Rectangle>
-                                          <TableView layoutX="789.0" layoutY="88.0" prefHeight="356.0" prefWidth="505.0">
-                                             <columns>
-                                                <TableColumn fx:id="colNombreMuro3" prefWidth="75.0" text="Nombre" />
-                                                <TableColumn fx:id="colPrecioMuro3" prefWidth="75.0" text="Precio" />
-                                                <TableColumn fx:id="colEstadoMuro3" prefWidth="75.0" text="Estado" />
-                                                <TableColumn fx:id="colImagenMuro3" prefWidth="279.0" text="Imagen" />
-                                             </columns>
-                                          </TableView>
-                                          <TableView fx:id="tablaMuro3" layoutX="789.0" layoutY="88.0" prefHeight="356.0" prefWidth="505.0">
-                                             <columns>
-                                                <TableColumn fx:id="colNombreMuro3" prefWidth="75.0" text="Nombre" />
-                                                <TableColumn fx:id="colPrecioMuro3" prefWidth="75.0" text="Precio" />
-                                                <TableColumn fx:id="colEstadoMuro3" prefWidth="75.0" text="Estado" />
-                                                <TableColumn fx:id="colImagenMuro3" prefWidth="279.0" text="Imagen" />
-                                             </columns>
-                                          </TableView>
+                                          <Label fx:id="labelMegusta3" layoutX="1238.0" layoutY="450.0" prefHeight="28.0" prefWidth="69.0">
+                                             <font>
+                                                <Font name="Copperplate Gothic Light" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button layoutX="1281.0" layoutY="223.0" mnemonicParsing="false" onAction="#MegustaAction3" text="Me gusta" />
+                                          <Label layoutX="967.0" layoutY="407.0" prefHeight="29.0" prefWidth="184.0" text="Añadir Comentario:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="1229.0" layoutY="409.0" prefHeight="29.0" prefWidth="135.0" text="Me gustas:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
@@ -767,15 +891,14 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction3" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction3" text="Agregar" />
+                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction3" text="Eliminar" />
+                                                <Button layoutX="423.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction3" text="Agregar" />
                                                 <TableView fx:id="tablaContactos3" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
                                                    <columns>
                                                       <TableColumn fx:id="contactos3" prefWidth="199.0" text="Contactos" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction3" text="Eliminar" />
                                                 <TableView fx:id="tablaSolicitudes3" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                    <columns>
                                                       <TableColumn fx:id="solicitudes3" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -850,8 +973,8 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <Button fx:id="bttCerrarSesionAdmin5" layoutX="1242.0" layoutY="543.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="705.0" layoutX="717.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                <Button fx:id="bttCerrarSesionAdmin5" layoutX="1271.0" layoutY="23.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="714.0" layoutX="717.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
                                                    <fill>
                                                       <LinearGradient endX="1.0" endY="1.0">
                                                          <stops>
@@ -879,16 +1002,45 @@
                                                       <Image url="@../images/carritoo.png" />
                                                    </image>
                                                 </ImageView>
+                                                <TableView fx:id="tablaMuro4" layoutX="743.0" layoutY="56.0" prefHeight="356.0" prefWidth="505.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="colNombreMuro4" prefWidth="75.0" text="Nombre" />
+                                                      <TableColumn fx:id="colPrecioMuro4" prefWidth="75.0" text="Precio" />
+                                                      <TableColumn fx:id="colEstadoMuro4" prefWidth="75.0" text="Estado" />
+                                                      <TableColumn fx:id="colImagenMuro4" prefWidth="279.0" text="Imagen" />
+                                                   </columns>
+                                                </TableView>
+                                                <Label layoutX="960.0" layoutY="412.0" prefHeight="29.0" prefWidth="184.0" text="Añadir Comentario:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="743.0" layoutY="14.0" prefHeight="43.0" prefWidth="198.0" text="Muro de productos">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <ListView fx:id="listaComentarios4" layoutX="743.0" layoutY="446.0" prefHeight="106.0" prefWidth="187.0" />
+                                                <Label layoutX="746.0" layoutY="409.0" prefHeight="29.0" prefWidth="135.0" text="Comentarios:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
                                                             </children>
                                                         </Pane>
-                                          <TableView fx:id="tablaMuro4" layoutX="799.0" layoutY="98.0" prefHeight="356.0" prefWidth="505.0">
-                                             <columns>
-                                                <TableColumn fx:id="colNombreMuro4" prefWidth="75.0" text="Nombre" />
-                                                <TableColumn fx:id="colPrecioMuro4" prefWidth="75.0" text="Precio" />
-                                                <TableColumn fx:id="colEstadoMuro4" prefWidth="75.0" text="Estado" />
-                                                <TableColumn fx:id="colImagenMuro4" prefWidth="279.0" text="Imagen" />
-                                             </columns>
-                                          </TableView>
+                                          <TextField fx:id="txtComentario4" layoutX="967.0" layoutY="451.0" prefHeight="25.0" prefWidth="235.0" />
+                                          <Label fx:id="labelMegusta4" layoutX="1238.0" layoutY="450.0" prefHeight="28.0" prefWidth="69.0">
+                                             <font>
+                                                <Font name="Copperplate Gothic Light" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button layoutX="967.0" layoutY="498.0" mnemonicParsing="false" onAction="#comentarAction4" text="Comentar" />
+                                          <Button layoutX="1281.0" layoutY="223.0" mnemonicParsing="false" onAction="#MegustaAction4" text="Me gusta" />
+                                          <Label layoutX="1229.0" layoutY="409.0" prefHeight="29.0" prefWidth="135.0" text="Me gustas:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
@@ -906,15 +1058,14 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction4" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction4" text="Agregar" />
+                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction4" text="Eliminar" />
+                                                <Button layoutX="416.0" layoutY="475.0" mnemonicParsing="false" onAction="#crearSolicitudAction4" text="Agregar" />
                                                 <TableView fx:id="tablaContactos4" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
                                                    <columns>
                                                       <TableColumn fx:id="contactos4" prefWidth="199.0" text="Contactos" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction4" text="Eliminar" />
                                                 <TableView fx:id="tablaSolicitudes4" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                    <columns>
                                                       <TableColumn fx:id="solicitudes4" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -949,8 +1100,8 @@
                                                                 <Text layoutX="66.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
                                                                 <Text layoutX="63.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
                                                                 <Text layoutX="70.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
-                                                                <Button fx:id="botonActualizar5" layoutX="176.0" layoutY="543.0" mnemonicParsing="false" onAction="#actualizarProductoAction5" text="Actualizar" />
-                                                                <Button fx:id="botonEliminar5" layoutX="267.0" layoutY="543.0" mnemonicParsing="false" onAction="#eliminarProductoAction5" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                                                <Button fx:id="botonActualizar5" layoutX="177.0" layoutY="531.0" mnemonicParsing="false" onAction="#actualizarProductoAction5" text="Actualizar" />
+                                                                <Button fx:id="botonEliminar5" layoutX="268.0" layoutY="531.0" mnemonicParsing="false" onAction="#eliminarProductoAction5" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
                                                                 <ComboBox fx:id="comboEstadoProducto5" layoutX="135.0" layoutY="206.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
                                                                 <TextField fx:id="campoNombreProducto5" layoutX="135.0" layoutY="57.0" prefHeight="25.0" prefWidth="168.0" promptText="Ingrese nombre del producto">
                                                                     <font>
@@ -988,7 +1139,7 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <Button fx:id="bttCerrarSesionAdmin6" layoutX="1248.0" layoutY="556.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                <Button fx:id="bttCerrarSesionAdmin6" layoutX="1267.0" layoutY="9.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
                                                 <Rectangle arcHeight="5.0" arcWidth="5.0" height="573.0" layoutX="711.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
                                                    <fill>
                                                       <LinearGradient endX="1.0" endY="1.0">
@@ -1017,8 +1168,45 @@
                                                       <Image url="@../images/carritoo.png" />
                                                    </image>
                                                 </ImageView>
+                                                <Label layoutX="741.0" prefHeight="43.0" prefWidth="198.0" text="Muro de productos">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <TableView fx:id="tablaMuro5" layoutX="741.0" layoutY="49.0" prefHeight="356.0" prefWidth="505.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="colNombreMuro5" prefWidth="75.0" text="Nombre" />
+                                                      <TableColumn fx:id="colPrecioMuro5" prefWidth="75.0" text="Precio" />
+                                                      <TableColumn fx:id="colEstadoMuro5" prefWidth="75.0" text="Estado" />
+                                                      <TableColumn fx:id="colImagenMuro5" prefWidth="279.0" text="Imagen" />
+                                                   </columns>
+                                                </TableView>
+                                                <Label layoutX="741.0" layoutY="407.0" prefHeight="29.0" prefWidth="135.0" text="Comentarios:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="977.0" layoutY="417.0" prefHeight="29.0" prefWidth="184.0" text="Añadir Comentario:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <ListView fx:id="listaComentarios5" layoutX="741.0" layoutY="436.0" prefHeight="124.0" prefWidth="187.0" />
                                                             </children>
                                                         </Pane>
+                                          <TextField fx:id="txtComentario5" layoutX="967.0" layoutY="451.0" prefHeight="25.0" prefWidth="235.0" />
+                                          <Label fx:id="labelMegusta5" layoutX="1238.0" layoutY="450.0" prefHeight="28.0" prefWidth="69.0">
+                                             <font>
+                                                <Font name="Copperplate Gothic Light" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button layoutX="967.0" layoutY="498.0" mnemonicParsing="false" onAction="#comentarAction5" text="Comentar" />
+                                          <Button layoutX="1281.0" layoutY="223.0" mnemonicParsing="false" onAction="#MegustaAction5" text="Me gusta" />
+                                          <Label layoutX="1229.0" layoutY="409.0" prefHeight="29.0" prefWidth="135.0" text="Me gustas:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
@@ -1036,15 +1224,14 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction5" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction5" text="Agregar" />
+                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction5" text="Eliminar" />
+                                                <Button layoutX="413.0" layoutY="475.0" mnemonicParsing="false" onAction="#crearSolicitudAction5" text="Agregar" />
                                                 <TableView fx:id="tablaContactos5" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
                                                    <columns>
                                                       <TableColumn fx:id="contactos5" prefWidth="199.0" text="Contactos" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction5" text="Eliminar" />
                                                 <TableView fx:id="tablaSolicitudes5" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                    <columns>
                                                       <TableColumn fx:id="solicitudes5" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -1118,8 +1305,8 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <Button fx:id="bttCerrarSesionAdmin7" layoutX="1264.0" layoutY="546.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="512.0" layoutX="749.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                <Button fx:id="bttCerrarSesionAdmin7" layoutX="1260.0" layoutY="9.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="573.0" layoutX="749.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
                                                    <fill>
                                                       <LinearGradient endX="1.0" endY="1.0">
                                                          <stops>
@@ -1147,8 +1334,45 @@
                                                       <Image url="@../images/carritoo.png" />
                                                    </image>
                                                 </ImageView>
+                                                <ListView fx:id="listaComentarios6" layoutX="769.0" layoutY="426.0" prefHeight="124.0" prefWidth="187.0" />
+                                                <Label layoutX="769.0" prefHeight="43.0" prefWidth="198.0" text="Muro de productos">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="txtComentario6" layoutX="1004.0" layoutY="475.0" prefHeight="25.0" prefWidth="235.0" />
+                                                <Label fx:id="labelMegusta6" layoutX="1278.0" layoutY="445.0" prefHeight="28.0" prefWidth="69.0">
+                                                   <font>
+                                                      <Font name="Copperplate Gothic Light" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button layoutX="1021.0" layoutY="514.0" mnemonicParsing="false" onAction="#comentarAction6" text="Comentar" />
+                                                <TableView fx:id="tablaMuro6" layoutX="769.0" layoutY="55.0" prefHeight="324.0" prefWidth="505.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="colNombreMuro6" prefWidth="75.0" text="Nombre" />
+                                                      <TableColumn fx:id="colPrecioMuro6" prefWidth="75.0" text="Precio" />
+                                                      <TableColumn fx:id="colEstadoMuro6" prefWidth="75.0" text="Estado" />
+                                                      <TableColumn fx:id="colImagenMuro6" prefWidth="279.0" text="Imagen" />
+                                                   </columns>
+                                                </TableView>
+                                                <Button layoutX="1290.0" layoutY="220.0" mnemonicParsing="false" onAction="#MegustaAction6" text="Me gusta" />
+                                                <Label layoutX="769.0" layoutY="397.0" prefHeight="29.0" prefWidth="135.0" text="Comentarios:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="987.0" layoutY="397.0" prefHeight="29.0" prefWidth="184.0" text="Añadir Comentario:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
                                                             </children>
                                                         </Pane>
+                                          <Label layoutX="1229.0" layoutY="409.0" prefHeight="29.0" prefWidth="135.0" text="Me gustas:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
@@ -1157,7 +1381,7 @@
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <AnchorPane prefHeight="512.0" prefWidth="1385.0">
+                                          <AnchorPane prefHeight="575.0" prefWidth="1385.0">
                                              <children>
                                                 <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
                                                 <TableView fx:id="tablaSugerencias6" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
@@ -1166,15 +1390,14 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction6" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction6" text="Agregar" />
+                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction6" text="Eliminar" />
+                                                <Button layoutX="421.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction6" text="Agregar" />
                                                 <TableView fx:id="tablaContactos6" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
                                                    <columns>
                                                       <TableColumn fx:id="contactos6" prefWidth="199.0" text="Contactos" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction6" text="Eliminar" />
                                                 <TableView fx:id="tablaSolicitudes6" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                    <columns>
                                                       <TableColumn fx:id="solicitudes6" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -1201,16 +1424,15 @@
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="443.0" prefWidth="756.0">
                                                     <children>
-                                                        <Pane layoutX="14.0" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="1361.0">
+                                                        <Pane layoutX="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1361.0">
                                                             <children>
-                                                                <Button fx:id="botonPublicar7" layoutX="110.0" layoutY="553.0" mnemonicParsing="false" onAction="#publicarProductoAction7" text="Publicar" />
+                                                                <Button fx:id="botonPublicar7" layoutX="110.0" layoutY="531.0" mnemonicParsing="false" onAction="#publicarProductoAction7" text="Publicar" />
                                                                 <Text layoutX="92.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
                                                                 <Text layoutX="94.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" />
                                                                 <Text layoutX="71.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría" />
                                                                 <Text layoutX="69.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Url imagen" />
                                                                 <Text layoutX="77.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
-                                                                <Button fx:id="botonActualizar7" layoutX="200.0" layoutY="553.0" mnemonicParsing="false" onAction="#actualizarProductoAction7" text="Actualizar" />
-                                                                <Button fx:id="botonEliminar7" layoutX="285.0" layoutY="553.0" mnemonicParsing="false" onAction="#eliminarProductoAction7" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                                                <Button fx:id="botonActualizar7" layoutX="200.0" layoutY="531.0" mnemonicParsing="false" onAction="#actualizarProductoAction7" text="Actualizar" />
                                                                 <ComboBox fx:id="comboEstadoProducto7" layoutX="156.0" layoutY="196.0" onAction="#eventoComboBox" prefHeight="25.0" prefWidth="135.0" promptText="Estado" />
                                                                 <TextField fx:id="campoNombreProducto7" layoutX="152.0" layoutY="53.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese nombre del producto">
                                                                     <font>
@@ -1232,7 +1454,7 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                                <TableView fx:id="tablaProductos7" layoutX="28.0" layoutY="348.0" prefHeight="200.0" prefWidth="641.0">
+                                                                <TableView fx:id="tablaProductos7" layoutX="36.0" layoutY="302.0" prefHeight="200.0" prefWidth="641.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="columnaNombreP7" prefWidth="138.0" text="Nombre" />
                                                                         <TableColumn fx:id="columnaCategoria7" minWidth="6.0" text="Categoría" />
@@ -1248,8 +1470,8 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <Button fx:id="bttCerrarSesionAdmin8" layoutX="1260.0" layoutY="553.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="570.0" layoutX="699.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                <Button fx:id="bttCerrarSesionAdmin8" layoutX="1250.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="598.0" layoutX="699.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
                                                    <fill>
                                                       <LinearGradient endX="1.0" endY="1.0">
                                                          <stops>
@@ -1277,8 +1499,46 @@
                                                       <Image url="@../images/carritoo.png" />
                                                    </image>
                                                 </ImageView>
+                                                <Label layoutX="724.0" layoutY="5.0" prefHeight="43.0" prefWidth="198.0" text="Muro de productos">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="960.0" layoutY="410.0" prefHeight="29.0" prefWidth="184.0" text="Añadir Comentario:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
                                                             </children>
                                                         </Pane>
+                                                          <Button fx:id="botonEliminar7" layoutX="279.0" layoutY="528.0" mnemonicParsing="false" onAction="#eliminarProductoAction7" prefHeight="25.0" prefWidth="71.0" text="Eliminar" />
+                                          <TableView fx:id="tablaMuro7" layoutX="741.0" layoutY="74.0" prefHeight="323.0" prefWidth="504.0">
+                                             <columns>
+                                                <TableColumn fx:id="colNombreMuro7" prefWidth="75.0" text="Nombre" />
+                                                <TableColumn fx:id="colPrecioMuro7" prefWidth="75.0" text="Precio" />
+                                                <TableColumn fx:id="colEstadoMuro7" prefWidth="75.0" text="Estado" />
+                                                <TableColumn fx:id="colImagenMuro7" prefWidth="279.0" text="Imagen" />
+                                             </columns>
+                                          </TableView>
+                                          <ListView fx:id="listaComentarios7" layoutX="741.0" layoutY="436.0" prefHeight="124.0" prefWidth="187.0" />
+                                          <TextField fx:id="txtComentario7" layoutX="967.0" layoutY="451.0" prefHeight="25.0" prefWidth="235.0" />
+                                          <Label fx:id="labelMegusta7" layoutX="1238.0" layoutY="450.0" prefHeight="28.0" prefWidth="69.0">
+                                             <font>
+                                                <Font name="Copperplate Gothic Light" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button layoutX="967.0" layoutY="498.0" mnemonicParsing="false" onAction="#comentarAction7" text="Comentar" />
+                                          <Button layoutX="1281.0" layoutY="223.0" mnemonicParsing="false" onAction="#MegustaAction7" text="Me gusta" />
+                                          <Label layoutX="741.0" layoutY="407.0" prefHeight="29.0" prefWidth="135.0" text="Comentarios:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="1229.0" layoutY="409.0" prefHeight="29.0" prefWidth="135.0" text="Me gustas:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
@@ -1296,15 +1556,14 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction7" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction7" text="Agregar" />
+                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction7" text="Eliminar" />
+                                                <Button layoutX="420.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction7" text="Agregar" />
                                                 <TableView fx:id="tablaContactos7" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
                                                    <columns>
                                                       <TableColumn fx:id="contactos7" prefWidth="199.0" text="Contactos" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction7" text="Eliminar" />
                                                 <TableView fx:id="tablaSolicitudes7" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                    <columns>
                                                       <TableColumn fx:id="solicitudes7" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -1331,7 +1590,7 @@
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="756.0">
                                                     <children>
-                                                        <Pane layoutX="4.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="1364.0">
+                                                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="1364.0">
                                                             <children>
                                                                 <Button fx:id="botonPublicar8" layoutX="80.0" layoutY="529.0" mnemonicParsing="false" onAction="#publicarProductoAction8" text="Publicar" />
                                                                 <Text layoutX="78.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
@@ -1378,7 +1637,7 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <Button fx:id="bttCerrarSesionAdmin9" layoutX="1256.0" layoutY="554.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                <Button fx:id="bttCerrarSesionAdmin9" layoutX="1263.0" layoutY="28.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
                                                 <Rectangle arcHeight="5.0" arcWidth="5.0" height="575.0" layoutX="677.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
                                                    <fill>
                                                       <LinearGradient endX="1.0" endY="1.0">
@@ -1407,8 +1666,45 @@
                                                       <Image url="@../images/carritoo.png" />
                                                    </image>
                                                 </ImageView>
+                                                <Label layoutX="721.0" layoutY="19.0" prefHeight="43.0" prefWidth="176.0" text="Muro de productos">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <TableView fx:id="tablaMuro8" layoutX="721.0" layoutY="69.0" prefHeight="323.0" prefWidth="504.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="colNombreMuro8" prefWidth="75.0" text="Nombre" />
+                                                      <TableColumn fx:id="colPrecioMuro8" prefWidth="75.0" text="Precio" />
+                                                      <TableColumn fx:id="colEstadoMuro8" prefWidth="75.0" text="Estado" />
+                                                      <TableColumn fx:id="colImagenMuro8" prefWidth="279.0" text="Imagen" />
+                                                   </columns>
+                                                </TableView>
+                                                <Button layoutX="1263.0" layoutY="236.0" mnemonicParsing="false" onAction="#MegustaAction8" text="Me gusta" />
+                                                <Label layoutX="956.0" layoutY="406.0" prefHeight="29.0" prefWidth="184.0" text="Añadir Comentario:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="txtComentario8" layoutX="956.0" layoutY="450.0" prefHeight="25.0" prefWidth="235.0" />
+                                                <Button layoutX="965.0" layoutY="495.0" mnemonicParsing="false" onAction="#comentarAction8" text="Comentar" />
+                                                <Label layoutX="721.0" layoutY="403.0" prefHeight="29.0" prefWidth="135.0" text="Comentarios:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <ListView fx:id="listaComentarios8" layoutX="721.0" layoutY="433.0" prefHeight="124.0" prefWidth="187.0" />
                                                             </children>
                                                         </Pane>
+                                          <Label fx:id="labelMegusta8" layoutX="1238.0" layoutY="450.0" prefHeight="28.0" prefWidth="69.0">
+                                             <font>
+                                                <Font name="Copperplate Gothic Light" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="1229.0" layoutY="409.0" prefHeight="29.0" prefWidth="135.0" text="Me gustas:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
@@ -1417,7 +1713,7 @@
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <AnchorPane prefHeight="512.0" prefWidth="1385.0">
+                                          <AnchorPane prefHeight="569.0" prefWidth="1385.0">
                                              <children>
                                                 <ButtonBar layoutX="441.0" layoutY="120.0" prefHeight="40.0" prefWidth="200.0" />
                                                 <TableView fx:id="tablaSugerencias8" layoutX="336.0" layoutY="15.0" prefHeight="447.0" prefWidth="227.0">
@@ -1426,15 +1722,14 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction8" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction8" text="Agregar" />
+                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction8" text="Eliminar" />
+                                                <Button layoutX="412.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction8" text="Agregar" />
                                                 <TableView fx:id="tablaContactos8" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
                                                    <columns>
                                                       <TableColumn fx:id="contactos8" prefWidth="199.0" text="Contactos" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction8" text="Eliminar" />
                                                 <TableView fx:id="tablaSolicitudes8" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                    <columns>
                                                       <TableColumn fx:id="solicitudes8" prefWidth="234.0" text="Solicitudes de amistad" />
@@ -1508,13 +1803,13 @@
                                                                         <Font name="System Italic" size="12.0" />
                                                                     </font>
                                                                 </TextField>
-                                                <ImageView fitHeight="177.0" fitWidth="227.0" layoutX="420.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fitHeight="185.0" fitWidth="240.0" layoutX="420.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../images/carritoo.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Button fx:id="bttCerrarSesionAdmin10" layoutX="1246.0" layoutY="546.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="571.0" layoutX="737.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
+                                                <Button fx:id="bttCerrarSesionAdmin10" layoutX="1260.0" layoutY="19.0" mnemonicParsing="false" onAction="#cerrarSesionAction" text="Cerrar Sesion" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" height="591.0" layoutX="737.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="11.0">
                                                    <fill>
                                                       <LinearGradient endX="1.0" endY="1.0">
                                                          <stops>
@@ -1537,8 +1832,45 @@
                                                       </LinearGradient>
                                                    </fill>
                                                 </Rectangle>
+                                                <TableView fx:id="tablaMuro9" layoutX="777.0" layoutY="66.0" prefHeight="323.0" prefWidth="504.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="colNombreMuro9" prefWidth="75.0" text="Nombre" />
+                                                      <TableColumn fx:id="colPrecioMuro9" prefWidth="75.0" text="Precio" />
+                                                      <TableColumn fx:id="colEstadoMuro9" prefWidth="75.0" text="Estado" />
+                                                      <TableColumn fx:id="colImagenMuro9" prefWidth="279.0" text="Imagen" />
+                                                   </columns>
+                                                </TableView>
+                                                <ListView fx:id="listaComentarios9" layoutX="777.0" layoutY="421.0" prefHeight="124.0" prefWidth="187.0" />
+                                                <Label layoutX="777.0" layoutY="10.0" prefHeight="43.0" prefWidth="198.0" text="Muro de productos">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="txtComentario9" layoutX="975.0" layoutY="449.0" prefHeight="25.0" prefWidth="235.0" />
+                                                <Label layoutX="777.0" layoutY="393.0" prefHeight="29.0" prefWidth="135.0" text="Comentarios:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="975.0" layoutY="393.0" prefHeight="29.0" prefWidth="184.0" text="Añadir Comentario:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button layoutX="977.0" layoutY="499.0" mnemonicParsing="false" onAction="#comentarAction9" text="Comentar" />
+                                                <Label layoutX="1225.0" layoutY="393.0" prefHeight="29.0" prefWidth="113.0" text="Me gustas:">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="labelMegusta9" layoutX="1225.0" layoutY="448.0" prefHeight="28.0" prefWidth="69.0">
+                                                   <font>
+                                                      <Font name="Copperplate Gothic Light" size="14.0" />
+                                                   </font>
+                                                </Label>
                                                             </children>
                                                         </Pane>
+                                          <Button layoutX="1291.0" layoutY="233.0" mnemonicParsing="false" onAction="#MegustaAction9" text="Me gusta" />
                                                     </children>
                                                 </AnchorPane>
                                             </content>
@@ -1556,15 +1888,14 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="97.0" layoutY="473.0" mnemonicParsing="false" onAction="#confirmarSolicitudAction9" text="Confirmar" />
-                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="464.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
-                                                <Button layoutX="380.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction9" text="Agregar" />
+                                                <Button layoutX="195.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarSolicitudAction9" text="Eliminar" />
+                                                <Button layoutX="412.0" layoutY="473.0" mnemonicParsing="false" onAction="#crearSolicitudAction9" text="Agregar" />
                                                 <TableView fx:id="tablaContactos9" layoutX="605.0" layoutY="15.0" prefHeight="449.0" prefWidth="200.0">
                                                    <columns>
                                                       <TableColumn fx:id="contactos9" prefWidth="199.0" text="Contactos" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" text="Eliminar" />
+                                                <Button layoutX="674.0" layoutY="473.0" mnemonicParsing="false" onAction="#eliminarContactoAction9" text="Eliminar" />
                                                 <TableView fx:id="tablaSolicitudes9" layoutX="64.0" layoutY="14.0" prefHeight="452.0" prefWidth="235.0">
                                                    <columns>
                                                       <TableColumn fx:id="solicitudes9" prefWidth="234.0" text="Solicitudes de amistad" />

@@ -17,11 +17,11 @@ public class ModelFactoryController implements Runnable {
     Thread hiloServicio3_GuardarResourceBinario;
     Thread hiloServicio4_GuardarVendedores;
     Thread hiloServicio5_GuardarRespaldoXML;
+    Thread hiloServicio6_GuardarProductos;
     BoundedSemaphore semaphore = new BoundedSemaphore(1);
     String mensaje;
     int nivel;
     String accion;
-
 
 
 
@@ -90,6 +90,20 @@ public class ModelFactoryController implements Runnable {
         if (hiloActual == hiloServicio5_GuardarRespaldoXML) {
             try {
                 Persistencia.respaldo();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            liberarSemaforo();
+        }
+        if (hiloActual == hiloServicio6_GuardarProductos) {
+            ArrayList<Producto> productos= new ArrayList<Producto>();
+            for (Vendedor vendedor : getMarketplace().getAdministrador().getVendedores()) {
+                    for (Producto producto : vendedor.getListaProductos()) {
+                            productos.add(producto);
+                  }
+            }
+            try {
+                Persistencia.guardarProductos(productos);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -183,6 +197,10 @@ public class ModelFactoryController implements Runnable {
     private void guardarVendedores() {
         hiloServicio4_GuardarVendedores = new Thread(this);
         hiloServicio4_GuardarVendedores.start();
+    }
+    private void guardarProductos(){
+        hiloServicio6_GuardarProductos = new Thread(this);
+        hiloServicio6_GuardarProductos.start();
     }
 
     private void inicializarDatos() {
@@ -283,6 +301,7 @@ public class ModelFactoryController implements Runnable {
                 registrarAccionesSistema("El vendedor" + ObtenerVendedor().getNombre() + "producto creado con codigo " + producto.getCodigo(), 1, "Crear producto");
                 guardarResourceXML();
                 respaldoXML();
+                guardarProductos();
             }
         } catch (VendedorException e) {
            registrarAccionesSistema("Se ha creado una nueva excepción" + e, 2, "Crear producto");
@@ -297,6 +316,7 @@ public class ModelFactoryController implements Runnable {
         ObtenerVendedor().actualizarProducto(producto,idAnterior);
         guardarResourceXML();
         respaldoXML();
+        guardarProductos();
         registrarAccionesSistema("Producto actualizado con cedula "+producto.getCodigo(),1 , "Actualizar vendedor");
         return producto;
     }
@@ -308,6 +328,7 @@ public class ModelFactoryController implements Runnable {
             ObtenerVendedor().eliminarProducto(producto);
             guardarResourceXML();
             respaldoXML();
+            guardarProductos();
             registrarAccionesSistema("Producto eliminado con codigo " + producto.getCodigo(), 2, "Eliminar producto");
             return true;
         } catch (VendedorException e) {
@@ -351,6 +372,7 @@ public class ModelFactoryController implements Runnable {
         Vendedor receptor = ObtenerVendedor();
         try {
             receptor.confirmarSolicitudAmistad(vendedor);
+            vendedor.confirmarSolicitudAmistad(receptor);
             registrarAccionesSistema("Solicitud de amistad confirmada con " + vendedor.getNombre(), 1, "Confirmar solicitud de amistad");
             guardarResourceXML();
             respaldoXML();
@@ -361,13 +383,56 @@ public class ModelFactoryController implements Runnable {
         }
     }
     public ArrayList<Producto> obtenerPublicaciones () throws MuroException {
-         if (ObtenerVendedor().obtenerPublicaciones() == null){
+        ArrayList<Producto> publicaciones = ObtenerVendedor().obtenerPublicaciones();
+        publicaciones = añadirPublicacionesPropias(publicaciones);
+
+         if (publicaciones == null){
              throw new MuroException("No hay publicaciones");
          }else {
-             return ObtenerVendedor().obtenerPublicaciones();
+             return publicaciones;
          }
     }
 
+    private ArrayList<Producto> añadirPublicacionesPropias(ArrayList<Producto> publicaciones) {
+        for (Producto p: ObtenerVendedor().getListaProductos()) {
+            if (!publicaciones.contains(p)){
+                publicaciones.add(p);
+            }
+        }
+        return publicaciones;
+    }
+    public boolean anadirComentario(Producto producto, String comentario) throws ComentariosException {
+        for(Vendedor v: marketplace.getAdministrador().getVendedores()){
+            for (Producto p: v.getListaProductos()){
+                if (p.equals(producto)){
+                    p.anadirComentario(comentario);
+                    registrarAccionesSistema("Se ha añadido un comentario al producto " + producto.getCodigo(), 1, "Añadir comentario");
+                    guardarResourceXML();
+                    respaldoXML();
+                    return true;
+                }
+            }
+            if (producto == null){
+                throw new ComentariosException("No se ha podido añadir el comentario");
+            }
+        }
+        return false;
+    }
+
+    public void anadirMeGusta(Producto producto) throws MegustaException{
+        for(Vendedor v: marketplace.getAdministrador().getVendedores()){
+            for (Producto p: v.getListaProductos()){
+                if (p.equals(producto)){
+                    p.anadirMeGusta();
+                    registrarAccionesSistema("Se ha añadido un me gusta al producto " + producto.getCodigo(), 1, "Añadir me gusta");
+                    guardarResourceXML();
+                    respaldoXML();
+                }
+            }
+        }if (producto == null){
+            throw new MegustaException("No se ha podido añadir el me gusta");
+        }
+    }
     public ArrayList<Vendedor> obtenerSolicitudes(){
         return ObtenerVendedor().getSolicitudesRecibidas();
     }

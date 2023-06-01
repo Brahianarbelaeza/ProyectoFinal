@@ -12,11 +12,11 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
 
     private static final long serialVersionUID = 1L;
     private String direccion;
-    ArrayList<Producto> listaProductos = new ArrayList<Producto>();
+    ArrayList<Producto> listaProductos;
     ArrayList<Vendedor> vendedoresAliados;
     ArrayList<Vendedor> solicitudesRecibidas;
     ArrayList<Vendedor> sugerenciasVendedores;
-    ArrayList<Producto> publicaciones = new ArrayList<Producto>();
+    ArrayList<Producto> publicaciones = new ArrayList<>();
 
     public Vendedor() {
     }
@@ -141,7 +141,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
 
 
     public void agregarSolicitudAmistad(Vendedor emisor) throws EnviarSolicitudException {
-        if (!solicitudesRecibidas.contains(emisor)) {
+        if (!solicitudesRecibidas.contains(emisor) && !vendedoresAliados.contains(emisor)) {
             solicitudesRecibidas.add(emisor);
             System.out.println("Solicitud de amistad enviada");
         } else {

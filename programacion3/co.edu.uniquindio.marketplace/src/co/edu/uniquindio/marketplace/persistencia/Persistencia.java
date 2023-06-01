@@ -2,6 +2,7 @@ package persistencia;
 
 import modelo.Cuenta;
 import modelo.Marketplace;
+import modelo.Producto;
 import modelo.Vendedor;
 
 import java.io.FileNotFoundException;
@@ -17,6 +18,7 @@ public class Persistencia {
 
 
     private static final String RUTA_ARCHIVO_VENDEDORES = "C://td//persistencia//archivos//archivoVendedores.txt";
+    private static final String RUTA_ARCHIVO_PRODUCTOS = "C://td//persistencia//archivos//archivoProductos.txt";
     private static final String RUTA_ARCHIVO_MODELO_MARKETPLACE_BINARIO = "C://td//persistencia//modelo.dat";
     private static final String RUTA_ARCHIVO_MODELO_MARKETPLACE_XML = "C://td//persistencia//modelo.xml";
     private static final String RUTA_ARCHIVO_MODELO_MARKETPLACE_XML_RESPALDO = "C://td//persistencia//respaldo//modelorespaldo.xml";
@@ -93,6 +95,18 @@ public class Persistencia {
         }
 
         ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_VENDEDORES, contenido, false);
+    }
+
+    public static void guardarProductos (ArrayList<Producto> productos) throws IOException {
+
+        String contenido = "";
+
+        for (Producto producto:productos) {
+
+            contenido += producto.getNombre()+"@@"+producto.getCodigo()+"@@"+producto.getPrecio()+"@@"+producto.getRutaImagen()+"@@"+producto.getCategoria()+"@@"+producto.getEstado()+"@@"+producto.getMegustas()+"\n";
+        }
+
+        ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_PRODUCTOS, contenido, false);
     }
     // Retorna un Arraylist de personas con los datos obtenidos del archivo de texto indicado
     public static ArrayList<Vendedor> cargarVendedores() throws FileNotFoundException, IOException{

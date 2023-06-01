@@ -99,4 +99,28 @@ public class Producto implements Serializable {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
+
+    public int getMegustas() {
+        return megustas;
+    }
+
+    public void setMegustas(int megustas) {
+        this.megustas = megustas;
+    }
+
+    public ArrayList<String> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(ArrayList<String> comentarios) {
+        this.comentarios = comentarios;
+    }
+
+    public void anadirComentario(String comentario) {
+        comentarios.add(comentario);
+    }
+
+    public void anadirMeGusta() {
+        megustas++;
+    }
 }
