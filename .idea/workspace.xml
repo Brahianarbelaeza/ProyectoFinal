@@ -7,9 +7,9 @@
     <list default="true" id="707ebebc-d099-4077-bb64-b16c1cb0e947" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControladorMarketplaceView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/controlador/ControladorMarketplaceView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Estado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Estado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Vendedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyectofinal_programacion/modelo/Vendedor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/controlador/ControladorMarketplaceView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Estado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +56,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Home/IdeaProjects/co.edu.uqvirtual.marketPlaceaALE&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Home/IdeaProjects/Chat entrega Final&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -128,6 +128,33 @@
       <workItem from="1683997100951" duration="311000" />
       <workItem from="1683997812863" duration="6297000" />
       <workItem from="1684010823722" duration="1019000" />
+      <workItem from="1684081799053" duration="23610000" />
+      <workItem from="1684169544956" duration="2832000" />
+      <workItem from="1684199233082" duration="5332000" />
+      <workItem from="1684246530598" duration="18782000" />
+      <workItem from="1684268771045" duration="32000" />
+      <workItem from="1684276524778" duration="7260000" />
+      <workItem from="1684339984583" duration="2798000" />
+      <workItem from="1684362686481" duration="309000" />
+      <workItem from="1684364927053" duration="2437000" />
+      <workItem from="1684382392038" duration="4108000" />
+      <workItem from="1684425415740" duration="4659000" />
+      <workItem from="1684461012399" duration="394000" />
+      <workItem from="1684461951689" duration="2063000" />
+      <workItem from="1684525477577" duration="1339000" />
+      <workItem from="1684610449926" duration="304000" />
+      <workItem from="1684830473225" duration="2374000" />
+      <workItem from="1684867161410" duration="2987000" />
+      <workItem from="1684912317417" duration="823000" />
+      <workItem from="1684944318683" duration="4160000" />
+      <workItem from="1685123942626" duration="4894000" />
+      <workItem from="1685201179782" duration="6478000" />
+      <workItem from="1685214536487" duration="4577000" />
+      <workItem from="1685245990862" duration="17433000" />
+      <workItem from="1685281414900" duration="2362000" />
+      <workItem from="1685284663569" duration="568000" />
+      <workItem from="1685285351096" duration="20597000" />
+      <workItem from="1685368445544" duration="487000" />
     </task>
     <servers />
   </component>
@@ -144,17 +171,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/programacion3/co.edu.uniquindio.marketplace/src/co/edu/uniquindio/marketplace/modelo/Vendedor.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

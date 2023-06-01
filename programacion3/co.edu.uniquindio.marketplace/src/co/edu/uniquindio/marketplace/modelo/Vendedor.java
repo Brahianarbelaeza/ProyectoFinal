@@ -1,5 +1,8 @@
 package modelo;
 
+import excepciones.ConfirmarSolicitudException;
+import excepciones.EnviarSolicitudException;
+import excepciones.VendedorException;
 import servicios.IVendedorService;
 
 import java.io.Serializable;
@@ -9,8 +12,12 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
 
     private static final long serialVersionUID = 1L;
     private String direccion;
-    ArrayList<Producto> listaProductos=new ArrayList<Producto>();
-    ArrayList<Solitud> vendedoresAliados;
+    ArrayList<Producto> listaProductos;
+    ArrayList<Vendedor> vendedoresAliados;
+    ArrayList<Vendedor> solicitudesRecibidas;
+    ArrayList<Vendedor> sugerenciasVendedores;
+    ArrayList<Producto> publicaciones = new ArrayList<>();
+
     public Vendedor() {
     }
 
@@ -18,12 +25,12 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         super(nombre, apellidos, cedula, cuenta);
         this.direccion = direccion;
         this.listaProductos = new ArrayList<Producto>();
-        this.vendedoresAliados = new ArrayList<Solitud>();
+        this.vendedoresAliados = new ArrayList<Vendedor>();
+        this.solicitudesRecibidas = new ArrayList<Vendedor>();
+        this.sugerenciasVendedores = new ArrayList<Vendedor>();
+        this.publicaciones = new ArrayList<Producto>();
         
     }
-
-
-
     public Producto crearProducto (Producto producto) throws Exception{
         boolean flag = false;
             for (int i = 0; i < listaProductos.size(); i++) {
@@ -37,17 +44,20 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
                 listaProductos.add(producto);
                 producto.setEstado(Estado.PUBLICADO);
             } else {
-                throw new Exception("Este producto" + producto.getNombre() + "ya se guardo");
+                throw new VendedorException("Este producto" + producto.getNombre() + "ya se guardo");
             }
             return producto;
 
         }
 
     @Override
-    public void eliminarProducto(Producto producto) {
+    public void eliminarProducto(Producto producto) throws VendedorException {
 
-        if (!listaProductos.isEmpty()) listaProductos.remove(producto);
-        else System.out.println("No hay productos para eliminar, aún no has publicado productos");
+        if (!listaProductos.isEmpty()) {
+            listaProductos.remove(producto);
+        }else {
+            throw new VendedorException("No hay productos para eliminar");
+        }
 
     }
 
@@ -72,17 +82,6 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         return null;
     }
 
-    public void agregarVendedorAliado(Solitud solicitud) {
-
-        //metodo para verificar que no se repita la solicitud
-        if (!vendedoresAliados.contains(solicitud)) {
-            vendedoresAliados.add(solicitud);
-            System.out.println("Solicitud de amistad enviada");
-
-        } else {
-            System.out.println("Ya se ha enviado una solicitud de amistad a este usuario");
-        }
-    }
     public void eliminarVendedorAliado(Vendedor vendedor) {
 
         vendedoresAliados.remove(vendedor);
@@ -100,7 +99,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         this.listaProductos = listaProductos;
     }
 
-    public void setVendedoresAliados(ArrayList<Solitud> vendedoresAliados) {
+    public void setVendedoresAliados(ArrayList<Vendedor> vendedoresAliados) {
         this.vendedoresAliados = vendedoresAliados;
     }
 
@@ -108,7 +107,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         return listaProductos;
     }
 
-    public ArrayList<Solitud> getVendedoresAliados() {
+    public ArrayList<Vendedor> getVendedoresAliados() {
         return vendedoresAliados;
     }
 
@@ -116,10 +115,63 @@ public class Vendedor extends Persona implements IVendedorService, Serializable 
         this.listaProductos = productos;
     }
 
+    public ArrayList<Vendedor> getSugerenciasVendedores() {
+        return sugerenciasVendedores;
+    }
+
+    public void setSugerenciasVendedores(ArrayList<Vendedor> sugerenciasVendedores) {
+        this.sugerenciasVendedores = sugerenciasVendedores;
+    }
+
     @Override
     public String toString() {
         return "Vendedor{" +
                 "listaProductos=" + listaProductos +
                 '}';
+    }
+
+
+    public ArrayList<Vendedor> getSolicitudesRecibidas() {
+        return solicitudesRecibidas;
+    }
+
+    public void setSolicitudesRecibidas(ArrayList<Vendedor> solicitudesRecibidas) {
+        this.solicitudesRecibidas = solicitudesRecibidas;
+    }
+
+
+    public void agregarSolicitudAmistad(Vendedor emisor) throws EnviarSolicitudException {
+        if (!solicitudesRecibidas.contains(emisor) && !vendedoresAliados.contains(emisor)) {
+            solicitudesRecibidas.add(emisor);
+            System.out.println("Solicitud de amistad enviada");
+        } else {
+            throw new EnviarSolicitudException("Ya se ha enviado una solicitud de amistad a este usuario");
+        }
+
+    }
+
+    public void confirmarSolicitudAmistad(Vendedor vendedor) throws ConfirmarSolicitudException {
+        if(!vendedoresAliados.contains(vendedor)){
+            vendedoresAliados.add(vendedor);
+            solicitudesRecibidas.remove(vendedor);
+            System.out.println("Solicitud de amistad confirmada");
+        }else{
+            throw new ConfirmarSolicitudException("Ya se ha confirmado la solicitud de amistad de este usuario");
+        }
+    }
+    public ArrayList<Producto> obtenerPublicaciones (){
+        for (int i = 0; i < vendedoresAliados.size(); i++) {
+            Vendedor vendedor = vendedoresAliados.get(i);
+            for (int j = 0; j < vendedor.getListaProductos().size(); j++) {
+                Producto producto = vendedor.getListaProductos().get(j);
+                if (publicaciones.contains(producto)) {
+                    continue;
+                }
+                if(producto.getEstado().equals(Estado.PUBLICADO)){
+                    publicaciones.add(producto);
+                }
+            }
+        }
+        return publicaciones;
     }
 }

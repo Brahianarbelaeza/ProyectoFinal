@@ -45,7 +45,6 @@ public class ControllerLoginView{
             txtLoginUsuario.setText("");
             txtLoginContrasena.setText("");
         }
-        System.out.println(sesion);
 
     }
     private void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
